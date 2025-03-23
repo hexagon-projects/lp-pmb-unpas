@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios from "axios"
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const instance = axios.create({
@@ -13,3 +14,16 @@ instance.interceptors.request.use((config) => {
 })
 
 export default instance
+=======
+import axios from "axios";
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const instance = axios.create({
+  baseURL: `${BACKEND_URL}/api`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+export default instance;
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)

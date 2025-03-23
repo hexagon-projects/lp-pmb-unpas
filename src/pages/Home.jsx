@@ -1,4 +1,5 @@
 import UserLayout from "./layouts/UserLayout";
+<<<<<<< HEAD
 import Section3 from "../assets/home/section3.png";
 import Title from "../components/Title";
 import Text from "../components/Text";
@@ -20,11 +21,34 @@ import RichText from "../components/RichText";
 import HeroSection from "../components/home/HeroSection";
 import ArticleCard from "../components/artikel/ArticleCard";
 import InfoBox from "../components/home/InfoBox";
+=======
+import Section3 from "../assets/home/section2.png";
+import React, { useEffect, useState } from "react";
+import StatsSection from "../components/StatsSection";
+import CTASection from "../components/CTASection";
+import VideoSwiper from "../components/home/VideoSwiper";
+import { Helmet } from "react-helmet-async";
+import Loading from "../components/Loading";
+import { fetchAllData } from "../utils/fetchAllData";
+import InfoBox from "../components/home/InfoBox";
+import HeroSection from "../views/home/HeroSection";
+import AboutSection from "../views/home/AboutSection";
+import PendaftaranSection from "../views/home/PendaftaranSection";
+import ReasonSection from "../views/home/ReasonSection";
+import FakultasSection from "../views/home/FakultasSection";
+import PrestasiSection from "../views/home/PrestasiSection";
+import ArtikelSection from "../views/home/ArtikelSection";
+import MitraSection from "../views/home/MitraSection";
+import TestimonialSection from "../views/home/TestimonialSection";
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 
 const faculties = [
     {
         name: 'Fakultas Keguruan dan Ilmu Pendidikan',
+<<<<<<< HEAD
         color: 'bg-pink-100',
+=======
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
         programs: [
             'S1 - Pendidikan Pancasila & Kewarganegaraan',
             'S1 - Pendidikan Ekonomi Akuntansi',
@@ -37,7 +61,10 @@ const faculties = [
     },
     {
         name: 'Fakultas Teknik',
+<<<<<<< HEAD
         color: 'bg-green-100',
+=======
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
         programs: [
             'S1 - Teknik Informatika',
             'S1 - Teknik Mesin',
@@ -48,7 +75,10 @@ const faculties = [
     },
     {
         name: 'Fakultas Ekonomi dan Bisnis',
+<<<<<<< HEAD
         color: 'bg-blue-100',
+=======
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
         programs: [
             'S1 - Akuntansi',
             'S1 - Manajemen',
@@ -57,12 +87,18 @@ const faculties = [
     },
     {
         name: 'Fakultas Hukum',
+<<<<<<< HEAD
         color: 'bg-yellow-100',
+=======
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
         programs: ['S1 - Ilmu Hukum']
     },
     {
         name: 'Program Pasca Sarjana',
+<<<<<<< HEAD
         color: 'bg-purple-100',
+=======
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
         programs: [
             'S2 - Magister Ilmu Administrasi & Kebijakan Publik',
             'S2 - Magister Manajemen',
@@ -79,8 +115,30 @@ const faculties = [
         ]
     },
     {
+<<<<<<< HEAD
         name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
         color: 'bg-red-100',
+=======
+        name: 'Fakultas Kedokteran',
+        programs: [
+            'S1 - Pendidikan Dokter',
+            'Profesi - Profesi Dokter'
+        ]
+    },
+    {
+        name: 'Fakultas Pendidikan',
+        programs: [
+            'S1 - Pendidikan Matematika',
+            'S1 - Pendidikan Biologi',
+            'S1 - Pendidikan Pancasila dan Kewarganegaraan',
+            'S1 - Pendidikan Guru Sekolah Dasar',
+            'S1 - Pendidikan Bahasa dan Sastra Indonesia',
+            'S1 - Pendidikan Ekonomi'
+        ]
+    },
+    {
+        name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
         programs: [
             'S1 - Administrasi Publik',
             'S1 - Kesejahteraan Sosial',
@@ -90,6 +148,7 @@ const faculties = [
         ]
     },
     {
+<<<<<<< HEAD
         name: 'Fakultas Kedokteran',
         color: 'bg-indigo-100',
         programs: [
@@ -100,6 +159,9 @@ const faculties = [
     {
         name: 'Fakultas Ilmu Seni dan Sastra',
         color: 'bg-orange-100',
+=======
+        name: 'Fakultas Ilmu Seni dan Sastra',
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
         programs: [
             'S1 - Sastra Inggris',
             'S1 - Desain Komunikasi Visual',
@@ -107,6 +169,7 @@ const faculties = [
             'S1 - Seni Musik'
         ]
     },
+<<<<<<< HEAD
     {
         name: 'Fakultas Pendidikan',
         color: 'bg-teal-100',
@@ -121,6 +184,14 @@ const faculties = [
     }
 ];
 
+=======
+];
+
+const faculties1 = faculties.slice(0, 3)
+const faculties2 = faculties.slice(3, 6)
+const faculties3 = faculties.slice(6, 9)
+
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 const Home = () => {
     const [data, setData] = useState({
         slider: [],
@@ -131,8 +202,14 @@ const Home = () => {
         jalur: [],
         artikel: [],
         prestasi: [],
+<<<<<<< HEAD
     });
     const [loading, setLoading] = useState(false);
+=======
+        dukungan: []
+    });
+    const [loading, setLoading] = useState(true);
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
     const imageURL = import.meta.env.VITE_IMAGE_URL;
 
     useEffect(() => {
@@ -156,9 +233,15 @@ const Home = () => {
     }
 
     return (
+<<<<<<< HEAD
         <UserLayout paddingDekstop={'p-8 md:p-14 lg:p-16'}>
             <Helmet>
                 <title>Universitas Pasundan - Kampus Unggulan di Bandung</title>
+=======
+        <UserLayout position={'fixed'} bgLayoutColor="bg-[#F3F3F3]" paddingDekstop={'md:p-6 lg:p-6'} paddingTop={'lg:pt-30'} bgColor={'bg-[#F3F3F3]'}>
+            <Helmet>
+                <title>Beranda - Universitas Pasundan</title>
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                 <meta
                     name="description"
                     content="Universitas Pasundan (Unpas) adalah kampus unggulan di Bandung yang menawarkan program studi lengkap, fasilitas modern, dan kerjasama dengan industri. Daftar sekarang!"
@@ -172,9 +255,15 @@ const Home = () => {
                     property="og:description"
                     content="Universitas Pasundan (Unpas) adalah kampus unggulan di Bandung yang menawarkan program studi lengkap, fasilitas modern, dan kerjasama dengan industri."
                 />
+<<<<<<< HEAD
                 <meta property="og:image" content="https://www.unpas.ac.id/logo-unpas.png" />
                 <meta property="og:url" content="https://www.unpas.ac.id" />
                 <link rel="canonical" href="https://www.unpas.ac.id" />
+=======
+                <meta property="og:image" content="https://pmb.unpas.ac.id/logo-unpas.png" />
+                <meta property="og:url" content="https://pmb.unpas.ac.id" />
+                <link rel="canonical" href="https://pmb.unpas.ac.id" />
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                 <meta name="robots" content="index, follow" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <script type="application/ld+json">
@@ -182,8 +271,13 @@ const Home = () => {
                         "@context": "https://schema.org",
                         "@type": "EducationalOrganization",
                         "name": "Universitas Pasundan",
+<<<<<<< HEAD
                         "url": "https://www.unpas.ac.id",
                         "logo": "https://www.unpas.ac.id/logo-unpas.png",
+=======
+                        "url": "https://pmb.unpas.ac.id",
+                        "logo": "https://pmb.unpas.ac.id/logo-unpas.png",
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                         "description": "Universitas Pasundan (Unpas) adalah kampus unggulan di Bandung yang menawarkan program studi lengkap, fasilitas modern, dan kerjasama dengan industri.",
                         "address": {
                             "@type": "PostalAddress",
@@ -201,6 +295,7 @@ const Home = () => {
                 </script>
             </Helmet>
 
+<<<<<<< HEAD
             <div className="relative space-y-8 md:space-y-12 lg:space-y-20">
                 <HeroSection data={data.slider} />
 
@@ -214,11 +309,23 @@ const Home = () => {
                         <RichText content={data.about.content} />
                     </div>
                 </MotionWrapper>
+=======
+            <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
+
+                <HeroSection data={data.slider} />
+
+                <div className={'flex md:hidden w-full justify-center items-center p-4 md:px-10 lg:px-12'}>
+                    <InfoBox />
+                </div>
+
+                <AboutSection data={data} />
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 
                 <StatsSection prodi={20} mahasiswa={5148} lulusan={3130} prestasi={100} />
 
                 <PendaftaranSection
                     image={Section3}
+<<<<<<< HEAD
                     title="Jalur Pendaftaran"
                     subtitle="Jalur Pendaftaran"
                     jalurPendaftaran={data.jalur}
@@ -283,6 +390,33 @@ const Home = () => {
                     </div>
                     <TestimonialSlider data={data.testimonials} />
                 </MotionWrapper>
+=======
+                    title="Pendaftaran"
+                    subtitle="Jalur Pendaftaran"
+                    jalurPendaftaran={data.jalur}
+                />
+
+
+                <div className="w-full flex justify-center items-center">
+                    <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%]">
+                        <ReasonSection data={data.unggulan} />
+                    </div>
+                </div>
+
+                <VideoSwiper data={data.dukungan} />
+
+                <FakultasSection faculties={faculties} faculties1={faculties1} faculties2={faculties2} faculties3={faculties3} />
+
+                <PrestasiSection prestasi={data.prestasi} imageURL={imageURL} />
+
+                <ArtikelSection data={data} />
+
+                <div className="p-4 md:px-10 lg:px-12">
+                    <MitraSection data={data.partner} />
+                </div>
+
+                <TestimonialSection data={data} displayDekstop="md:flex-row-reverse" />
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 
                 <CTASection />
             </div>

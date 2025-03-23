@@ -59,9 +59,15 @@ const animations = {
     },
 };
 
+<<<<<<< HEAD
 const MotionWrapper = ({ children, type = "fadeInUp", delay = 0, duration = 0.6, once = true, amount = 0.3, className, style }) => {
     return (
         <motion.section
+=======
+const MotionWrapper = ({ children, type, delay = 0, duration = 0.6, once = false, amount = 0.3, className, style, onClick }) => {
+    return (
+        <motion.div
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
             initial="hidden"
             whileInView="visible"
             viewport={{ once, amount }}
@@ -69,9 +75,16 @@ const MotionWrapper = ({ children, type = "fadeInUp", delay = 0, duration = 0.6,
             transition={{ delay, duration }}
             style={style}
             className={className}
+<<<<<<< HEAD
         >
             {children}
         </motion.section>
+=======
+            onClick={onClick}
+        >
+            {children}
+        </motion.div>
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
     );
 };
 

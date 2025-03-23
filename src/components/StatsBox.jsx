@@ -1,7 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import Text from "./Text";
 
+<<<<<<< HEAD
 const StatsBox = ({ icon, number, title }) => {
+=======
+const StatsBox = ({ icon, number, title, colorIcon = 'text-text' }) => {
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
     const [count, setCount] = useState(0);
     const ref = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -51,10 +55,17 @@ const StatsBox = ({ icon, number, title }) => {
     }, [isVisible, number]);
 
     return (
+<<<<<<< HEAD
         <div ref={ref} className="w-full flex justify-center items-center gap-2 md:gap-5 ">
             <div className="w-10 ">{icon}</div>
             <div className="w-1/2 md:w-full flex flex-col ">
                 <h3 className="text-md md:text-2xl lg:text-3xl font-bold text-stats">
+=======
+        <div ref={ref} className="w-full flex justify-center items-center gap-4 md:gap-6 ">
+            <div className={`w-fit p-3 bg-gray-100 rounded-full ${colorIcon} transition shadow-lg shadow-text/20 shadow-[0px_20px_40px_rgba(254, 242, 81, 0.7)]`}>{icon}</div>
+            <div className="w-1/2 md:w-full flex flex-col ">
+                <h3 className="text-md md:text-2xl lg:text-3xl font-bold text-black">
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                     <span>{count}</span>+
                 </h3>
                 <Text text={title} />

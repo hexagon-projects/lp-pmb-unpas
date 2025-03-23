@@ -1,13 +1,23 @@
 import UserLayout from "./layouts/UserLayout";
+<<<<<<< HEAD
 import Section1 from "../assets/home/section2.png";
 import CTASection from "../components/CTASection";
 import MotionWrapper from "../components/MotionWrapper";
+=======
+import Section1 from "../assets/gedung.jpeg";
+import CTASection from "../components/CTASection";
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 import Title from "../components/Title";
 import GedungCard from "../components/fasilitas/GedungCard";
 import FasilitasCard from "../components/FasilitasCard";
 import { useEffect, useState } from "react";
 import FasilitasService from "../fetching/fasilitas";
 import Loading from "../components/Loading";
+<<<<<<< HEAD
+=======
+import { Helmet } from "react-helmet-async";
+import Pagination from "../components/Pagination";
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 
 const gedungKampus = [
     {
@@ -34,6 +44,7 @@ const gedungKampus = [
         title: "Kampus V",
         text: "Jl. Sumatera No. 41, Bandung",
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.8257921758927!2d107.59163381511111!3d-6.904779869493546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6be24afd717%3A0x1df5f84ebfd966ab!2sJl.%20Sumatera%20No.%2041%2C%20Bandung!5e0!3m2!1sen!2sid!4v1455945979207",
+<<<<<<< HEAD
     }
 ];
 
@@ -66,6 +77,62 @@ const Fasilitas = () => {
                     <div className="flex justify-between items-center gap-4">
                         <div className="w-[50%]">
                             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold break-words text-gray-500">Fasilitas Pendukung</h2>
+=======
+    },
+];
+
+const Fasilitas = () => {
+    const [fasilitas, setFasilitas] = useState([]);
+    // const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(6);
+
+    const fetchFasilitas = async () => {
+        try {
+            const response = await FasilitasService.getAllFasilitas();
+            setFasilitas(response);
+            // setLoading(false);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    useEffect(() => {
+        fetchFasilitas();
+    }, []);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = fasilitas.slice(indexOfFirstItem, indexOfLastItem);
+
+    const totalPages = Math.ceil(fasilitas.length / itemsPerPage);
+
+    // if (loading) {
+    //     return <Loading />;
+    // }
+
+    return (
+        <UserLayout
+            bgLayoutColor="bg-gray-100"
+            position={"fixed"}
+            margin={""}
+            titleColor={"text-black"}
+            paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"}
+            paddingTop={"lg:pt-30"}
+            type={'fadeInUp'} duration={0.5}
+        >
+            <Helmet>
+                <title>Fasilitas - Universitas Pasundan</title>
+            </Helmet>
+            <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-24">
+                <div className={"space-y-4 md:space-y-6 lg:space-y-10"}>
+                    <div className="w-full h-42 md:h-60 lg:h-[65vh]">
+                        <img src={Section1} alt="" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
+                    </div>
+                    <div className="flex justify-between items-center gap-4">
+                        <div className="w-[50%]">
+                            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold whitespace-none break-words text-gray-500">Fasilitas Unpas</h2>
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                         </div>
                         <div className="w-[50%]">
                             <p className="text-sm md:text-base lg:text-lg break-words">
@@ -73,6 +140,7 @@ const Fasilitas = () => {
                             </p>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div className="w-full h-42 md:h-60 lg:h-80">
                         <img src={Section1} alt="" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
                     </div>
@@ -100,6 +168,28 @@ const Fasilitas = () => {
                         ))}
                     </div>
                 </MotionWrapper>
+=======
+                </div>
+
+                <div className={"space-y-4 md:space-y-6 lg:space-y-10"}>
+                    <Title sizeMobile="text-xl" title={"Gedung Kampus"} />
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
+                        {gedungKampus.map((gedung, index) => (
+                            <GedungCard key={index} title={gedung.title} text={gedung.text} mapUrl={gedung.mapUrl} />
+                        ))}
+                    </div>
+                </div>
+
+                <div className={"space-y-4 md:space-y-6 lg:space-y-10"}>
+                    <Title sizeMobile="text-xl" title={"Fasilitas Unggulan"} />
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
+                        {currentItems.map((item, index) => (
+                            <FasilitasCard key={index} image={item.image} title={item.title} description={item.description} />
+                        ))}
+                    </div>
+                    <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+                </div>
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 
                 <CTASection />
             </div>

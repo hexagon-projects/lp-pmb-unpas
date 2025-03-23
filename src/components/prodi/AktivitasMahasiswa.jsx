@@ -4,7 +4,11 @@ import MotionWrapper from "../MotionWrapper";
 import Title from "../Title";
 import RichText from "../RichText";
 
+<<<<<<< HEAD
 const AktivitasMahasiswa = ({data}) => {
+=======
+const AktivitasMahasiswa = ({ data = [] }) => {
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
     const [activeCard, setActiveCard] = useState(null);
     const [windowWidth, setWindowWidth] = useState(0);
     const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -34,12 +38,25 @@ const AktivitasMahasiswa = ({data}) => {
         } else if (windowWidth < 1024) {
             return isActive ? 220 : 160;
         } else {
+<<<<<<< HEAD
             return isActive ? 280 : 180;
         }
     };
 
     return (
         <MotionWrapper type="zoomIn" delay={0.2} className="space-y-3 md:space-y-4">
+=======
+            return isActive ? 421 : 421;
+        }
+    };
+
+    if (!data || !Array.isArray(data)) {
+        return <p className="text-center text-gray-500">No activities available.</p>;
+    }
+
+    return (
+        <div className="space-y-3 md:space-y-4">
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
             <div className="text-center">
                 <Title title="Aktivitas Mahasiswa" />
             </div>
@@ -66,8 +83,16 @@ const AktivitasMahasiswa = ({data}) => {
                     </motion.div>
                 ))}
             </div>
+<<<<<<< HEAD
         </MotionWrapper>
     );
 };
 
+=======
+        </div>
+    );
+};
+
+
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 export default AktivitasMahasiswa;

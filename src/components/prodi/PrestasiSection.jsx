@@ -12,7 +12,11 @@ const PrestasiSection = ({ prestasi }) => {
 
     return (
         <MotionWrapper type={'zoomIn'} delay={0.2} className={'flex flex-col md:flex-row justify-between items-center gap-4'}>
+<<<<<<< HEAD
             <div className="w-full md:w-[30%] text-center space-y-3 md:space-y-4">
+=======
+            <div className="w-full md:w-[30%] text-center lg:text-left space-y-3 md:space-y-4">
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                 <Title title={'Prestasi'} />
                 <Text leading={'leading-6'} text={'Dari akademik hingga inovasi, Universitas Pasundan terus mencetak prestasi gemilang. Bersama Unpas, raih mimpi dan jadilah bagian dari generasi unggul yang membawa perubahan!'} />
             </div>
@@ -53,13 +57,21 @@ const PrestasiSection = ({ prestasi }) => {
                         onClick={() => swiperRef.current?.slidePrev()}
                         className="px-4 py-2 text-blue-500"
                     >
+<<<<<<< HEAD
                         <IoArrowBackCircleOutline className="text-4xl md:text-5xl" />
+=======
+                        <IoArrowBackCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                     </button>
                     <button
                         onClick={() => swiperRef.current?.slideNext()}
                         className="px-4 py-2 text-blue-500"
                     >
+<<<<<<< HEAD
                         <IoArrowForwardCircleOutline className="text-4xl md:text-5xl" />
+=======
+                        <IoArrowForwardCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                     </button>
                 </div>
             </div>

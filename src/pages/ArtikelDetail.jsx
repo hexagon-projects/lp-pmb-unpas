@@ -12,6 +12,10 @@ import RichText from "../components/RichText";
 import Loading from "../components/Loading";
 
 import BeritaService from "../fetching/berita";
+<<<<<<< HEAD
+=======
+import CTASection from "../components/CTASection";
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 
 const ArtikelDetail = () => {
     const { slug } = useParams();
@@ -65,7 +69,11 @@ const ArtikelDetail = () => {
     if (!artikel) return <Text text="Artikel tidak ditemukan" className="text-center text-gray-500" />;
 
     return (
+<<<<<<< HEAD
         <UserLayout position="block" margin="m-6" shadow="shadow-md" titleColor="text-black">
+=======
+        <UserLayout position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} >
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
             <Helmet>
                 <title>{artikel.title} - Universitas Pasundan</title>
                 <meta
@@ -132,11 +140,20 @@ const ArtikelDetail = () => {
                     <div className="w-full space-y-3 md:space-y-4">
                         <div className="flex justify-between">
                             <Title sizeMobile="text-base" title="Artikel Terkait" />
+<<<<<<< HEAD
                             {/* <Text text="Selengkapnya" color="text-red-500" /> */}
                         </div>
                         <ArticleCard data={berita.slice(0, 2)} />
                     </div>
                 )}
+=======
+                        </div>
+                        <ArticleCard data={berita.slice(0, 2)}/>
+                    </div>
+                )}
+
+                <CTASection />
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
             </div>
         </UserLayout>
     );

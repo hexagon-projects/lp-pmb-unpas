@@ -24,7 +24,11 @@ const FasilitasSlider = ({ title, facilities }) => {
     };
 
     return (
+<<<<<<< HEAD
         <MotionWrapper type={'zoomIn'} delay={0.2}>
+=======
+        <div>
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
             <div className="text-center space-y-3 md:space-y-4">
                 <Title title={title} />
                 {selectedFacility && (
@@ -38,6 +42,7 @@ const FasilitasSlider = ({ title, facilities }) => {
                                     <h3 className="text-xl font-bold">{selectedFacility.title}</h3>
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div className="absolute bottom-4 right-4 w-full max-w-[120px] md:max-w-[240px] lg:max-w-lg mx-auto z-20">
                                 <Slider {...settings}>
                                     {facilities.map((facility, index) => (
@@ -46,6 +51,16 @@ const FasilitasSlider = ({ title, facilities }) => {
                                                 src={`${imageURL}/facilities/${facility.image}`}
                                                 alt={facility.title}
                                                 className={`w-24 h-30 md:h-30 lg:h-40 object-cover rounded-lg md:rounded-2xl lg:rounded-4xl transition-transform ${
+=======
+                            <div className="border border-transparent absolute bottom-4 right-4 w-full max-w-[120px] md:max-w-[240px] lg:max-w-lg z-20">
+                                <Slider {...settings}>
+                                    {facilities.map((facility, index) => (
+                                        <div key={index} onClick={() => setSelectedFacility(facility)} className="justify-center items-center cursor-pointer">
+                                            <img
+                                                src={`${imageURL}/facilities/${facility.image}`}
+                                                alt={facility.title}
+                                                className={`w-24 lg:w-28 h-30 md:h-30 lg:h-32 p-2 object-cover rounded-lg transition-transform ${
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                                                     selectedFacility.title === facility.title ? 'ring-2 ring-white' : 'hover:ring-1 hover:ring-white'
                                                 }`}
                                                 loading="lazy"
@@ -58,7 +73,11 @@ const FasilitasSlider = ({ title, facilities }) => {
                     </div>
                 )}
             </div>
+<<<<<<< HEAD
         </MotionWrapper>
+=======
+        </div>
+>>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
     );
 };
 
