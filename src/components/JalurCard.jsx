@@ -17,11 +17,19 @@ const JalurCard = ({ icon, title, text, link, startDate, endDate, onClick }) => 
     };
 
     return (
+<<<<<<< HEAD
         <div className="bg-gray-200 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-lg md:rounded-2xl lg:rounded-4xl space-y-3 cursor-pointer hover:scale-102 duration-500" onClick={onClick}>
             <div className="w-fit p-4 bg-transparent text-text rounded-lg md:rounded-2xl lg:rounded-4xl">
                 {icon}
             </div>
             <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
+=======
+        <div className="flex justify-center items-center flex-col bg-gray-200 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-lg md:rounded-2xl lg:rounded-4xl space-y-3 cursor-pointer hover:scale-102 duration-500" onClick={onClick}>
+            <div className="w-fit p-4 bg-transparent text-text rounded-lg md:rounded-2xl lg:rounded-4xl">
+                {icon}
+            </div>
+            <h2 className="text-[24px] font-semibold text-center">{title}</h2>
+>>>>>>> origin/Radh
             <RichText content={text} />
             <p className="text-xs md:text-sm lg:text-base">
                 Periode {formatDate(startDate)} - {formatDate(endDate)}

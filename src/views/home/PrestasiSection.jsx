@@ -24,11 +24,16 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                         </thead>
                         <tbody>
                             {prestasi.map((item, index) => (
+<<<<<<< HEAD
                                 <tr 
                                     key={item.id} 
                                     className="hover:bg-gray-50 transition-all duration-300 ease-in-out transform cursor-pointer"
                                 >
                                     <td className="text-xs md:text-sm py-3 px-5 transition-colors duration-300">{item.title}</td>
+=======
+                                <tr key={item.id} className="hover:bg-gray-50">
+                                    <td className="text-xs md:text-sm py-3 px-5">{item.title}</td>
+>>>>>>> origin/Radh
                                 </tr>
                             ))}
                         </tbody>

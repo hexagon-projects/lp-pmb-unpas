@@ -66,7 +66,11 @@ const Artikel = () => {
                     <MotionWrapper
                         type="zoomIn"
                         delay={0.2}
+<<<<<<< HEAD
                         className="w-full bg-cover h-[40vh] rounded-lg md:rounded-2xl lg:rounded-4xl"
+=======
+                        className="w-full bg-cover h-[75vh] rounded-lg md:rounded-2xl lg:rounded-4xl"
+>>>>>>> origin/Radh
                         style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imageURL}/posts/${latestBerita.image})` }}
                         onClick={() => handleClick(latestBerita.slug)}
                     >
@@ -98,12 +102,20 @@ const Artikel = () => {
                     )}
                 </div>
 
+<<<<<<< HEAD
                 <div className="w-full space-y-3 md:space-y-4">
+=======
+                {/* <div className="w-full space-y-3 md:space-y-4">
+>>>>>>> origin/Radh
                     <div className="w-full flex justify-between items-center">
                         <Title sizeMobile="w-full text-base" title="Agenda" />
                     </div>
                     {agenda.length > 0 ? <AgendaCard data={agenda} /> : <div className="text-center text-gray-500">Belum ada agenda tersedia</div>}
+<<<<<<< HEAD
                 </div>
+=======
+                </div> */}
+>>>>>>> origin/Radh
 
                 <CTASection />
             </div>

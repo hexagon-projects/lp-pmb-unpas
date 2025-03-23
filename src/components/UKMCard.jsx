@@ -6,7 +6,11 @@ const UKMCard = ({ title, text, image, onClick }) => {
   const imageURL = import.meta.env.VITE_IMAGE_URL;
   return (
     <div className="bg-white shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-8 space-y-3 flex flex-col justify-between items-stretch relative" onClick={onClick}>
+<<<<<<< HEAD
       <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
+=======
+      <h2 className="text-[24px] font-bold">{title}</h2>
+>>>>>>> origin/Radh
       <RichText content={text}/>
       <img
         src={`${imageURL}/organisasi/${image}`}

@@ -34,7 +34,11 @@ const AktivitasMahasiswa = ({ data = [] }) => {
         } else if (windowWidth < 1024) {
             return isActive ? 220 : 160;
         } else {
+<<<<<<< HEAD
             return 421; // Tetap sama untuk tampilan besar
+=======
+            return isActive ? 280 : 180;
+>>>>>>> origin/Radh
         }
     };
 
@@ -51,11 +55,16 @@ const AktivitasMahasiswa = ({ data = [] }) => {
                 {data.map((card) => (
                     <motion.div
                         key={card.id}
+<<<<<<< HEAD
                         className="rounded-4xl relative cursor-pointer p-2 md:p-4 flex flex-col justify-between overflow-hidden"
+=======
+                        className="rounded-lg transition-all cursor-pointer p-2 md:p-4 flex flex-col justify-between overflow-hidden"
+>>>>>>> origin/Radh
                         animate={{ 
                             width: getCardWidth(activeCard === card.id),
                             height: getCardHeight(activeCard === card.id)
                         }}
+<<<<<<< HEAD
                         whileHover={{ 
                             width: activeCard === card.id ? getCardWidth(true) : getCardWidth(false),
                             scale: activeCard === card.id ? 1 : 1.05
@@ -79,6 +88,19 @@ const AktivitasMahasiswa = ({ data = [] }) => {
                                 <RichText textColor="text-white" sizeText="text-base md:text-lg lg:text-xl" content={card.description} />
                             )}
                         </motion.div>
+=======
+                        whileHover={{ width: windowWidth >= 640 ? "500px" : getCardWidth(true) }}
+                        transition={{ duration: 0.3 }}
+                        onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
+                        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imageURL}/portofolios/${card.image1})` }}
+                    >
+                        <h3 className="text-xs md:text-sm font-semibold text-white truncate">
+                            {card.title}
+                        </h3>
+                        {activeCard === card.id && (
+                            <RichText textColor="text-white" content={card.description}/>
+                        )}
+>>>>>>> origin/Radh
                     </motion.div>
                 ))}
             </div>
@@ -86,4 +108,8 @@ const AktivitasMahasiswa = ({ data = [] }) => {
     );
 };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/Radh
 export default AktivitasMahasiswa;

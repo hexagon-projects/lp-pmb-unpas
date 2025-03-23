@@ -80,8 +80,13 @@ const Faq = () => {
                     <div className="absolute inset-0 bg-black/30 rounded-lg md:rounded-2xl lg:rounded-4xl"></div>
 
                     <div className="relative z-10">
+<<<<<<< HEAD
                         <Text text={"Bantuan"} />
                         <Title title={"Frequently Asked Questions"} />
+=======
+                        <Text text={"Bantuan"} color="text-white" />
+                        <Title title={"Frequently Asked Questions"} color="text-white" />
+>>>>>>> origin/Radh
                     </div>
                 </div>
 
@@ -167,7 +172,11 @@ const Faq = () => {
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div className={'bg-primary p-4 md:p-10 lg:p-12 rounded-lg shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
+=======
+                <div className={'bg-primary p-4 md:p-10 lg:p-12 rounded-2xl shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
+>>>>>>> origin/Radh
                     <div className="space-y-2">
                         <h2 className="text-lg font-bold">Masih Punya Pertanyaan?</h2>
                         <p className="text-xs md:text-sm lg:text-base">Hubungi kami </p>

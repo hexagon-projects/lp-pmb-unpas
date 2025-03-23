@@ -78,6 +78,7 @@ const Jalur = () => {
                             </filter>
                         </defs>
                     </svg>
+<<<<<<< HEAD
                     <div className="w-fit flex flex-row md:flex-col justify-center md:justify-start items-center md:items-start gap-2 md:gap-4 lg:gap-6">
                         <h2 className="text-4xl md:text-6xl lg:text-9xl font-bold">{jalur.length}</h2>
                         <div className="space-y-1 md:space-y-2 lg:space-y-4">
@@ -86,6 +87,16 @@ const Jalur = () => {
                                 Universitas Pasundan.
                             </h2>
                             <div className="hidden md:flex">
+=======
+                    <div className="w-fit flex flex-row md:flex-col justify-center md:justify-start items-center md:items-start">
+                        <h2 className="text-[96px] font-bold">{jalur.length}</h2>
+                        <div className="">
+                            <h3 className="text-[26px] font-semibold text-gray-800">Jalur Masuk</h3>
+                            <h2 className="text-[64px] font-bold text-text">
+                                Universitas Pasundan.
+                            </h2>
+                            <div className="hidden md:flex pt-4">
+>>>>>>> origin/Radh
                                 <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} />
                             </div>
                         </div>
@@ -95,7 +106,11 @@ const Jalur = () => {
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6'}>
+=======
+                <div type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 '}>
+>>>>>>> origin/Radh
                     {jalur.map((item, index) => (
                         <JalurCard
                             key={index}

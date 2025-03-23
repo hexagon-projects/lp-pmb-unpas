@@ -6,18 +6,30 @@ const Button = ({
     bgColor = 'bg-white',
     hoverBgColor='hover:border-3 hover:border-white/50',
     onClick,
+<<<<<<< HEAD
     rounded = 'rounded-lg md:rounded-xl lg:rounded-2xl',
+=======
+    rounded = 'rounded-full',
+>>>>>>> origin/Radh
     icon,
     iconStatus = 'hidden',
     border = 'border-3 border-transparent',
     paddingMobile = 'px-8 py-4',
     paddingTablet = 'md:px-8 md:py-4',
+<<<<<<< HEAD
     hoverShadowColor = 'hover:shadow-black/5',
     borderColor = 'border-3 border-transparent'
 }) => {
     return (
         <motion.button
             className={`flex gap-2 cursor-pointer items-center text-xs md:text-sm lg:text-sm ${borderColor} ${paddingMobile} ${paddingTablet} font-bold ${border} ${bgColor} ${textColor} ${rounded} ${hoverBgColor} shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] ${hoverShadowColor} transition duration-500`}
+=======
+    hoverShadowColor = 'hover:shadow-black/5'
+}) => {
+    return (
+        <motion.button
+            className={`flex gap-2 cursor-pointer items-center text-xs md:text-sm lg:text-sm ${paddingMobile} ${paddingTablet} font-bold ${border} ${bgColor} ${textColor} ${rounded} ${hoverBgColor} shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] ${hoverShadowColor} transition duration-500`}
+>>>>>>> origin/Radh
             onClick={onClick}
             whileTap={{ scale: 0.95 }}
         >

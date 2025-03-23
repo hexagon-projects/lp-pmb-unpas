@@ -40,7 +40,11 @@ const gedungKampus = [
 
 const Fasilitas = () => {
     const [fasilitas, setFasilitas] = useState([]);
+<<<<<<< HEAD
     const [loading, setLoading] = useState(true);
+=======
+    // const [loading, setLoading] = useState(true);
+>>>>>>> origin/Radh
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(6);
 
@@ -48,7 +52,11 @@ const Fasilitas = () => {
         try {
             const response = await FasilitasService.getAllFasilitas();
             setFasilitas(response);
+<<<<<<< HEAD
             setLoading(false);
+=======
+            // setLoading(false);
+>>>>>>> origin/Radh
         } catch (error) {
             console.error(error);
         }
@@ -64,9 +72,15 @@ const Fasilitas = () => {
 
     const totalPages = Math.ceil(fasilitas.length / itemsPerPage);
 
+<<<<<<< HEAD
     if (loading) {
         return <Loading />;
     }
+=======
+    // if (loading) {
+    //     return <Loading />;
+    // }
+>>>>>>> origin/Radh
 
     return (
         <UserLayout
@@ -88,17 +102,28 @@ const Fasilitas = () => {
                     </div>
                     <div className="flex justify-between items-center gap-4">
                         <div className="w-[50%]">
+<<<<<<< HEAD
                             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold whitespace-none break-words text-gray-500">Fasilitas Unpas</h2>
                         </div>
                         <div className="w-[50%]">
                             <p className="text-sm md:text-base lg:text-lg break-words">
+=======
+                            <h2 className="text-[96px] font-bold whitespace-none break-words text-gray-500">Fasilitas</h2>
+                        </div>
+                        <div className="w-[50%]">
+                            <p className="text-[24px] font-normal whitespace-none break-words">
+>>>>>>> origin/Radh
                                 Fasilitas pendukung kami dirancang untuk memberikan kenyamanan, kemudahan, dan efisiensi dalam setiap aktivitas <b>Mahasiswa</b>
                             </p>
                         </div>
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div className={"space-y-4 md:space-y-6 lg:space-y-10"}>
+=======
+                <div className={"space-y-4 md:space-y-6 lg:space-y-10 p-[50px]"}>
+>>>>>>> origin/Radh
                     <Title sizeMobile="text-xl" title={"Gedung Kampus"} />
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
                         {gedungKampus.map((gedung, index) => (
@@ -107,7 +132,11 @@ const Fasilitas = () => {
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div className={"space-y-4 md:space-y-6 lg:space-y-10"}>
+=======
+                <div className={"space-y-4 md:space-y-6 lg:space-y-10 p-[50px]"}>
+>>>>>>> origin/Radh
                     <Title sizeMobile="text-xl" title={"Fasilitas Unggulan"} />
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
                         {currentItems.map((item, index) => (

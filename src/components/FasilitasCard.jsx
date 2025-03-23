@@ -2,7 +2,11 @@ const FasilitasCard = ({ image, title }) => {
   const imageURL = import.meta.env.VITE_IMAGE_URL;
 
   return (
+<<<<<<< HEAD
     <div className="relative w-full h-52 md:h-64 lg:h-[60vh] rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden group">
+=======
+    <div className="relative w-full h-[446px] md:h-64 lg:h-[60vh] rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden group">
+>>>>>>> origin/Radh
       <img
         src={`${imageURL}/facilities/${image}`}
         alt={title}
