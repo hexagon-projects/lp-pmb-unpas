@@ -21,6 +21,8 @@ import Title from "../components/Title";
 import Button from "../components/Button";
 import Path from "../assets/path.png"
 import CtaPath from "../assets/cta_path.png"
+import { FiArrowRight } from "react-icons/fi";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const faculties = [
     {
@@ -228,13 +230,14 @@ const Home = () => {
                 </div>
 
                 <div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11">
-                    <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border lg:px-8 :py-12 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] relative z-2'}>
+                    <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:px-8 :py-12 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] relative z-2'}>
                         <div className="flex justify-between items-center text-center relative z-2">
-                            <div className="text-left">
+                            <div className="flex items-center gap-4 text-left">
                                 <Title sizeText="text-sm md:text-2xl lg:text-[32px]" fontWeight="font-semibold" title={'Yuk Daftar Di Unpas Sekarang!'} />
+                                <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow"/>
                             </div>
                             <div className="">
-                                <Button css={'pulsating-button'} text={'Daftar'} bgColor="bg-primary" padding="p-4"/>
+                                <Button css={'pulsating-button'} text={'Daftar Sekarang'} bgColor="bg-primary" padding="p-4" />
                             </div>
                         </div>
                     </div>
