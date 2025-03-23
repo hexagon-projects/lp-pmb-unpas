@@ -189,10 +189,10 @@ const Navbar = ({ position = "absolute top-0 left-0", bgColor = "bg-[#DCDCDC]", 
             key={index}
             href={item.path}
             aria-label={item.name}
-            className={`w-full relative flex flex-col items-center p-2 justify-between rounded-full transition-colors duration-500 ease-in-out ${location.pathname === item.path ? "bg-footer text-white" : "text-black"}`}
+            className={`w-full relative flex flex-col items-center p-2 justify-between rounded-full transition-colors duration-500 ease-in-out ${location.pathname === item.path ? "text-[#C73929]" : "text-black"}`}
           >
             <div className={`relative`}>{item.icon}</div>
-            <span className={`text-xs mt-2 ${location.pathname === item.path ? "text-white font-bold" : ""}`}>{item.name}</span>
+            <span className={`text-xs mt-2 ${location.pathname === item.path ? "text-[#C73929] font-bold" : ""}`}>{item.name}</span>
           </a>
         ))}
       </nav>

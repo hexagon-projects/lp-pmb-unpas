@@ -54,7 +54,7 @@ const ArticleCard = ({ data, border }) => {
                             whileHover="visible"
                             transition={{ duration: 0.3 }}
                         >
-                            <span>Lihat</span>
+                            <span>Selengkapnya</span>
                             <motion.span
                                 variants={{
                                     hidden: { opacity: 0, x: -5 },

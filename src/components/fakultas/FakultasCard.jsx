@@ -19,6 +19,7 @@ const FakultasCard = ({ image, title, slug }) => {
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
       onClick={handleClick}
     >
+{/* <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-primary/60 to-transparent transition-all duration-500 group-hover:opacity-0"></div> */}
 
       <img
         src={`${imageURL}/fakultas/${image}`}
