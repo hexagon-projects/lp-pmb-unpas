@@ -231,15 +231,15 @@ body {
 
 @keyframes border-pulse {
     0% {
-        border-color: rgba(255, 255, 255, 0.7); /* Opacity lebih tinggi */
-        box-shadow: 0 0 0 0 rgba(254, 242, 81, 0.7); /* Shadow lebih besar */
+        border-color: rgba(254, 242, 81, 0.7); /* Opacity lebih tinggi */
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); /* Shadow lebih besar */
     }
     50% {
         border-color: rgba(254, 242, 81, 0.7); /* Opacity lebih tinggi */
         box-shadow: 0 0 0 12px rgba(254, 242, 81, 0); /* Shadow lebih besar */
     }
     100% {
-        border-color: rgba(255, 255, 255, 0.7); /* Opacity lebih tinggi */
+        border-color: rgba(254, 242, 81, 0.7); /* Opacity lebih tinggi */
         box-shadow: 0 0 0 0 rgba(254, 242, 81, 0); /* Shadow lebih besar */
     }
 }
