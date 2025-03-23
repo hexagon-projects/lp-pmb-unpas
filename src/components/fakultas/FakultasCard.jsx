@@ -15,6 +15,7 @@ const FakultasCard = ({ image, title, slug }) => {
       className="relative w-full h-[30vh] md:h-[45vh] lg:h-[55vh] rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] cursor-pointer group"
       onClick={handleClick}
     >
+{/* <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-primary/60 to-transparent transition-all duration-500 group-hover:opacity-0"></div> */}
 
       <img
         src={`${imageURL}/fakultas/${image}`}

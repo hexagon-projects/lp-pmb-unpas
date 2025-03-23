@@ -40,7 +40,7 @@ const gedungKampus = [
 
 const Fasilitas = () => {
     const [fasilitas, setFasilitas] = useState([]);
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(6);
 
@@ -48,7 +48,7 @@ const Fasilitas = () => {
         try {
             const response = await FasilitasService.getAllFasilitas();
             setFasilitas(response);
-            // setLoading(false);
+            setLoading(false);
         } catch (error) {
             console.error(error);
         }
@@ -64,9 +64,9 @@ const Fasilitas = () => {
 
     const totalPages = Math.ceil(fasilitas.length / itemsPerPage);
 
-    // if (loading) {
-    //     return <Loading />;
-    // }
+    if (loading) {
+        return <Loading />;
+    }
 
     return (
         <UserLayout
