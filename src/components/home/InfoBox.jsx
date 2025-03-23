@@ -1,6 +1,7 @@
 import Text from "../Text"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const infoBoxData = [
     {
@@ -13,6 +14,8 @@ const infoBoxData = [
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import Fakultas from '../../assets/icon/fakultas.svg'
 import Jalur from '../../assets/icon/jadwal.svg'
 import Guru from '../../assets/icon/informasi.svg'
@@ -27,13 +30,17 @@ const infoBoxData = [
     {
         icon: Jalur,
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
         text: "Jadwal Periode & Jalur PMB",
         link: "/jalur",
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         icon: "📅",
@@ -47,6 +54,8 @@ const infoBoxData = [
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
         icon: Fakultas,
         text: "Fakultas & Program Studi",
         link: "/fakultas",
@@ -56,14 +65,18 @@ const infoBoxData = [
         text: "Informasi Biaya",
         link: "/",
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     },
 ];
 
 const InfoBox = () => {
     return (
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <div className="flex flex-wrap gap-4 md:gap-8 lg:gap-12 p-4 justify-center items-center rounded-lg text-center">
@@ -82,6 +95,8 @@ const InfoBox = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
         <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] flex justify-center items-center mt-10 md:mt-14 lg:mt-20">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 p-4 justify-items-center items-center rounded-lg text-center">
                 {infoBoxData.map((item, index) => (
@@ -104,9 +119,12 @@ const InfoBox = () => {
                 ))}
             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
         </div>
     );
 };

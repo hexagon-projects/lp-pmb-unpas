@@ -31,7 +31,11 @@ const ArticleCard = ({ data, border }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-2 md:gap-4 lg:gap-8">
 =======
         <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-[32px] lg:gap-8 md:pb-8">
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
             {displayData.map((item) => (
                 <motion.div
                     key={item.id}
@@ -52,7 +56,11 @@ const ArticleCard = ({ data, border }) => {
                             className=" w-full h-30 md:h-40 lg:h-52 object-cover rounded-t-lg md:p-6 rounded-lg md:rounded-2xl lg:rounded-4xl"
                         />
                         <div className="bg-white px-0 md:px-6 md:rounded-b-md space-y-3">
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                             <h3 className="font-semibold text-xs md:text-sm lg:text-base">{item.title}</h3>
                             <RichText lineclamp="line-clamp-2 md:line-clamp-3" sizeText="text-xs md:text-sm" content={item.description} />
                         </div>
@@ -61,7 +69,11 @@ const ArticleCard = ({ data, border }) => {
                     <div className="md:px-4 flex justify-between items-center">
 =======
                     <div className="md:px-6 flex justify-between items-center">
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                         <motion.div
                             className="flex items-center gap-2 text-black font-bold uppercase text-xs md:text-sm cursor-pointer pb-2 md:pb-4"
                             initial="hidden"

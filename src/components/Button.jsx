@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { motion } from "framer-motion";
 
 const Button = ({ 
@@ -25,6 +26,8 @@ const Button = ({
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import { hover, motion } from "framer-motion";
 
 const Button = ({
@@ -37,7 +40,11 @@ const Button = ({
     rounded = 'rounded-lg md:rounded-xl lg:rounded-2xl',
 =======
     rounded = 'rounded-full',
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
     icon,
     iconStatus = 'hidden',
     border = 'border-3 border-transparent',
@@ -56,7 +63,11 @@ const Button = ({
     return (
         <motion.button
             className={`flex gap-2 cursor-pointer items-center text-xs md:text-sm lg:text-sm ${paddingMobile} ${paddingTablet} font-bold ${border} ${bgColor} ${textColor} ${rounded} ${hoverBgColor} shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] ${hoverShadowColor} transition duration-500`}
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
             onClick={onClick}
             whileTap={{ scale: 0.95 }}
         >
@@ -68,9 +79,12 @@ const Button = ({
                 {icon}
             </motion.span>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             {text}
         </motion.button>
     );

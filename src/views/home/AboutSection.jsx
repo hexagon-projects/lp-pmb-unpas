@@ -3,7 +3,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 =======
 import { motion } from "framer-motion";
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
 import RichText from "../../components/RichText";
 import Title from "../../components/Title";
 import { X } from "lucide-react";
@@ -136,7 +140,11 @@ const AboutSection = ({ data }) => {
             )}
         </div>
     );
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
 };
 
 export default AboutSection;

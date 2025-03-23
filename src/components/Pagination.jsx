@@ -3,6 +3,7 @@ import { MdKeyboardArrowRight, MdOutlineKeyboardArrowLeft } from "react-icons/md
 const Pagination = ({ currentPage, totalPages, setCurrentPage }) => (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className="flex justify-center space-x-2 text-xs md:text-sm lg:text-base">
         <button
             className={`px-4 py-2 rounded-md ${currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-blue-500 text-white"}`}
@@ -16,6 +17,11 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage }) => (
         <button
             className={`px-4 py-2 rounded-md ${currentPage === 1 ? "bg-gray-300 cursor-pointer" : "bg-blue-500 hover:bg-blue-700 text-white"}`}
 >>>>>>> 8bbe4dc (First Commit)
+=======
+    <div className="flex justify-center space-x-2 text-xs md:text-sm lg:text-sm">
+        <button
+            className={`px-4 py-2 rounded-md ${currentPage === 1 ? "bg-gray-300 cursor-pointer" : "bg-blue-500 hover:bg-blue-700 text-white"}`}
+>>>>>>> origin/Budi
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
         >
@@ -25,6 +31,7 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage }) => (
         <button
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             className={`px-4 py-2 rounded-md ${currentPage === totalPages ? "bg-gray-300 cursor-not-allowed" : "bg-blue-500 text-white"}`}
 =======
             className={`px-4 py-2 rounded-md ${currentPage === totalPages ? "bg-gray-300 cursor-pointer" : "bg-blue-500 hover:bg-blue-700 text-white"}`}
@@ -32,6 +39,9 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage }) => (
 =======
             className={`px-4 py-2 rounded-md ${currentPage === totalPages ? "bg-gray-300 cursor-pointer" : "bg-blue-500 hover:bg-blue-700 text-white"}`}
 >>>>>>> 8bbe4dc (First Commit)
+=======
+            className={`px-4 py-2 rounded-md ${currentPage === totalPages ? "bg-gray-300 cursor-pointer" : "bg-blue-500 hover:bg-blue-700 text-white"}`}
+>>>>>>> origin/Budi
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
         >

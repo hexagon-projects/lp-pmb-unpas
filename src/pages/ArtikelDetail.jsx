@@ -14,12 +14,16 @@ import Loading from "../components/Loading";
 import BeritaService from "../fetching/berita";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import CTASection from "../components/CTASection";
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 import CTASection from "../components/CTASection";
 >>>>>>> 8bbe4dc (First Commit)
+=======
+import CTASection from "../components/CTASection";
+>>>>>>> origin/Budi
 
 const ArtikelDetail = () => {
     const { slug } = useParams();
@@ -75,6 +79,7 @@ const ArtikelDetail = () => {
     return (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <UserLayout position="block" margin="m-6" shadow="shadow-md" titleColor="text-black">
 =======
         <UserLayout position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} >
@@ -82,6 +87,9 @@ const ArtikelDetail = () => {
 =======
         <UserLayout position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} >
 >>>>>>> 8bbe4dc (First Commit)
+=======
+        <UserLayout position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} >
+>>>>>>> origin/Budi
             <Helmet>
                 <title>{artikel.title} - Universitas Pasundan</title>
                 <meta
@@ -150,6 +158,7 @@ const ArtikelDetail = () => {
                             <Title sizeMobile="text-base" title="Artikel Terkait" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             {/* <Text text="Selengkapnya" color="text-red-500" /> */}
                         </div>
                         <ArticleCard data={berita.slice(0, 2)} />
@@ -158,6 +167,8 @@ const ArtikelDetail = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                         </div>
                         <ArticleCard data={berita.slice(0, 2)}/>
                     </div>
@@ -165,9 +176,12 @@ const ArtikelDetail = () => {
 
                 <CTASection />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             </div>
         </UserLayout>
     );

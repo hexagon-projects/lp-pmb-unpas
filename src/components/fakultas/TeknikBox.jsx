@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Title from "../Title";
 
 const TeknikBox = ({ image, title }) => {
@@ -17,6 +18,8 @@ const TeknikBox = ({ image, title }) => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import { useNavigate } from "react-router-dom";
 
 const TeknikBox = ({ image, title, slug }) => {
@@ -40,9 +43,12 @@ const TeknikBox = ({ image, title, slug }) => {
       {/* <div className="lg:max-w-4xl flex items-center gap-4 md:gap-6 lg:gap-8">
       </div> */}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     </div>
   );
 };

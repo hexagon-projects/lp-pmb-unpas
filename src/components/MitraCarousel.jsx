@@ -5,6 +5,7 @@ const MitraCarousel = ({ datas }) => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     const repeatedData = [...datas, ...datas];
 
     return (
@@ -13,20 +14,26 @@ const MitraCarousel = ({ datas }) => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     const repeatedData = Array.from({ length: 10 }).flatMap(() => datas);
 
     return (
         <div className="w-full overflow-hidden relative">
             <div className="flex animate-marquee">
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                 {repeatedData.map((data, index) => (
                     <img
                         key={index}
                         src={`${imageURL}/partners/${data.image}`}
                         alt={data.name}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                         className="w-24 h-24 object-contain"
@@ -36,6 +43,9 @@ const MitraCarousel = ({ datas }) => {
 =======
                         className="w-24 h-24 md:w-36 md:h-36 lg:w-56 lg:h-56 object-contain mx-4"
 >>>>>>> 8bbe4dc (First Commit)
+=======
+                        className="w-24 h-24 md:w-36 md:h-36 lg:w-56 lg:h-56 object-contain mx-4"
+>>>>>>> origin/Budi
                     />
                 ))}
             </div>
@@ -45,6 +55,7 @@ const MitraCarousel = ({ datas }) => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default MitraCarousel;
 =======
 export default MitraCarousel;
@@ -52,3 +63,6 @@ export default MitraCarousel;
 =======
 export default MitraCarousel;
 >>>>>>> 8bbe4dc (First Commit)
+=======
+export default MitraCarousel;
+>>>>>>> origin/Budi

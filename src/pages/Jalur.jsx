@@ -1,6 +1,7 @@
 import UserLayout from "./layouts/UserLayout";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Section1 from "../assets/jalur/section1.png";
 import JalurCard from "../components/JalurCard";
 import { TfiAnnouncement } from "react-icons/tfi";
@@ -15,10 +16,16 @@ import Section1 from "../assets/gedung.jpeg"
 import JalurCard from "../components/JalurCard";
 import { TfiAnnouncement } from "react-icons/tfi";
 >>>>>>> 8bbe4dc (First Commit)
+=======
+import Section1 from "../assets/gedung.jpeg"
+import JalurCard from "../components/JalurCard";
+import { TfiAnnouncement } from "react-icons/tfi";
+>>>>>>> origin/Budi
 import CTASection from "../components/CTASection";
 import { useEffect, useState } from "react";
 import RegistrasiService from "../fetching/registration";
 import Loading from "../components/Loading";
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -28,6 +35,8 @@ const Jalur = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import Button from "../components/Button";
 import LogoText from "../components/LogoText";
 import RichText from "../components/RichText";
@@ -53,13 +62,17 @@ const Jalur = () => {
         setSelectedJalur(null);
     };
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 
     const fetchJalur = async () => {
         try {
             const response = await RegistrasiService.getAllRegistrasi()
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             setLoading(false)
@@ -69,6 +82,9 @@ const Jalur = () => {
 =======
             // setLoading(false)
 >>>>>>> 8bbe4dc (First Commit)
+=======
+            // setLoading(false)
+>>>>>>> origin/Budi
             setJalur(response)
         } catch (error) {
             console.error(error)
@@ -79,6 +95,7 @@ const Jalur = () => {
         fetchJalur()
     }, [])
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     if (loading) {
@@ -106,6 +123,8 @@ const Jalur = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     // if (loading) {
     //     return <Loading />
     // }
@@ -157,7 +176,11 @@ const Jalur = () => {
                                 Universitas Pasundan.
                             </h2>
                             <div className="hidden md:flex pt-4">
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                                 <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} />
                             </div>
                         </div>
@@ -169,10 +192,16 @@ const Jalur = () => {
 
 <<<<<<< HEAD
                 <div type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6'}>
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
                 <div type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 '}>
 >>>>>>> 8bbe4dc (First Commit)
+=======
+=======
+                <div type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 '}>
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                     {jalur.map((item, index) => (
                         <JalurCard
                             key={index}
@@ -182,6 +211,7 @@ const Jalur = () => {
                             link={item.link}
                             startDate={item.start_date}
                             endDate={item.end_date}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                         />
@@ -194,6 +224,8 @@ const Jalur = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                             onClick={(e) => handleOpenModal(e, item)}
                         />
                     ))}
@@ -220,9 +252,12 @@ const Jalur = () => {
 
                 </div> */}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 
                 <CTASection />
             </div>

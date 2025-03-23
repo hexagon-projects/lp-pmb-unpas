@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FaInstagram, FaFacebookF, FaTiktok, FaYoutube } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import Title from "./Title";
@@ -84,6 +85,8 @@ const Footer = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import { FaYoutube, FaFacebookSquare } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
@@ -94,7 +97,11 @@ import Logo from "../assets/logo.png"
 <<<<<<< HEAD
 =======
 import LogoOutline from "../assets/logo-outline1.png";
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import FakultasService from "../fetching/fakultas";
@@ -131,7 +138,11 @@ const Footer = () => {
                 <img src={LogoOutline} alt={"Logo Outline Unpas"} loading="lazy" className="h-[70vh]" />
             </div>
             <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4 md:gap-6 lg:gap-8 bg-cover bg-no-repeat overflow-hidden">
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                 <div className="w-full md:w-fit space-y-4 text-white mb-4 md:mb-0">
                     <img src={Logo} alt="Logo Universitas Pasundan" className="w-14 h-14 md:w-16 md:h-16" loading="lazy" />
                     <Title title={'Terhubung Dengan Kami'} color="text-white" />
@@ -176,15 +187,19 @@ const Footer = () => {
                     <div className="justify-around md:flex-col gap-4 flex flex-col">
                         <Text sizeMobile="text-sm" text={'Lokasi'} weight={'font-semibold'} color="text-white" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                         <div className="flex flex-col justify-center items-start gap-2">
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Kampus I</a>
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Jl. Lengkong Besar No.68</a>
                         </div>
 
                         <div className="flex flex-col justify-center items-start gap-2">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Kampus I</a>
@@ -202,6 +217,8 @@ const Footer = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Kampus II</a>
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Jl. Tamansari No.6-8</a>
                         </div>
@@ -220,9 +237,12 @@ const Footer = () => {
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Kampus V</a>
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Jl. Sumatera No.41</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                         </div>
                     </div>
                 </div>
@@ -231,18 +251,24 @@ const Footer = () => {
             <div className="mt-8 w-full text-center py-4 bg-primary rounded-lg md:rounded-2xl lg:rounded-4xl">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <Text sizeMobile="text-xs md:text-xs lg:text-xs" text={'© 2045 Hexagon Copyright and rights reserved'} />
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                 <Text
                     sizeMobile="text-xs md:text-xs lg:text-xs"
                     text={`© ${new Date().getFullYear()} Unpas Copyright and rights reserved`}
                 />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             </div>
         </footer>
     );

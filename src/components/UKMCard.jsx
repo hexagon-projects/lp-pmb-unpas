@@ -7,6 +7,7 @@ const UKMCard = ({ title, text, image, onClick }) => {
   return (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className="bg-gray-100 shadow-md rounded-md p-4 space-y-3 relative" onClick={onClick}>
 =======
     <div className="bg-white shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-8 space-y-3 flex flex-col justify-between items-stretch relative" onClick={onClick}>
@@ -16,10 +17,19 @@ const UKMCard = ({ title, text, image, onClick }) => {
     <div className="bg-white shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-8 space-y-3 flex flex-col justify-between items-stretch relative" onClick={onClick}>
       <h2 className="text-[24px] font-bold">{title}</h2>
 >>>>>>> 8bbe4dc (First Commit)
+=======
+    <div className="bg-white shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-8 space-y-3 flex flex-col justify-between items-stretch relative" onClick={onClick}>
+<<<<<<< HEAD
+      <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
+=======
+      <h2 className="text-[24px] font-bold">{title}</h2>
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
       <RichText content={text}/>
       <img
         src={`${imageURL}/organisasi/${image}`}
         alt={title}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         className="w-full h-40 object-cover rounded-xl"
@@ -29,18 +39,24 @@ const UKMCard = ({ title, text, image, onClick }) => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
         className="w-full h-52 md:h-64 lg:h-72 object-cover rounded-xl"
       />
       {/* <motion.div
         className="absolute bottom-11 right-8 bg-lime-400 p-2 rounded-xl cursor-pointer"
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.9 }}
       >
         <ArrowUpRight size={24} className="text-black" />
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       </motion.div>
@@ -50,6 +66,9 @@ const UKMCard = ({ title, text, image, onClick }) => {
 =======
       </motion.div> */}
 >>>>>>> 8bbe4dc (First Commit)
+=======
+      </motion.div> */}
+>>>>>>> origin/Budi
     </div>
   );
 };

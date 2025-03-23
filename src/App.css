@@ -6,6 +6,7 @@
 @theme {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     --color-primary: #F5FF39;
     --color-secondary: #D6FF39;
     --color-secondary-hover: #AFDD00;
@@ -13,6 +14,8 @@
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     --color-primary: #FEF251;
     --color-secondary: #D6FF39;
     --color-secondary-hover: #AFDD00;
@@ -21,9 +24,12 @@
     --color-footer: #034833;
     --color-tosca: #ADEBC6;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 }
 
 body {
@@ -33,12 +39,15 @@ body {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 .bg_home {
     clip-path: polygon(0% 0%, 25% 0%, 25% 12%, 100% 12%, 100% 100%, 0% 100%);
     border-radius: 20px;
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 .bg_home_container {
     filter: url("#goo") drop-shadow(0px -2px 0px transparent)
 }
@@ -46,9 +55,12 @@ body {
 .bg_home {
     clip-path: polygon(0% 0%, 20% 0%, 25% 10%, 100% 10%, 100% 100%, 0% 100%);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 }
 
 .dekan_img {
@@ -57,12 +69,15 @@ body {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 .clip-custom-shape {
     clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%);
     border-radius: 0px 20px 0px 0px;
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 .intro_container {
     filter: url("#goo") drop-shadow(0px -2px 0px transparent)
 }
@@ -130,9 +145,12 @@ body {
 .fklts_dtl_box {
     clip-path: polygon(60% 0%, 100% 100%, 0% 100%, 0% 0%);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 }
 
 .dosen-card {
@@ -142,9 +160,12 @@ body {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 .agenda_box::-webkit-scrollbar {
     display: none;
 }
@@ -164,9 +185,12 @@ body {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 @keyframes marquee {
     0% {
         transform: translateX(0%);
@@ -177,6 +201,7 @@ body {
 }
 
 .animate-marquee {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     animation: marquee 20s linear infinite;
@@ -190,6 +215,8 @@ body {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     animation: marquee 100s linear infinite;
     width: max-content;
     display: flex;
@@ -424,8 +451,11 @@ body {
     .testi_box {
         clip-path: polygon(66% 0%, 66% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     }
 }

@@ -2,6 +2,7 @@ const Title = ({ title, sizeMobile = 'text-xl', color = 'text-gray-900', fontWei
     return (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <h2 className={`${color} ${fontWeight} ${sizeMobile} md:text-2xl lg:text-3xl`}>{title}</h2>
 =======
         <h2 className={`font-Sora ${color} ${fontWeight} ${sizeMobile} md:text-2xl lg:text-3xl`}>{title}</h2>
@@ -9,6 +10,9 @@ const Title = ({ title, sizeMobile = 'text-xl', color = 'text-gray-900', fontWei
 =======
         <h2 className={`font-Sora ${color} ${fontWeight} ${sizeMobile} md:text-2xl lg:text-3xl`}>{title}</h2>
 >>>>>>> 8bbe4dc (First Commit)
+=======
+        <h2 className={`font-Sora ${color} ${fontWeight} ${sizeMobile} md:text-2xl lg:text-3xl`}>{title}</h2>
+>>>>>>> origin/Budi
     )
 }
 

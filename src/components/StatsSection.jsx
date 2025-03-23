@@ -6,6 +6,7 @@ import { IoTrophyOutline } from "react-icons/io5"
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const StatsSection = ({prodi, mahasiswa, lulusan, prestasi}) => {
     return (
         <div className="w-full flex justify-center items-center p-4 md:px-10 lg:px-12">
@@ -17,6 +18,8 @@ const StatsSection = ({prodi, mahasiswa, lulusan, prestasi}) => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 const StatsSection = ({ title1 = 'Program Studi', prodi, mahasiswa, lulusan, prestasi, colorIcon }) => {
     return (
         <div className="w-full flex justify-center items-center">
@@ -28,9 +31,12 @@ const StatsSection = ({ title1 = 'Program Studi', prodi, mahasiswa, lulusan, pre
                     <StatsBox colorIcon={colorIcon} icon={<IoTrophyOutline className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />} number={prestasi} title={'Prestasi'} />
                 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             </div>
         </div>
     )

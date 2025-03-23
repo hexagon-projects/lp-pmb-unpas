@@ -57,7 +57,11 @@ const Testimoni = () => {
                 <div className="flex flex-col justify-center items-center text-center space-y-[16px]">
                     <div className="w-fit p-2 rounded-full border border-black/20">
                         <Text text={'Testimonial'} color="text-text" weight={'font-bold'} />
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                     </div>
                     <Title sizeMobile='text-2xl md:text-3xl lg:text-5xl' title={'Kata Mereka Tentang Unpas'} />
                 </div>

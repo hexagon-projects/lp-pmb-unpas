@@ -6,6 +6,7 @@ import RichText from "../RichText";
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const AktivitasMahasiswa = ({data}) => {
 =======
 const AktivitasMahasiswa = ({ data = [] }) => {
@@ -13,6 +14,9 @@ const AktivitasMahasiswa = ({ data = [] }) => {
 =======
 const AktivitasMahasiswa = ({ data = [] }) => {
 >>>>>>> 8bbe4dc (First Commit)
+=======
+const AktivitasMahasiswa = ({ data = [] }) => {
+>>>>>>> origin/Budi
     const [activeCard, setActiveCard] = useState(null);
     const [windowWidth, setWindowWidth] = useState(0);
     const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -45,6 +49,7 @@ const AktivitasMahasiswa = ({ data = [] }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8bbe4dc (First Commit)
             return isActive ? 280 : 180;
@@ -64,6 +69,15 @@ const AktivitasMahasiswa = ({ data = [] }) => {
 
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+            return 421; // Tetap sama untuk tampilan besar
+=======
+            return isActive ? 280 : 180;
+>>>>>>> origin/Radh
+        }
+    };
+
+>>>>>>> origin/Budi
     if (!data || !Array.isArray(data)) {
         return <p className="text-center text-gray-500">No activities available.</p>;
     }
@@ -71,9 +85,12 @@ const AktivitasMahasiswa = ({ data = [] }) => {
     return (
         <div className="space-y-3 md:space-y-4">
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             <div className="text-center">
                 <Title title="Aktivitas Mahasiswa" />
             </div>
@@ -85,7 +102,11 @@ const AktivitasMahasiswa = ({ data = [] }) => {
                         className="rounded-4xl relative cursor-pointer p-2 md:p-4 flex flex-col justify-between overflow-hidden"
 =======
                         className="rounded-lg transition-all cursor-pointer p-2 md:p-4 flex flex-col justify-between overflow-hidden"
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                         animate={{ 
                             width: getCardWidth(activeCard === card.id),
                             height: getCardHeight(activeCard === card.id)
@@ -114,6 +135,7 @@ const AktivitasMahasiswa = ({ data = [] }) => {
                                 <RichText textColor="text-white" sizeText="text-base md:text-lg lg:text-xl" content={card.description} />
                             )}
                         </motion.div>
+<<<<<<< HEAD
                     </motion.div>
                 ))}
             </div>
@@ -123,6 +145,8 @@ const AktivitasMahasiswa = ({ data = [] }) => {
 };
 
 =======
+=======
+>>>>>>> origin/Budi
 =======
                         whileHover={{ width: windowWidth >= 640 ? "500px" : getCardWidth(true) }}
                         transition={{ duration: 0.3 }}
@@ -135,14 +159,22 @@ const AktivitasMahasiswa = ({ data = [] }) => {
                         {activeCard === card.id && (
                             <RichText textColor="text-white" content={card.description}/>
                         )}
+<<<<<<< HEAD
                     </motion.div>
                 ))}
             </div>
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+                    </motion.div>
+                ))}
+            </div>
+>>>>>>> origin/Budi
         </div>
     );
 };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -152,4 +184,9 @@ const AktivitasMahasiswa = ({ data = [] }) => {
 =======
 
 >>>>>>> 8bbe4dc (First Commit)
+=======
+=======
+
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
 export default AktivitasMahasiswa;

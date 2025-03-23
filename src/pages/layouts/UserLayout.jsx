@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Footer from "../../components/Footer"
 import Navbar from "../../components/Navbar"
 
@@ -25,6 +26,8 @@ export default UserLayout
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import { useState, useEffect } from "react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
@@ -78,8 +81,12 @@ const UserLayout = ({ bgLayoutColor = 'bg-white', children, position, titleColor
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default UserLayout;
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 export default UserLayout;
 >>>>>>> 8bbe4dc (First Commit)
+=======
+export default UserLayout;
+>>>>>>> origin/Budi

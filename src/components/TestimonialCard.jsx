@@ -4,6 +4,7 @@ import RichText from "./RichText";
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const TestimonialCard = ({ title, description, name, image, bgColor = 'bg-[#DAFE3A]', textColor = 'text-[#DAFE3A]' }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
 
@@ -29,6 +30,8 @@ const TestimonialCard = ({ title, description, name, image, bgColor = 'bg-[#DAFE
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 const TestimonialCard = ({ iconVisibililty = 'flex', cssContainer = 'testi_container', cssBox = 'testi_box', title, description, name, image, bgColor = 'bg-primary', textColor = 'text-black', position = 'top-0 right-0' }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
 
@@ -65,9 +68,12 @@ const TestimonialCard = ({ iconVisibililty = 'flex', cssContainer = 'testi_conta
             <div className={`absolute ${position} ${bgColor} rounded-lg p-4 xl:p-4 ${iconVisibililty}`}>
                 <FaQuoteRight className={`${textColor} text-2xl md:text-2xl xl:text-2xl`} />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             </div>
         </div>
     );

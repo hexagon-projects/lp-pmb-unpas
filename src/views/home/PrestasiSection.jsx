@@ -33,7 +33,11 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
 =======
                                 <tr key={item.id} className="hover:bg-gray-50">
                                     <td className="text-xs md:text-sm py-3 px-5">{item.title}</td>
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                                 </tr>
                             ))}
                         </tbody>

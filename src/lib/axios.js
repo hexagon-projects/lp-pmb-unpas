@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import axios from "axios"
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const instance = axios.create({
@@ -18,6 +19,8 @@ export default instance
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import axios from "axios";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -29,8 +32,12 @@ const instance = axios.create({
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default instance;
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 export default instance;
 >>>>>>> 8bbe4dc (First Commit)
+=======
+export default instance;
+>>>>>>> origin/Budi

@@ -2,11 +2,14 @@ import { useEffect, useState } from "react"
 import Button from "../components/Button"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import MotionWrapper from "../components/MotionWrapper"
 =======
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import Text from "../components/Text"
 import Title from "../components/Title"
 import UserLayout from "./layouts/UserLayout"
@@ -15,12 +18,15 @@ import Loading from "../components/Loading"
 import GedungCard from "../components/fasilitas/GedungCard"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const Contact = () => {
     const [loading, setLoading] = useState(true)
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import CTASection from "../components/CTASection"
 import { Helmet } from "react-helmet-async"
 import Mahasiswa from "../assets/mhsw2.webp"
@@ -28,15 +34,19 @@ import Mahasiswa from "../assets/mhsw2.webp"
 const Contact = () => {
     // const [loading, setLoading] = useState(true)
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     const [fakultas, setFakultas] = useState([])
 
     const fetchFakultas = async () => {
         try {
             const response = await FakultasService.getAllFakultas()
             setFakultas(response)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             setLoading(false)
@@ -47,6 +57,9 @@ const Contact = () => {
 =======
             // setLoading(false)
 >>>>>>> 8bbe4dc (First Commit)
+=======
+            // setLoading(false)
+>>>>>>> origin/Budi
         } catch (error) {
             console.error(error)
         }
@@ -56,6 +69,7 @@ const Contact = () => {
         fetchFakultas()
     }, [])
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     if (loading) {
@@ -79,6 +93,8 @@ const Contact = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     // if (loading) {
     //     return <Loading />
     // }
@@ -108,9 +124,12 @@ const Contact = () => {
 
                 <div type="zoomIn" delay={0.2}>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
                         {fakultas.map((gedung, index) => (
                             <GedungCard
@@ -123,6 +142,7 @@ const Contact = () => {
                     </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </MotionWrapper>
 
                 <MotionWrapper type={"zoomIn"} delay={0.2} className={"w-full text-xs md:text-sm lg:text-base flex flex-col md:flex-row gap-2 md:gap-0"}>
@@ -133,6 +153,8 @@ const Contact = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                 </div>
 
                 <div className={"w-full text-xs md:text-sm lg:text-base flex flex-col md:flex-row gap-2 md:gap-0"}>
@@ -141,9 +163,12 @@ const Contact = () => {
                             <h2 className="text-lg font-bold">Informasi Kontak</h2>
                             <p className="text-xs md:text-sm lg:text-base text-black">Ada pertanyaan? Chat dengan kami!</p>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                         </div>
                         <div className="space-y-2">
                             <p className="text-xs md:text-sm lg:text-base font-medium">(+62) 812 2218 1823</p>
@@ -159,6 +184,7 @@ const Contact = () => {
                             <div className="space-y-2">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <label className="block font-medium">First Name</label>
 =======
                                 <label className="block font-medium">Nama Depan</label>
@@ -166,6 +192,9 @@ const Contact = () => {
 =======
                                 <label className="block font-medium">Nama Depan</label>
 >>>>>>> 8bbe4dc (First Commit)
+=======
+                                <label className="block font-medium">Nama Depan</label>
+>>>>>>> origin/Budi
                                 <input
                                     type="text"
                                     className="w-full p-2 border-b focus:outline-none focus:ring-b-2 focus:ring-primary"
@@ -175,6 +204,7 @@ const Contact = () => {
                             <div className="space-y-2">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <label className="block font-medium">Last Name</label>
 =======
                                 <label className="block font-medium">Nama Belakang</label>
@@ -182,6 +212,9 @@ const Contact = () => {
 =======
                                 <label className="block font-medium">Nama Belakang</label>
 >>>>>>> 8bbe4dc (First Commit)
+=======
+                                <label className="block font-medium">Nama Belakang</label>
+>>>>>>> origin/Budi
                                 <input
                                     type="text"
                                     className="w-full p-2 border-b focus:outline-none focus:ring-b-2 focus:ring-primary"
@@ -193,6 +226,7 @@ const Contact = () => {
                         <div className="space-y-2">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <label className="block font-medium">Phone Number</label>
 =======
                             <label className="block font-medium">Nomor Handphone</label>
@@ -200,6 +234,9 @@ const Contact = () => {
 =======
                             <label className="block font-medium">Nomor Handphone</label>
 >>>>>>> 8bbe4dc (First Commit)
+=======
+                            <label className="block font-medium">Nomor Handphone</label>
+>>>>>>> origin/Budi
                             <input
                                 type="tel"
                                 className="w-full p-2 border-b focus:outline-none focus:ring-b-2 focus:ring-primary"
@@ -208,6 +245,7 @@ const Contact = () => {
                         </div>
 
                         <div className="space-y-2">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                             <label className="block font-medium">Message</label>
@@ -229,6 +267,8 @@ const Contact = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                             <label className="block font-medium">Pesan</label>
                             <textarea
                                 className="w-full p-2 border-b h-32 focus:outline-none focus:ring-b-2 focus:ring-primary"
@@ -249,9 +289,12 @@ const Contact = () => {
 
                 <CTASection />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             </div>
         </UserLayout>
     )

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -21,6 +22,8 @@ const FakultasSwiper = ({ faculties }) => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -57,13 +60,17 @@ const FakultasSwiper = ({ faculties }) => {
                 onActiveIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}
                 onSwiper={(swiper) => (swiperInstance.current = swiper)}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             >
                 {faculties.map((faculty, index) => (
                     <SwiperSlide key={index} className="w-full flex justify-start items-start pb-10 md:pb-0">
                         <div
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                             className={`space-y-4 p-4 h-fit rounded-lg md:rounded-2xl lg:rounded-4xl transition-all duration-300 ease-in-out ${
@@ -80,6 +87,8 @@ const FakultasSwiper = ({ faculties }) => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                             ref={(el) => (slideRefs.current[index] = el)}
                             className={`grid grid-rows-[auto_1fr] space-y-4 p-4 rounded-2xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out ${index === activeIndex
                                 ? `w-[100%] bg-primary/30 border-2 border-white hover:shadow-[0px_10px_20px_rgba(0,0,0,0.5)] hover:shadow-primary/30 scale-100`
@@ -93,9 +102,12 @@ const FakultasSwiper = ({ faculties }) => {
                                     <Text key={idx} text={program} color="bg-gray-100 border-2 border-white rounded-2xl p-4" />
                                 ))}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                             </div>
                         </div>
                     </SwiperSlide>
@@ -103,9 +115,12 @@ const FakultasSwiper = ({ faculties }) => {
             </Swiper>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 
             <CustomPagination
                 activeIndex={activeIndex}
@@ -115,15 +130,19 @@ const FakultasSwiper = ({ faculties }) => {
                 scale="w-7 h-3"
             />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
         </div>
     );
 };
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default FakultasSwiper;
 =======
 export default FakultasSwiper;
@@ -131,3 +150,6 @@ export default FakultasSwiper;
 =======
 export default FakultasSwiper;
 >>>>>>> 8bbe4dc (First Commit)
+=======
+export default FakultasSwiper;
+>>>>>>> origin/Budi

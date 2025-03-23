@@ -1,6 +1,7 @@
 import { FiHome, FiBook, FiCalendar, FiMapPin, FiUsers } from "react-icons/fi";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useLocation } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import Button from "./Button";
@@ -38,6 +39,8 @@ const Navbar = ({ position = "absolute top-0 left-0", bgColor = 'bg-transparent'
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import Button from "./Button";
@@ -92,6 +95,7 @@ const Navbar = ({ position = "absolute top-0 left-0", bgColor = "bg-[#DCDCDC]", 
         } ${position} z-50 ${bgColor} py-3 px-5 justify-between items-center hidden lg:flex ${shadow} rounded-lg md:rounded-4xl transition-all duration-500 ease-in-out`}
         >
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     return (
         <div className="w-full flex justify-center relative z-[999]">
@@ -207,6 +211,8 @@ const Navbar = ({ position = "absolute top-0 left-0", bgColor = 'bg-transparent'
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
     );
 =======
+=======
+>>>>>>> origin/Budi
         <div className="flex items-center gap-3 md:gap-5 z-1">
           <img src={Logo} alt="Logo Universitas Pasundan" className="w-10 h-10 md:w-12 md:h-12" loading="lazy" />
           <div>
@@ -256,10 +262,99 @@ const Navbar = ({ position = "absolute top-0 left-0", bgColor = 'bg-transparent'
       </nav>
     </div>
   );
+<<<<<<< HEAD
 >>>>>>> 12faffa (FIX: Navbar)
 =======
     );
 >>>>>>> 8bbe4dc (First Commit)
+=======
+=======
+
+const Navbar = ({ position = "absolute top-0 left-0", bgColor = 'bg-transparent', titleColor = 'text-gray-700', navbarColor = 'text-gray-700', shadow, paddingDekstop = 'md:px-10 md:py-10 lg:py-5' }) => {
+    const location = useLocation();
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [color, setColor] = useState(titleColor)
+    const [navbarColors, setNavbarColors] = useState(navbarColor)
+    const menuItems = [
+        { name: "Beranda", path: "/", icon: <FiHome size={24} /> },
+        { name: "Fakultas", path: "/fakultas", icon: <FiBook size={24} /> },
+        { name: "Jalur", path: "/jalur", icon: <FiCalendar size={24} /> },
+        { name: "Fasilitas", path: "/fasilitas", icon: <FiMapPin size={24} /> },
+        { name: "Mahasiswa", path: "/mahasiswa-dan-alumni", icon: <FiUsers size={24} /> },
+    ];
+
+    const handleClick = () => {
+        window.location.href = "https://situ2.unpas.ac.id/spmbfront/";
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+                setColor('text-gray-700')
+                setNavbarColors('text-gray-700')
+            } else {
+                setIsScrolled(false);
+                setColor(titleColor);
+                setNavbarColors(navbarColor);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    return (
+        <div className="w-full flex justify-center relative z-[999]">
+            <nav className={`w-[95%] xl:w-[98%] mt-3 xl:mt-4 bg-[#F3F3F3] ${isScrolled ? 'bg-[#F3F3F3] border-2 border-[#F0F0F0]' : 'bg-[#F3F3F3] border-none'} ${position} z-50 ${bgColor} py-8 px-5 ${paddingDekstop} justify-between items-center hidden lg:flex ${shadow} rounded-lg md:rounded-2xl transition-all duration-500 ease-in-out`}>
+                <div className="flex items-center gap-3 md:gap-5">
+                    <img src={Logo} alt="Logo Universitas Pasundan" className="w-10 h-10 md:w-12 md:h-12" loading="lazy" />
+                    <div>
+                        <p className={`text-xs lg:text-sm ${color}`}>Penerimaan Mahasiswa Baru</p>
+                        <span className={`text-lg lg:text-xl ${color} md:text-base font-medium`}>Universitas Pasundan</span>
+                    </div>
+                </div>
+
+                <div className={`hidden md:flex items-center gap-4 lg:gap-8 ${navbarColors} font-medium`}>
+                    {menuItems.map((item, index) => (
+                        <Link
+                            key={index}
+                            to={item.path}
+                            className={`relative p-4 text-xs lg:text-sm transition-colors duration-500 ease-in-out hover:bg-[#f0f0f0] hover:text-[#444444] rounded-lg md:rounded-xl lg:rounded-2xl ${location.pathname === item.path ? "font-bold bg-bg-[#f0f0f0] text-[#444444] border-2 border-[#FAFAFA80]" : ""
+                                }`}
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
+                    <Button bgColor={'bg-primary'} textColor={'text-gray-700'} hoverBgColor={'hover:border-3 hover:border-white/50'} text={'Daftar'} onClick={() => handleClick()} paddingMobile="p-4" paddingTablet="p-4" rounded="rounded-lg md:rounded-xl lg:rounded-2xl" />
+                </div>
+            </nav>
+
+            <nav className="w-full fixed bottom-0 left-0 z-50 bg-white p-3 flex justify-between items-center lg:hidden">
+                {menuItems.map((item, index) => (
+                    <a
+                        key={index}
+                        href={item.path}
+                        aria-label={item.name}
+                        className={`w-full relative flex flex-col items-center p-2 justify-between rounded-full transition-colors duration-500 ease-in-out ${location.pathname === item.path ? "bg-footer text-white" : "text-black"
+                            }`}
+                    >
+                        <div className={`relative`}>
+                            {item.icon}
+                        </div>
+                        <span className={`text-xs mt-2 ${location.pathname === item.path ? "text-white font-bold" : ""}`}>
+                            {item.name}
+                        </span>
+                    </a>
+                ))}
+            </nav>
+        </div>
+    );
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
 };
 
 export default Navbar;

@@ -1,19 +1,25 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect } from "react";
 import useGoogleAnalytics, { logPageView } from "./utils/analitics";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import Home from './pages/Home';
 import Fakultas from "./pages/Fakultas";
 import Jalur from "./pages/Jalur";
@@ -27,6 +33,7 @@ import ArtikelDetail from "./pages/ArtikelDetail";
 import Artikel from "./pages/Artikel";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 function App() {
   return (
@@ -35,6 +42,8 @@ function App() {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import Prestasi from "./pages/Prestasi";
 import Mitra from "./pages/Mitra";
 import Testimoni from "./pages/Testimoni";
@@ -47,9 +56,12 @@ function App() {
       <Router>
         {trackingId && <GAListener />}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/artikel' element={<Artikel />} />
@@ -63,6 +75,7 @@ function App() {
           <Route path='/kontak' element={<Contact />} />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           <Route path='/prestasi' element={<Prestasi />} />
           <Route path='/mitra' element={<Mitra />} />
@@ -73,10 +86,16 @@ function App() {
           <Route path='/mitra' element={<Mitra />} />
           <Route path='/testimoni' element={<Testimoni />} />
 >>>>>>> 8bbe4dc (First Commit)
+=======
+          <Route path='/prestasi' element={<Prestasi />} />
+          <Route path='/mitra' element={<Mitra />} />
+          <Route path='/testimoni' element={<Testimoni />} />
+>>>>>>> origin/Budi
           <Route path='/mahasiswa-dan-alumni' element={<Mahasiswa />} />
         </Routes>
       </Router>
     </HelmetProvider>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -87,6 +106,8 @@ export default App
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
   );
 }
 
@@ -101,8 +122,12 @@ const GAListener = () => {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default App;
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 export default App;
 >>>>>>> 8bbe4dc (First Commit)
+=======
+export default App;
+>>>>>>> origin/Budi

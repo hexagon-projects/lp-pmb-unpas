@@ -5,6 +5,7 @@ import Title from "./Title";
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const CTABox = ({ subtitle, title, onClick, textButton }) => {
     return (
         <motion.div 
@@ -33,6 +34,8 @@ const CTABox = ({ subtitle, title, onClick, textButton }) => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 const CTABox = ({ subtitle, title, textButton, subtitle2 }) => {
     const handleClick = () => {
         window.location.href = "https://situ2.unpas.ac.id/spmbfront/";
@@ -54,7 +57,11 @@ const CTABox = ({ subtitle, title, textButton, subtitle2 }) => {
                         <h3 className="text-gray-800 text-[26px] font-medium">{subtitle}</h3>
                         <Title sizeMobile="text[32px]" title={title} />
                         <Title sizeMobile="text-[32px]" title={subtitle2} />
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                         <div className="w-full flex justify-center items-center gap-4">
                             <motion.button
                                 onClick={handleClick}
@@ -69,7 +76,11 @@ const CTABox = ({ subtitle, title, textButton, subtitle2 }) => {
                                 className="rounded-full border-3 border-transparent hover:border-3 hover:border-white/40 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 text-black font-semibold shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition"
 =======
                                 className="rounded-full border-1 border-red-500 hover:border-2 hover:border-red-600 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 text-red-500 hover:text-red-600 font-semibold shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition"
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                                 whileTap={{ scale: 0.95 }}
                             >
                                 Hubungi Admin
@@ -91,9 +102,12 @@ const CTABox = ({ subtitle, title, textButton, subtitle2 }) => {
                     <ArrowDownRight size={32} className="text-black" />
                 </motion.div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             </div>
         </motion.div>
     );

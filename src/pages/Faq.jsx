@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import MotionWrapper from "../components/MotionWrapper";
 =======
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import Text from "../components/Text";
 import Title from "../components/Title";
 import UserLayout from "./layouts/UserLayout";
@@ -17,6 +20,7 @@ import FaqService from "../fetching/faq";
 import Loading from "../components/Loading";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const Faq = () => {
     const [faqs, setFaqs] = useState([]);
@@ -24,6 +28,8 @@ const Faq = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
 import CTASection from "../components/CTASection";
 import Section1 from "../assets/gedung.jpeg"
 import { Helmet } from "react-helmet-async";
@@ -32,9 +38,12 @@ const Faq = () => {
     const [faqs, setFaqs] = useState([]);
     // const [loading, setLoading] = useState(true);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     const [openIndex, setOpenIndex] = useState(null);
     const [searchTermGeneral, setSearchTermGeneral] = useState("");
     const [searchTermBilling, setSearchTermBilling] = useState("");
@@ -47,6 +56,7 @@ const Faq = () => {
             setFaqs(response.data.data);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             setLoading(false);
         } catch (error) {
             console.error("Error fetching FAQs:", error);
@@ -54,14 +64,19 @@ const Faq = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             // setLoading(false);
         } catch (error) {
             console.error("Error fetching FAQs:", error);
             // setLoading(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
         }
     };
 
@@ -99,6 +114,7 @@ const Faq = () => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (loading) {
         return <Loading />;
     }
@@ -115,6 +131,8 @@ const Faq = () => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
     // if (loading) {
     //     return <Loading />;
     // }
@@ -137,15 +155,22 @@ const Faq = () => {
 =======
                         <Text text={"Bantuan"} color="text-white" />
                         <Title title={"Frequently Asked Questions"} color="text-white" />
+<<<<<<< HEAD
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                     </div>
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4">
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                     <div className="w-full space-y-3 text-center md:text-left">
                         <Title title={`General FAQ's`} />
                         <Text text={"Pertanyaan-pertanyaan umum"} />
@@ -162,6 +187,7 @@ const Faq = () => {
                             paginatedGeneralFaqs.map((faq, index) => (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <div key={faq.id} className="w-full shadow-md rounded-lg p-4">
 =======
                                 <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
@@ -169,6 +195,9 @@ const Faq = () => {
 =======
                                 <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
 >>>>>>> 8bbe4dc (First Commit)
+=======
+                                <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
+>>>>>>> origin/Budi
                                     <button
                                         className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base"
                                         onClick={() => toggleDropdown(index)}
@@ -194,6 +223,7 @@ const Faq = () => {
                     </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </MotionWrapper>
 
                 <MotionWrapper type={"zoomIn"} delay={0.2} className="flex flex-col md:flex-row justify-center items-center gap-4">
@@ -207,6 +237,11 @@ const Faq = () => {
 
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4">
 >>>>>>> 8bbe4dc (First Commit)
+=======
+                </div>
+
+                <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+>>>>>>> origin/Budi
                     <div className="w-full space-y-3 text-center md:text-left">
                         <Title title={`Billing FAQ's`} />
                         <Text text={"Pertanyaan-pertanyaan mengenai pembayaran"} />
@@ -223,6 +258,7 @@ const Faq = () => {
                             paginatedBillingFaqs.map((faq, index) => (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <div key={faq.id} className="w-full shadow-md rounded-lg p-4">
 =======
                                 <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
@@ -230,6 +266,9 @@ const Faq = () => {
 =======
                                 <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
 >>>>>>> 8bbe4dc (First Commit)
+=======
+                                <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
+>>>>>>> origin/Budi
                                     <button
                                         className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base"
                                         onClick={() => toggleDropdown(index)}
@@ -255,6 +294,7 @@ const Faq = () => {
                     </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </MotionWrapper>
 
                 <MotionWrapper type={"zoomIn"} delay={0.2} className={'bg-primary p-4 md:p-10 lg:p-12 rounded-lg shadow-md text-black space-y-3 md:space-y-4'}>
@@ -268,6 +308,15 @@ const Faq = () => {
 
                 <div className={'bg-primary p-4 md:p-10 lg:p-12 rounded-2xl shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
 >>>>>>> 8bbe4dc (First Commit)
+=======
+                </div>
+
+<<<<<<< HEAD
+                <div className={'bg-primary p-4 md:p-10 lg:p-12 rounded-lg shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
+=======
+                <div className={'bg-primary p-4 md:p-10 lg:p-12 rounded-2xl shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
+>>>>>>> origin/Radh
+>>>>>>> origin/Budi
                     <div className="space-y-2">
                         <h2 className="text-lg font-bold">Masih Punya Pertanyaan?</h2>
                         <p className="text-xs md:text-sm lg:text-base">Hubungi kami </p>
@@ -300,19 +349,25 @@ const Faq = () => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <Button text={'Hubungi Kami'} bgColor={'bg-green-800'} hoverColor={'hover:bg-green-900'} textColor={'text-white'} />
                 </MotionWrapper>
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
                     <Button text={'Hubungi Kami'} bgColor={'bg-green-800'} hoverColor={'hover:bg-green-900'} textColor={'text-white'} hoverBgColor={'hover:border-3 hover:border-white/50'} />
                 </div>
 
                 <CTASection />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
             </div>
         </UserLayout>
     );

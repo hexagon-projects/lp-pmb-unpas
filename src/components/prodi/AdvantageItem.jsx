@@ -3,6 +3,7 @@ import Text from "../Text";
 const AdvantageItem = ({ icon: Icon, text }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     return (
       <div className="flex justify-center items-center gap-2">
         <Icon size={34} className="text-blue-500" />
@@ -16,6 +17,8 @@ const AdvantageItem = ({ icon: Icon, text }) => {
 =======
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi
   return (
     <div className="w-full flex justify-stretch items-center gap-2">
       <div className="md:w-[10%] lg:w-[4%]">
@@ -30,6 +33,9 @@ const AdvantageItem = ({ icon: Icon, text }) => {
 
 export default AdvantageItem;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
 =======
 >>>>>>> 8bbe4dc (First Commit)
+=======
+>>>>>>> origin/Budi

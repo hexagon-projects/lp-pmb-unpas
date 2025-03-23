@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # React + Vite + Landing Page Unpas
 =======
 # React + Vite
@@ -7,6 +8,9 @@
 =======
 # React + Vite + Landing Page Unpas
 >>>>>>> 4280dc6 (Update README.md)
+=======
+# React + Vite + Landing Page Unpas
+>>>>>>> origin/Budi
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

@@ -14,6 +14,7 @@ const PrestasiSection = ({ prestasi }) => {
         <MotionWrapper type={'zoomIn'} delay={0.2} className={'flex flex-col md:flex-row justify-between items-center gap-4'}>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <div className="w-full md:w-[30%] text-center space-y-3 md:space-y-4">
 =======
             <div className="w-full md:w-[30%] text-center lg:text-left space-y-3 md:space-y-4">
@@ -21,6 +22,9 @@ const PrestasiSection = ({ prestasi }) => {
 =======
             <div className="w-full md:w-[30%] text-center lg:text-left space-y-3 md:space-y-4">
 >>>>>>> 8bbe4dc (First Commit)
+=======
+            <div className="w-full md:w-[30%] text-center lg:text-left space-y-3 md:space-y-4">
+>>>>>>> origin/Budi
                 <Title title={'Prestasi'} />
                 <Text leading={'leading-6'} text={'Dari akademik hingga inovasi, Universitas Pasundan terus mencetak prestasi gemilang. Bersama Unpas, raih mimpi dan jadilah bagian dari generasi unggul yang membawa perubahan!'} />
             </div>
@@ -63,6 +67,7 @@ const PrestasiSection = ({ prestasi }) => {
                     >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <IoArrowBackCircleOutline className="text-4xl md:text-5xl" />
 =======
                         <IoArrowBackCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
@@ -70,11 +75,15 @@ const PrestasiSection = ({ prestasi }) => {
 =======
                         <IoArrowBackCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
 >>>>>>> 8bbe4dc (First Commit)
+=======
+                        <IoArrowBackCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
+>>>>>>> origin/Budi
                     </button>
                     <button
                         onClick={() => swiperRef.current?.slideNext()}
                         className="px-4 py-2 text-blue-500"
                     >
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                         <IoArrowForwardCircleOutline className="text-4xl md:text-5xl" />
@@ -84,6 +93,9 @@ const PrestasiSection = ({ prestasi }) => {
 =======
                         <IoArrowForwardCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
 >>>>>>> 8bbe4dc (First Commit)
+=======
+                        <IoArrowForwardCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
+>>>>>>> origin/Budi
                     </button>
                 </div>
             </div>
