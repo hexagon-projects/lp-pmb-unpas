@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -18,6 +19,8 @@ const FakultasSwiper = ({ faculties }) => {
                 modules={[Navigation, Pagination, Autoplay]}
                 onActiveIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -53,11 +56,15 @@ const FakultasSwiper = ({ faculties }) => {
                 modules={[Navigation, Autoplay]}
                 onActiveIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}
                 onSwiper={(swiper) => (swiperInstance.current = swiper)}
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
             >
                 {faculties.map((faculty, index) => (
                     <SwiperSlide key={index} className="w-full flex justify-start items-start pb-10 md:pb-0">
                         <div
+<<<<<<< HEAD
 <<<<<<< HEAD
                             className={`space-y-4 p-4 h-fit rounded-lg md:rounded-2xl lg:rounded-4xl transition-all duration-300 ease-in-out ${
                                 index === activeIndex
@@ -71,6 +78,8 @@ const FakultasSwiper = ({ faculties }) => {
                                 <Text key={idx} text={program} />
                             ))}
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
                             ref={(el) => (slideRefs.current[index] = el)}
                             className={`grid grid-rows-[auto_1fr] space-y-4 p-4 rounded-2xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out ${index === activeIndex
                                 ? `w-[100%] bg-primary/30 border-2 border-white hover:shadow-[0px_10px_20px_rgba(0,0,0,0.5)] hover:shadow-primary/30 scale-100`
@@ -83,14 +92,20 @@ const FakultasSwiper = ({ faculties }) => {
                                 {faculty.programs.map((program, idx) => (
                                     <Text key={idx} text={program} color="bg-gray-100 border-2 border-white rounded-2xl p-4" />
                                 ))}
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
                             </div>
                         </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 
             <CustomPagination
                 activeIndex={activeIndex}
@@ -99,13 +114,20 @@ const FakultasSwiper = ({ faculties }) => {
                 width="w-3 h-3"
                 scale="w-7 h-3"
             />
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
         </div>
     );
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default FakultasSwiper;
 =======
 export default FakultasSwiper;
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+export default FakultasSwiper;
+>>>>>>> 8bbe4dc (First Commit)

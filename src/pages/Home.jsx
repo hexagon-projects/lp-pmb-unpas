@@ -1,5 +1,6 @@
 import UserLayout from "./layouts/UserLayout";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Section3 from "../assets/home/section3.png";
 import Title from "../components/Title";
 import Text from "../components/Text";
@@ -22,6 +23,8 @@ import HeroSection from "../components/home/HeroSection";
 import ArticleCard from "../components/artikel/ArticleCard";
 import InfoBox from "../components/home/InfoBox";
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 import Section3 from "../assets/home/section2.png";
 import React, { useEffect, useState } from "react";
 import StatsSection from "../components/StatsSection";
@@ -40,15 +43,21 @@ import PrestasiSection from "../views/home/PrestasiSection";
 import ArtikelSection from "../views/home/ArtikelSection";
 import MitraSection from "../views/home/MitraSection";
 import TestimonialSection from "../views/home/TestimonialSection";
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 
 const faculties = [
     {
         name: 'Fakultas Keguruan dan Ilmu Pendidikan',
 <<<<<<< HEAD
+<<<<<<< HEAD
         color: 'bg-pink-100',
 =======
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
         programs: [
             'S1 - Pendidikan Pancasila & Kewarganegaraan',
             'S1 - Pendidikan Ekonomi Akuntansi',
@@ -62,9 +71,12 @@ const faculties = [
     {
         name: 'Fakultas Teknik',
 <<<<<<< HEAD
+<<<<<<< HEAD
         color: 'bg-green-100',
 =======
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
         programs: [
             'S1 - Teknik Informatika',
             'S1 - Teknik Mesin',
@@ -76,9 +88,12 @@ const faculties = [
     {
         name: 'Fakultas Ekonomi dan Bisnis',
 <<<<<<< HEAD
+<<<<<<< HEAD
         color: 'bg-blue-100',
 =======
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
         programs: [
             'S1 - Akuntansi',
             'S1 - Manajemen',
@@ -88,17 +103,23 @@ const faculties = [
     {
         name: 'Fakultas Hukum',
 <<<<<<< HEAD
+<<<<<<< HEAD
         color: 'bg-yellow-100',
 =======
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
         programs: ['S1 - Ilmu Hukum']
     },
     {
         name: 'Program Pasca Sarjana',
 <<<<<<< HEAD
+<<<<<<< HEAD
         color: 'bg-purple-100',
 =======
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
         programs: [
             'S2 - Magister Ilmu Administrasi & Kebijakan Publik',
             'S2 - Magister Manajemen',
@@ -116,9 +137,12 @@ const faculties = [
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
         color: 'bg-red-100',
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
         name: 'Fakultas Kedokteran',
         programs: [
             'S1 - Pendidikan Dokter',
@@ -138,7 +162,10 @@ const faculties = [
     },
     {
         name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
         programs: [
             'S1 - Administrasi Publik',
             'S1 - Kesejahteraan Sosial',
@@ -148,6 +175,7 @@ const faculties = [
         ]
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         name: 'Fakultas Kedokteran',
         color: 'bg-indigo-100',
@@ -162,6 +190,9 @@ const faculties = [
 =======
         name: 'Fakultas Ilmu Seni dan Sastra',
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+        name: 'Fakultas Ilmu Seni dan Sastra',
+>>>>>>> 8bbe4dc (First Commit)
         programs: [
             'S1 - Sastra Inggris',
             'S1 - Desain Komunikasi Visual',
@@ -169,6 +200,7 @@ const faculties = [
             'S1 - Seni Musik'
         ]
     },
+<<<<<<< HEAD
 <<<<<<< HEAD
     {
         name: 'Fakultas Pendidikan',
@@ -185,13 +217,18 @@ const faculties = [
 ];
 
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 ];
 
 const faculties1 = faculties.slice(0, 3)
 const faculties2 = faculties.slice(3, 6)
 const faculties3 = faculties.slice(6, 9)
 
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 const Home = () => {
     const [data, setData] = useState({
         slider: [],
@@ -203,6 +240,7 @@ const Home = () => {
         artikel: [],
         prestasi: [],
 <<<<<<< HEAD
+<<<<<<< HEAD
     });
     const [loading, setLoading] = useState(false);
 =======
@@ -210,6 +248,11 @@ const Home = () => {
     });
     const [loading, setLoading] = useState(true);
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+        dukungan: []
+    });
+    const [loading, setLoading] = useState(true);
+>>>>>>> 8bbe4dc (First Commit)
     const imageURL = import.meta.env.VITE_IMAGE_URL;
 
     useEffect(() => {
@@ -234,6 +277,7 @@ const Home = () => {
 
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
         <UserLayout paddingDekstop={'p-8 md:p-14 lg:p-16'}>
             <Helmet>
                 <title>Universitas Pasundan - Kampus Unggulan di Bandung</title>
@@ -242,6 +286,11 @@ const Home = () => {
             <Helmet>
                 <title>Beranda - Universitas Pasundan</title>
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+        <UserLayout position={'fixed'} bgLayoutColor="bg-[#F3F3F3]" paddingDekstop={'md:p-6 lg:p-6'} paddingTop={'lg:pt-30'} bgColor={'bg-[#F3F3F3]'}>
+            <Helmet>
+                <title>Beranda - Universitas Pasundan</title>
+>>>>>>> 8bbe4dc (First Commit)
                 <meta
                     name="description"
                     content="Universitas Pasundan (Unpas) adalah kampus unggulan di Bandung yang menawarkan program studi lengkap, fasilitas modern, dan kerjasama dengan industri. Daftar sekarang!"
@@ -256,6 +305,7 @@ const Home = () => {
                     content="Universitas Pasundan (Unpas) adalah kampus unggulan di Bandung yang menawarkan program studi lengkap, fasilitas modern, dan kerjasama dengan industri."
                 />
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <meta property="og:image" content="https://www.unpas.ac.id/logo-unpas.png" />
                 <meta property="og:url" content="https://www.unpas.ac.id" />
                 <link rel="canonical" href="https://www.unpas.ac.id" />
@@ -264,6 +314,11 @@ const Home = () => {
                 <meta property="og:url" content="https://pmb.unpas.ac.id" />
                 <link rel="canonical" href="https://pmb.unpas.ac.id" />
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                <meta property="og:image" content="https://pmb.unpas.ac.id/logo-unpas.png" />
+                <meta property="og:url" content="https://pmb.unpas.ac.id" />
+                <link rel="canonical" href="https://pmb.unpas.ac.id" />
+>>>>>>> 8bbe4dc (First Commit)
                 <meta name="robots" content="index, follow" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <script type="application/ld+json">
@@ -272,12 +327,17 @@ const Home = () => {
                         "@type": "EducationalOrganization",
                         "name": "Universitas Pasundan",
 <<<<<<< HEAD
+<<<<<<< HEAD
                         "url": "https://www.unpas.ac.id",
                         "logo": "https://www.unpas.ac.id/logo-unpas.png",
 =======
                         "url": "https://pmb.unpas.ac.id",
                         "logo": "https://pmb.unpas.ac.id/logo-unpas.png",
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                        "url": "https://pmb.unpas.ac.id",
+                        "logo": "https://pmb.unpas.ac.id/logo-unpas.png",
+>>>>>>> 8bbe4dc (First Commit)
                         "description": "Universitas Pasundan (Unpas) adalah kampus unggulan di Bandung yang menawarkan program studi lengkap, fasilitas modern, dan kerjasama dengan industri.",
                         "address": {
                             "@type": "PostalAddress",
@@ -296,6 +356,7 @@ const Home = () => {
             </Helmet>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             <div className="relative space-y-8 md:space-y-12 lg:space-y-20">
                 <HeroSection data={data.slider} />
 
@@ -310,6 +371,8 @@ const Home = () => {
                     </div>
                 </MotionWrapper>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
             <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
 
                 <HeroSection data={data.slider} />
@@ -319,12 +382,16 @@ const Home = () => {
                 </div>
 
                 <AboutSection data={data} />
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 
                 <StatsSection prodi={20} mahasiswa={5148} lulusan={3130} prestasi={100} />
 
                 <PendaftaranSection
                     image={Section3}
+<<<<<<< HEAD
 <<<<<<< HEAD
                     title="Jalur Pendaftaran"
                     subtitle="Jalur Pendaftaran"
@@ -391,6 +458,8 @@ const Home = () => {
                     <TestimonialSlider data={data.testimonials} />
                 </MotionWrapper>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
                     title="Pendaftaran"
                     subtitle="Jalur Pendaftaran"
                     jalurPendaftaran={data.jalur}
@@ -416,7 +485,10 @@ const Home = () => {
                 </div>
 
                 <TestimonialSection data={data} displayDekstop="md:flex-row-reverse" />
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 
                 <CTASection />
             </div>

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import Button from "../components/Button"
 <<<<<<< HEAD
+<<<<<<< HEAD
 import MotionWrapper from "../components/MotionWrapper"
 =======
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 import Text from "../components/Text"
 import Title from "../components/Title"
 import UserLayout from "./layouts/UserLayout"
@@ -11,17 +14,23 @@ import FakultasService from "../fetching/fakultas"
 import Loading from "../components/Loading"
 import GedungCard from "../components/fasilitas/GedungCard"
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const Contact = () => {
     const [loading, setLoading] = useState(true)
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 import CTASection from "../components/CTASection"
 import { Helmet } from "react-helmet-async"
 import Mahasiswa from "../assets/mhsw2.webp"
 
 const Contact = () => {
     // const [loading, setLoading] = useState(true)
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
     const [fakultas, setFakultas] = useState([])
 
     const fetchFakultas = async () => {
@@ -29,11 +38,15 @@ const Contact = () => {
             const response = await FakultasService.getAllFakultas()
             setFakultas(response)
 <<<<<<< HEAD
+<<<<<<< HEAD
             setLoading(false)
             console.log(response)
 =======
             // setLoading(false)
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+            // setLoading(false)
+>>>>>>> 8bbe4dc (First Commit)
         } catch (error) {
             console.error(error)
         }
@@ -43,6 +56,7 @@ const Contact = () => {
         fetchFakultas()
     }, [])
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (loading) {
         return <Loading />
@@ -63,6 +77,8 @@ const Contact = () => {
 
                 <MotionWrapper type="zoomIn" delay={0.2}>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
     // if (loading) {
     //     return <Loading />
     // }
@@ -91,7 +107,10 @@ const Contact = () => {
                 </div>
 
                 <div type="zoomIn" delay={0.2}>
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
                         {fakultas.map((gedung, index) => (
                             <GedungCard
@@ -103,6 +122,7 @@ const Contact = () => {
                         ))}
                     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </MotionWrapper>
 
                 <MotionWrapper type={"zoomIn"} delay={0.2} className={"w-full text-xs md:text-sm lg:text-base flex flex-col md:flex-row gap-2 md:gap-0"}>
@@ -111,6 +131,8 @@ const Contact = () => {
                             <h2 className="text-lg font-bold">Contact Information</h2>
                             <p className="text-xs md:text-sm lg:text-base text-gray-200">Say something to start a live chat!</p>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
                 </div>
 
                 <div className={"w-full text-xs md:text-sm lg:text-base flex flex-col md:flex-row gap-2 md:gap-0"}>
@@ -118,7 +140,10 @@ const Contact = () => {
                         <div className="space-y-2">
                             <h2 className="text-lg font-bold">Informasi Kontak</h2>
                             <p className="text-xs md:text-sm lg:text-base text-black">Ada pertanyaan? Chat dengan kami!</p>
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
                         </div>
                         <div className="space-y-2">
                             <p className="text-xs md:text-sm lg:text-base font-medium">(+62) 812 2218 1823</p>
@@ -133,10 +158,14 @@ const Contact = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-2">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <label className="block font-medium">First Name</label>
 =======
                                 <label className="block font-medium">Nama Depan</label>
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                                <label className="block font-medium">Nama Depan</label>
+>>>>>>> 8bbe4dc (First Commit)
                                 <input
                                     type="text"
                                     className="w-full p-2 border-b focus:outline-none focus:ring-b-2 focus:ring-primary"
@@ -145,10 +174,14 @@ const Contact = () => {
                             </div>
                             <div className="space-y-2">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <label className="block font-medium">Last Name</label>
 =======
                                 <label className="block font-medium">Nama Belakang</label>
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                                <label className="block font-medium">Nama Belakang</label>
+>>>>>>> 8bbe4dc (First Commit)
                                 <input
                                     type="text"
                                     className="w-full p-2 border-b focus:outline-none focus:ring-b-2 focus:ring-primary"
@@ -159,10 +192,14 @@ const Contact = () => {
 
                         <div className="space-y-2">
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <label className="block font-medium">Phone Number</label>
 =======
                             <label className="block font-medium">Nomor Handphone</label>
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                            <label className="block font-medium">Nomor Handphone</label>
+>>>>>>> 8bbe4dc (First Commit)
                             <input
                                 type="tel"
                                 className="w-full p-2 border-b focus:outline-none focus:ring-b-2 focus:ring-primary"
@@ -171,6 +208,7 @@ const Contact = () => {
                         </div>
 
                         <div className="space-y-2">
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <label className="block font-medium">Message</label>
                             <textarea
@@ -189,6 +227,8 @@ const Contact = () => {
                     </div>
                 </MotionWrapper>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
                             <label className="block font-medium">Pesan</label>
                             <textarea
                                 className="w-full p-2 border-b h-32 focus:outline-none focus:ring-b-2 focus:ring-primary"
@@ -208,7 +248,10 @@ const Contact = () => {
                 </div>
 
                 <CTASection />
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
             </div>
         </UserLayout>
     )

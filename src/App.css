@@ -5,11 +5,14 @@
 
 @theme {
 <<<<<<< HEAD
+<<<<<<< HEAD
     --color-primary: #F5FF39;
     --color-secondary: #D6FF39;
     --color-secondary-hover: #AFDD00;
     --color-stats: #16A34A;
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
     --color-primary: #FEF251;
     --color-secondary: #D6FF39;
     --color-secondary-hover: #AFDD00;
@@ -17,7 +20,10 @@
     --color-stats: #16A34A;
     --color-footer: #034833;
     --color-tosca: #ADEBC6;
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 }
 
 body {
@@ -26,17 +32,23 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .bg_home {
     clip-path: polygon(0% 0%, 25% 0%, 25% 12%, 100% 12%, 100% 100%, 0% 100%);
     border-radius: 20px;
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 .bg_home_container {
     filter: url("#goo") drop-shadow(0px -2px 0px transparent)
 }
 
 .bg_home {
     clip-path: polygon(0% 0%, 20% 0%, 25% 10%, 100% 10%, 100% 100%, 0% 100%);
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 }
 
 .dekan_img {
@@ -44,10 +56,13 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .clip-custom-shape {
     clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%);
     border-radius: 0px 20px 0px 0px;
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 .intro_container {
     filter: url("#goo") drop-shadow(0px -2px 0px transparent)
 }
@@ -114,7 +129,10 @@ body {
 
 .fklts_dtl_box {
     clip-path: polygon(60% 0%, 100% 100%, 0% 100%, 0% 0%);
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 }
 
 .dosen-card {
@@ -123,7 +141,10 @@ body {
 }  
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 .agenda_box::-webkit-scrollbar {
     display: none;
 }
@@ -142,7 +163,10 @@ body {
     color: white;
   }
 
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 @keyframes marquee {
     0% {
         transform: translateX(0%);
@@ -154,6 +178,7 @@ body {
 
 .animate-marquee {
 <<<<<<< HEAD
+<<<<<<< HEAD
     animation: marquee 20s linear infinite;
 }
 
@@ -163,6 +188,8 @@ body {
         clip-path: none; 
         border-radius: 0;
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
     animation: marquee 100s linear infinite;
     width: max-content;
     display: flex;
@@ -396,6 +423,9 @@ body {
     }
     .testi_box {
         clip-path: polygon(66% 0%, 66% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
     }
 }

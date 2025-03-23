@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import MotionWrapper from "../components/MotionWrapper";
 =======
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 import Text from "../components/Text";
 import Title from "../components/Title";
 import UserLayout from "./layouts/UserLayout";
@@ -13,11 +16,14 @@ import Button from "../components/Button";
 import FaqService from "../fetching/faq";
 import Loading from "../components/Loading";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const Faq = () => {
     const [faqs, setFaqs] = useState([]);
     const [loading, setLoading] = useState(true);
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 import CTASection from "../components/CTASection";
 import Section1 from "../assets/gedung.jpeg"
 import { Helmet } from "react-helmet-async";
@@ -25,7 +31,10 @@ import { Helmet } from "react-helmet-async";
 const Faq = () => {
     const [faqs, setFaqs] = useState([]);
     // const [loading, setLoading] = useState(true);
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
     const [openIndex, setOpenIndex] = useState(null);
     const [searchTermGeneral, setSearchTermGeneral] = useState("");
     const [searchTermBilling, setSearchTermBilling] = useState("");
@@ -37,16 +46,22 @@ const Faq = () => {
             const response = await FaqService.getAllFaqs();
             setFaqs(response.data.data);
 <<<<<<< HEAD
+<<<<<<< HEAD
             setLoading(false);
         } catch (error) {
             console.error("Error fetching FAQs:", error);
             setLoading(false);
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
             // setLoading(false);
         } catch (error) {
             console.error("Error fetching FAQs:", error);
             // setLoading(false);
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
         }
     };
 
@@ -83,6 +98,7 @@ const Faq = () => {
     };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (loading) {
         return <Loading />;
     }
@@ -97,6 +113,8 @@ const Faq = () => {
 
                 <MotionWrapper type={"zoomIn"} delay={0.2} className="flex flex-col md:flex-row justify-center items-center gap-4">
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
     // if (loading) {
     //     return <Loading />;
     // }
@@ -113,13 +131,21 @@ const Faq = () => {
                     <div className="absolute inset-0 bg-black/30 rounded-lg md:rounded-2xl lg:rounded-4xl"></div>
 
                     <div className="relative z-10">
+<<<<<<< HEAD
                         <Text text={"Bantuan"} />
                         <Title title={"Frequently Asked Questions"} />
+=======
+                        <Text text={"Bantuan"} color="text-white" />
+                        <Title title={"Frequently Asked Questions"} color="text-white" />
+>>>>>>> 8bbe4dc (First Commit)
                     </div>
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
                     <div className="w-full space-y-3 text-center md:text-left">
                         <Title title={`General FAQ's`} />
                         <Text text={"Pertanyaan-pertanyaan umum"} />
@@ -135,10 +161,14 @@ const Faq = () => {
                         {paginatedGeneralFaqs.length > 0 ? (
                             paginatedGeneralFaqs.map((faq, index) => (
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <div key={faq.id} className="w-full shadow-md rounded-lg p-4">
 =======
                                 <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                                <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
+>>>>>>> 8bbe4dc (First Commit)
                                     <button
                                         className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base"
                                         onClick={() => toggleDropdown(index)}
@@ -163,6 +193,7 @@ const Faq = () => {
                         <Pagination currentPage={currentPage} totalPages={totalPagesGeneral} setCurrentPage={setCurrentPage} />
                     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </MotionWrapper>
 
                 <MotionWrapper type={"zoomIn"} delay={0.2} className="flex flex-col md:flex-row justify-center items-center gap-4">
@@ -171,6 +202,11 @@ const Faq = () => {
 
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4">
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                </div>
+
+                <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+>>>>>>> 8bbe4dc (First Commit)
                     <div className="w-full space-y-3 text-center md:text-left">
                         <Title title={`Billing FAQ's`} />
                         <Text text={"Pertanyaan-pertanyaan mengenai pembayaran"} />
@@ -186,10 +222,14 @@ const Faq = () => {
                         {paginatedBillingFaqs.length > 0 ? (
                             paginatedBillingFaqs.map((faq, index) => (
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <div key={faq.id} className="w-full shadow-md rounded-lg p-4">
 =======
                                 <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                                <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
+>>>>>>> 8bbe4dc (First Commit)
                                     <button
                                         className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base"
                                         onClick={() => toggleDropdown(index)}
@@ -214,6 +254,7 @@ const Faq = () => {
                         <Pagination currentPage={currentPage} totalPages={totalPagesBilling} setCurrentPage={setCurrentPage} />
                     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </MotionWrapper>
 
                 <MotionWrapper type={"zoomIn"} delay={0.2} className={'bg-primary p-4 md:p-10 lg:p-12 rounded-lg shadow-md text-black space-y-3 md:space-y-4'}>
@@ -222,6 +263,11 @@ const Faq = () => {
 
                 <div className={'bg-primary p-4 md:p-10 lg:p-12 rounded-lg shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                </div>
+
+                <div className={'bg-primary p-4 md:p-10 lg:p-12 rounded-2xl shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
+>>>>>>> 8bbe4dc (First Commit)
                     <div className="space-y-2">
                         <h2 className="text-lg font-bold">Masih Punya Pertanyaan?</h2>
                         <p className="text-xs md:text-sm lg:text-base">Hubungi kami </p>
@@ -253,14 +299,20 @@ const Faq = () => {
                     <p className="mt-2 text-xs md:text-sm lg:text-base font-semibold">Jam Operasional 08:00 WIB - 16:00 WIB</p>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <Button text={'Hubungi Kami'} bgColor={'bg-green-800'} hoverColor={'hover:bg-green-900'} textColor={'text-white'} />
                 </MotionWrapper>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
                     <Button text={'Hubungi Kami'} bgColor={'bg-green-800'} hoverColor={'hover:bg-green-900'} textColor={'text-white'} hoverBgColor={'hover:border-3 hover:border-white/50'} />
                 </div>
 
                 <CTASection />
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
             </div>
         </UserLayout>
     );

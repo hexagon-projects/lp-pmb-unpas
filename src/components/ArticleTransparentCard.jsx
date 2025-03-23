@@ -1,16 +1,22 @@
 import { useNavigate } from "react-router-dom";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import ArticleTitle from "./ArticleTitle";
 
 const ArticleTransparentCard = ({ image, title, slug }) => {
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 import { motion } from "framer-motion";
 import ArticleTitle from "./ArticleTitle";
 import RichText from "./RichText";
 import { FaArrowRight } from "react-icons/fa";
 
 const ArticleTransparentCard = ({ image, title, slug, description }) => {
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
     const imageURL = import.meta.env.VITE_IMAGE_URL;
     const navigate = useNavigate();
 
@@ -20,6 +26,7 @@ const ArticleTransparentCard = ({ image, title, slug, description }) => {
 
     return (
         <div
+<<<<<<< HEAD
 <<<<<<< HEAD
             className="cursor-pointer h-full w-full flex flex-col justify-end p-4 rounded-lg bg-cover bg-center relative min-h-[200px] md:min-h-[250px] lg:min-h-[300px] 
                 transition-transform transform hover:scale-105 hover:brightness-110 duration-300 ease-in-out"
@@ -31,6 +38,8 @@ const ArticleTransparentCard = ({ image, title, slug, description }) => {
             <div className="relative z-10 text-white">
                 <ArticleTitle color="text-white break-words" title={title} />
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
             className="cursor-pointer h-full w-full flex flex-col justify-end p-4 md:p-6 rounded-lg md:rounded-2xl lg:rounded-4xl bg-cover bg-center relative min-h-[200px] md:min-h-[250px] lg:min-h-[300px] group"
             style={{ backgroundImage: `url(${imageURL}/posts/${image})` }}
             onClick={handleClick}
@@ -61,7 +70,10 @@ const ArticleTransparentCard = ({ image, title, slug, description }) => {
                         <FaArrowRight size={16} />
                     </motion.div>
                 </motion.div>
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
             </div>
         </div>
     );

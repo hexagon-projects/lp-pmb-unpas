@@ -1,5 +1,6 @@
 import UserLayout from "./layouts/UserLayout";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Section1 from "../assets/home/section2.png";
 import CTASection from "../components/CTASection";
 import MotionWrapper from "../components/MotionWrapper";
@@ -7,6 +8,10 @@ import MotionWrapper from "../components/MotionWrapper";
 import Section1 from "../assets/gedung.jpeg";
 import CTASection from "../components/CTASection";
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+import Section1 from "../assets/gedung.jpeg";
+import CTASection from "../components/CTASection";
+>>>>>>> 8bbe4dc (First Commit)
 import Title from "../components/Title";
 import GedungCard from "../components/fasilitas/GedungCard";
 import FasilitasCard from "../components/FasilitasCard";
@@ -14,10 +19,15 @@ import { useEffect, useState } from "react";
 import FasilitasService from "../fetching/fasilitas";
 import Loading from "../components/Loading";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { Helmet } from "react-helmet-async";
 import Pagination from "../components/Pagination";
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+import { Helmet } from "react-helmet-async";
+import Pagination from "../components/Pagination";
+>>>>>>> 8bbe4dc (First Commit)
 
 const gedungKampus = [
     {
@@ -44,6 +54,7 @@ const gedungKampus = [
         title: "Kampus V",
         text: "Jl. Sumatera No. 41, Bandung",
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.8257921758927!2d107.59163381511111!3d-6.904779869493546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6be24afd717%3A0x1df5f84ebfd966ab!2sJl.%20Sumatera%20No.%2041%2C%20Bandung!5e0!3m2!1sen!2sid!4v1455945979207",
+<<<<<<< HEAD
 <<<<<<< HEAD
     }
 ];
@@ -78,12 +89,18 @@ const Fasilitas = () => {
                         <div className="w-[50%]">
                             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold break-words text-gray-500">Fasilitas Pendukung</h2>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
     },
 ];
 
 const Fasilitas = () => {
     const [fasilitas, setFasilitas] = useState([]);
+<<<<<<< HEAD
     const [loading, setLoading] = useState(true);
+=======
+    // const [loading, setLoading] = useState(true);
+>>>>>>> 8bbe4dc (First Commit)
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(6);
 
@@ -91,7 +108,11 @@ const Fasilitas = () => {
         try {
             const response = await FasilitasService.getAllFasilitas();
             setFasilitas(response);
+<<<<<<< HEAD
             setLoading(false);
+=======
+            // setLoading(false);
+>>>>>>> 8bbe4dc (First Commit)
         } catch (error) {
             console.error(error);
         }
@@ -107,9 +128,15 @@ const Fasilitas = () => {
 
     const totalPages = Math.ceil(fasilitas.length / itemsPerPage);
 
+<<<<<<< HEAD
     if (loading) {
         return <Loading />;
     }
+=======
+    // if (loading) {
+    //     return <Loading />;
+    // }
+>>>>>>> 8bbe4dc (First Commit)
 
     return (
         <UserLayout
@@ -131,15 +158,23 @@ const Fasilitas = () => {
                     </div>
                     <div className="flex justify-between items-center gap-4">
                         <div className="w-[50%]">
+<<<<<<< HEAD
                             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold whitespace-none break-words text-gray-500">Fasilitas Unpas</h2>
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                         </div>
                         <div className="w-[50%]">
                             <p className="text-sm md:text-base lg:text-lg break-words">
+=======
+                            <h2 className="text-[96px] font-bold whitespace-none break-words text-gray-500">Fasilitas</h2>
+                        </div>
+                        <div className="w-[50%]">
+                            <p className="text-[24px] font-normal whitespace-none break-words">
+>>>>>>> 8bbe4dc (First Commit)
                                 Fasilitas pendukung kami dirancang untuk memberikan kenyamanan, kemudahan, dan efisiensi dalam setiap aktivitas <b>Mahasiswa</b>
                             </p>
                         </div>
                     </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div className="w-full h-42 md:h-60 lg:h-80">
                         <img src={Section1} alt="" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
@@ -172,6 +207,11 @@ const Fasilitas = () => {
                 </div>
 
                 <div className={"space-y-4 md:space-y-6 lg:space-y-10"}>
+=======
+                </div>
+
+                <div className={"space-y-4 md:space-y-6 lg:space-y-10 p-[50px]"}>
+>>>>>>> 8bbe4dc (First Commit)
                     <Title sizeMobile="text-xl" title={"Gedung Kampus"} />
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
                         {gedungKampus.map((gedung, index) => (
@@ -180,7 +220,11 @@ const Fasilitas = () => {
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div className={"space-y-4 md:space-y-6 lg:space-y-10"}>
+=======
+                <div className={"space-y-4 md:space-y-6 lg:space-y-10 p-[50px]"}>
+>>>>>>> 8bbe4dc (First Commit)
                     <Title sizeMobile="text-xl" title={"Fasilitas Unggulan"} />
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
                         {currentItems.map((item, index) => (
@@ -189,7 +233,10 @@ const Fasilitas = () => {
                     </div>
                     <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
                 </div>
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 
                 <CTASection />
             </div>

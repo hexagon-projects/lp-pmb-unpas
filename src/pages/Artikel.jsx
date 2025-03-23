@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "../components/artikel/ArticleCard";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Text from "../components/Text";
 import Title from "../components/Title";
 import UserLayout from "./layouts/UserLayout";
@@ -9,6 +10,10 @@ import bgSection from "../assets/home/section1ori.jpeg";
 import Title from "../components/Title";
 import UserLayout from "./layouts/UserLayout";
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+import Title from "../components/Title";
+import UserLayout from "./layouts/UserLayout";
+>>>>>>> 8bbe4dc (First Commit)
 import SearchInput from "../components/SearchInput";
 import Pagination from "../components/Pagination";
 import MotionWrapper from "../components/MotionWrapper";
@@ -18,17 +23,24 @@ import Loading from "../components/Loading";
 import AgendaService from "../fetching/agenda";
 import AgendaCard from "../components/artikel/AgendaCard";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { useNavigate } from "react-router-dom";
 import CTASection from "../components/CTASection";
 import { Helmet } from "react-helmet-async";
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+import { useNavigate } from "react-router-dom";
+import CTASection from "../components/CTASection";
+import { Helmet } from "react-helmet-async";
+>>>>>>> 8bbe4dc (First Commit)
 
 const Artikel = () => {
     const [berita, setBerita] = useState([]);
     const [agenda, setAgenda] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
+<<<<<<< HEAD
 <<<<<<< HEAD
     const [itemsPerPage] = useState(5);
     const [loading, setLoading] = useState(true)
@@ -67,6 +79,8 @@ const Artikel = () => {
         );
     });
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
     const itemsPerPage = 5;
     // const [loading, setLoading] = useState(true);
     const navigate = useNavigate()
@@ -91,11 +105,15 @@ const Artikel = () => {
     const filteredBerita = berita.filter(({ title, description }) =>
         [title, description].some(text => text.toLowerCase().includes(searchTerm.toLowerCase()))
     );
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredBerita.slice(indexOfFirstItem, indexOfLastItem);
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     const totalPages = Math.ceil(filteredBerita.length / itemsPerPage);
@@ -135,6 +153,8 @@ const Artikel = () => {
                         totalPages={totalPages}
                     />
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
     const totalPages = Math.ceil(filteredBerita.length / itemsPerPage);
     const latestBerita = berita[0] || null;
 
@@ -154,7 +174,11 @@ const Artikel = () => {
                     <MotionWrapper
                         type="zoomIn"
                         delay={0.2}
+<<<<<<< HEAD
                         className="w-full bg-cover h-[40vh] rounded-lg md:rounded-2xl lg:rounded-4xl"
+=======
+                        className="w-full bg-cover h-[75vh] rounded-lg md:rounded-2xl lg:rounded-4xl"
+>>>>>>> 8bbe4dc (First Commit)
                         style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imageURL}/posts/${latestBerita.image})` }}
                         onClick={() => handleClick(latestBerita.slug)}
                     >
@@ -184,6 +208,7 @@ const Artikel = () => {
                     ) : (
                         <div className="text-center text-gray-500">Belum ada artikel yang ditemukan</div>
                     )}
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
                 </div>
 
@@ -212,6 +237,18 @@ const Artikel = () => {
 
                 <CTASection />
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                </div>
+
+                {/* <div className="w-full space-y-3 md:space-y-4">
+                    <div className="w-full flex justify-between items-center">
+                        <Title sizeMobile="w-full text-base" title="Agenda" />
+                    </div>
+                    {agenda.length > 0 ? <AgendaCard data={agenda} /> : <div className="text-center text-gray-500">Belum ada agenda tersedia</div>}
+                </div> */}
+
+                <CTASection />
+>>>>>>> 8bbe4dc (First Commit)
             </div>
         </UserLayout>
     );

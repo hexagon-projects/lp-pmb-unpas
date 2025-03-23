@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Title from "../Title";
 
 const TeknikBox = ({ image, title }) => {
@@ -14,6 +15,8 @@ const TeknikBox = ({ image, title }) => {
         <h2 className="text-sm md:text-base lg:text-base font-semibold">{title}</h2>
       </div>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 import { useNavigate } from "react-router-dom";
 
 const TeknikBox = ({ image, title, slug }) => {
@@ -36,7 +39,10 @@ const TeknikBox = ({ image, title, slug }) => {
         </div>
       {/* <div className="lg:max-w-4xl flex items-center gap-4 md:gap-6 lg:gap-8">
       </div> */}
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
     </div>
   );
 };

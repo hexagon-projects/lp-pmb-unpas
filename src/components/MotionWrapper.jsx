@@ -60,6 +60,7 @@ const animations = {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const MotionWrapper = ({ children, type = "fadeInUp", delay = 0, duration = 0.6, once = true, amount = 0.3, className, style }) => {
     return (
         <motion.section
@@ -68,6 +69,11 @@ const MotionWrapper = ({ children, type, delay = 0, duration = 0.6, once = false
     return (
         <motion.div
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+const MotionWrapper = ({ children, type, delay = 0, duration = 0.6, once = false, amount = 0.3, className, style, onClick }) => {
+    return (
+        <motion.div
+>>>>>>> 8bbe4dc (First Commit)
             initial="hidden"
             whileInView="visible"
             viewport={{ once, amount }}
@@ -76,15 +82,21 @@ const MotionWrapper = ({ children, type, delay = 0, duration = 0.6, once = false
             style={style}
             className={className}
 <<<<<<< HEAD
+<<<<<<< HEAD
         >
             {children}
         </motion.section>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
             onClick={onClick}
         >
             {children}
         </motion.div>
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
     );
 };
 

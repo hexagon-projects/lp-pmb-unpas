@@ -1,31 +1,42 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import MotionWrapper from "./MotionWrapper";
 import Title from "./Title";
 import { useEffect, useState } from "react";
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 import RichText from "./RichText";
 import Title from "./Title";
 import Text from "./Text";
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 
 const ActivitySection = ({ title, activities }) => {
     const [selectedActivity, setSelectedActivity] = useState(null);
 
     useEffect(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (activities && activities.length > 0) {
 =======
         if (activities?.length > 0) {
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+        if (activities?.length > 0) {
+>>>>>>> 8bbe4dc (First Commit)
             setSelectedActivity(activities[0]);
         }
     }, [activities]);
 
     const imageURL = import.meta.env.VITE_IMAGE_URL;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     return (
         <MotionWrapper type={'zoomIn'} delay={0.2}>
@@ -59,6 +70,8 @@ const ActivitySection = ({ title, activities }) => {
             </div>
         </MotionWrapper>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
     const handleRegisterClick = () => {
         if (selectedActivity?.register_link) {
             window.open(selectedActivity.register_link, "_blank");
@@ -136,7 +149,10 @@ const ActivitySection = ({ title, activities }) => {
                 )}
             </div>
         </div>
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
     );
 };
 

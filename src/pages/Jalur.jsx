@@ -1,5 +1,6 @@
 import UserLayout from "./layouts/UserLayout";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Section1 from "../assets/jalur/section1.png";
 import JalurCard from "../components/JalurCard";
 import { TfiAnnouncement } from "react-icons/tfi";
@@ -9,16 +10,24 @@ import Section1 from "../assets/gedung.jpeg"
 import JalurCard from "../components/JalurCard";
 import { TfiAnnouncement } from "react-icons/tfi";
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+import Section1 from "../assets/gedung.jpeg"
+import JalurCard from "../components/JalurCard";
+import { TfiAnnouncement } from "react-icons/tfi";
+>>>>>>> 8bbe4dc (First Commit)
 import CTASection from "../components/CTASection";
 import { useEffect, useState } from "react";
 import RegistrasiService from "../fetching/registration";
 import Loading from "../components/Loading";
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 const Jalur = () => {
     const [jalur, setJalur] = useState([])
     const [loading, setLoading] = useState(true)
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
 import Button from "../components/Button";
 import LogoText from "../components/LogoText";
 import RichText from "../components/RichText";
@@ -43,16 +52,23 @@ const Jalur = () => {
         setIsOpen(false);
         setSelectedJalur(null);
     };
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 
     const fetchJalur = async () => {
         try {
             const response = await RegistrasiService.getAllRegistrasi()
 <<<<<<< HEAD
+<<<<<<< HEAD
             setLoading(false)
 =======
             // setLoading(false)
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+            // setLoading(false)
+>>>>>>> 8bbe4dc (First Commit)
             setJalur(response)
         } catch (error) {
             console.error(error)
@@ -63,6 +79,7 @@ const Jalur = () => {
         fetchJalur()
     }, [])
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (loading) {
         return <Loading />
@@ -87,6 +104,8 @@ const Jalur = () => {
 
                 <MotionWrapper type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10'}>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
     // if (loading) {
     //     return <Loading />
     // }
@@ -120,6 +139,7 @@ const Jalur = () => {
                             </filter>
                         </defs>
                     </svg>
+<<<<<<< HEAD
                     <div className="w-fit flex flex-row md:flex-col justify-center md:justify-start items-center md:items-start gap-2 md:gap-4 lg:gap-6">
                         <h2 className="text-4xl md:text-6xl lg:text-9xl font-bold">{jalur.length}</h2>
                         <div className="space-y-1 md:space-y-2 lg:space-y-4">
@@ -128,6 +148,16 @@ const Jalur = () => {
                                 Universitas Pasundan.
                             </h2>
                             <div className="hidden md:flex">
+=======
+                    <div className="w-fit flex flex-row md:flex-col justify-center md:justify-start items-center md:items-start">
+                        <h2 className="text-[96px] font-bold">{jalur.length}</h2>
+                        <div className="">
+                            <h3 className="text-[26px] font-semibold text-gray-800">Jalur Masuk</h3>
+                            <h2 className="text-[64px] font-bold text-text">
+                                Universitas Pasundan.
+                            </h2>
+                            <div className="hidden md:flex pt-4">
+>>>>>>> 8bbe4dc (First Commit)
                                 <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} />
                             </div>
                         </div>
@@ -137,8 +167,12 @@ const Jalur = () => {
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6'}>
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+                <div type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 '}>
+>>>>>>> 8bbe4dc (First Commit)
                     {jalur.map((item, index) => (
                         <JalurCard
                             key={index}
@@ -149,6 +183,7 @@ const Jalur = () => {
                             startDate={item.start_date}
                             endDate={item.end_date}
 <<<<<<< HEAD
+<<<<<<< HEAD
                         />
                     ))}
                 </MotionWrapper>
@@ -157,6 +192,8 @@ const Jalur = () => {
 
                 </MotionWrapper>
 =======
+=======
+>>>>>>> 8bbe4dc (First Commit)
                             onClick={(e) => handleOpenModal(e, item)}
                         />
                     ))}
@@ -182,7 +219,10 @@ const Jalur = () => {
                 {/* <div type="zoomOut" delay={0.2} className={'w-full h-[50vh] bg-gray-200  rounded-md'}>
 
                 </div> */}
+<<<<<<< HEAD
 >>>>>>> 1d241ff (ADD: transition close modal, loading fakultas; FIX: navbar;)
+=======
+>>>>>>> 8bbe4dc (First Commit)
 
                 <CTASection />
             </div>
