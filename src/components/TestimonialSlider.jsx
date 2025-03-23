@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 import CustomPagination from "./CustomPagination";
 import TestimonialCard from "./testimoni/TestimonialCard";
 
@@ -8,7 +9,26 @@ const TestimonialSlider = ({ data, bgColor, textColor, cssBox, cssContainer, ico
     const [activeIndex, setActiveIndex] = useState(0);
     const [swiperInstance, setSwiperInstance] = useState(null);
     const [visibleSlides, setVisibleSlides] = useState(1);
+    const [displayedText, setDisplayedText] = useState("");
     const swiperRef = useRef(null);
+    const fullText = data[activeIndex]?.testimonial || "";
+
+    // Efek mengetik saat slide berubah
+    useEffect(() => {
+        let index = 0;
+        setDisplayedText(""); // Reset teks saat slide berubah
+
+        const typingEffect = setInterval(() => {
+            if (index < fullText.length) {
+                setDisplayedText((prev) => prev + fullText[index]);
+                index++;
+            } else {
+                clearInterval(typingEffect);
+            }
+        }, 30); // Kecepatan mengetik
+
+        return () => clearInterval(typingEffect);
+    }, [activeIndex]);
 
     const handlePaginationClick = (index) => {
         if (swiperInstance) {
@@ -17,9 +37,8 @@ const TestimonialSlider = ({ data, bgColor, textColor, cssBox, cssContainer, ico
     };
 
     const calculateVisibleSlides = () => {
-        if (swiperInstance && swiperInstance.params) {
-            const currentSlidesPerView = swiperInstance.params.slidesPerView;
-            const roundedSlidesPerView = Math.floor(currentSlidesPerView);
+        if (swiperInstance?.params) {
+            const roundedSlidesPerView = Math.floor(swiperInstance.params.slidesPerView);
             setVisibleSlides(roundedSlidesPerView);
         }
     };
@@ -31,9 +50,7 @@ const TestimonialSlider = ({ data, bgColor, textColor, cssBox, cssContainer, ico
         }
 
         return () => {
-            if (swiperInstance) {
-                swiperInstance.off("slidesPerViewChange", calculateVisibleSlides);
-            }
+            swiperInstance?.off("slidesPerViewChange", calculateVisibleSlides);
         };
     }, [swiperInstance]);
 
@@ -56,9 +73,26 @@ const TestimonialSlider = ({ data, bgColor, textColor, cssBox, cssContainer, ico
                 }}
                 ref={swiperRef}
             >
-                {data.map((testimonial) => (
+                {data.map((testimonial, index) => (
                     <SwiperSlide key={testimonial.id} className="w-full px-2 md:px-3 lg:px-4 pb-5">
-                        <TestimonialCard {...testimonial} bgColor={bgColor} textColor={textColor} lineclamp={'line-clamp-3'} titleLineClamp={'line-clamp-2'} height="h-[30vh] md:h-[28vh] lg:h-[32vh]" justify="justify-evenly"/>
+                        <motion.div
+                            key={testimonial.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }} // Geser ke atas saat menghilang
+                            transition={{ duration: 0.5 }}
+                        >
+                            <TestimonialCard 
+                                {...testimonial} 
+                                bgColor={bgColor} 
+                                textColor={textColor} 
+                                lineclamp={'line-clamp-3'} 
+                                titleLineClamp={'line-clamp-2'} 
+                                height="h-[30vh] md:h-[28vh] lg:h-[32vh]" 
+                                justify="justify-evenly"
+                                textContent={activeIndex === index ? displayedText : ""}
+                            />
+                        </motion.div>
                     </SwiperSlide>
                 ))}
             </Swiper>
