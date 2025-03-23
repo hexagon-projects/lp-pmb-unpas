@@ -81,7 +81,7 @@ const Navbar = ({ position = "absolute top-0 left-0", bgColor = 'bg-transparent'
                         <Link
                             key={index}
                             to={item.path}
-                            className={`relative font-medium text-center text-black/80 p-4 text-xs md:text-sm lg:text-sm transition duration-500 ease-in-out hover:bg-navbar-active hover:text-black/80 rounded-lg md:rounded-xl lg:rounded-2xl ${location.pathname === item.path ? " bg-navbar-active text-black/80 border border-white" : "text-gray-700/50 border-2 border-transparent"
+                            className={`relative font-medium text-center text-black/80 p-4 text-xs md:text-sm lg:text-sm transition duration-500 ease-in-out hover:bg-navbar-active hover:text-black/80 rounded-lg md:rounded-xl lg:rounded-2xl ${location.pathname === item.path ? " bg-navbar-active text-black/80" : "text-gray-700/50 border-2 border-transparent"
                                 }`}
                         >
                             {item.name}

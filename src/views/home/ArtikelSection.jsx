@@ -4,6 +4,7 @@ import Text from "../../components/Text"
 import Title from "../../components/Title"
 
 const ArtikelSection = ({ data }) => {
+    console.log(data)
     return (
         <div className="w-full flex justify-center items-center">
             <div className={'w-full flex flex-col gap-4 md:gap-6 lg:gap-8 p-4 md:px-10 lg:px-12'}>
