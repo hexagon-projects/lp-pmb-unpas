@@ -22,9 +22,9 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
         let index = 0;
         setTypedText(""); // Reset teks sebelum mengetik ulang
         
-        const text = data[activeIndex].description;
+        const text = data[activeIndex]?.description;
     // Pastikan text adalah string
-    const content = text.toString();
+    const content = text?.toString() || '';
     
     const typingEffect = setInterval(() => {
         if (index < content.length) {
