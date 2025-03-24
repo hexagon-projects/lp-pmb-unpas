@@ -7,7 +7,7 @@ const CTASection = () => {
             <div className="w-[90%] md:w-[70%] lg:max-w-4xl">
                 <CTABox
                     subtitle={"Penerimaan Mahasiswa Baru"}
-                    title={"Pilihan Pasti Untuk Setiap Generasi!"}
+                    title={"Pilih Passionmu, Raih Pendidikan Kelas Dunia!"}
                     subtitle2={'Jangan Lewatkan Kesempatan, Daftar UNPAS Sekarang!'}
                     textButton={"Daftar Sekarang"}
                 />
