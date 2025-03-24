@@ -29,6 +29,7 @@ const VideoSwiper = ({ data }) => {
             <Swiper
                 slidesPerView={1.5}
                 spaceBetween={-50}
+                // spaceBetween={-40}
                 centeredSlides={true}
                 lazy={{ loadPrevNext: true }}
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -58,6 +59,7 @@ const VideoSwiper = ({ data }) => {
                         <SwiperSlide key={video.id} className="w-full flex justify-center items-center">
                             <div
                                 className={`w-full relative space-y-4 p-4 h-fit rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out cursor-pointer ${index === activeIndex ? "w-[100%] scale-100" : "scale-80"
+                                // className={`w-full relative space-y-4 p-4 h-fit rounded-lg md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out cursor-pointer ${index === activeIndex ? "w-[100%] scale-100" : "scale-80"
                                     }`}
                                 onClick={() => setPlayingVideo(video.url)}
                             >
@@ -67,6 +69,9 @@ const VideoSwiper = ({ data }) => {
                                     className="w-full h-[300px] md:h-[40vh] lg:h-[60vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]"
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center rounded-xl md:rounded-2xl lg:rounded-4xl">
+                                    {/* className="w-full h-[300px] md:h-[40vh] lg:h-[60vh] object-cover rounded-lg md:rounded-2xl lg:rounded-4xl shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]"
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center rounded-lg md:rounded-2xl lg:rounded-4xl"> */}
                                     <FaPlay className="text-white text-4xl" />
                                 </div>
                             </div>
@@ -100,6 +105,7 @@ const VideoSwiper = ({ data }) => {
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             className="rounded-xl md:rounded-2xl lg:rounded-4xl"
+                            // className="rounded-lg md:rounded-2xl lg:rounded-4xl"
                         ></iframe>
                     </div>
                 </div>

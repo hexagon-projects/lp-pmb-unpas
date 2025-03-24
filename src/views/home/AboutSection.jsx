@@ -12,9 +12,11 @@ const AboutSection = ({ data }) => {
 
     return (
         <div className="w-full flex justify-center items-center">
-            <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] flex flex-col lg:flex-row-reverse justify-center items-start md:items-center gap-4 md:gap-6 lg:gap-10 md:mt-20 lg:mt-30 p-4 md:py-10 lg:py-12">
+            {/* Dibawah ini adalah kode yang sebelumnya */}
+            {/* <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] flex flex-col md:flex-row-reverse justify-center items-start md:items-center gap-4 md:gap-6 lg:gap-10 md:mt-20 lg:mt-30 p-4"> */}
+            <div className="w-full px-[105px] gap-[32px] flex flex-col md:flex-row-reverse justify-center items-start md:items-center pt-[96px]"> 
                 <div
-                    className="w-full lg:w-[50%] h-56 md:h-[30vh] lg:h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl intro_container relative cursor-pointer group"
+                    className="w-full lg:w-[80%] h-56 md:h-64 lg:h-96 rounded-xl md:rounded-2xl lg:rounded-4xl intro_container relative cursor-pointer group"
                     onClick={() => setPlayingVideo(data.about.video)}
                 >
                     <img
@@ -26,6 +28,7 @@ const AboutSection = ({ data }) => {
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl intro_img"></div>
                     <motion.div
                         className="absolute inset-0 flex items-center justify-center rounded-xl md:rounded-2xl lg:rounded-4xl"
+                        // className="absolute inset-0 flex items-center justify-center rounded-lg md:rounded-2xl lg:rounded-4xl"
                         whileTap={{ scale: 0.9 }}
                     >
                         <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
@@ -54,6 +57,7 @@ const AboutSection = ({ data }) => {
                 >
                     <motion.div
                         className="relative w-[90%] md:w-[70%] lg:w-[50%] border-2 border-white rounded-xl md:rounded-2xl lg:rounded-4xl"
+                        // className="relative w-[90%] md:w-[70%] lg:w-[50%] border-2 border-white rounded-lg md:rounded-2xl lg:rounded-4xl"
                         initial={{ scale: 0.8 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 0.3 }}
@@ -73,6 +77,7 @@ const AboutSection = ({ data }) => {
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             className="rounded-xl md:rounded-2xl lg:rounded-4xl"
+                            // className="rounded-lg md:rounded-2xl lg:rounded-4xl"
                         ></iframe>
                     </motion.div>
                 </motion.div>

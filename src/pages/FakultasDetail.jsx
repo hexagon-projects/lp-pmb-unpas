@@ -26,7 +26,7 @@ import AgendaService from "../fetching/agenda";
 
 import Gedung from "../assets/gedung.jpeg"
 import MitraSection from "../views/home/MitraSection";
-import bgSection from '../assets/home/section1ori.jpeg';
+// import bgSection from '../assets/home/section1ori.jpeg';
 import StatsSection from "../components/StatsSection";
 
 const FakultasDetail = () => {
@@ -68,6 +68,7 @@ const FakultasDetail = () => {
 
     useEffect(() => {
         fetchData();
+        console.log(fakultas)
     }, [fetchData]);
 
     const latestBerita = berita.slice(0, 4);
@@ -78,6 +79,7 @@ const FakultasDetail = () => {
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'} >
+        {/* <UserLayout bgLayoutColor="bg-gray-100" position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'} > */}
             <Helmet>
                 <title>{fakultas.name || 'Loading...'} - Universitas Pasundan</title>
                 <meta
@@ -102,6 +104,7 @@ const FakultasDetail = () => {
                     <div className="w-full fakultas_dtl_container">
                         <div
                             className={`flex flex-col justify-center bg-cover bg-no-repeat rounded-xl md:rounded-2xl lg:rounded-4xl py-8 px-4 md:px-8 lg:px-12 relative overflow-hidden fakultas_dtl_box lg:h-[55vh]`}
+                            // className={`flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 md:px-8 lg:px-12 relative overflow-hidden fakultas_dtl_box lg:h-[55vh]`}
                             style={{ backgroundImage: `url(${fakultas.image1 ? `${imageURL}/fakultas/${fakultas.image1}` : Gedung})` }}
                         >
                             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-primary/40 to-transparent"></div>
@@ -145,6 +148,7 @@ const FakultasDetail = () => {
                             <Title title={'FISIP UNPAS .'} color="text-blue-500" /> */}
                         </div>
                         <div className="w-full flex flex-col md:flex-row justify-center items-center gap-4 bg-white md:max-w-3xl lg:max-w-6xl rounded-xl md:rounded-2xl lg:rounded-4xl">
+                        {/* <div className="w-full flex flex-col md:flex-row justify-center items-center gap-4 bg-white md:max-w-3xl lg:max-w-6xl rounded-lg md:rounded-2xl lg:rounded-4xl"> */}
                             <div className="w-full md:w-1/2 h-[50vh] p-2 dekan_container">
                                 <img src={`${imageURL}/fakultas/${fakultas.image2}`} alt={fakultas.title2} className="w-full h-full object-cover dekan_img" loading="lazy" />
                                 <svg style={{ visibility: "hidden", position: "absolute" }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -157,6 +161,7 @@ const FakultasDetail = () => {
                                 </svg>
                             </div>
                             <div className="w-fit md:w-1/2 flex flex-col justify-between text-start p-4 gap-10 rounded-xl md:rounded-2xl lg:rounded-4xl bg-white">
+                            {/* <div className="w-fit md:w-1/2 flex flex-col justify-between text-start p-4 gap-10 rounded-lg md:rounded-2xl lg:rounded-4xl bg-white"> */}
                                 <RichText content={fakultas.description2} />
                                 <div className="text-start">
                                     <Text weight={'font-bold'} text={fakultas.title2} />
@@ -198,11 +203,13 @@ const FakultasDetail = () => {
 
                         <div className="flex flex-col md:flex-row justify-center items-center gap-4 max-h-fit">
                             <div className="w-full flex flex-wrap md:flex-col gap-4 bg-gray-200 p-4 rounded-xl md:rounded-2xl lg:rounded-4xl">
+                            {/* <div className="w-full flex flex-wrap md:flex-col gap-4 bg-gray-200 p-4 rounded-lg md:rounded-2xl lg:rounded-4xl"> */}
                                 <a
                                     href={`https://www.facebook.com/${fakultas.fb}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-full flex gap-2 items-center text-center md:text-left bg-white p-4 rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer hover:bg-blue-500 hover:text-white"
+                                    // className="w-full flex gap-2 items-center text-center md:text-left bg-white p-4 rounded-lg md:rounded-2xl lg:rounded-4xl cursor-pointer hover:bg-blue-500 hover:text-white"
                                 >
                                     <FaFacebook size={20} />
                                     <Text color="hover:text-white" sizeMobile="text-sm" text={'Facebook'} />
@@ -212,6 +219,7 @@ const FakultasDetail = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-full flex gap-2 items-center text-center md:text-left bg-white p-4 rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer hover:bg-blue-500 hover:text-white"
+                                    // className="w-full flex gap-2 items-center text-center md:text-left bg-white p-4 rounded-lg md:rounded-2xl lg:rounded-4xl cursor-pointer hover:bg-blue-500 hover:text-white"
                                 >
                                     <FaTiktok size={20} />
                                     <Text color="hover:text-white" sizeMobile="text-sm" text={'Tiktok'} />
@@ -221,6 +229,7 @@ const FakultasDetail = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-full flex gap-2 items-center text-center md:text-left bg-white p-4 rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer hover:bg-blue-500 hover:text-white"
+                                    // className="w-full flex gap-2 items-center text-center md:text-left bg-white p-4 rounded-lg md:rounded-2xl lg:rounded-4xl cursor-pointer hover:bg-blue-500 hover:text-white"
                                 >
                                     <FaInstagram size={20} />
                                     <Text color="hover:text-white" sizeMobile="text-sm" text={'Instagram'} />
@@ -230,6 +239,7 @@ const FakultasDetail = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-full flex gap-2 items-center text-center md:text-left bg-white p-4 rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer hover:bg-blue-500 hover:text-white"
+                                    // className="w-full flex gap-2 items-center text-center md:text-left bg-white p-4 rounded-lg md:rounded-2xl lg:rounded-4xl cursor-pointer hover:bg-blue-500 hover:text-white"
                                 >
                                     <FaYoutube size={20} />
                                     <Text color="hover:text-white" sizeMobile="text-sm" text={'Youtube'} />
@@ -242,6 +252,7 @@ const FakultasDetail = () => {
                                     onClick={() => setPlayingVideo(`https://www.youtube.com/embed/${fakultas.yt_id}`)}
                                 >
                                     <img src={thumbnail} alt="Kisah Alumni" className="w-full rounded-xl md:rounded-2xl lg:rounded-4xl" />
+                                    {/* <img src={thumbnail} alt="Kisah Alumni" className="w-full rounded-lg md:rounded-2xl lg:rounded-4xl" /> */}
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <FaPlay className="text-white text-4xl" />
                                     </div>

@@ -92,25 +92,41 @@ const Fasilitas = () => {
                         </div>
                         <div className="w-[50%]">
                             <p className="text-sm md:text-base lg:text-lg break-words">
+                        {/* <img src={Section1} alt="" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
+                    </div>
+                    <div className="flex justify-between items-center gap-4">
+                        <div className="w-[50%]">
+                            <h2 className="text-[96px] font-bold whitespace-none break-words text-gray-500">Fasilitas</h2>
+                        </div>
+                        <div className="w-[50%]">
+                            <p className="text-[24px] font-normal whitespace-none break-words"> */}
                                 Fasilitas pendukung kami dirancang untuk memberikan kenyamanan, kemudahan, dan efisiensi dalam setiap aktivitas <b>Mahasiswa</b>
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div className={"space-y-4 md:space-y-6 lg:space-y-10"}>
+                <div className={"space-y-4 md:space-y-6 lg:space-y-10 p-[50px]"}>
                     <Title sizeMobile="text-xl" title={"Gedung Kampus"} />
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
                         {gedungKampus?.map((gedung, index) => (
+                // <div className={"space-y-4 md:space-y-6 lg:space-y-10 p-[50px]"}>
+                //     <Title sizeMobile="text-xl" title={"Gedung Kampus"} />
+                //     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
+                //         {gedungKampus.map((gedung, index) => (
                             <GedungCard key={index} title={gedung.title} text={gedung.text} mapUrl={gedung.mapUrl} />
                         ))}
                     </div>
                 </div>
 
-                <div className={"space-y-4 md:space-y-6 lg:space-y-10"}>
+                <div className={"space-y-4 md:space-y-6 lg:space-y-10 p-[50px]"}>
                     <Title sizeMobile="text-xl" title={"Fasilitas Unggulan"} />
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
                         {currentItems?.map((item, index) => (
+                // <div className={"space-y-4 md:space-y-6 lg:space-y-10 p-[50px]"}>
+                //     <Title sizeMobile="text-xl" title={"Fasilitas Unggulan"} />
+                //     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
+                //         {currentItems.map((item, index) => (
                             <FasilitasCard key={index} image={item.image} title={item.title} description={item.description} />
                         ))}
                     </div>

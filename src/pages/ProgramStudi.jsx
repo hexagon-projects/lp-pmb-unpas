@@ -86,11 +86,13 @@ const ProgramStudi = () => {
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'}>
+        {/* <UserLayout bgLayoutColor="bg-gray-100" position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'}> */}
             <div className="p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20">
                 <div className={'w-full flex justify-around items-center'}>
                     <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] flex flex-col lg:flex-row-reverse justify-center items-center gap-4 md:gap-6 lg:gap-10'}>
                         <div className="w-full lg:w-1/2">
                             <img src={`${imageURL}/programs/${fakultas.image1}`} alt="" className="w-full lg:h-[80vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl" loading="lazy" />
+                            {/* <img src={`${imageURL}/programs/${fakultas.image1}`} alt="" className="w-full lg:h-[80vh] object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" loading="lazy" /> */}
                         </div>
                         <div className="w-full lg:w-1/2 space-y-3 md:space-y-4 flex flex-col justify-center items-center text-center md:items-start md:text-left">
                             <Title title={`Selamat Datang di Program Studi ${fakultas.name}`} />
@@ -108,6 +110,7 @@ const ProgramStudi = () => {
                             <button
                                 onClick={() => setIsOpen(true)}
                                 className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer"
+                                // className="relative w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer"
                             >
                                 <img
                                     src={`https://img.youtube.com/vi/${fakultas.id_yt}/hqdefault.jpg`}
@@ -189,6 +192,7 @@ const ProgramStudi = () => {
                         <div className="w-full flex justify-center gap-4 md:gap-6 lg:gap-10">
                             <div className="w-1/2">
                                 <img src={bgSection} alt="" loading="lazy" className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl" />
+                                {/* <img src={bgSection} alt="" loading="lazy" className="w-full h-full rounded-lg md:rounded-2xl lg:rounded-4xl" /> */}
                             </div>
                             <div className="w-1/2">
                                 <div className="text-left">
@@ -250,6 +254,7 @@ const ProgramStudi = () => {
 
                 <div className={'space-y-3 md:space-y-4'}>
                     <div className="w-full flex justify-center items-center gap-4 p-4 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl">
+                    {/* <div className="w-full flex justify-center items-center gap-4 p-4 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg md:rounded-2xl lg:rounded-4xl"> */}
                         <div className="w-1/2 text-left space-y-3 md:space-y-4">
                             <Text text={'Penerimaan Mahasiswa Baru'} color="text-red-500" />
                             <Title sizeMobile="text-base" title={'Pilih Passionmu, Raih Pendidikan Kelas Dunia! Jangan Lewatkan Kesempatan, Daftar di UNPAS Sekarang!'} />
@@ -257,6 +262,7 @@ const ProgramStudi = () => {
                         </div>
                         <div className="w-1/2 h-full bg-gray-200">
                             <img src={bgSection} alt="" loading="lazy" className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl" />
+                            {/* <img src={bgSection} alt="" loading="lazy" className="w-full h-full rounded-lg md:rounded-2xl lg:rounded-4xl" /> */}
                         </div>
                     </div>
                 </div>
@@ -264,6 +270,7 @@ const ProgramStudi = () => {
                 {isOpen && (
                     <div className="fixed inset-0 flex justify-center items-center bg-black/80 z-50" onClick={() => setIsOpen(false)}>
                         <div className="relative p-4 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-lg w-[90%] md:w-[70%] lg:w-[50%]">
+                        {/* <div className="relative p-4 rounded-lg md:rounded-2xl lg:rounded-4xl shadow-lg w-[90%] md:w-[70%] lg:w-[50%]"> */}
                             <button
                                 onClick={() => setIsOpen(false)}
                                 className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full cursor-pointer hover:bg-red-700"
@@ -273,6 +280,7 @@ const ProgramStudi = () => {
 
                             <iframe
                                 className="w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl"
+                                // className="w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl"
                                 src={`https://www.youtube.com/embed/${fakultas.id_yt}`}
                                 title="Kisah Alumni"
                                 frameBorder="0"

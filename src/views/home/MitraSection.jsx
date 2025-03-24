@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import MitraCarousel from "../../components/MitraCarousel";
-import Title from "../../components/Title";
 import Text from "../../components/Text";
+import Title from "../../components/Title";
+// import SelengkapnyaButton from "../../components/SelengkapnyaButton";
 
 const MitraSection = ({ data }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,6 +12,10 @@ const MitraSection = ({ data }) => {
         setSelectedMitra(mitra);
         setIsModalOpen(true);
     };
+
+    // const handleSelengkapnyaClick = () => {
+    //     setIsModalOpen(true);
+    // };
 
     const closeModal = () => {
         setIsModalOpen(false);

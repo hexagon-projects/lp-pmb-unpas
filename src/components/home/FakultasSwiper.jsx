@@ -36,6 +36,7 @@ const FakultasSwiper = ({ faculties }) => {
             >
                 {faculties.map((faculty, index) => (
                     <SwiperSlide key={index} className="w-full flex justify-start items-start pb-5 lg:pb-0">
+                    {/* <SwiperSlide key={index} className="w-full flex justify-start items-start pb-10 md:pb-0"> */}
                         <div
                             ref={(el) => (slideRefs.current[index] = el)}
                             className={`grid grid-rows-[auto_1fr] space-y-4 p-4 rounded-2xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out ${index === activeIndex

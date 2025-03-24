@@ -83,6 +83,13 @@ const Fakultas = () => {
                             <div className="text-gray-800 py-14">
                                 <h2 className="text-5xl md:text-8xl lg:text-9xl font-bold">7 Pilihan</h2>
                                 <h3 className="text-3xl md:text-6xl lg:text-7xl font-bold">Fakultas Terakreditasi</h3>
+                        {/* <div className="flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 bg-primary relative overflow-hidden fakultas_box lg:h-[55vh]">
+                            <div className="absolute -top-0 -right-2/3 w-full h-full flex items-center  opacity-50">
+                                <img src={Logo} alt={"Logo Outline Unpas"} loading="lazy" className="h-[50vh]" />
+                            </div>
+                            <div className="text-gray-800 py-14 pl-[88px]">
+                                <h2 className="text-[68px] font-bold font-sora">7 Pilihan</h2>
+                                <h3 className="text-[38px] font-bold font-sora">Fakultas Terakreditasi</h3> */}
                             </div>
                             <div className="absolute top-4 left-4">
                                 <LogoText titleColor={"text-black"} />
@@ -101,39 +108,63 @@ const Fakultas = () => {
                     </div>
                 ) : (
                     <>
-                        <MotionWrapper delay={0.2} className={"w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"}>
+                        {/* <MotionWrapper delay={0.2} className={"w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"}> */}
+                        <MotionWrapper delay={0.2} className={"w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-[50px]"}>
                             {fakultas.map((item) => (
                                 <FakultasCard key={item.id} image={item.image1} title={item.name} slug={item.slug} />
                             ))}
                         </MotionWrapper>
 
-                        <div className={"w-full space-y-4 md:space-y-6 lg:space-y-12"}>
+                        {/* <div className={"w-full space-y-4 md:space-y-6 lg:space-y-12"}> */}
+                        <div className={"w-full space-y-4 md:space-y-6 lg:space-y-12 px-[50px]"}>
                             <div className="flex justify-between items-center gap-4">
                                 <Title title={"Program Studi"} />
                                 <SearchInput placeholder="Cari program studi..." searchTerm={search} setSearchTerm={setSearch} />
                             </div>
 
                             {paginatedProdi.length > 0 ? (
-                                <table className="w-full border-collapse text-xs md:text-sm">
-                                    <thead>
-                                        <tr className="bg-gray-200">
-                                            <th className="px-4 py-3 text-left">No</th>
-                                            <th className="px-4 py-3 text-left">Program Studi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {paginatedProdi.map((item, index) => (
-                                            <tr
-                                                key={item.id}
-                                                className="hover:bg-gray-100 transition-all duration-500 cursor-pointer"
-                                                onClick={() => handleClick(item)}
-                                            >
-                                                <td className="px-4 py-3">{(currentPage - 1) * itemsPerPage + index + 1}</td>
-                                                <td className="px-4 py-3">{item.name}</td>
+                                // <table className="w-full border-collapse text-xs md:text-sm">
+                                //     <thead>
+                                //         <tr className="bg-gray-200">
+                                //             <th className="px-4 py-3 text-left">No</th>
+                                //             <th className="px-4 py-3 text-left">Program Studi</th>
+                                //         </tr>
+                                //     </thead>
+                                //     <tbody>
+                                //         {paginatedProdi.map((item, index) => (
+                                //             <tr
+                                //                 key={item.id}
+                                //                 className="hover:bg-gray-100 transition-all duration-500 cursor-pointer"
+                                //                 onClick={() => handleClick(item)}
+                                //             >
+                                //                 <td className="px-4 py-3">{(currentPage - 1) * itemsPerPage + index + 1}</td>
+                                //                 <td className="px-4 py-3">{item.name}</td>
+                                //             </tr>
+                                //         ))}
+                                //     </tbody>
+                                // </table>
+                                <div className="rounded-2xl overflow-hidden border border-gray-300">
+                                    <table className="w-full border-collapse text-xs md:text-sm">
+                                        <thead>
+                                            <tr className="bg-gray-200">
+                                                <th className="px-4 py-3 text-left">No</th>
+                                                <th className="px-4 py-3 text-left">Program Studi</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            {paginatedProdi.map((item, index) => (
+                                                <tr
+                                                    key={item.id}
+                                                    className="hover:bg-gray-100 transition-all duration-500 cursor-pointer border-b border-gray-300"
+                                                    onClick={() => handleClick(item)}
+                                                >
+                                                    <td className="px-4 py-3">{(currentPage - 1) * itemsPerPage + index + 1}</td>
+                                                    <td className="px-4 py-3">{item.name}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             ) : (
                                 <p className="text-gray-500 text-center mt-4">Program studi tidak ditemukan</p>
                             )}

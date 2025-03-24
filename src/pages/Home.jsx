@@ -6,6 +6,7 @@ import CTASection from "../components/CTASection";
 import VideoSwiper from "../components/home/VideoSwiper";
 import { Helmet } from "react-helmet-async";
 // import Loading from "../components/Loading";
+import Loading from "../components/Loading";
 import { fetchAllData } from "../utils/fetchAllData";
 import InfoBox from "../components/home/InfoBox";
 import HeroSection from "../views/home/HeroSection";

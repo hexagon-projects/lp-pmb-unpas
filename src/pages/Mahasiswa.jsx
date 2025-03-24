@@ -46,6 +46,7 @@ const Mahasiswa = () => {
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}>
+        {/* <UserLayout bgLayoutColor="bg-gray-100" position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}> */}
             <Helmet>
                 <title>Mahasiswa & Alumni - Universitas Pasundan</title>
             </Helmet>
@@ -66,20 +67,38 @@ const Mahasiswa = () => {
                     <Title title={'Aktivitas Mahasiswa'} />
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                         {ukm?.map((ukm) => (
+                //             <img src={Section1} alt="" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
+                //         </div>
+                //         <div className="w-[70%] h-full">
+                //             <img src={Section2} alt="" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
+                //         </div>
+                //     </div>
+                //     <h1 className="text-[66px] font-bold text-left text-gray-500 font-sora">Mahasiswa & Alumni</h1>
+                // </div>
+
+                // <div className={'space-y-4 md:space-y-6 lg:space-y-10 px-[50px]'}>
+                //     <Title title={'Aktivitas Mahasiswa'} />
+                //     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+                //         {ukm.map((ukm) => (
                             <UKMCard key={ukm.id} image={ukm.image} title={ukm.title} text={ukm.description} />
                         ))}
                     </div>
                 </div>
 
-                <div className={'flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-10'}>
+                {/* <div className={'flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-10'}> */}
+                <div className={'flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-10 px-[50px]'}>
                     <div className="space-y-4 text-center lg:text-left">
                         <Title title={'Kisah Alumni'} />
                         <Text text={'Temukan perjalanan inspiratif para alumni yang telah menapaki jalur sukses di dunia Profesional'} />
                     </div>
-                    <div className="w-full h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
+                    {/* <div className="w-full h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
                         <button
                             onClick={() => setIsOpen(true)}
-                            className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer"
+                            className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer" */}
+                    <div className="w-full h-96 md:h-[20vh] lg:h-[40vh] flex justify-center">
+                        <button
+                            onClick={() => setIsOpen(true)}
+                            className="relative w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer"
                         >
                             <img
                                 src="https://img.youtube.com/vi/OYDn-UHfNBM/maxresdefault.jpg"
@@ -95,7 +114,8 @@ const Mahasiswa = () => {
                     </div>
                 </div>
 
-                <div className={'w-full flex flex-col justify-center items-center space-y-4 md:space-y-6 lg:space-y-10'}>
+                {/* <div className={'w-full flex flex-col justify-center items-center space-y-4 md:space-y-6 lg:space-y-10'}> */}
+                <div className={'w-full flex flex-col justify-center items-center space-y-4 md:space-y-6 lg:space-y-10 px-[77px]'}>
                     <div className="space-y-4 text-center">
                         <Title title={'Prestasi'} />
                         <Text text={'Simak kisah inspiratif mereka dan jadilah bagian dari generasi berprestasi berikutnya!'} />
@@ -140,6 +160,7 @@ const Mahasiswa = () => {
                 {isOpen && (
                     <div className="fixed inset-0 flex justify-center items-center bg-black/80 z-50" onClick={() => setIsOpen(false)}>
                         <div className="relative p-4 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-lg w-[90%] md:w-[70%] lg:w-[50%]">
+                        {/* <div className="relative p-4 rounded-lg md:rounded-2xl lg:rounded-4xl shadow-lg w-[90%] md:w-[70%] lg:w-[50%]"> */}
                             <button
                                 onClick={() => setIsOpen(false)}
                                 className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full cursor-pointer hover:bg-red-700"
@@ -149,6 +170,7 @@ const Mahasiswa = () => {
 
                             <iframe
                                 className="w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl"
+                                // className="w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl"
                                 src="https://www.youtube.com/embed/OYDn-UHfNBM"
                                 title="Kisah Alumni"
                                 frameBorder="0"

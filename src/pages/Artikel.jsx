@@ -58,6 +58,7 @@ const Artikel = () => {
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'} type={'fadeInUp'} duration={0.5}>
+        {/* <UserLayout position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'} type={'fadeInUp'} duration={0.5}> */}
             <Helmet>
                 <title>Artikel - Universitas Pasundan</title>
             </Helmet>
@@ -66,7 +67,8 @@ const Artikel = () => {
                     <MotionWrapper
                         type="zoomIn"
                         delay={0.2}
-                        className="w-full bg-cover h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl"
+                        // className="w-full bg-cover h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl"
+                        className="w-full bg-cover h-[75vh] rounded-lg md:rounded-2xl lg:rounded-4xl"
                         style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imageURL}/posts/${latestBerita.image})` }}
                         onClick={() => handleClick(latestBerita.slug)}
                     >
@@ -98,12 +100,14 @@ const Artikel = () => {
                     )}
                 </div>
 
+                {/* <div className="w-full space-y-3 md:space-y-4"> */}
                 <div className="w-full space-y-3 md:space-y-4">
                     <div className="w-full flex justify-between items-center">
                         <Title sizeMobile="w-full text-base" title="Agenda" />
                     </div>
                     {agenda.length > 0 ? <AgendaCard data={agenda} /> : <div className="text-center text-gray-500">Belum ada agenda tersedia</div>}
                 </div>
+                {/* </div> */}
 
                 <CTASection />
             </div>
