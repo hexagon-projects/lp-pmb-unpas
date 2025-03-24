@@ -15,7 +15,7 @@ const MitraCarousel = ({ datas, reverse = false }) => {
                             key={index}
                             src={`${imageURL}/partners/${data.image}`}
                             alt={data.name}
-                            className="w-18 h-18 md:w-16 md:h-16 lg:w-18 lg:h-18 object-contain mx-4"
+                            className="w-18 h-18 md:w-16 md:h-16 lg:w-30 lg:h-30 object-contain mx-4"
                         />
                     </div>
                 ))}

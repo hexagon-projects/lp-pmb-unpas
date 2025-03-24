@@ -10,7 +10,7 @@ const ArticleCard = ({ data, border }) => {
 
     useEffect(() => {
         const updateDisplayData = () => {
-            if (window.innerWidth > 1280) {
+            if (window.innerWidth > 1200) {
                 setDisplayData(data?.slice(0, 4));
             } else {
                 setDisplayData(data?.slice(0, 3));
@@ -31,19 +31,17 @@ const ArticleCard = ({ data, border }) => {
             {displayData?.map((item) => (
                 <motion.div
                     key={item.id}
-                    className={`xl:w-full cursor-pointer flex flex-col justify-between p-4 md:p-0 bg-white rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] space-y-3 ${border}`}
+                    className={ `article-card xl:w-full cursor-pointer flex flex-col justify-between p-4 md:p-0 bg-white rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] space-y-3 ${border}`}
                     onClick={() => handleClick(item.slug)}
-                    whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                 >
                     <div className="space-y-3 ">
-                        <div className="p-4">
-
-                        <img
-                            src={`${imageURL}/posts/${item.image}`}
-                            alt={item.title}
-                            className="w-full h-[30vh] md:h-[16vh] lg:h-[26vh] object-cover rounded-lg md:rounded-xl lg:rounded-2xl"
-                        />
+                        <div className="md:p-4">
+                            <img
+                                src={`${imageURL}/posts/${item.image}`}
+                                alt={item.title}
+                                className="w-full h-[30vh] md:h-[16vh] lg:h-[26vh] object-cover rounded-lg md:rounded-xl lg:rounded-2xl"
+                            />
                         </div>
                         <div className="bg-white px-0 md:px-4 md:rounded-b-md space-y-3">
                             <h3 className="font-semibold text-xs md:text-sm lg:text-sm">{item.title}</h3>
@@ -57,7 +55,7 @@ const ArticleCard = ({ data, border }) => {
                             whileHover="visible"
                             transition={{ duration: 0.3 }}
                         >
-                            <span>Lihat</span>
+                            <span>Selengkapnya</span>
                             <motion.span
                                 variants={{
                                     hidden: { opacity: 0, x: -5 },

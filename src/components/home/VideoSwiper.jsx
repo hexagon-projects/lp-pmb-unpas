@@ -27,8 +27,8 @@ const VideoSwiper = ({ data }) => {
     return (
         <div className="w-full h-fit">
             <Swiper
-                slidesPerView={1.5}
-                spaceBetween={-50}
+                slidesPerView={1.1}
+                spaceBetween={-80}
                 centeredSlides={true}
                 lazy={{ loadPrevNext: true }}
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -39,13 +39,15 @@ const VideoSwiper = ({ data }) => {
                 speed={800}
                 breakpoints={{
                     640: {
-                        spaceBetween: -60,
+                        spaceBetween: -120,
+                        slidesPerView: 1.2
                     },
                     1024: {
-                        spaceBetween: -80,
+                        spaceBetween: -150,
+                        slidesPerView: 1.5
                     },
                     1440: {
-                        spaceBetween: -120,
+                        spaceBetween: -180,
                     },
                 }}
             >
@@ -57,14 +59,14 @@ const VideoSwiper = ({ data }) => {
                     return (
                         <SwiperSlide key={video.id} className="w-full flex justify-center items-center">
                             <div
-                                className={`w-full relative space-y-4 p-4 h-fit rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out cursor-pointer ${index === activeIndex ? "w-[100%] scale-100" : "scale-80"
+                                className={`w-full relative space-y-4 p-4 h-fit rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out cursor-pointer ${index === activeIndex ? "w-[100%] scale-90" : "scale-75"
                                     }`}
                                 onClick={() => setPlayingVideo(video.url)}
                             >
                                 <img
                                     src={thumbnail}
                                     alt={video.title}
-                                    className="w-full h-[300px] md:h-[40vh] lg:h-[60vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]"
+                                    className="w-full h-[200px] md:h-[40vh] lg:h-[60vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]"
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center rounded-xl md:rounded-2xl lg:rounded-4xl">
                                     <FaPlay className="text-white text-4xl" />
@@ -75,13 +77,15 @@ const VideoSwiper = ({ data }) => {
                 })}
             </Swiper>
 
-            <CustomPagination
-                activeIndex={activeIndex}
-                totalSlides={videos.length}
-                onPaginationClick={handlePaginationClick}
-                width="w-3 h-3"
-                scale="w-7 h-3"
-            />
+            <div className="-mt-4 lg:-mt-6">
+                <CustomPagination
+                    activeIndex={activeIndex}
+                    totalSlides={videos.length}
+                    onPaginationClick={handlePaginationClick}
+                    width="w-2 h-2"
+                    scale="w-7 h-2"
+                />
+            </div>
 
             {playingVideo && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-50" onClick={() => setPlayingVideo(null)}>
