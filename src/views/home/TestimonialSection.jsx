@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -16,6 +16,27 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
     const swiperRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [typedText, setTypedText] = useState("");
+    
+    useEffect(() => {
+        let index = 0;
+        setTypedText(""); // Reset teks sebelum mengetik ulang
+        
+        const text = data[activeIndex]?.description;
+    // Pastikan text adalah string
+    const content = text?.toString();
+    
+    const typingEffect = setInterval(() => {
+        if (index < content?.length) {
+            setTypedText((prev) => prev + content[index]);
+            index++;
+        } else {
+            clearInterval(typingEffect);
+        }
+    }, 5); // Memperlambat kecepatan mengetik agar lebih terlihat
+
+    return () => clearInterval(typingEffect);
+}, [activeIndex, data]);
 
     return (
         <div className={`w-full flex flex-col ${displayDekstop} gap-4 md:gap-6 lg:gap-10`}>
@@ -33,20 +54,14 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
                         slidesPerView={1}
                         effect={'creative'}
                         creativeEffect={{
-                            prev: {
-                                opacity: 0,
-                                translate: [0, 0, -100],
-                            },
-                            next: {
-                                opacity: 0,
-                                translate: [0, 0, -100],
-                            },
+                            prev: { opacity: 0, translate: [0, 0, -100] },
+                            next: { opacity: 0, translate: [0, 0, -100] },
                         }}
                         speed={1200}
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
                         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
                     >
-                        {data.map((item, index) => (
+                        {data?.map((item, index) => (
                             <SwiperSlide key={index}>
                                 <AnimatePresence mode="wait">
                                     <motion.div
@@ -62,20 +77,37 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
                                         >
                                             <img src={`${imageURL}/testimonies/${item.image}`} alt={item.name} className="w-full h-full object-cover" />
                                         </motion.div>
+
                                         <div className="w-full md:w-1/2 lg:w-[60%] h-[25vh] md:h-[40vh] flex flex-col justify-between items-start gap-4 md:gap-6 lg:gap-8">
                                             <div className="w-full h-full flex flex-col justify-evenly md:justify-start items-start gap-4 md:gap-6 lg:gap-8">
                                                 <div className="space-y-2">
-                                                    <div>
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: 50 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        exit={{ opacity: 0, y: -50 }}
+                                                        transition={{ duration: 0.5 }}
+                                                    >
                                                         <Title sizeText="text-sm md:text-lg lg:text-[18px]" title={item.name} />
-                                                    </div>
-                                                    <div>
+                                                    </motion.div>
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: 50 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        exit={{ opacity: 0, y: -50 }}
+                                                        transition={{ duration: 0.5 }}
+                                                    >
                                                         <Text color="text-gray-500" text={item.title} />
-                                                    </div>
+                                                    </motion.div>
                                                 </div>
-                                                <div>
-                                                    <RichText lineclamp={'line-clamp-3'} content={`${item.description}`} />
-                                                </div>
+                                                <motion.div
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    exit={{ opacity: 0, y: -50 }}
+                                                    transition={{ duration: 0.3 }}
+                                                >
+                                                    <RichText lineclamp={"line-clamp-3"} content={typedText} />
+                                                </motion.div>
                                             </div>
+
                                             <div className="w-full flex justify-center md:justify-start gap-4">
                                                 <div
                                                     className="cursor-pointer text-black/80 text-3xl lg:text-4xl"

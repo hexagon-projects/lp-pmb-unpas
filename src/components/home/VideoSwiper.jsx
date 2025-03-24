@@ -4,6 +4,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { FaPlay } from "react-icons/fa";
 import { X } from "lucide-react";
 import CustomPagination from "../CustomPagination";
+import { motion, AnimatePresence } from "framer-motion";
 
 const VideoSwiper = ({ data }) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -11,12 +12,12 @@ const VideoSwiper = ({ data }) => {
     const [swiperInstance, setSwiperInstance] = useState(null);
     const imageURL = import.meta.env.VITE_IMAGE_URL;
 
-    const videos = data && data.length > 0 ? data.map((item) => ({
+    const videos = data?.map((item) => ({
         id: item.id.toString(),
         title: item.title,
         url: `https://www.youtube.com/embed/${item.id_yt}`,
         image: item.image
-    })) : [];
+    })) || [];
 
     const handlePaginationClick = (index) => {
         if (swiperInstance) {
@@ -31,29 +32,20 @@ const VideoSwiper = ({ data }) => {
                 spaceBetween={-50}
                 // spaceBetween={-40}
                 centeredSlides={true}
-                lazy={{ loadPrevNext: true }}
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                 modules={[Navigation, Autoplay]}
                 onActiveIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-                onSwiper={(swiper) => setSwiperInstance(swiper)}
+                onSwiper={setSwiperInstance}
                 effect="fade"
                 speed={800}
                 breakpoints={{
-                    640: {
-                        spaceBetween: -60,
-                    },
-                    1024: {
-                        spaceBetween: -80,
-                    },
-                    1440: {
-                        spaceBetween: -120,
-                    },
+                    640: { spaceBetween: -120, slidesPerView: 1.2 },
+                    1024: { spaceBetween: -150, slidesPerView: 1.5 },
+                    1440: { spaceBetween: -180, slidesPerView: 1.5 },
                 }}
             >
                 {videos.map((video, index) => {
-                    const videoId = video.url.split("/").pop();
-                    // const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-                    const thumbnail = `${imageURL}/dukungans/${video.image}`
+                    const thumbnail = `${imageURL}/dukungans/${video.image}`;
 
                     return (
                         <SwiperSlide key={video.id} className="w-full flex justify-center items-center">
@@ -62,6 +54,7 @@ const VideoSwiper = ({ data }) => {
                                 // className={`w-full relative space-y-4 p-4 h-fit rounded-lg md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out cursor-pointer ${index === activeIndex ? "w-[100%] scale-100" : "scale-80"
                                     }`}
                                 onClick={() => setPlayingVideo(video.url)}
+                                whileHover={{ scale: 1.05 }}
                             >
                                 <img
                                     src={thumbnail}
@@ -84,8 +77,8 @@ const VideoSwiper = ({ data }) => {
                 activeIndex={activeIndex}
                 totalSlides={videos.length}
                 onPaginationClick={handlePaginationClick}
-                width="w-3 h-3"
-                scale="w-7 h-3"
+                width="w-2 h-2"
+                scale="w-7 h-2"
             />
 
             {playingVideo && (

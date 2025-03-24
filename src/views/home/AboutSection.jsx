@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import RichText from "../../components/RichText";
 import Title from "../../components/Title";
 import { X } from "lucide-react";
@@ -21,7 +21,7 @@ const AboutSection = ({ data }) => {
                 >
                     <img
                         loading="lazy"
-                        src={`${imageURL}/identities/${data.about.image1}`}
+                        src={`${imageURL}/identities/${data?.about?.image1}`}
                         alt={data.about.subtitle}
                         className="w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl shadow-2xl shadow-primary/30 intro_img"
                     />
@@ -32,7 +32,7 @@ const AboutSection = ({ data }) => {
                         whileTap={{ scale: 0.9 }}
                     >
                         <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
-                            <FaPlay className="text-white  p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
+                            <FaPlay className="text-white p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
                         </div>
                     </motion.div>
                 </div>

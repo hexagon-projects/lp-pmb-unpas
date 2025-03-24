@@ -22,101 +22,115 @@ import Title from "../components/Title";
 import Button from "../components/Button";
 import Path from "../assets/path.png"
 import CtaPath from "../assets/cta_path.png"
+import { FiArrowRight } from "react-icons/fi";
+import { FaArrowRightLong } from "react-icons/fa6";
+import InteractiveGrid from "@/components/InteractiveCard";
 
 const faculties = [
     {
         name: 'Fakultas Keguruan dan Ilmu Pendidikan',
+        slug: 'fakultas-keguruan-dan-ilmu-pendidikan',
         programs: [
-            'S1 - Pendidikan Pancasila & Kewarganegaraan',
-            'S1 - Pendidikan Ekonomi Akuntansi',
-            'S1 - Pendidikan Bahasa',
-            'S1 - Sastra Indonesia dan Daerah',
-            'S1 - Pendidikan Matematika',
-            'S1 - Pendidikan Biologi',
-            'S1 - Pendidikan Guru Sekolah Dasar'
+            { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
+            { name: 'S1 - Pendidikan Ekonomi Akuntansi', slug: 'pendidikan-ekonomi-akuntansi' },
+            { name: 'S1 - Pendidikan Bahasa', slug: 'pendidikan-bahasa' },
+            { name: 'S1 - Sastra Indonesia dan Daerah', slug: 'sastra-indonesia-daerah' },
+            { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
+            { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
+            { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' }
         ]
     },
     {
         name: 'Fakultas Teknik',
+        slug: 'fakultas-teknik',
         programs: [
-            'S1 - Teknik Informatika',
-            'S1 - Teknik Mesin',
-            'S1 - Teknik Industri',
-            'S1 - Teknik Lingkungan',
-            'S1 - Teknologi Pangan'
+            { name: 'S1 - Teknik Informatika', slug: 'teknik-informatika' },
+            { name: 'S1 - Teknik Mesin', slug: 'teknik-mesin' },
+            { name: 'S1 - Teknik Industri', slug: 'teknik-industri' },
+            { name: 'S1 - Teknik Lingkungan', slug: 'teknik-lingkungan' },
+            { name: 'S1 - Teknologi Pangan', slug: 'teknologi-pangan' }
         ]
     },
     {
         name: 'Fakultas Ekonomi dan Bisnis',
+        slug: 'fakultas-ekonomi-dan-bisnis',
         programs: [
-            'S1 - Akuntansi',
-            'S1 - Manajemen',
-            'S1 - Ekonomi Pembangunan'
+            { name: 'S1 - Akuntansi', slug: 'akuntansi' },
+            { name: 'S1 - Manajemen', slug: 'manajemen' },
+            { name: 'S1 - Ekonomi Pembangunan', slug: 'ekonomi-pembangunan' }
         ]
     },
     {
         name: 'Fakultas Hukum',
-        programs: ['S1 - Ilmu Hukum']
+        slug: 'fakultas-hukum',
+        programs: [
+            { name: 'S1 - Ilmu Hukum', slug: 'ilmu-hukum' }
+        ]
     },
     {
         name: 'Program Pasca Sarjana',
+        slug: 'program-pasca-sarjana',
         programs: [
-            'S2 - Magister Ilmu Administrasi & Kebijakan Publik',
-            'S2 - Magister Manajemen',
-            'S2 - Magister Teknik Industri',
-            'S2 - Magister Ilmu Hukum',
-            'S2 - Magister Teknologi Pangan',
-            'S2 - Magister Pendidikan Matematika',
-            'S2 - Magister Teknik Mesin',
-            'S2 - Magister Ilmu Komunikasi',
-            'S2 - Magister Pendidikan Bahasa Indonesia',
-            'S3 - Doktor Ilmu Manajemen',
-            'S3 - Doktor Ilmu Sosial',
-            'S3 - Doktor Ilmu Hukum'
+            { name: 'S2 - Magister Ilmu Administrasi & Kebijakan Publik', slug: 'magister-ilmu-administrasi-kebijakan-publik' },
+            { name: 'S2 - Magister Manajemen', slug: 'magister-manajemen' },
+            { name: 'S2 - Magister Teknik Industri', slug: 'magister-teknik-industri' },
+            { name: 'S2 - Magister Ilmu Hukum', slug: 'magister-ilmu-hukum' },
+            { name: 'S2 - Magister Teknologi Pangan', slug: 'magister-teknologi-pangan' },
+            { name: 'S2 - Magister Pendidikan Matematika', slug: 'magister-pendidikan-matematika' },
+            { name: 'S2 - Magister Teknik Mesin', slug: 'magister-teknik-mesin' },
+            { name: 'S2 - Magister Ilmu Komunikasi', slug: 'magister-ilmu-komunikasi' },
+            { name: 'S2 - Magister Pendidikan Bahasa Indonesia', slug: 'magister-pendidikan-bahasa-indonesia' },
+            { name: 'S3 - Doktor Ilmu Manajemen', slug: 'doktor-ilmu-manajemen' },
+            { name: 'S3 - Doktor Ilmu Sosial', slug: 'doktor-ilmu-sosial' },
+            { name: 'S3 - Doktor Ilmu Hukum', slug: 'doktor-ilmu-hukum' }
         ]
     },
     {
         name: 'Fakultas Kedokteran',
+        slug: 'fakultas-kedokteran',
         programs: [
-            'S1 - Pendidikan Dokter',
-            'Profesi - Profesi Dokter'
+            { name: 'S1 - Pendidikan Dokter', slug: 'pendidikan-dokter' },
+            { name: 'Profesi - Profesi Dokter', slug: 'profesi-dokter' }
         ]
     },
     {
         name: 'Fakultas Pendidikan',
+        slug: 'fakultas-pendidikan',
         programs: [
-            'S1 - Pendidikan Matematika',
-            'S1 - Pendidikan Biologi',
-            'S1 - Pendidikan Pancasila dan Kewarganegaraan',
-            'S1 - Pendidikan Guru Sekolah Dasar',
-            'S1 - Pendidikan Bahasa dan Sastra Indonesia',
-            'S1 - Pendidikan Ekonomi'
+            { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
+            { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
+            { name: 'S1 - Pendidikan Pancasila dan Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
+            { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' },
+            { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-sastra-indonesia' },
+            { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' }
         ]
     },
     {
         name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
+        slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
         programs: [
-            'S1 - Administrasi Publik',
-            'S1 - Kesejahteraan Sosial',
-            'S1 - Hubungan Internasional',
-            'S1 - Ilmu Administrasi Bisnis',
-            'S1 - Ilmu Komunikasi'
+            { name: 'S1 - Administrasi Publik', slug: 'administrasi-publik' },
+            { name: 'S1 - Kesejahteraan Sosial', slug: 'kesejahteraan-sosial' },
+            { name: 'S1 - Hubungan Internasional', slug: 'hubungan-internasional' },
+            { name: 'S1 - Ilmu Administrasi Bisnis', slug: 'ilmu-administrasi-bisnis' },
+            { name: 'S1 - Ilmu Komunikasi', slug: 'ilmu-komunikasi' }
         ]
     },
     {
         name: 'Fakultas Ilmu Seni dan Sastra',
+        slug: 'fakultas-ilmu-seni-dan-sastra',
         programs: [
-            'S1 - Sastra Inggris',
-            'S1 - Desain Komunikasi Visual',
-            'S1 - Fotografi dan Film',
-            'S1 - Seni Musik'
+            { name: 'S1 - Sastra Inggris', slug: 'sastra-inggris' },
+            { name: 'S1 - Desain Komunikasi Visual', slug: 'desain-komunikasi-visual' },
+            { name: 'S1 - Fotografi dan Film', slug: 'fotografi-dan-film' },
+            { name: 'S1 - Seni Musik', slug: 'seni-musik' }
         ]
-    },
+    }
 ];
 
-const faculties1 = faculties.slice(0, 3)
-const faculties2 = faculties.slice(3, 6)
-const faculties3 = faculties.slice(6, 9)
+const faculties1 = faculties.slice(0, 3);
+const faculties2 = faculties.slice(3, 6);
+const faculties3 = faculties.slice(6, 9);
 
 const Home = () => {
     const [data, setData] = useState({
@@ -211,17 +225,23 @@ const Home = () => {
 
                 <StatsSection prodi={20} mahasiswa={5148} lulusan={3130} prestasi={100} />
 
-                <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
-                    <div className="relative z-10 bg-[#efefef]">
-                        <PendaftaranSection
-                            image={Section3}
-                            title="Pendaftaran"
-                            subtitle="Jalur Pendaftaran"
-                            jalurPendaftaran={data?.jalur}
-                        />
+                <div className="space-y-8 md:space-y-14 lg:space-y-20">
+                    <div className="relative bg-[#efefef]">
+                        <div className="relative z-4">
+                            <PendaftaranSection
+                                image={Section3}
+                                title="Pendaftaran"
+                                subtitle="Jalur Pendaftaran"
+                                jalurPendaftaran={data?.jalur}
+                            />
+                        </div>
+
+                        <div className="absolute top-0 bottom-0 w-full h-full z-0">
+                            <InteractiveGrid />
+                        </div>
                     </div>
 
-                    <div className="w-full flex justify-center items-center relative">
+                    <div className="w-full flex justify-center items-center">
                         <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%]">
                             <ReasonSection data={data?.unggulan} />
                         </div>
@@ -229,13 +249,16 @@ const Home = () => {
                 </div>
 
                 <div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11">
-                    <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border lg:px-8 :py-12 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] relative z-2'}>
-                        <div className="flex justify-between items-center text-center relative z-2">
-                            <div className="text-left">
-                                <Title sizeText="text-sm md:text-2xl lg:text-[32px]" fontWeight="font-semibold" title={'Yuk Daftar Di Unpas Sekarang!'} />
+                    <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:px-8 :py-12 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] relative z-2'}>
+                        <div className="flex justify-start md:justify-between items-center text-center relative z-2">
+                            <div className="flex items-center gap-4 text-left">
+                                <div className="w-[60%] md:w-fit">
+                                    <Title sizeText="text-sm md:text-2xl lg:text-[32px]" fontWeight="font-semibold" title={'Yuk Daftar Di Unpas Sekarang!'} />
+                                </div>
+                                <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
                             </div>
                             <div className="">
-                                <Button css={'pulsating-button'} text={'Daftar'} bgColor="bg-primary" padding="p-4"/>
+                                <Button css={'pulsating-button'} text={'Daftar Sekarang'} bgColor="bg-primary" padding="p-4" />
                             </div>
                         </div>
                     </div>
@@ -243,31 +266,31 @@ const Home = () => {
 
                 <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
 
-                    <div className="relative z-10">
+                    <div className="relative z-2">
                         <VideoSwiper data={data?.dukungan} />
                     </div>
 
-                    <div className="relative z-10">
+                    <div className="relative z-2">
                         <FakultasSection faculties={faculties} faculties1={faculties1} faculties2={faculties2} faculties3={faculties3} />
                     </div>
 
-                    <div className="relative z-10">
+                    <div className="relative z-2">
                         <PrestasiSection prestasi={data?.prestasi} imageURL={imageURL} />
                     </div>
 
                 </div>
 
                 <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
-                    <div className="relative z-10">
+                    <div className="relative z-2">
                         <ArtikelSection data={data} />
                     </div>
 
-                    <div className="relative z-10 p-4 md:px-10 lg:px-12">
+                    <div className="relative z-2 p-4 md:px-10 lg:px-12">
                         <MitraSection data={data?.partner} />
                     </div>
 
-                    <div className="relative z-10 p-4 md:px-10 lg:px-12">
-                        <TestimonialSection data={data.testimonials} displayDekstop="md:flex-col" />
+                    <div className="relative z-2 p-4 md:px-10 lg:px-12">
+                        <TestimonialSection data={data?.testimonials} displayDekstop="md:flex-col" />
                     </div>
                 </div>
 
