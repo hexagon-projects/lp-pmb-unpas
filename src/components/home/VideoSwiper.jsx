@@ -4,6 +4,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { FaPlay } from "react-icons/fa";
 import { X } from "lucide-react";
 import CustomPagination from "../CustomPagination";
+import { motion, AnimatePresence } from "framer-motion";
 
 const VideoSwiper = ({ data }) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -11,12 +12,12 @@ const VideoSwiper = ({ data }) => {
     const [swiperInstance, setSwiperInstance] = useState(null);
     const imageURL = import.meta.env.VITE_IMAGE_URL;
 
-    const videos = data && data.length > 0 ? data.map((item) => ({
+    const videos = data?.map((item) => ({
         id: item.id.toString(),
         title: item.title,
         url: `https://www.youtube.com/embed/${item.id_yt}`,
         image: item.image
-    })) : [];
+    })) || [];
 
     const handlePaginationClick = (index) => {
         if (swiperInstance) {
@@ -30,84 +31,90 @@ const VideoSwiper = ({ data }) => {
                 slidesPerView={1.1}
                 spaceBetween={-80}
                 centeredSlides={true}
-                lazy={{ loadPrevNext: true }}
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                 modules={[Navigation, Autoplay]}
                 onActiveIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-                onSwiper={(swiper) => setSwiperInstance(swiper)}
+                onSwiper={setSwiperInstance}
                 effect="fade"
                 speed={800}
                 breakpoints={{
-                    640: {
-                        spaceBetween: -120,
-                        slidesPerView: 1.2
-                    },
-                    1024: {
-                        spaceBetween: -150,
-                        slidesPerView: 1.5
-                    },
-                    1440: {
-                        spaceBetween: -180,
-                    },
+                    640: { spaceBetween: -120, slidesPerView: 1.2 },
+                    1024: { spaceBetween: -150, slidesPerView: 1.5 },
+                    1440: { spaceBetween: -180, slidesPerView: 1.5 },
                 }}
             >
                 {videos.map((video, index) => {
-                    const videoId = video.url.split("/").pop();
-                    // const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-                    const thumbnail = `${imageURL}/dukungans/${video.image}`
+                    const thumbnail = `${imageURL}/dukungans/${video.image}`;
 
                     return (
-                        <SwiperSlide key={video.id} className="w-full flex justify-center items-center">
-                            <div
-                                className={`w-full relative space-y-4 p-4 h-fit rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out cursor-pointer ${index === activeIndex ? "w-[100%] scale-90" : "scale-75"
-                                    }`}
+                        <SwiperSlide key={video.id} className="w-full flex justify-center items-center p-4">
+                            <motion.div
+                                className={`w-full relative h-fit rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out cursor-pointer group ${index === activeIndex ? "w-[100%] scale-90" : "scale-75"}`}
                                 onClick={() => setPlayingVideo(video.url)}
+                                whileHover={{ scale: 1.05 }}
                             >
                                 <img
                                     src={thumbnail}
                                     alt={video.title}
-                                    className="w-full h-[200px] md:h-[40vh] lg:h-[60vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]"
+                                    className="w-full h-[200px] md:h-[40vh] lg:h-[60vh] object-cover shadow-xl rounded-xl md:rounded-2xl lg:rounded-4xl"
                                 />
-                                <div className="absolute inset-0 flex items-center justify-center rounded-xl md:rounded-2xl lg:rounded-4xl">
-                                    <FaPlay className="text-white text-4xl" />
-                                </div>
-                            </div>
+                                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+                                <motion.div
+                                    className="absolute inset-0 flex items-center justify-center rounded-xl md:rounded-2xl lg:rounded-4xl"
+                                    whileTap={{ scale: 0.9 }}
+                                >
+                                    <div className="p-2 group-hover:scale-110 bg-gray-700 rounded-full">
+                                        <FaPlay className="text-white p-4 w-14 h-14" />
+                                    </div>
+                                </motion.div>
+                            </motion.div>
                         </SwiperSlide>
                     );
                 })}
             </Swiper>
 
-            <div className="-mt-4 lg:-mt-6">
-                <CustomPagination
-                    activeIndex={activeIndex}
-                    totalSlides={videos.length}
-                    onPaginationClick={handlePaginationClick}
-                    width="w-2 h-2"
-                    scale="w-7 h-2"
-                />
-            </div>
+            <CustomPagination
+                activeIndex={activeIndex}
+                totalSlides={videos.length}
+                onPaginationClick={handlePaginationClick}
+                width="w-2 h-2"
+                scale="w-7 h-2"
+            />
 
-            {playingVideo && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-50" onClick={() => setPlayingVideo(null)}>
-                    <div className="relative w-[90%] md:w-[70%] lg:w-[50%]">
-                        <button
-                            className="absolute -top-3 -right-3 bg-red-500 text-white p-2 rounded-full"
-                            onClick={() => setPlayingVideo(null)}
+            <AnimatePresence>
+                {playingVideo && (
+                    <motion.div
+                        className="fixed inset-0 flex items-center justify-center bg-black/80 z-50"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setPlayingVideo(null)}
+                    >
+                        <motion.div
+                            className="relative w-[90%] md:w-[70%] lg:w-[50%] border-2 border-white rounded-xl md:rounded-2xl lg:rounded-4xl"
+                            initial={{ scale: 0.8 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0.8 }}
                         >
-                            <X size={20} />
-                        </button>
-                        <iframe
-                            width="100%"
-                            height="400"
-                            src={playingVideo}
-                            title="YouTube Video"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            className="rounded-xl md:rounded-2xl lg:rounded-4xl"
-                        ></iframe>
-                    </div>
-                </div>
-            )}
+                            <button
+                                className="absolute -top-3 -right-3 bg-red-500 text-white p-2 rounded-full"
+                                onClick={() => setPlayingVideo(null)}
+                            >
+                                <X size={20} />
+                            </button>
+                            <iframe
+                                width="100%"
+                                height="400"
+                                src={playingVideo}
+                                title="YouTube Video"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="rounded-xl"
+                            ></iframe>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };

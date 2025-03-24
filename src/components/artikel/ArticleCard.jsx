@@ -30,22 +30,22 @@ const ArticleCard = ({ data, border }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-8">
             {displayData?.map((item) => (
                 <motion.div
-                    key={item.id}
+                    key={item?.id}
                     className={ `article-card xl:w-full cursor-pointer flex flex-col justify-between p-4 md:p-0 bg-white rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] space-y-3 ${border}`}
-                    onClick={() => handleClick(item.slug)}
+                    onClick={() => handleClick(item?.slug)}
                     transition={{ duration: 0.3 }}
                 >
                     <div className="space-y-3 ">
                         <div className="md:p-4">
                             <img
-                                src={`${imageURL}/posts/${item.image}`}
-                                alt={item.title}
+                                src={`${imageURL}/posts/${item?.image}`}
+                                alt={item?.title}
                                 className="w-full h-[30vh] md:h-[16vh] lg:h-[26vh] object-cover rounded-lg md:rounded-xl lg:rounded-2xl"
                             />
                         </div>
                         <div className="bg-white px-0 md:px-4 md:rounded-b-md space-y-3">
-                            <h3 className="font-semibold text-xs md:text-sm lg:text-sm">{item.title}</h3>
-                            <RichText lineclamp="line-clamp-2 md:line-clamp-3" sizeText="text-xs md:text-sm" content={item.description} />
+                            <h3 className="font-semibold text-sm md:text-base lg:text-base">{item?.title}</h3>
+                            <RichText lineclamp="line-clamp-2 md:line-clamp-3" sizeText="text-xs md:text-sm" content={item?.description} />
                         </div>
                     </div>
                     <div className="md:px-4 flex justify-between items-center">
@@ -66,7 +66,7 @@ const ArticleCard = ({ data, border }) => {
                                 <FaArrowRight size={16} />
                             </motion.span>
                         </motion.div>
-                        <p className="text-gray-700 font-semibold text-xs md:text-sm">{item.date}</p>
+                        <p className="text-gray-700 font-semibold text-xs md:text-sm">{item?.date}</p>
                     </div>
                 </motion.div>
             ))}
