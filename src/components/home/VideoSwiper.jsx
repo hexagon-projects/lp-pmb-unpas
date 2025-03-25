@@ -5,6 +5,7 @@ import { FaPlay } from "react-icons/fa";
 import { X } from "lucide-react";
 import CustomPagination from "../CustomPagination";
 import { motion, AnimatePresence } from "framer-motion";
+import Title from "../Title";
 
 const VideoSwiper = ({ data }) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -26,7 +27,10 @@ const VideoSwiper = ({ data }) => {
     };
 
     return (
-        <div className="w-full h-fit">
+        <div className="w-full h-fit space-y-4 md:space-y-6">
+            <div className="text-center space-y-2">
+                <Title title="Video Dukungan" />
+            </div>
             <Swiper
                 slidesPerView={1.1}
                 spaceBetween={-80}
