@@ -18,6 +18,7 @@ import { ThreeDot } from 'react-loading-indicators'
 import FakultasSection from '../views/home/FakultasSection'
 
 import { motion } from 'framer-motion'
+import Loading from '../components/Loading'
 
 const faculties = [
   {
@@ -102,6 +103,9 @@ const Fakultas = () => {
 
     fetchData()
   }, [])
+
+    // if (loading) return <Loading />
+
 
 
   return (
