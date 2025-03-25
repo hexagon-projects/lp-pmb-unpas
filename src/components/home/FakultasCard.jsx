@@ -14,11 +14,11 @@ const FakultasCard = ({ faculty }) => {
                             key={idx}
                             className="bg-gray-100 border-2 border-white p-4 rounded-lg lg:rounded-xl md:rounded-3xl text-xs md:text-sm text-gray-700 hover:bg-primary cursor-pointer transition duration-500"
                             onClick={(e) => {
-                                e.stopPropagation(); // Mencegah event bubbling ke parent
+                                e.stopPropagation();
                                 window.location.href = `/program-studi/${program.slug}`;
                             }}
                         >
-                            {program.name} {/* Perbaikan: Akses properti `name` dari objek `program` */}
+                            {program.name}
                         </p>
                     ))}
                 </div>

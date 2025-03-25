@@ -5,7 +5,14 @@ import Button from './Button'
 import { useEffect, useState } from 'react'
 import Union from '../assets/navbar.png'
 
-const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', titleColor = 'text-gray-700', navbarColor = 'text-gray-700', shadow, paddingDekstop = 'md:px-5 md:py-5 lg:py-5' }) => {
+const Navbar = ({ 
+  position = 'absolute top-0 left-0', 
+  bgColor = 'bg-[#DCDCDC]', 
+  titleColor = 'text-gray-700', 
+  navbarColor = 'text-gray-700', 
+  shadow, 
+  paddingDekstop = 'md:px-5 md:py-5 lg:py-5' 
+}) => {
   const location = useLocation()
   const [isScrolled, setIsScrolled] = useState(false)
   const [color, setColor] = useState(titleColor)
@@ -19,11 +26,11 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
   }, [])
 
   const menuItems = [
-    { name: 'Beranda', path: '/', icon: <FiHome size={24} /> },
-    { name: isMobile ? 'Fakultas' : 'Fakultas & Prodi', path: '/fakultas', icon: <FiBook size={24} /> },
-    { name: isMobile ? 'Jalur' : 'Jalur & Jadwal', path: '/jalur', icon: <FiCalendar size={24} /> },
-    { name: 'Fasilitas', path: '/fasilitas', icon: <FiMapPin size={24} /> },
-    { name: isMobile ? 'Mahasiswa' : 'Mahasiswa & Alumni', path: '/mahasiswa-dan-alumni', icon: <FiUsers size={24} /> },
+    { name: 'Beranda', path: '/', icon: <FiHome size={24} aria-hidden="true" /> },
+    { name: isMobile ? 'Fakultas' : 'Fakultas & Prodi', path: '/fakultas', icon: <FiBook size={24} aria-hidden="true" /> },
+    { name: isMobile ? 'Jalur' : 'Jalur & Jadwal', path: '/jalur', icon: <FiCalendar size={24} aria-hidden="true" /> },
+    { name: 'Fasilitas', path: '/fasilitas', icon: <FiMapPin size={24} aria-hidden="true" /> },
+    { name: isMobile ? 'Mahasiswa' : 'Mahasiswa & Alumni', path: '/mahasiswa-dan-alumni', icon: <FiUsers size={24} aria-hidden="true" /> },
   ]
 
   const handleClick = () => {
@@ -44,11 +51,12 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
     }
 
     window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   return (
     <div className="w-full flex justify-center relative z-[999]">
@@ -65,24 +73,39 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
           rounded-lg md:rounded-4xl
           transition-all duration-500 ease-in-out
           ${shadow}
-          ${isScrolled ? 'bg-[#d5d5d5]/50 backdrop-blur-sm border-2 border-[#FAFAFA]/50' : `${bgColor} border-2 border-[#DCDCDC]`}
+          ${isScrolled ? 'bg-[#d5d5d5]/80 backdrop-blur-md border-2 border-[#FAFAFA]/50' : `${bgColor} border-2 border-[#DCDCDC]`}
         `}
+        aria-label="Main navigation"
       >
         <div className="flex items-center gap-3 md:gap-4 z-1">
-          <img src={Logo} alt="Logo Universitas Pasundan" className="w-10 h-10 md:w-12 md:h-12" loading="lazy" />
+          <img 
+            src={Logo} 
+            alt="Logo Universitas Pasundan" 
+            className="w-10 h-10 md:w-12 md:h-12" 
+            loading="lazy" 
+            width="48"
+            height="48"
+          />
           <div className="w-[85%]">
             <p className={`text-xs ${color}`}>Penerimaan Mahasiswa Baru</p>
             <span className={`text-lg md:text-base lg:text-lg font-medium ${color}`}>Universitas Pasundan</span>
           </div>
         </div>
 
-        <img src={Union} alt="Union" className="absolute top-0 left-0 h-full w-[23%] object-fit" loading="lazy" />
+        <img 
+          src={Union} 
+          alt="" 
+          className="absolute top-0 left-0 h-full w-[23%] object-fit" 
+          loading="lazy" 
+          aria-hidden="true"
+        />
 
         <div className={`hidden md:flex items-center gap-4 xl:gap-8 font-medium ${navbarColors}`}>
           {menuItems.map((item, index) => (
             <Link
               key={index}
               to={item.path}
+              aria-label={item.name}
               className={`
                 relative 
                 p-4 
@@ -102,6 +125,7 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
             textColor="text-gray-700"
             hoverBgColor="hover:border-3 hover:border-white/50"
             text="Daftar"
+            aria-label="Daftar mahasiswa baru"
             onClick={handleClick}
             paddingMobile="p-4"
             paddingTablet="py-4 px-8"
@@ -111,7 +135,10 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
         </div>
       </nav>
 
-      <nav className="w-full fixed bottom-0 left-0 z-50 bg-white p-3 flex justify-between items-center lg:hidden">
+      <nav 
+        className="w-full fixed bottom-0 left-0 z-50 bg-white p-3 flex justify-between items-center lg:hidden"
+        aria-label="Mobile navigation"
+      >
         {menuItems.map((item, index) => (
           <Link
             key={index}
@@ -130,13 +157,15 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
               ${location.pathname === item.path ? 'text-[#C73929]' : 'text-black'}
             `}
           >
-            <div className="relative">{item.icon}</div>
+            <div className="relative" aria-hidden="true">
+              {item.icon}
+            </div>
             <span
               className={`
-              text-xs 
-              mt-2
-              ${location.pathname === item.path ? 'text-[#C73929] font-bold' : ''}
-            `}
+                text-xs 
+                mt-2
+                ${location.pathname === item.path ? 'text-[#C73929] font-bold' : ''}
+              `}
             >
               {item.name}
             </span>
