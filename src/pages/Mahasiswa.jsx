@@ -39,10 +39,10 @@ const Mahasiswa = () => {
     useEffect(() => {
         fetchData();
     }, [fetchData]);
-
+    
     const { ukm, prestasi } = data;
-    const HeroPrestasi = prestasi?.slice(0, 1);
-    const latestPrestasi = prestasi?.slice(1, 5);
+    // const HeroPrestasi = prestasi?.slice(0, 1);
+    const latestPrestasi = prestasi?.slice(0, 8);
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}>
@@ -101,7 +101,7 @@ const Mahasiswa = () => {
                         <Text text={'Simak kisah inspiratif mereka dan jadilah bagian dari generasi berprestasi berikutnya!'} />
                     </div>
                     <div className="flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8">
-                        <div className="w-full">
+                        {/* <div className="w-full">
                             {HeroPrestasi.map((prestasi) => (
                                 <motion.div
                                     key={prestasi.id}
@@ -121,7 +121,7 @@ const Mahasiswa = () => {
                                     </div>
                                 </motion.div>
                             ))}
-                        </div>
+                        </div> */}
                         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
                             {latestPrestasi?.map((prestasi) => (
                                 <PrestasiCard key={prestasi.id} image={prestasi.image} title={prestasi.title} />

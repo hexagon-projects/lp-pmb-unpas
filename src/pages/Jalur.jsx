@@ -111,14 +111,14 @@ const Jalur = () => {
 
                     <AnimatePresence>
                         {isOpen && selectedJalur && (
-                            <motion.div 
-                                className="fixed inset-0 flex items-center justify-center bg-black/50 z-50" 
+                            <motion.div
+                                className="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
                                 onClick={handleCloseModal}
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                             >
-                                <motion.div 
+                                <motion.div
                                     className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-lg space-y-3"
                                     onClick={e => e.stopPropagation()}
                                     initial={{ scale: 0.5, opacity: 0 }}
@@ -128,7 +128,9 @@ const Jalur = () => {
                                 >
                                     <div className="flex justify-between items-start gap-4">
                                         <h2 className="text-xl font-bold">{selectedJalur.name}</h2>
-                                        <Button iconStatus="flex" icon={<X />} bgColor="bg-red-500" textColor="text-white" onClick={handleCloseModal} paddingMobile="p-2 md:p-2 lg:p-2" rounded="rounded-full" />
+                                        <div className="w-fit">
+                                            <button className="p-2 rounded-full text-white bg-red-500" onClick={handleCloseModal}><X size={20} /></button>
+                                        </div>
                                     </div>
                                     <RichText content={selectedJalur.content} />
                                     <Text text={`Periode: ${selectedJalur.start_date} - ${selectedJalur.end_date}`} />
@@ -141,10 +143,6 @@ const Jalur = () => {
                         )}
                     </AnimatePresence>
                 </div>
-
-                {/* <div type="zoomOut" delay={0.2} className={'w-full h-[50vh] bg-gray-200  rounded-md'}>
-
-                </div> */}
 
                 <CTASection />
             </div>
