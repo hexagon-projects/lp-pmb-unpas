@@ -24,7 +24,9 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
         
         const text = data[activeIndex]?.description;
     // Pastikan text adalah string
-    const content = text?.toString();
+      
+    const content = text?.toString() || '';
+
     
     const typingEffect = setInterval(() => {
         if (index < content?.length) {
