@@ -93,9 +93,8 @@ body {
 }
 
 .fakultas_box {
-    clip-path: polygon(0% 80%, 12% 80%, 16% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    clip-path: polygon(0% 80%, 14% 80%, 24% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
 }
-
 .prodi_container {
     filter: url("#goo") drop-shadow(0px -2px 0px transparent)
 }
@@ -171,7 +170,7 @@ body {
 
 @keyframes border-animation {
     0% {
-        clip-path: inset(0 100% 0 0); /* Mulai dari kiri (border tidak terlihat) */
+        clip-path: inset(0 100% 0 0);
     }
     50% {
         clip-path: inset(0 0 0 0); /* Border terlihat penuh */
@@ -434,7 +433,7 @@ body {
         clip-path: polygon(75% 0%, 75% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
     .fakultas_box {
-        clip-path: polygon(0% 82%, 14% 82%, 19% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 82%, 14% 82%, 24% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 85%, 15% 85%, 18% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
@@ -446,7 +445,7 @@ body {
 
 @media (max-width: 1420px) {
     .fakultas_box {
-        clip-path: polygon(0% 80%, 20% 80%, 25% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 82%, 14% 82%, 24% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .testi_box {
         clip-path: polygon(83% 0%, 83% 35%, 100% 35%, 100% 100%, 0% 100%, 0% 0%);
@@ -475,6 +474,9 @@ body {
     .cta_box {
         clip-path: polygon(0% 26%, 12% 26%, 12% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+    .fakultas_box {
+        clip-path: polygon(0% 82%, 16% 82%, 26% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
 }
 
 @media (max-width: 1250px) {
@@ -483,6 +485,9 @@ body {
     }
     .cta_box {
         clip-path: polygon(0% 26%, 16% 26%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .fakultas_box {
+        clip-path: polygon(0% 82%, 18% 82%, 28% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }
 
@@ -497,7 +502,7 @@ body {
         clip-path: polygon(77% 0%, 77% 37%, 100% 37%, 100% 100%, 0% 100%, 0% 0%);
     }
     .fakultas_box {
-        clip-path: polygon(0% 82%, 25% 82%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 72%, 25% 72%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 83%, 21% 83%, 26% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
@@ -515,7 +520,7 @@ body {
         clip-path: polygon(36% 0%, 36% 10%, 0% 10%, 0% 100%, 100% 100%, 100% 0%);
     }
     .fakultas_box {
-        clip-path: polygon(0% 77%, 23% 77%, 28% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 72%, 22% 72%, 32% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 82%, 20% 82%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
@@ -542,7 +547,7 @@ body {
         transform: scale(2.4);
     }
     .fakultas_box {
-        clip-path: polygon(0% 76%, 30% 76%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 72%, 25% 72%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .prodi_box{
         clip-path: polygon(0% 80%, 25% 80%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
@@ -563,7 +568,7 @@ body {
         clip-path: polygon(70% 0%, 70% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
     .fakultas_box {
-        clip-path: polygon(0% 76%, 30% 76%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 72%, 25% 72%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 80%, 22% 80%, 32% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
@@ -577,6 +582,9 @@ body {
 }
 
 @media (max-width: 700px) {
+    .fakultas_box {
+        clip-path: polygon(0% 72%, 30% 72%, 40% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
     .testi_box {
         clip-path: polygon(83% 0%, 83% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
@@ -605,7 +613,7 @@ body {
         clip-path: polygon(80% 0%, 80% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
     .fakultas_box {
-        clip-path: polygon(0% 72%, 30% 72%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 72%, 35% 72%, 45% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 77%, 28% 77%, 38% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
@@ -617,7 +625,7 @@ body {
 
 @media (max-width: 560px) {
     .fakultas_box {
-        clip-path: polygon(0% 72%, 40% 72%, 45% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 72%, 35% 72%, 45% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 77%, 38% 77%, 48% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
@@ -640,6 +648,9 @@ body {
     .cta_box {
         clip-path: polygon(0% 25%, 22% 25%, 22% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+    .fakultas_box {
+        clip-path: polygon(0% 72%, 40% 72%, 50% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
 }
 
 @media (max-width: 430px) {
@@ -653,7 +664,7 @@ body {
         clip-path: polygon(73% 0%, 73% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
     .fakultas_box {
-        clip-path: polygon(0% 72%, 42% 72%, 47% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 72%, 45% 72%, 55% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 80%, 42% 80%, 52% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
@@ -674,7 +685,7 @@ body {
         clip-path: polygon(70% 0%, 70% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
     .fakultas_box {
-        clip-path: polygon(0% 72%, 45% 72%, 55% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 70%, 50% 70%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 80%, 48% 80%, 58% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
@@ -695,7 +706,7 @@ body {
         clip-path: polygon(72% 0%, 72% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
     .fakultas_box {
-        clip-path: polygon(0% 80%, 50% 80%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 70%, 50% 70%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 80%, 48% 80%, 58% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
@@ -710,7 +721,7 @@ body {
         clip-path: polygon(0% 20%, 30% 20%, 30% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     .fakultas_box {
-        clip-path: polygon(0% 76%, 60% 76%, 70% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 70%, 60% 70%, 70% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 80%, 60% 80%, 70% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);

@@ -21,63 +21,105 @@ import { motion } from 'framer-motion'
 
 const faculties = [
   {
-    name: 'Fakultas Keguruan dan Ilmu Pendidikan',
-    programs: [
-      'S1 - Pendidikan Pancasila & Kewarganegaraan',
-      'S1 - Pendidikan Ekonomi Akuntansi',
-      'S1 - Pendidikan Bahasa',
-      'S1 - Sastra Indonesia dan Daerah',
-      'S1 - Pendidikan Matematika',
-      'S1 - Pendidikan Biologi',
-      'S1 - Pendidikan Guru Sekolah Dasar',
-    ],
+      name: 'Fakultas Keguruan dan Ilmu Pendidikan',
+      slug: 'fakultas-keguruan-dan-ilmu-pendidikan',
+      programs: [
+          { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
+          { name: 'S1 - Pendidikan Ekonomi Akuntansi', slug: 'pendidikan-ekonomi-akuntansi' },
+          { name: 'S1 - Pendidikan Bahasa', slug: 'pendidikan-bahasa' },
+          { name: 'S1 - Sastra Indonesia dan Daerah', slug: 'sastra-indonesia-daerah' },
+          { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
+          { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
+          { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' }
+      ]
   },
   {
-    name: 'Fakultas Teknik',
-    programs: ['S1 - Teknik Informatika', 'S1 - Teknik Mesin', 'S1 - Teknik Industri', 'S1 - Teknik Lingkungan', 'S1 - Teknologi Pangan'],
+      name: 'Fakultas Teknik',
+      slug: 'fakultas-teknik',
+      programs: [
+          { name: 'S1 - Teknik Informatika', slug: 'teknik-informatika' },
+          { name: 'S1 - Teknik Mesin', slug: 'teknik-mesin' },
+          { name: 'S1 - Teknik Industri', slug: 'teknik-industri' },
+          { name: 'S1 - Teknik Lingkungan', slug: 'teknik-lingkungan' },
+          { name: 'S1 - Teknologi Pangan', slug: 'teknologi-pangan' }
+      ]
   },
   {
-    name: 'Fakultas Ekonomi dan Bisnis',
-    programs: ['S1 - Akuntansi', 'S1 - Manajemen', 'S1 - Ekonomi Pembangunan'],
+      name: 'Fakultas Ekonomi dan Bisnis',
+      slug: 'fakultas-ekonomi-dan-bisnis',
+      programs: [
+          { name: 'S1 - Akuntansi', slug: 'akuntansi' },
+          { name: 'S1 - Manajemen', slug: 'manajemen' },
+          { name: 'S1 - Ekonomi Pembangunan', slug: 'ekonomi-pembangunan' }
+      ]
   },
   {
-    name: 'Fakultas Hukum',
-    programs: ['S1 - Ilmu Hukum'],
+      name: 'Fakultas Hukum',
+      slug: 'fakultas-hukum',
+      programs: [
+          { name: 'S1 - Ilmu Hukum', slug: 'ilmu-hukum' }
+      ]
   },
   {
-    name: 'Program Pasca Sarjana',
-    programs: [
-      'S2 - Magister Ilmu Administrasi & Kebijakan Publik',
-      'S2 - Magister Manajemen',
-      'S2 - Magister Teknik Industri',
-      'S2 - Magister Ilmu Hukum',
-      'S2 - Magister Teknologi Pangan',
-      'S2 - Magister Pendidikan Matematika',
-      'S2 - Magister Teknik Mesin',
-      'S2 - Magister Ilmu Komunikasi',
-      'S2 - Magister Pendidikan Bahasa Indonesia',
-      'S3 - Doktor Ilmu Manajemen',
-      'S3 - Doktor Ilmu Sosial',
-      'S3 - Doktor Ilmu Hukum',
-    ],
+      name: 'Program Pasca Sarjana',
+      slug: 'program-pasca-sarjana',
+      programs: [
+          { name: 'S2 - Magister Ilmu Administrasi & Kebijakan Publik', slug: 'magister-ilmu-administrasi-kebijakan-publik' },
+          { name: 'S2 - Magister Manajemen', slug: 'magister-manajemen' },
+          { name: 'S2 - Magister Teknik Industri', slug: 'magister-teknik-industri' },
+          { name: 'S2 - Magister Ilmu Hukum', slug: 'magister-ilmu-hukum' },
+          { name: 'S2 - Magister Teknologi Pangan', slug: 'magister-teknologi-pangan' },
+          { name: 'S2 - Magister Pendidikan Matematika', slug: 'magister-pendidikan-matematika' },
+          { name: 'S2 - Magister Teknik Mesin', slug: 'magister-teknik-mesin' },
+          { name: 'S2 - Magister Ilmu Komunikasi', slug: 'magister-ilmu-komunikasi' },
+          { name: 'S2 - Magister Pendidikan Bahasa Indonesia', slug: 'magister-pendidikan-bahasa-indonesia' },
+          { name: 'S3 - Doktor Ilmu Manajemen', slug: 'doktor-ilmu-manajemen' },
+          { name: 'S3 - Doktor Ilmu Sosial', slug: 'doktor-ilmu-sosial' },
+          { name: 'S3 - Doktor Ilmu Hukum', slug: 'doktor-ilmu-hukum' }
+      ]
   },
   {
-    name: 'Fakultas Kedokteran',
-    programs: ['S1 - Pendidikan Dokter', 'Profesi - Profesi Dokter'],
+      name: 'Fakultas Kedokteran',
+      slug: 'fakultas-kedokteran',
+      programs: [
+          { name: 'S1 - Pendidikan Dokter', slug: 'pendidikan-dokter' },
+          { name: 'Profesi - Profesi Dokter', slug: 'profesi-dokter' }
+      ]
   },
   {
-    name: 'Fakultas Pendidikan',
-    programs: ['S1 - Pendidikan Matematika', 'S1 - Pendidikan Biologi', 'S1 - Pendidikan Pancasila dan Kewarganegaraan', 'S1 - Pendidikan Guru Sekolah Dasar', 'S1 - Pendidikan Bahasa dan Sastra Indonesia', 'S1 - Pendidikan Ekonomi'],
+      name: 'Fakultas Pendidikan',
+      slug: 'fakultas-pendidikan',
+      programs: [
+          { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
+          { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
+          { name: 'S1 - Pendidikan Pancasila dan Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
+          { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' },
+          { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-sastra-indonesia' },
+          { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' }
+      ]
   },
   {
-    name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
-    programs: ['S1 - Administrasi Publik', 'S1 - Kesejahteraan Sosial', 'S1 - Hubungan Internasional', 'S1 - Ilmu Administrasi Bisnis', 'S1 - Ilmu Komunikasi'],
+      name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
+      slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
+      programs: [
+          { name: 'S1 - Administrasi Publik', slug: 'administrasi-publik' },
+          { name: 'S1 - Kesejahteraan Sosial', slug: 'kesejahteraan-sosial' },
+          { name: 'S1 - Hubungan Internasional', slug: 'hubungan-internasional' },
+          { name: 'S1 - Ilmu Administrasi Bisnis', slug: 'ilmu-administrasi-bisnis' },
+          { name: 'S1 - Ilmu Komunikasi', slug: 'ilmu-komunikasi' }
+      ]
   },
   {
-    name: 'Fakultas Ilmu Seni dan Sastra',
-    programs: ['S1 - Sastra Inggris', 'S1 - Desain Komunikasi Visual', 'S1 - Fotografi dan Film', 'S1 - Seni Musik'],
-  },
-]
+      name: 'Fakultas Ilmu Seni dan Sastra',
+      slug: 'fakultas-ilmu-seni-dan-sastra',
+      programs: [
+          { name: 'S1 - Sastra Inggris', slug: 'sastra-inggris' },
+          { name: 'S1 - Desain Komunikasi Visual', slug: 'desain-komunikasi-visual' },
+          { name: 'S1 - Fotografi dan Film', slug: 'fotografi-dan-film' },
+          { name: 'S1 - Seni Musik', slug: 'seni-musik' }
+      ]
+  }
+];
 
 const faculties1 = faculties.slice(0, 3)
 const faculties2 = faculties.slice(3, 6)
@@ -85,18 +127,18 @@ const faculties3 = faculties.slice(6, 9)
 
 const Fakultas = () => {
   const [fakultas, setFakultas] = useState([])
-  const [loading, setLoading] = useState(true) // Tambahkan state loading
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true) // Set loading sebelum memulai fetch
+      setLoading(true)
       try {
         const [fakultasData] = await Promise.all([FakultasService.getAllFakultas()])
         setFakultas(fakultasData)
       } catch (error) {
         console.error('Error fetching data:', error)
       } finally {
-        setLoading(false) // Set loading ke false setelah fetch selesai
+        setLoading(false)
       }
     }
 
@@ -114,10 +156,10 @@ const Fakultas = () => {
         <div className="relative">
           <div className="w-full fakultas_container">
             <div className="flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 bg-primary relative overflow-hidden fakultas_box lg:h-[55vh]">
-              <div className="absolute  right-0">
+              <div className="absolute -right-1/4 md:-right-30 lg:-right-4">
                 <img src={Logo} alt={'Logo Outline Unpas'} loading="lazy" className="h-[30vh] md:h-[45vh] lg:h-[55vh]" />
               </div>
-              <div className="text-gray-800 p-14">
+              <div className="text-gray-800 px-4 py-14">
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold">7 Pilihan</h2>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">Fakultas Terakreditasi</h3>
               </div>
