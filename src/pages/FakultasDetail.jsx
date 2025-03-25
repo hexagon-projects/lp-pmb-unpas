@@ -11,62 +11,49 @@ import CTASection from '../components/CTASection'
 import LogoText from '../components/LogoText'
 import Button from '../components/Button'
 import ButtonArrow from '../components/ButtonArrow'
-import VideoSwiper from "../components/home/VideoSwiper";
+import VideoSwiper from '../components/home/VideoSwiper'
 import { fetchAllData } from '../utils/fetchAllData'
 import { FaArrowRightLong } from 'react-icons/fa6'
-
-
 import { FaFacebook, FaPlay, FaTiktok } from 'react-icons/fa'
 import { FaInstagram, FaYoutube } from 'react-icons/fa6'
 import { useCallback, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { X } from 'lucide-react'
 import { useParams } from 'react-router-dom'
-
 import FakultasService from '../fetching/fakultas'
 import PartnerService from '../fetching/partner'
 import UnggulanService from '../fetching/unggulan'
 import BeritaService from '../fetching/berita'
 import AgendaService from '../fetching/agenda'
-
 import Gedung from '../assets/gedung.jpeg'
 import MitraSection from '../views/home/MitraSection'
-import bgSection from '../assets/home/section1ori.jpeg'
-import StatsSection from '../components/StatsSection'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const FakultasDetail = () => {
   const { slug } = useParams()
   const [fakultas, setFakultas] = useState({})
-  const [prodi, setProdi] = useState({})
+  const [prodi, setProdi] = useState([])
   const [unggulan, setUnggulan] = useState([])
   const [partner, setPartner] = useState([])
   const [berita, setBerita] = useState([])
   const [agenda, setAgenda] = useState([])
   const imageURL = import.meta.env.VITE_IMAGE_URL
   const [loading, setLoading] = useState(true)
-  const [playingVideo, setPlayingVideo] = useState(null)
-  const thumbnail = `https://img.youtube.com/vi/${fakultas.yt_id}/hqdefault.jpg`
-
   const [isOpen, setIsOpen] = useState(false)
 
   const fetchData = useCallback(async () => {
     try {
-      const [fakultasRes, partnerRes, beritaRes, agendaRes, unggulanRes] = await Promise.all([
-        FakultasService.getFakultasBySlug(slug),
-        PartnerService.getAllPartner(),
-        BeritaService.getAllBerita(),
-        AgendaService.getAllAgenda(),
-        UnggulanService.getUnggulanByID(fakultasRes?.fakultas?.id),
-      ])
-
+      const fakultasPromise = FakultasService.getFakultasBySlug(slug)
+      // First get fakultas data
+      const fakultasRes = await fakultasPromise
       setFakultas(fakultasRes.fakultas)
       setProdi(fakultasRes.departements)
+      // Then get other data using the fakultas ID
+      const [partnerRes, beritaRes, agendaRes, unggulanRes] = await Promise.all([PartnerService.getAllPartner(), BeritaService.getAllBerita(), AgendaService.getAllAgenda(), UnggulanService.getUnggulanByID(fakultasRes.fakultas.id)])
       setPartner(partnerRes)
       setBerita(beritaRes)
-      const sliceUnggulan = unggulanRes?.slice(0, 4)
       setAgenda(agendaRes)
-      setUnggulan(sliceUnggulan)
+      setUnggulan(unggulanRes?.slice(0, 4))
     } catch (error) {
       console.error(error)
     } finally {
@@ -91,7 +78,7 @@ const FakultasDetail = () => {
         setLoading(false)
       }
     }
-    loadData();
+    loadData()
   }, [fetchData])
 
   const latestBerita = berita.slice(0, 4)
@@ -111,15 +98,11 @@ const FakultasDetail = () => {
         <meta property="og:image" content="https://pmb.unpas.ac.id/logo-unpas.png" />
         <meta property="og:url" content="https://pmb.unpas.ac.id/fakultas-teknik" />
       </Helmet>
+
+      {/* Modal Video */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            className="fixed inset-0 flex justify-center items-center bg-black/80 z-50"
-            onClick={() => setIsOpen(false)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.3 } }}
-          >
+          <motion.div className="fixed inset-0 flex justify-center items-center bg-black/80 z-50" onClick={() => setIsOpen(false)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.3 } }}>
             <motion.div className="relative p-4 rounded-lg md:rounded-2xl lg:rounded-4xl shadow-lg w-[90%] md:w-[70%] lg:w-[50%]" initial={{ scale: 0.8 }} animate={{ scale: 1 }} exit={{ scale: 0.8 }} transition={{ duration: 0.3 }}>
               <button
                 onClick={(e) => {
@@ -130,7 +113,6 @@ const FakultasDetail = () => {
               >
                 <X size={20} />
               </button>
-
               <iframe
                 className="w-full aspect-video border-2 border-white rounded-lg md:rounded-2xl lg:rounded-4xl"
                 src={`https://www.youtube.com/embed/${fakultas.yt_id}`}
@@ -144,8 +126,9 @@ const FakultasDetail = () => {
         )}
       </AnimatePresence>
 
-      <div className="w-full p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20">
-        <div className="relative ">
+      <motion.div className="w-full p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+        {/* Header Section */}
+        <motion.div className="relative" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="w-full fakultas_dtl_container">
             <div
               className={`w-full flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 md:px-8 lg:px-12 relative overflow-hidden fakultas_dtl_box lg:h-[55vh]`}
@@ -161,14 +144,12 @@ const FakultasDetail = () => {
                   </filter>
                 </defs>
               </svg>
-
               <div className="text-white relative my-8 z-10 w-1/2 md:w-1/4 lg:w-1/5">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl px-4 py-14 font-bold">
                   <span className="block">Fakultas</span>
                   <span className="block">{fakultas.name.replace('Fakultas ', '')}</span>
                 </h2>
               </div>
-
               <div className="absolute top-4 left-4 z-10">
                 <LogoText titleColor={'text-white'} />
               </div>
@@ -177,59 +158,61 @@ const FakultasDetail = () => {
           <div className="absolute bottom-0 left-0 z-20">
             <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/50'} padding={'px-4 py-4'} />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap flex-row justify-center gap-4 md:gap-6 lg:gap-10">
+        {/* Program Studi Section */}
+        <motion.div className="flex flex-wrap flex-row justify-center gap-4 md:gap-6 lg:gap-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
           {prodi.map((item, index) => (
             <div key={index}>
               <TeknikBox image={`${imageURL}/programs/${item.image1}`} title={item.program_name} slug={item.slug} />
             </div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className={'w-full flex justify-center items-center'}>
-          <div className={'w-full flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-y-4 md:gap-y-0 gap-x-18'}>
+        {/* Visi & Misi Section */}
+        <motion.div className="w-full flex justify-center items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
+          <div className="w-full flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-y-4 md:gap-y-0 gap-x-18">
             <div className="w-full md:w-full space-y-3 md:space-y-4 flex flex-col justify-center items-left text-justify md:items-start md:text-left">
-              <div className='text-center md:text-left'>
+              <div className="text-center md:text-left">
                 <Title title={'Visi dan Misi'} color="text-[#3384FF]" />
               </div>
               <div className="max-h-[300px] overflow-y-auto">
                 <RichText content={`${fakultas.description2}`} />
               </div>
-              <div className='w-fit'>
+              <div className="w-fit">
                 <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/50'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
               </div>
             </div>
-
             <div className="w-full md:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
               <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer">
                 <img src={`https://img.youtube.com/vi/${fakultas.yt_id}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
                 <motion.div className="absolute inset-0 flex items-center justify-center rounded-lg md:rounded-2xl lg:rounded-4xl" whileTap={{ scale: 0.9 }}>
                   <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
-                    <FaPlay className="text-white  p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
+                    <FaPlay className="text-white p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
                   </div>
                 </motion.div>
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-full flex justify-center">
+        {/* Video Section (jika ada duplikasi video) */}
+        <motion.div className="w-full flex justify-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}>
           <div className="w-full md:w-[80%] lg:w-[60%]">
             <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer">
               <img src={`https://img.youtube.com/vi/${fakultas.yt_id}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
               <motion.div className="absolute inset-0 flex items-center justify-center rounded-lg md:rounded-2xl lg:rounded-4xl" whileTap={{ scale: 0.9 }}>
                 <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
-                  <FaPlay className="text-white  p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
+                  <FaPlay className="text-white p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
                 </div>
               </motion.div>
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="relative w-full lg:py-40 rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden">
+        {/* Mengapa Pilih Fakultas Section */}
+        <motion.div className="relative w-full lg:py-40 rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1 }}>
           <div className="hidden lg:block absolute inset-0 border-1 border-gray-800/10 shadow-xl shadow-black/5 transform -skew-y-3 origin-top-left rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
-
           <div className="relative flex flex-col md:flex-row justify-center items-center text-center space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-10">
             <div className="w-full md:w-1/2 lg:w-1/3 space-y-3 md:space-y-4">
               <div className="w-full space-y-2 text-left md:text-left">
@@ -246,10 +229,11 @@ const FakultasDetail = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11">
-          <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2'}>
+        {/* Button Daftar Sekarang Section */}
+        <motion.div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.2 }}>
+          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
             <div className="flex justify-between md:justify-between items-center text-center relative z-2">
               <div className="flex items-center gap-4 text-left">
                 <div className="w-[60%] md:w-fit">
@@ -262,11 +246,15 @@ const FakultasDetail = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <MitraSection data={partner} />
+        {/* Mitra Section */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.4 }}>
+          <MitraSection data={partner} />
+        </motion.div>
 
-        <div>
+        {/* Berita Terbaru Section */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.6 }}>
           <div className="text-center md:text-left space-y-3 md:space-y-4">
             <Title title={'Berita Terbaru'} />
             <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
@@ -286,131 +274,24 @@ const FakultasDetail = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {agenda.length > 0 ? (
-          <ActivitySection title={'Agenda'} activities={agenda} />
-        ) : (
-          <div className='text-center'>
-            <Text text={'Tidak ada Agenda'} />
-          </div>
-        )}
-
-        <CTASection color={'bg-blue-500'} />
-
-        {/* <StatsSection colorIcon={'text-blue-500'} title1="Karya Ilmiah" prodi={fakultas.statistik3} mahasiswa={fakultas.statistik1} lulusan={fakultas.statistik2} prestasi={fakultas.statistik4} /> */}
-
-        {/* <div>
-          <div className="text-center space-y-3 md:space-y-4">
-            <Title title={'Media Sosial'} />
-
-            <div className="flex flex-col md:flex-row justify-center items-stretch gap-4">
-              <div className="w-full flex flex-col justify-between bg-gray-200 p-6 rounded-lg md:rounded-2xl lg:rounded-4xl">
-                <motion.a
-                  href={`https://www.facebook.com/${fakultas.fb}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-white p-5 rounded-xl shadow-sm hover:shadow-md transform hover:-translate-y-1 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="bg-blue-100 p-3 rounded-full">
-                    <FaFacebook size={24} className="text-blue-600" />
-                  </div>
-                  <Text weight="font-medium" text="Facebook" />
-                </motion.a>
-
-                <motion.a
-                  href={`https://www.tiktok.com/@${fakultas.tt}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-white p-5 rounded-xl shadow-sm hover:shadow-md transform hover:-translate-y-1 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="bg-gray-100 p-3 rounded-full">
-                    <FaTiktok size={24} className="text-gray-800" />
-                  </div>
-                  <Text weight="font-medium" text="TikTok" />
-                </motion.a>
-
-                <motion.a
-                  href={`https://www.instagram.com/${fakultas.ig}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-white p-5 rounded-xl shadow-sm hover:shadow-md transform hover:-translate-y-1 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="bg-pink-100 p-3 rounded-full">
-                    <FaInstagram size={24} className="text-pink-600" />
-                  </div>
-                  <Text weight="font-medium" text="Instagram" />
-                </motion.a>
-
-                <motion.a
-                  href={`https://www.youtube.com/channel/${fakultas.yt}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-white p-5 rounded-xl shadow-sm hover:shadow-md transform hover:-translate-y-1 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="bg-red-100 p-3 rounded-full">
-                    <FaYoutube size={24} className="text-red-600" />
-                  </div>
-                  <Text weight="font-medium" text="YouTube" />
-                </motion.a>
-              </div>
-
-              <div className="w-full flex flex-col justify-between">
-                <div className="relative w-full h-full mx-auto cursor-pointer" onClick={() => setPlayingVideo(`https://www.youtube.com/embed/${fakultas.yt_id}`)}>
-                  <img src={thumbnail} alt="Kisah Alumni" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
-                  <motion.div className="absolute inset-0 flex items-center justify-center rounded-lg md:rounded-2xl lg:rounded-4xl" whileTap={{ scale: 0.9 }}>
-                    <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
-                      <FaPlay className="text-white p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
-                    </div>
-                  </motion.div>
-                </div>
-
-                <AnimatePresence>
-                  {playingVideo && (
-                    <motion.div
-                      className="fixed inset-0 flex items-center justify-center bg-black/80 z-50"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0, transition: { duration: 0.3 } }}
-                      onClick={() => setPlayingVideo(null)}
-                    >
-                      <motion.div className="relative w-[90%] md:w-[70%] lg:w-[50%]" initial={{ scale: 0.8 }} animate={{ scale: 1 }} exit={{ scale: 0.8 }} transition={{ duration: 0.3 }}>
-                        <button
-                          className="absolute -top-3 -right-3 bg-red-500 text-white p-2 rounded-full cursor-pointer"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            setPlayingVideo(null)
-                          }}
-                        >
-                          <X size={20} />
-                        </button>
-
-                        <iframe
-                          width="100%"
-                          height="400"
-                          src={playingVideo}
-                          title="YouTube Video"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                          className="border-2 border-white rounded-lg md:rounded-2xl lg:rounded-4xl"
-                        ></iframe>
-                      </motion.div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+        {/* Agenda / Activity Section */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.8 }}>
+          {agenda.length > 0 ? (
+            <ActivitySection title={'Agenda'} activities={agenda} />
+          ) : (
+            <div className="text-center">
+              <Text text={'Tidak ada Agenda'} />
             </div>
-          </div>
-        </div> */}
-      </div>
+          )}
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2 }}>
+          <CTASection color={'bg-blue-500'} />
+        </motion.div>
+      </motion.div>
     </UserLayout>
   )
 }

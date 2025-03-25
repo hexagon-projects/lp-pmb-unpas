@@ -89,54 +89,59 @@ const ArtikelDetail = () => {
             </Helmet>
 
             <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-20">
-                <div className="w-full flex justify-between items-start gap-4 md:gap-6 lg:gap-10">
-                    <Title sizeMobile="text-lg" title={artikel.title} />
-                    <div className="w-fit flex flex-col justify-between items-start gap-6 md:gap-10 lg:gap-10">
-                        <div className="space-y-2">
-                            <Text text={artikel.pub_date} />
-                            <Text text="Politik" />
+                <div className="w-full flex flex-col justify-center items-center">
+                    <div className="w-full lg:w-[85%] space-y-8 md:space-y-12 lg:space-y-20">
+                        <div className="w-full flex flex-col justify-between items-start gap-4 md:gap-6 lg:gap-10">
+                            <Title sizeMobile="text-lg" title={artikel.title} />
                         </div>
-                        <div className="flex items-center gap-2">
-                            <Text text="Bagikan" />
-                            <button onClick={shareOnTwitter} aria-label="Bagikan ke Twitter">
-                                <BsTwitterX className="cursor-pointer hover:text-blue-500" />
-                            </button>
-                            <button onClick={shareOnFacebook} aria-label="Bagikan ke Facebook">
-                                <FaFacebook className="cursor-pointer hover:text-blue-600" />
-                            </button>
-                            <button onClick={shareOnWhatsApp} aria-label="Bagikan ke WhatsApp">
-                                <FaWhatsapp className="cursor-pointer hover:text-green-500" />
-                            </button>
-                            <button onClick={copyToClipboard} aria-label="Salin link artikel">
-                                <FaCopy className="cursor-pointer hover:text-gray-500" />
-                            </button>
+
+                        {artikel.image && (
+                            <div className="w-full h-full lg:h-[50vh]">
+                                <img
+                                    src={`${imageURL}/posts/${artikel.image}`}
+                                    alt={artikel.title}
+                                    loading="lazy"
+                                    className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl object-cover"
+                                />
+                            </div>
+                        )}
+
+                        <div className="w-full">
+                            <RichText content={artikel.content} />
                         </div>
+
+                        <div className="w-fit flex flex-col justify-between items-start gap-6 md:gap-10 lg:gap-10">
+                            <div className="space-y-2">
+                                <Text text={artikel.pub_date} />
+                                <Text text="Politik" />
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <Text text="Bagikan" />
+                                <button onClick={shareOnTwitter} aria-label="Bagikan ke Twitter">
+                                    <BsTwitterX className="cursor-pointer hover:text-blue-500" />
+                                </button>
+                                <button onClick={shareOnFacebook} aria-label="Bagikan ke Facebook">
+                                    <FaFacebook className="cursor-pointer hover:text-blue-600" />
+                                </button>
+                                <button onClick={shareOnWhatsApp} aria-label="Bagikan ke WhatsApp">
+                                    <FaWhatsapp className="cursor-pointer hover:text-green-500" />
+                                </button>
+                                <button onClick={copyToClipboard} aria-label="Salin link artikel">
+                                    <FaCopy className="cursor-pointer hover:text-gray-500" />
+                                </button>
+                            </div>
+                        </div>
+                        {berita.length > 0 && (
+                            <div className="w-full space-y-3 md:space-y-4">
+                                <div className="flex justify-between">
+                                    <Title sizeMobile="text-base" title="Artikel Terkait" />
+                                </div>
+                                <ArticleCard data={berita.slice(0, 4)} />
+                            </div>
+                        )}
                     </div>
                 </div>
 
-                {artikel.image && (
-                    <div className="w-full h-full">
-                        <img
-                            src={`${imageURL}/posts/${artikel.image}`}
-                            alt={artikel.title}
-                            loading="lazy"
-                            className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl"
-                        />
-                    </div>
-                )}
-
-                <div className="w-full">
-                    <RichText content={artikel.content} />
-                </div>
-
-                {berita.length > 0 && (
-                    <div className="w-full space-y-3 md:space-y-4">
-                        <div className="flex justify-between">
-                            <Title sizeMobile="text-base" title="Artikel Terkait" />
-                        </div>
-                        <ArticleCard data={berita.slice(0, 2)}/>
-                    </div>
-                )}
 
                 <CTASection />
             </div>

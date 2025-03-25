@@ -29,7 +29,6 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
         }
       
         const content = text.toString();
-        console.log(content);
     
         const typingEffect = setInterval(() => {
             if (index < content.length) {
@@ -43,7 +42,6 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
 
         return () => clearInterval(typingEffect);
     }, [activeIndex, data]);
-    console.log(typedText);
 
     return (
       <div className={`w-full flex flex-col ${displayDekstop} gap-4 md:gap-6 lg:gap-10`}>

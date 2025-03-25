@@ -21,7 +21,7 @@ const FakultasCard = ({ image, title, slug }) => {
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent transition duration-500"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent transition duration-500"></div>
 
       <motion.h3
         className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6 text-white text-2xl w-[140px] lg:w-[75%] font-semibold"
