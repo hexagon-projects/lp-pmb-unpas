@@ -17,11 +17,11 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
     const swiperRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [typedText, setTypedText] = useState("");
-    
+
     useEffect(() => {
         let index = 0;
         setTypedText(""); // Reset teks sebelum mengetik ulang
-        
+
         const text = data[activeIndex]?.description;
     // Pastikan text adalah string
       
@@ -37,13 +37,13 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
         }
     }, 5); // Memperlambat kecepatan mengetik agar lebih terlihat
 
-    return () => clearInterval(typingEffect);
-}, [activeIndex, data]);
+        return () => clearInterval(typingEffect);
+    }, [activeIndex, data]);
 
     return (
         <div className={`w-full flex flex-col ${displayDekstop} gap-4 md:gap-6 lg:gap-10`}>
             <div className="w-full text-center space-y-2 md:space-y-3 p-4 md:px-10 lg:px-12">
-                <div className="text-left">
+                <div className="text-center">
                     <Title title={'Testimoni'} />
                 </div>
             </div>
@@ -82,7 +82,7 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
 
                                         <div className="w-full md:w-1/2 lg:w-[60%] h-[25vh] md:h-[40vh] flex flex-col justify-between items-start gap-4 md:gap-6 lg:gap-8">
                                             <div className="w-full h-full flex flex-col justify-evenly md:justify-start items-start gap-4 md:gap-6 lg:gap-8">
-                                                <div className="space-y-2">
+                                                <div className="w-full space-y-2 text-center md:text-left">
                                                     <motion.div
                                                         initial={{ opacity: 0, y: 50 }}
                                                         animate={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
                                                     exit={{ opacity: 0, y: -50 }}
                                                     transition={{ duration: 0.3 }}
                                                 >
-                                                    <RichText lineclamp={"line-clamp-3"} content={typedText} />
+                                                    <RichText lineclamp={"line-clamp-4 md:line-clamp-7 lg:line-clamp-8 xl:line-clamp-10"} content={typedText} />
                                                 </motion.div>
                                             </div>
 

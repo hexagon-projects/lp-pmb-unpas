@@ -1,53 +1,58 @@
-import { useEffect, useState, useCallback } from 'react'
-import { useParams } from 'react-router-dom'
-import UserLayout from './layouts/UserLayout'
-import Title from '../components/Title'
-import Text from '../components/Text'
-import ButtonArrow from '../components/ButtonArrow'
-import StatsSection from '../components/StatsSection'
-import PrestasiSection from '../components/prodi/PrestasiSection'
-import ArticleTransparentCard from '../components/ArticleTransparentCard'
-import TestimonialSlider from '../components/TestimonialSlider'
-import AktivitasMahasiswa from '../components/prodi/AktivitasMahasiswa'
-import FasilitasSlider from '../components/prodi/FasilitasSlider'
-import DosenCard from '../components/prodi/DosenCard'
-import RichText from '../components/RichText'
-import bgSection from '../assets/home/section1ori.jpeg'
-import PartnerService from '../fetching/partner'
-import TestimoniService from '../fetching/testimoni'
-import BeritaService from '../fetching/berita'
-import PrestasiService from '../fetching/prestasi'
-import ProdiService from '../fetching/prodi'
-import Loading from '../components/Loading'
-import GalleryService from '../fetching/galery'
-import MitraSection from '../views/home/MitraSection'
-import { X } from 'lucide-react'
-import HighlightCard from '../components/fakultas/HighlightCard'
-import Pagination from '../components/Pagination'
-import { motion, AnimatePresence } from 'framer-motion'
-import { FaPlay } from 'react-icons/fa'
-import LogoText from '../components/LogoText'
-import Button from '../components/Button'
-import Gedung from '../assets/gedung.jpeg'
-
-
+import { useEffect, useState, useCallback } from "react";
+import { useParams } from "react-router-dom";
+import UserLayout from "./layouts/UserLayout";
+import Title from "../components/Title";
+import Text from "../components/Text";
+import ButtonArrow from "../components/ButtonArrow";
+import StatsSection from "../components/StatsSection";
+import PrestasiSection from "../components/prodi/PrestasiSection";
+import ArticleTransparentCard from "../components/ArticleTransparentCard";
+import TestimonialSlider from "../components/TestimonialSlider";
+import AktivitasMahasiswa from "../components/prodi/AktivitasMahasiswa";
+import FasilitasSlider from "../components/prodi/FasilitasSlider";
+import DosenCard from "../components/prodi/DosenCard";
+import RichText from "../components/RichText";
+import bgSection from "../assets/home/section1ori.jpeg";
+import PartnerService from "../fetching/partner";
+import TestimoniService from "../fetching/testimoni";
+import BeritaService from "../fetching/berita";
+import PrestasiService from "../fetching/prestasi";
+import ProdiService from "../fetching/prodi";
+import Loading from "../components/Loading";
+import GalleryService from "../fetching/galery";
+import MitraSection from "../views/home/MitraSection";
+import { X } from "lucide-react";
+import HighlightCard from "../components/fakultas/HighlightCard";
+import Pagination from "../components/Pagination";
+import LogoText from "../components/LogoText";
+import Button from "../components/Button";
+import CTASection from "../components/CTASection";
+import TestimonialSection from "../views/home/TestimonialSection";
 
 const ProgramStudi = () => {
-  const { slug } = useParams()
-  const [loading, setLoading] = useState(true)
-  const imageURL = import.meta.env.VITE_IMAGE_URL
-  const [isOpen, setIsOpen] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage] = useState(3)
+    const { slug } = useParams();
+    const [loading, setLoading] = useState(true);
+    const imageURL = import.meta.env.VITE_IMAGE_URL;
+    const [isOpen, setIsOpen] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(4);
 
-  const [data, setData] = useState({
-    partner: [],
-    testimonials: [],
-    berita: [],
-    prestasi: [],
-    prodi: null,
-    gallery: [],
-  })
+    useEffect(() => {
+        const updateItemsPerPage = () => {
+            if (window.innerWidth >= 1024) {
+                setItemsPerPage(6); // Desktop
+            } else {
+                setItemsPerPage(4); // Tablet & Mobile
+            }
+        };
+
+        updateItemsPerPage(); // Set initial value
+        window.addEventListener("resize", updateItemsPerPage);
+
+        return () => {
+            window.removeEventListener("resize", updateItemsPerPage);
+        };
+    }, []);
 
   const fetchData = useCallback(async () => {
     if (!slug) return
@@ -185,22 +190,15 @@ const ProgramStudi = () => {
 
         <FasilitasSlider title={'Fasilitas & Inovasi'} facilities={fasilitas} />
 
-        <div className={'space-y-3 md:space-y-4 pb-80 md:pb-56 lg:pb-20'}>
-          <div className="relative">
-            <div className="w-full flex justify-center gap-4 md:gap-6 lg:gap-10">
-              <div className="w-1/2">
-                <img src={bgSection} alt="" loading="lazy" className="w-full h-full rounded-lg md:rounded-2xl lg:rounded-4xl" />
-              </div>
-              <div className="w-1/2">
-                <div className="text-left">
-                  <Text text={'Testimoni'} color="text-red-500" />
-                  <span>
-                    <Title sizeMobile="text-base" title={'Apa Kata Mereka Soal'} />
-                    <Title sizeMobile="text-base" color="text-blue-500" title={'Unpas?'} />
-                  </span>
+                <div className={'space-y-4 md:space-y-6 lg:space-y-8'}>
+                    {prestasi.data && prestasi.data.length > 0 ? (
+                        <PrestasiSection prestasi={prestasi.data} />
+                    ) : (
+                        <div className="text-center py-6">
+                            <Text text={'Tidak ada data prestasi yang tersedia.'} color="text-gray-500" />
+                        </div>
+                    )}
                 </div>
-              </div>
-            </div>
             <div className="absolute -bottom-90 sm:-bottom-65 -right-2 max-w-xs md:-bottom-70 md:right-20 md:max-w-sm lg:-bottom-40 lg:right-0 lg:max-w-4xl xl:-bottom-25 xl:right-10 xl:max-w-5xl z-40 mb-10">
               {testimonials && testimonials.length > 0 ? (
                 <TestimonialSlider
@@ -231,33 +229,100 @@ const ProgramStudi = () => {
           </div>
         </div>
 
-        <div>
-          <div className="text-center md:text-left space-y-3 md:space-y-4">
-            <Title title={'Berita Terbaru'} />
-            {latestBerita && latestBerita.length > 0 ? (
-              <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
-                <div className="md:w-1/2 lg:w-full">
-                  <ArticleTransparentCard image={latestBerita[0]?.image} title={latestBerita[0]?.title} slug={latestBerita[0]?.slug} />
-                </div>
-                <div className="md:w-1/2 flex flex-col gap-4">
-                  <ArticleTransparentCard image={latestBerita[1]?.image} title={latestBerita[1]?.title} slug={latestBerita[1]?.slug} />
-                  <div className="w-full flex flex-col md:flex-row gap-4">
-                    <div className="md:w-1/2">
-                      <ArticleTransparentCard image={latestBerita[2]?.image} title={latestBerita[2]?.title} slug={latestBerita[2]?.slug} />
+                <div>
+                    <div className="text-center md:text-left space-y-4 md:space-y-6 lg:space-y-8">
+                        <Title title={'Berita Terbaru'} />
+                        {latestBerita && latestBerita.length > 0 ? (
+                            <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
+                                <div className="md:w-1/2 lg:w-full">
+                                    <ArticleTransparentCard image={latestBerita[0]?.image} title={latestBerita[0]?.title} slug={latestBerita[0]?.slug} />
+                                </div>
+                                <div className="md:w-1/2 flex flex-col gap-4">
+                                    <ArticleTransparentCard image={latestBerita[1]?.image} title={latestBerita[1]?.title} slug={latestBerita[1]?.slug} />
+                                    <div className="w-full flex flex-col md:flex-row gap-4">
+                                        <div className="md:w-1/2">
+                                            <ArticleTransparentCard image={latestBerita[2]?.image} title={latestBerita[2]?.title} slug={latestBerita[2]?.slug} />
+                                        </div>
+                                        <div className="md:w-1/2">
+                                            <ArticleTransparentCard image={latestBerita[3]?.image} title={latestBerita[3]?.title} slug={latestBerita[3]?.slug} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="text-center py-6">
+                                <Text text={'Tidak ada data berita yang tersedia.'} color="text-gray-500" />
+                            </div>
+                        )}
                     </div>
-                    <div className="md:w-1/2">
-                      <ArticleTransparentCard image={latestBerita[3]?.image} title={latestBerita[3]?.title} slug={latestBerita[3]?.slug} />
-                    </div>
-                  </div>
                 </div>
-              </div>
-            ) : (
-              <div className="text-center py-6">
-                <Text text={'Tidak ada data berita yang tersedia.'} color="text-gray-500" />
-              </div>
-            )}
-          </div>
-        </div>
+
+                <TestimonialSection data={data?.testimonials} displayDekstop="md:flex-col" />
+
+                <CTASection onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} color={'bg-blue-500'} />
+
+                {/* <div className={'w-full flex justify-around items-center'}>
+                    <div className="w-full lg:w-[90%] xl:w-[80%] flex flex-col lg:flex-row-reverse justify-center items-center gap-4 md:gap-6 lg:gap-8">
+                        <div className="w-full lg:w-[40%] text-left space-y-8">
+                            <Title sizeMobile="text-2xl md:text-4xl lg:text-6xl" title={'Mengapa Memilih Program Ini'} />
+                            <div className="hidden lg:block">
+                                <ButtonArrow text={'Baca Selengkapnya'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+                            </div>
+                        </div>
+                        {unggulan && unggulan.length > 0 ? (
+                            <div className="w-full lg:w-[60%] grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {unggulan.map((item, index) => (
+                                    <HighlightCard key={index} title={item.title} text={item.description} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="text-center py-6">
+                                <Text text={'Tidak ada data unggulan yang tersedia.'} color="text-gray-500" />
+                            </div>
+                        )}
+                    </div>
+                </div> */}
+
+                {/* <div className={'space-y-4 md:space-y-6 lg:space-y-8 pb-80 md:pb-56 lg:pb-20'}>
+                    <div className="relative">
+                        <div className="w-full flex justify-center gap-4 md:gap-6 lg:gap-10">
+                            <div className="w-1/2">
+                                <img src={bgSection} alt="" loading="lazy" className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl" />
+                            </div>
+                            <div className="w-1/2">
+                                <div className="text-left">
+                                    <Text text={'Testimoni'} color="text-red-500" />
+                                    <span>
+                                        <Title sizeMobile="text-base" title={'Apa Kata Mereka Soal'} />
+                                        <Title sizeMobile="text-base" color="text-blue-500" title={'Unpas?'} />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="absolute -bottom-90 sm:-bottom-65 -right-2 max-w-xs md:-bottom-70 md:right-20 md:max-w-sm lg:-bottom-40 lg:right-0 lg:max-w-4xl xl:-bottom-25 xl:right-10 xl:max-w-5xl z-40 mb-10">
+                            {testimonials && testimonials.length > 0 ? (
+                                <TestimonialSlider data={testimonials} bgColor={'bg-white'} textColor={'text-gray-700'} arrowColor={'text-blue-500'} cssBox={''} cssContainer={''} iconVisibililty={'hidden'} borderColor={'border-blue-500'} bgColorPagination={'bg-blue-500'} />
+                            ) : (
+                                <div className="text-center py-6">
+                                    <Text text={'Tidak ada data testimoni yang tersedia.'} color="text-gray-500" />
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div> */}
+
+                {/* <div className={'space-y-4 md:space-y-6 lg:space-y-8'}>
+                    <div className="w-full flex justify-center items-center gap-4 p-4 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl">
+                        <div className="w-1/2 text-left space-y-4 md:space-y-6 lg:space-y-8">
+                            <Text text={'Penerimaan Mahasiswa Baru'} color="text-red-500" />
+                            <Title sizeMobile="text-base" title={'Pilih Passionmu, Raih Pendidikan Kelas Dunia! Jangan Lewatkan Kesempatan, Daftar di UNPAS Sekarang!'} />
+                            <ButtonArrow text={fakultas?.cta ?? 'Daftar'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+                        </div>
+                        <div className="w-1/2 h-full bg-gray-200">
+                            <img src={bgSection} alt="" loading="lazy" className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl" />
+                        </div>
+                    </div>
+                </div> */}
 
         <div className={'space-y-3 md:space-y-4'}>
           <div className="w-full flex justify-center items-center gap-4 p-4 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg md:rounded-2xl lg:rounded-4xl">

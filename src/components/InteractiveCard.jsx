@@ -7,7 +7,7 @@ export default function InteractiveGrid() {
         {Array.from({ length: totalCells }).map((_, index) => (
           <div
             key={index}
-            className="border border-gray-200/20 transition-all hover:bg-primary bg-transparent"
+            className="border border-gray-200/20 transition-all hover:bg-primary/50 bg-transparent"
           ></div>
         ))}
       </div>

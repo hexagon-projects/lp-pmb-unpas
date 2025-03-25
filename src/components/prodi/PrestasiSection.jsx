@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import MotionWrapper from "../MotionWrapper";
 import Text from "../Text";
 import Title from "../Title";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,20 +10,20 @@ const PrestasiSection = ({ prestasi }) => {
     const swiperRef = useRef(null);
 
     return (
-        <MotionWrapper type={'zoomIn'} delay={0.2} className={'flex flex-col md:flex-row justify-between items-center gap-4'}>
+        <div className={'flex flex-col md:flex-row justify-between items-center gap-4'}>
             <div className="w-full md:w-[30%] text-center lg:text-left space-y-3 md:space-y-4">
                 <Title title={'Prestasi'} />
                 <Text leading={'leading-6'} text={'Dari akademik hingga inovasi, Universitas Pasundan terus mencetak prestasi gemilang. Bersama Unpas, raih mimpi dan jadilah bagian dari generasi unggul yang membawa perubahan!'} />
             </div>
             <div className="w-full md:w-[70%]">
                 <Swiper
-                    slidesPerView={1}
+                    slidesPerView={1.2}
                     spaceBetween={20}
                     modules={[Navigation, Pagination, Autoplay]}
                     navigation={false}
                     autoplay={{ delay: 3000 }}
                     loop
-                    className="relative h-96 overflow-hidden"
+                    className="relative h-[40vh] overflow-hidden"
                     onSwiper={(swiper) => (swiperRef.current = swiper)}
                     breakpoints={{
                         768: { slidesPerView: 1.6 },
@@ -33,10 +32,10 @@ const PrestasiSection = ({ prestasi }) => {
                 >
                     {prestasi.map((item, index) => (
                         <SwiperSlide key={index}>
-                            <div className="relative h-full bg-cover bg-center rounded-lg" style={{ backgroundImage: `url(${imageURL}/prestasis/${item?.image})` }}>
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                            <div className="relative h-full bg-cover bg-center rounded-xl md:rounded-2xl lg:rounded-4xl" style={{ backgroundImage: `url(${imageURL}/prestasis/${item?.image})` }}>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6 rounded-xl md:rounded-2xl lg:rounded-4xl">
                                     <div className="w-full text-white text-left space-y-2 z-10">
-                                        <h3 className="text-xl font-bold">{item?.title}</h3>
+                                        <h3 className="text-sm md:text-base lg:text-base font-bold">{item?.title}</h3>
                                         <div className="flex gap-2">
                                             <p className="text-xs md:text-sm">{item?.start_date} {item?.start_time}</p>
                                             <p className="text-xs md:text-sm">{item?.end_date} {item?.end_time}</p>
@@ -63,7 +62,7 @@ const PrestasiSection = ({ prestasi }) => {
                     </button>
                 </div>
             </div>
-        </MotionWrapper>
+        </div>
     );
 };
 

@@ -10,7 +10,7 @@ const MitraCarousel = ({ datas, reverse = false }) => {
                 className={`min-w-screen flex cursor-pointer ${reverse ? "animate-marquee-left" : "animate-marquee-right"} group-hover:[animation-play-state:paused]`} onClick={() => window.location.href = '/mitra'}
             >
                 {repeatedData.map((data, index) => (
-                    <div className="px-6 py-6 border-2 border-gray-200 rounded-lg md:rounded-xl lg:rounded-2xl mx-2  bg-[#f3f4f4] hover:bg-gray-200 transition duration-500">
+                    <div className="px-6 py-6 border-2 border-gray-200 rounded-lg md:rounded-xl lg:rounded-2xl mx-2  bg-[#f3f4f4] hover:bg-gray-100 transition duration-500">
                         <img
                             key={index}
                             src={`${imageURL}/partners/${data.image}`}

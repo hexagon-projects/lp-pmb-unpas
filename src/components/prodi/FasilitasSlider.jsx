@@ -45,8 +45,8 @@ const FasilitasSlider = ({ title, facilities }) => {
                                             <img
                                                 src={`${imageURL}/facilities/${facility.image}`}
                                                 alt={facility.title}
-                                                className={`w-24 lg:w-28 h-30 md:h-30 lg:h-50 p-2 object-cover rounded-lg transition-transform ${
-                                                    selectedFacility.title === facility.title ? 'ring-2 ring-white' : 'hover:ring-1 hover:ring-white'
+                                                className={`w-24 lg:w-28 h-24 md:h-24 lg:h-42 object-cover rounded-xl md:rounded-xl lg:rounded-2xl transition-transform ${
+                                                    selectedFacility.title === facility.title ? 'ring-1 ring-white' : 'hover:ring-1 hover:ring-white'
                                                 }`}
                                                 loading="lazy"
                                             />

@@ -1,7 +1,7 @@
 import CTABox from "./CTABox"
 import MotionWrapper from "./MotionWrapper"
 
-const CTASection = () => {
+const CTASection = ({onClick, color}) => {
     return (
         <MotionWrapper type="zoomOut" delay={0.2} className={'w-full flex justify-center items-center'}>
             <div className="w-[90%] md:w-[70%] lg:max-w-4xl">
@@ -10,6 +10,8 @@ const CTASection = () => {
                     title={"Pilihan Pasti Untuk Setiap Generasi!"}
                     subtitle2={'Jangan Lewatkan Kesempatan, Daftar UNPAS Sekarang!'}
                     textButton={"Daftar Sekarang"}
+                    onClick={onClick}
+                    color={color}
                 />
             </div>
         </MotionWrapper>

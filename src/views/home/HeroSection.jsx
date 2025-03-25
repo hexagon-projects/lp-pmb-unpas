@@ -27,7 +27,7 @@ const HeroSection = ({ data }) => {
     }, []);
 
     return (
-        <div className="relative m-2 md:m-6 lg:mx-6">
+        <div className="relative m-2 md:mx-6 lg:mx-6">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 spaceBetween={0}
