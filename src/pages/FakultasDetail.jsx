@@ -52,47 +52,51 @@ const FakultasDetail = () => {
 
   const fetchData = useCallback(async () => {
     try {
-      const [fakultasRes, partnerRes, beritaRes, agendaRes, unggulanRes] = await Promise.all([
-        FakultasService.getFakultasBySlug(slug),
+      const fakultasPromise = FakultasService.getFakultasBySlug(slug);
+      
+      // First get fakultas data
+      const fakultasRes = await fakultasPromise;
+      setFakultas(fakultasRes.fakultas);
+      setProdi(fakultasRes.departements);
+  
+      // Then get other data using the fakultas ID
+      const [partnerRes, beritaRes, agendaRes, unggulanRes] = await Promise.all([
         PartnerService.getAllPartner(),
         BeritaService.getAllBerita(),
         AgendaService.getAllAgenda(),
-        UnggulanService.getAllUnggulan(),
-      ])
-
-      setFakultas(fakultasRes.fakultas)
-      setProdi(fakultasRes.departements)
-      setPartner(partnerRes)
-      setBerita(beritaRes)
-      const sliceUnggulan = unggulanRes?.slice(0, 4)
-      setAgenda(agendaRes)
-      setUnggulan(sliceUnggulan)
+        UnggulanService.getUnggulanByID(fakultasRes.fakultas.id),
+      ]);
+  
+      setPartner(partnerRes);
+      setBerita(beritaRes);
+      const sliceUnggulan = unggulanRes?.slice(0, 4);
+      setAgenda(agendaRes);
+      setUnggulan(sliceUnggulan);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [slug])
-    
-    const [data, setData] = useState({
-      dukungan: [],
-    })
+  }, [slug]);
+
+  const [data, setData] = useState({
+    dukungan: [],
+  })
 
   useEffect(() => {
     fetchData()
-      console.log(fakultas)
-       const loadData = async () => {
-         setLoading(true)
-         try {
-           const fetchedData = await fetchAllData()
-           setData(fetchedData)
-         } catch (error) {
-           console.error('Error loading data:', error)
-         } finally {
-           setLoading(false)
-         }
+    const loadData = async () => {
+      setLoading(true)
+      try {
+        const fetchedData = await fetchAllData()
+        setData(fetchedData)
+      } catch (error) {
+        console.error('Error loading data:', error)
+      } finally {
+        setLoading(false)
       }
-        loadData();
+    }
+    loadData();
   }, [fetchData])
 
   const latestBerita = berita.slice(0, 4)
@@ -102,7 +106,7 @@ const FakultasDetail = () => {
   }
 
   return (
-    <UserLayout bgLayoutColor="bg-gray-100" position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-20'}>
+    <UserLayout bgLayoutColor="bg-[#F3f4f4]" position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-20'}>
       <Helmet>
         <title>{fakultas.name || 'Loading...'} - Universitas Pasundan</title>
         <meta name="description" content="Fakultas Teknik Universitas Pasundan menawarkan program studi unggulan seperti Teknik Informatika, Teknik Mesin, dan Teknik Industri. Daftar sekarang!" />
@@ -119,12 +123,12 @@ const FakultasDetail = () => {
             onClick={() => setIsOpen(false)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.3 } }} // Tambahkan durasi transisi
+            exit={{ opacity: 0, transition: { duration: 0.3 } }}
           >
             <motion.div className="relative p-4 rounded-lg md:rounded-2xl lg:rounded-4xl shadow-lg w-[90%] md:w-[70%] lg:w-[50%]" initial={{ scale: 0.8 }} animate={{ scale: 1 }} exit={{ scale: 0.8 }} transition={{ duration: 0.3 }}>
               <button
                 onClick={(e) => {
-                  e.stopPropagation() // Mencegah modal tertutup saat button diklik
+                  e.stopPropagation()
                   setIsOpen(false)
                 }}
                 className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full cursor-pointer hover:bg-red-700"
@@ -134,7 +138,7 @@ const FakultasDetail = () => {
 
               <iframe
                 className="w-full aspect-video border-2 border-white rounded-lg md:rounded-2xl lg:rounded-4xl"
-                src={`https://www.youtube.com/embed/${fakultas.id_yt}`}
+                src={`https://www.youtube.com/embed/${fakultas.yt_id}`}
                 title="Kisah Alumni"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -145,14 +149,14 @@ const FakultasDetail = () => {
         )}
       </AnimatePresence>
 
-      <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-20">
+      <div className="w-full p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20">
         <div className="relative ">
           <div className="w-full fakultas_dtl_container">
             <div
-              className={`flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 md:px-8 lg:px-12 relative overflow-hidden fakultas_dtl_box lg:h-[55vh]`}
+              className={`w-full flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 md:px-8 lg:px-12 relative overflow-hidden fakultas_dtl_box lg:h-[55vh]`}
               style={{ backgroundImage: `url(${fakultas.image1 ? `${imageURL}/fakultas/${fakultas.image1}` : Gedung})` }}
             >
-              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-primary/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/40 to-transparent"></div>
               <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <defs>
                   <filter id="goo">
@@ -163,8 +167,8 @@ const FakultasDetail = () => {
                 </defs>
               </svg>
 
-              <div className="text-tosca relative my-8 z-10 w-1/2 md:w-1/4 lg:w-1/5">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl py-14 font-bold drop-shadow-lg">
+              <div className="text-white relative my-8 z-10 w-1/2 md:w-1/4 lg:w-1/5">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl px-4 py-14 font-bold">
                   <span className="block">Fakultas</span>
                   <span className="block">{fakultas.name.replace('Fakultas ', '')}</span>
                 </h2>
@@ -188,18 +192,23 @@ const FakultasDetail = () => {
           ))}
         </div>
 
-        <div className={'w-full flex justify-around items-center'}>
-          <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[90%] flex flex-col md:flex-row-reverse justify-around items-center gap-x-18'}>
-            <div className="w-full md:w-fit space-y-3 md:space-y-4 flex flex-col justify-center items-center text-justify md:items-start md:text-left">
-              <Title title={'Visi dan Misi'} color="text-[#3384FF]" />
+        <div className={'w-full flex justify-center items-center'}>
+          <div className={'w-full flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-y-4 md:gap-y-0 gap-x-18'}>
+            <div className="w-full md:w-full space-y-3 md:space-y-4 flex flex-col justify-center items-left text-justify md:items-start md:text-left">
+              <div className='text-center md:text-left'>
+                <Title title={'Visi dan Misi'} color="text-[#3384FF]" />
+              </div>
               <div className="max-h-[300px] overflow-y-auto">
                 <RichText content={`${fakultas.description2}`} />
               </div>
-              <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/50'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+              <div className='w-fit'>
+                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/50'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+              </div>
             </div>
+
             <div className="w-full md:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
               <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer">
-                <img src={`https://img.youtube.com/vi/${fakultas.id_yt}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
+                <img src={`https://img.youtube.com/vi/${fakultas.yt_id}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
                 <motion.div className="absolute inset-0 flex items-center justify-center rounded-lg md:rounded-2xl lg:rounded-4xl" whileTap={{ scale: 0.9 }}>
                   <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
                     <FaPlay className="text-white  p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
@@ -210,10 +219,10 @@ const FakultasDetail = () => {
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <div className="w-full max-w-[80%]">
+        <div className="w-full flex justify-center">
+          <div className="w-full md:w-[80%] lg:w-[60%]">
             <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer">
-              <img src={`https://img.youtube.com/vi/${fakultas.id_yt}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
+              <img src={`https://img.youtube.com/vi/${fakultas.yt_id}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
               <motion.div className="absolute inset-0 flex items-center justify-center rounded-lg md:rounded-2xl lg:rounded-4xl" whileTap={{ scale: 0.9 }}>
                 <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
                   <FaPlay className="text-white  p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
@@ -222,6 +231,77 @@ const FakultasDetail = () => {
             </button>
           </div>
         </div>
+
+        <div className="relative w-full lg:py-40 rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden">
+          <div className="hidden lg:block absolute inset-0 border-1 border-gray-800/10 shadow-xl shadow-black/5 transform -skew-y-3 origin-top-left rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+
+          <div className="relative flex flex-col md:flex-row justify-center items-center text-center space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-10">
+            <div className="w-full md:w-1/2 lg:w-1/3 space-y-3 md:space-y-4">
+              <div className="w-full space-y-2 text-left md:text-left">
+                <Title title={'Mengapa Pilih Fakultas'} />
+                <Title color="text-blue-500" title={fakultas.name.replace('Fakultas ', '')} />
+              </div>
+              <div className="w-full h-full">
+                <img src={Gedung} alt="Gedung Unpas" className="w-full h-full rounded-lg bg-cover md:rounded-2xl lg:rounded-4xl" />
+              </div>
+            </div>
+            <div className="md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {unggulan.map((item, index) => (
+                <HighlightCard key={index} title={item.title} text={item.description} />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11">
+          <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2'}>
+            <div className="flex justify-between md:justify-between items-center text-center relative z-2">
+              <div className="flex items-center gap-4 text-left">
+                <div className="w-[60%] md:w-fit">
+                  <Title sizeText="text-sm md:text-2xl lg:text-[32px]" fontWeight="font-semibold" title={'Yuk Daftar Di Unpas Sekarang!'} />
+                </div>
+                <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
+              </div>
+              <div className="">
+                <Button css={'pulsating-button'} text={'Daftar Sekarang'} bgColor="bg-primary" padding="p-4" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <MitraSection data={partner} />
+
+        <div>
+          <div className="text-center md:text-left space-y-3 md:space-y-4">
+            <Title title={'Berita Terbaru'} />
+            <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
+              <div className="md:w-1/2 lg:w-full">
+                <ArticleTransparentCard image={latestBerita[0]?.image} title={latestBerita[0]?.title} slug={latestBerita[0]?.slug} description={latestBerita[0]?.description} />
+              </div>
+              <div className="md:w-1/2 flex flex-col gap-4">
+                <ArticleTransparentCard image={latestBerita[1]?.image} title={latestBerita[1]?.title} slug={latestBerita[1]?.slug} description={latestBerita[1]?.description} />
+                <div className="w-full flex flex-col md:flex-row gap-4">
+                  <div>
+                    <ArticleTransparentCard image={latestBerita[2]?.image} title={latestBerita[2]?.title} slug={latestBerita[2]?.slug} description={latestBerita[2]?.description} />
+                  </div>
+                  <div>
+                    <ArticleTransparentCard image={latestBerita[3]?.image} title={latestBerita[3]?.title} slug={latestBerita[3]?.slug} description={latestBerita[3]?.description} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {agenda.length > 0 ? (
+          <ActivitySection title={'Agenda'} activities={agenda} />
+        ) : (
+          <div className='text-center'>
+            <Text text={'Tidak ada Agenda'} />
+          </div>
+        )}
+
+        <CTASection color={'bg-blue-500'} />
 
         {/* <StatsSection colorIcon={'text-blue-500'} title1="Karya Ilmiah" prodi={fakultas.statistik3} mahasiswa={fakultas.statistik1} lulusan={fakultas.statistik2} prestasi={fakultas.statistik4} /> */}
 
@@ -335,67 +415,6 @@ const FakultasDetail = () => {
             </div>
           </div>
         </div> */}
-
-        <div>
-          <div className="flex flex-col md:flex-row justify-center items-center text-center space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-10">
-            <div className="w-full md:w-1/2 space-y-3 md:space-y-4">
-              <div className="w-full space-y-2 text-left md:text-left">
-                <Title title={'Mengapa Pilih Fakultas'} />
-                <Title color="text-blue-500" title={fakultas.name.replace('Fakultas ', '')} />
-              </div>
-              <div className="w-full h-full">
-                <img src={Gedung} alt="Gedung Unpas" className="w-full h-full rounded-lg bg-cover md:rounded-2xl lg:rounded-4xl" />
-              </div>
-            </div>
-            <div className="md:w-1/2 grid grid-cols-2 gap-4">
-              {unggulan.map((item, index) => (
-                <HighlightCard key={index} title={item.title} text={item.description} />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11">
-          <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:px-8 :py-12 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] relative z-2'}>
-            <div className="flex justify-between items-center text-center relative z-2">
-              <div className="flex items-center gap-4 text-left">
-                <Title sizeText="text-sm md:text-2xl lg:text-[32px]" fontWeight="font-semibold" title={'Yuk Daftar Di Unpas Sekarang!'} />
-                <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
-              </div>
-              <div className="">
-                <Button css={'pulsating-button'} text={'Daftar Sekarang'} bgColor="bg-primary" padding="p-4" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <MitraSection data={partner} />
-
-        <div>
-          <div className="text-center md:text-left space-y-3 md:space-y-4">
-            <Title title={'Berita Terbaru'} />
-            <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
-              <div className="md:w-1/2 lg:w-full">
-                <ArticleTransparentCard image={latestBerita[0]?.image} title={latestBerita[0]?.title} slug={latestBerita[0]?.slug} description={latestBerita[0]?.description} />
-              </div>
-              <div className="md:w-1/2 flex flex-col gap-4">
-                <ArticleTransparentCard image={latestBerita[1]?.image} title={latestBerita[1]?.title} slug={latestBerita[1]?.slug} description={latestBerita[1]?.description} />
-                <div className="w-full flex flex-col md:flex-row gap-4">
-                  <div>
-                    <ArticleTransparentCard image={latestBerita[2]?.image} title={latestBerita[2]?.title} slug={latestBerita[2]?.slug} description={latestBerita[2]?.description} />
-                  </div>
-                  <div>
-                    <ArticleTransparentCard image={latestBerita[3]?.image} title={latestBerita[3]?.title} slug={latestBerita[3]?.slug} description={latestBerita[3]?.description} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {agenda.length > 0 && <ActivitySection title={'Agenda'} activities={agenda} />}
-
-        <CTASection />
       </div>
     </UserLayout>
   )

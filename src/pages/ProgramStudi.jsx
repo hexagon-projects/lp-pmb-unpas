@@ -34,6 +34,7 @@ import { AnimatePresence } from 'framer-motion'
 import { motion } from 'framer-motion'
 import { FaPlay } from 'react-icons/fa'
 
+
 const ProgramStudi = () => {
   const { slug } = useParams()
   const [loading, setLoading] = useState(true)
@@ -242,7 +243,6 @@ const ProgramStudi = () => {
         </div>
 
         <TestimonialSection data={data?.testimonials} displayDekstop="md:flex-col" />
-
         <div>
           <div className="text-center md:text-left space-y-4 md:space-y-6 lg:space-y-8">
             <Title title={'Berita Terbaru'} />
