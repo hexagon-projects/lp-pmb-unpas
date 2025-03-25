@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import StatsSection from '../components/StatsSection'
 import UserLayout from './layouts/UserLayout'
 import FakultasCard from '../components/fakultas/FakultasCard'
@@ -16,13 +16,11 @@ import LogoText from '../components/LogoText'
 import { Helmet } from 'react-helmet-async'
 import { ThreeDot } from 'react-loading-indicators'
 import FakultasSection from '../views/home/FakultasSection'
-
 import { motion } from 'framer-motion'
 import FakultasItem from '../components/FakultasItem'
-
 import Loading from '../components/Loading'
 
-const faculties = [
+const FACULTIES = [
   {
     name: 'Fakultas Keguruan dan Ilmu Pendidikan',
     slug: 'fakultas-keguruan-dan-ilmu-pendidikan',
@@ -122,45 +120,47 @@ const faculties = [
   },
 ]
 
-const faculties1 = faculties.slice(0, 3)
-const faculties2 = faculties.slice(3, 6)
-const faculties3 = faculties.slice(6, 9)
+const FACULTIES1 = FACULTIES.slice(0, 3);
+const FACULTIES2 = FACULTIES.slice(3, 6);
+const FACULTIES3 = FACULTIES.slice(6, 9);
 
 const Fakultas = () => {
-  const [fakultas, setFakultas] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [fakultas, setFakultas] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const timestamp = Date.now();
+      const fakultasData = await FakultasService.getAllFakultas(`?timestamp=${timestamp}`);
+      setFakultas(fakultasData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
-    let isMounted = true
+    fetchData();
+  }, [fetchData]);
 
-    const fetchData = async () => {
-      setLoading(true)
-      try {
-        // Tambahkan timestamp atau cache-buster ke URL
-        const timestamp = new Date().getTime()
-        const [fakultasData] = await Promise.all([FakultasService.getAllFakultas(`?timestamp=${timestamp}`)])
-
-        if (isMounted) {
-          setFakultas(fakultasData)
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      } finally {
-        if (isMounted) {
-          setLoading(false)
-        }
-      }
-    }
-
-    fetchData()
-
-    return () => {
-      isMounted = false
-    }
-  }, [])
+  const handleRegisterClick = useCallback(() => {
+    window.location.href = '/prestasi';
+  }, []);
 
   return (
-    <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
+    <UserLayout 
+      bgLayoutColor="bg-[#F3F3F3]" 
+      bgColor="bg-[#F3F3F3]" 
+      position="fixed" 
+      margin="" 
+      titleColor="text-black" 
+      paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6" 
+      paddingTop="lg:pt-30" 
+      type="fadeInUp" 
+      duration={1}
+    >
       <Helmet>
         <title>Fakultas - Universitas Pasundan</title>
       </Helmet>
@@ -170,26 +170,37 @@ const Fakultas = () => {
           <div className="w-full fakultas_container">
             <div className="flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 bg-primary relative overflow-hidden fakultas_box lg:h-[55vh]">
               <div className="absolute -right-1/4 md:-right-30 lg:-right-4">
-                <img src={Logo} alt={'Logo Outline Unpas'} loading="lazy" className="h-[30vh] md:h-[45vh] lg:h-[55vh]" />
+                <img 
+                  src={Logo} 
+                  alt="Logo Outline Unpas" 
+                  loading="lazy" 
+                  width="auto"
+                  height="auto"
+                  className="h-[30vh] md:h-[45vh] lg:h-[55vh]" 
+                />
               </div>
               <div className="text-gray-800 px-4 py-14">
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold">7 Pilihan</h2>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">Fakultas Terakreditasi</h3>
               </div>
               <div className="absolute top-4 left-4">
-                <LogoText titleColor={'text-black'} />
+                <LogoText titleColor="text-black" />
               </div>
             </div>
           </div>
           <div className="absolute bottom-0 left-0 z-10">
-            <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/50'} onClick={() => (window.location.href = '/prestasi')} />
+            <Button 
+              text="Daftar Sekarang" 
+              bgColor="bg-primary" 
+              hoverBgColor="hover:border-3 hover:border-white/50" 
+              onClick={handleRegisterClick} 
+            />
           </div>
         </div>
 
-        {/* <StatsSection prodi={20} mahasiswa={5000} lulusan={1234} prestasi={14} /> */}
         {loading ? (
           <div className="flex justify-center items-center h-[50vh]">
-            <ThreeDot variant="bounce" color="#FEF251" size="medium" text="" textColor="" />
+            <ThreeDot variant="bounce" color="#FEF251" size="medium" />
           </div>
         ) : (
           <>
@@ -199,22 +210,38 @@ const Fakultas = () => {
               animate="visible"
               variants={{
                 hidden: { opacity: 0 },
-                visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+                visible: { 
+                  opacity: 1, 
+                  transition: { 
+                    staggerChildren: 0.2,
+                    duration: 0.3 // Reduced duration for faster animation
+                  } 
+                },
               }}
             >
-              {fakultas?.map((item, index) => (
-                <FakultasItem key={item.id} image={item.image1} title={item.name} slug={item.slug} index={index} />
+              {fakultas?.map((item) => (
+                <FakultasItem 
+                  key={item.id} 
+                  image={item.image1} 
+                  title={item.name} 
+                  slug={item.slug} 
+                />
               ))}
             </motion.div>
 
-            <FakultasSection faculties={faculties} faculties1={faculties1} faculties2={faculties2} faculties3={faculties3} />
+            <FakultasSection 
+              faculties={FACULTIES} 
+              faculties1={FACULTIES1} 
+              faculties2={FACULTIES2} 
+              faculties3={FACULTIES3} 
+            />
           </>
         )}
 
         <CTASection />
       </div>
     </UserLayout>
-  )
-}
+  );
+};
 
-export default Fakultas
+export default Fakultas;

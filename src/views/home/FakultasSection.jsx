@@ -11,7 +11,7 @@ const FakultasSection = ({ faculties, faculties1, faculties2, faculties3 }) => {
         <Title title="Fakultas dan Program Studi" />
       </div>
 
-      <FakultasSwiper faculties={faculties} />
+      <FakultasSwiper faculties={faculties1} faculties2={faculties2} faculties3={faculties3} />
 
       <div className="w-full flex justify-center items-center">
         <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] hidden lg:grid grid-cols-2 lg:grid-cols-3 gap-4 rounded-xl md:rounded-2xl lg:rounded-4xl">

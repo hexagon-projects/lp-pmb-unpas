@@ -64,10 +64,10 @@ const AboutSection = ({ data = {} }) => {
 
     return (
         <div className="w-full flex justify-center items-center">
-            <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] flex flex-col lg:flex-row-reverse justify-center items-start md:items-center gap-4 md:gap-6 lg:gap-10 md:mt-20 lg:mt-30 p-4 md:py-10 lg:py-12">
+            <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] flex flex-col lg:flex-row-reverse justify-center items-start md:items-center gap-4 md:gap-6 lg:gap-8 md:mt-20 lg:mt-30 p-4 md:py-10 lg:py-12">
                 {data?.about?.image1 && (
                     <div
-                        className="w-full lg:w-[50%] h-56 md:h-[30vh] lg:h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl relative cursor-pointer group overflow-hidden"
+                        className="w-full lg:w-[50%] h-56 md:h-[30vh] lg:h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl relative cursor-pointer group overflow-hidden intro_container"
                         onClick={handleVideoOpen}
                         aria-label="Play video about university"
                     >
@@ -75,7 +75,7 @@ const AboutSection = ({ data = {} }) => {
                             loading="lazy"
                             src={`${imageURL}/identities/${data.about.image1}`}
                             alt={data.about.subtitle || "University introduction"}
-                            className="w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl shadow-2xl shadow-primary/30 transition-transform duration-300 group-hover:scale-105"
+                            className="w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl shadow-2xl shadow-primary/30 transition-transform duration-300 group-hover:scale-105 intro_img"
                             width="100%"
                             height="100%"
                         />
