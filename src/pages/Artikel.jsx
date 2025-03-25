@@ -19,7 +19,7 @@ const Artikel = () => {
     const [agenda, setAgenda] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 5;
+    const itemsPerPage = 12;
     // const [loading, setLoading] = useState(true);
     const navigate = useNavigate()
     const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -32,6 +32,7 @@ const Artikel = () => {
                     AgendaService.getAllAgenda(),
                 ]);
                 setBerita(beritaData);
+                console.log(beritaData)
                 setAgenda(agendaData);
             } catch (error) {
                 console.error(error);
@@ -66,7 +67,7 @@ const Artikel = () => {
                     <MotionWrapper
                         type="zoomIn"
                         delay={0.2}
-                        className="w-full bg-cover h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl"
+                        className="w-full bg-cover h-[40vh] lg:h-[80vh] rounded-xl md:rounded-2xl lg:rounded-4xl"
                         style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imageURL}/posts/${latestBerita.image})` }}
                         onClick={() => handleClick(latestBerita.slug)}
                     >
@@ -98,12 +99,12 @@ const Artikel = () => {
                     )}
                 </div>
 
-                <div className="w-full space-y-3 md:space-y-4">
+                {/* <div className="w-full space-y-3 md:space-y-4">
                     <div className="w-full flex justify-between items-center">
                         <Title sizeMobile="w-full text-base" title="Agenda" />
                     </div>
                     {agenda.length > 0 ? <AgendaCard data={agenda} /> : <div className="text-center text-gray-500">Belum ada agenda tersedia</div>}
-                </div>
+                </div> */}
 
                 <CTASection />
             </div>
