@@ -1,12 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 import Title from "./Title";
+import IdentityService from "../fetching/identity";
+import Loading from "./Loading";
 
-const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://situ2.unpas.ac.id/spmbfront/', color = 'bg-primary'}) => {
+const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://situ2.unpas.ac.id/spmbfront/', color = 'bg-primary' }) => {
+    const [identity, setIdentity] = useState(null);
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+        const fetchIdentity = async () => {
+            try {
+                const response = await IdentityService.getAllIdentities();
+                if (response.length > 0) {
+                    setIdentity(response[0]);
+                }
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching identity:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchIdentity();
+    }, []);
+    
     const handleClick = () => {
         window.location.href = onClick;
     };
+
+    const handleWhatsApp = () => {
+        if (identity?.phone) {
+            window.location.href = `https://wa.me/${identity.phone}`;
+        } else {
+            alert("Nomor WhatsApp admin tidak tersedia.");
+        }
+    };
+
+    if (loading) {
+        return <Loading />;
+    }
 
     return (
         <motion.div
@@ -28,7 +62,7 @@ const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://sit
                                 {textButton}
                             </motion.button>
                             <motion.button
-                                onClick={handleClick}
+                                onClick={handleWhatsApp}
                                 className="rounded-full border-3 border-transparent hover:border-3 hover:border-white/40 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 text-black font-semibold shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition"
                                 whileTap={{ scale: 0.95 }}
                             >
