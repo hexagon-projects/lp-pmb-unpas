@@ -40,7 +40,7 @@ const AktivitasMahasiswa = ({ data = [] }) => {
                 {data.map((card) => (
                     <motion.div
                         key={card.id}
-                        className="rounded-xl md:rounded-2xl lg:rounded-4xl h-full transition-all cursor-pointer p-2 md:p-4 flex flex-col justify-between overflow-hidden"
+                        className="rounded-xl md:rounded-2xl lg:rounded-4xl h-full transition-all cursor-pointer p-2 md:p-4 flex flex-col justify-between overflow-hidden bg-cover bg-no-repeat"
                         animate={{ 
                             width: getCardWidth(activeCard === card.id),
                         }}

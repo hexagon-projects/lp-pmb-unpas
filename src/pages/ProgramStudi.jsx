@@ -162,8 +162,8 @@ const ProgramStudi = () => {
                                 </div>
                             </button>
                         </div>
-                        <div className="w-full md:w-fit space-y-3 md:space-y-4 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
-                            <div className="flex flex-col items-center space-y-3 md:space-y-4">
+                        <div className="w-full md:w-fit space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+                            <div className="flex flex-col items-center space-y-4 md:space-y-6 lg:space-y-8">
                                 <Title title={'Visi dan Misi'} />
                                 <RichText content={`${fakultas.description2}`} />
                             </div>
@@ -172,7 +172,7 @@ const ProgramStudi = () => {
                     </div>
                 </div>
 
-                <div className={'space-y-3 md:space-y-4'}>
+                <div className={'space-y-4 md:space-y-6 lg:space-y-8'}>
                     <div className="text-center">
                         <Title title={'Dosen Penelitian'} />
                     </div>
@@ -194,7 +194,7 @@ const ProgramStudi = () => {
 
                 <FasilitasSlider title={'Fasilitas & Inovasi'} facilities={fasilitas} />
 
-                <div className={'space-y-3 md:space-y-4'}>
+                <div className={'space-y-4 md:space-y-6 lg:space-y-8'}>
                     {prestasi.data && prestasi.data.length > 0 ? (
                         <PrestasiSection prestasi={prestasi.data} />
                     ) : (
@@ -213,7 +213,7 @@ const ProgramStudi = () => {
                 </div>
 
                 <div>
-                    <div className="text-center md:text-left space-y-3 md:space-y-4">
+                    <div className="text-center md:text-left space-y-4 md:space-y-6 lg:space-y-8">
                         <Title title={'Berita Terbaru'} />
                         {latestBerita && latestBerita.length > 0 ? (
                             <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
@@ -266,7 +266,7 @@ const ProgramStudi = () => {
                     </div>
                 </div> */}
 
-                {/* <div className={'space-y-3 md:space-y-4 pb-80 md:pb-56 lg:pb-20'}>
+                {/* <div className={'space-y-4 md:space-y-6 lg:space-y-8 pb-80 md:pb-56 lg:pb-20'}>
                     <div className="relative">
                         <div className="w-full flex justify-center gap-4 md:gap-6 lg:gap-10">
                             <div className="w-1/2">
@@ -294,9 +294,9 @@ const ProgramStudi = () => {
                     </div>
                 </div> */}
 
-                {/* <div className={'space-y-3 md:space-y-4'}>
+                {/* <div className={'space-y-4 md:space-y-6 lg:space-y-8'}>
                     <div className="w-full flex justify-center items-center gap-4 p-4 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl">
-                        <div className="w-1/2 text-left space-y-3 md:space-y-4">
+                        <div className="w-1/2 text-left space-y-4 md:space-y-6 lg:space-y-8">
                             <Text text={'Penerimaan Mahasiswa Baru'} color="text-red-500" />
                             <Title sizeMobile="text-base" title={'Pilih Passionmu, Raih Pendidikan Kelas Dunia! Jangan Lewatkan Kesempatan, Daftar di UNPAS Sekarang!'} />
                             <ButtonArrow text={fakultas?.cta ?? 'Daftar'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
