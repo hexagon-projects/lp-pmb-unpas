@@ -18,6 +18,7 @@ const Mitra = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedPartner, setSelectedPartner] = useState(null);
+    const [isModalFading, setIsModalFading] = useState(false);
     const partnersPerPage = 8;
     const imageURL = import.meta.env.VITE_IMAGE_URL;
 
@@ -38,11 +39,16 @@ const Mitra = () => {
     const openModal = (partner) => {
         setSelectedPartner(partner);
         setIsModalOpen(true);
+        setIsModalFading(false);
     };
 
     const closeModal = () => {
-        setIsModalOpen(false);
-        setSelectedPartner(null);
+        setIsModalFading(true);
+        setTimeout(() => {
+            setIsModalOpen(false);
+            setSelectedPartner(null);
+            setIsModalFading(false);
+        }, 300); // Match this with CSS transition duration
     };
 
     // if (loading) {
@@ -93,7 +99,7 @@ const Mitra = () => {
 
                 {isModalOpen && selectedPartner && (
                     <Modal onClose={closeModal}>
-                        <div className="p-6 space-y-4">
+                        <div className={`p-6 space-y-4 transition-opacity duration-300 ${isModalFading ? 'opacity-0' : 'opacity-100'}`}>
                             <div className="w-full flex justify-end">
                                 <button className="w-fit flex items-end bg-red-500 text-white p-2 rounded-full cursor-pointer" onClick={closeModal}>
                                     <X size={20} />
