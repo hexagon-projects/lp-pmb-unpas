@@ -65,7 +65,7 @@ body {
 }
 
 .cta_box {
-    clip-path: polygon(0% 30%, 11% 30%, 11% 0%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 26%, 12% 26%, 12% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .jalur_container {
@@ -74,10 +74,6 @@ body {
 
 .jalur_box {
     clip-path: polygon(0% 92%, 25% 92%, 30% 100%, 100% 100%, 100% 0%, 0% 0%);
-}
-
-.fakultas_container {
-    filter: url("#goo") drop-shadow(0px -2px 0px transparent)
 }
 
 .fakultas_dtl_box {
@@ -92,8 +88,20 @@ body {
     filter: url("#goo") drop-shadow(0px -2px 0px transparent)
 }
 
+.fakultas_container {
+    filter: url("#goo") drop-shadow(0px -2px 0px transparent)
+}
+
 .fakultas_box {
-    clip-path: polygon(0% 82%, 10% 82%, 15% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    clip-path: polygon(0% 80%, 12% 80%, 16% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+}
+
+.prodi_container {
+    filter: url("#goo") drop-shadow(0px -2px 0px transparent)
+}
+
+.prodi_box{
+    clip-path: polygon(0% 80%, 15% 80%, 20% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
 }
 
 .mitra_container {
@@ -313,7 +321,7 @@ body {
     inset: 0;
     border-radius: inherit; /* Mengikuti border-radius utama */
     padding: 1px; /* Ketebalan border */
-    background: linear-gradient(45deg, red, orange, yellow, green, blue, purple);
+    background: linear-gradient(45deg, #FEF251, #C93829, #034833);
     background-size: 200% 200%;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -343,7 +351,7 @@ body {
     inset: -2px; /* Sedikit lebih besar dari border asli */
     border-radius: inherit;
     border: 2px solid transparent;
-    background: linear-gradient(45deg, red, orange, yellow, green, blue, purple) border-box;
+    background: linear-gradient(45deg, #FEF251, #C93829, #034833) border-box;
     -webkit-mask: 
         linear-gradient(#fff 0 0) padding-box,
         linear-gradient(#fff 0 0);
@@ -355,6 +363,12 @@ body {
     opacity: 0;
     z-index: -1;
     animation: ring-animation 2s ease-in-out infinite;
+}
+
+.rainbow-border {
+    box-shadow: 0 10px 60px rgba(254, 242, 81, 0.1), 
+                0 10px 60px rgba(201, 56, 41, 0.1), 
+                0 10px 60px rgba(3, 72, 51, 0.1);
 }
 
 /* Animasi ring */
@@ -411,7 +425,7 @@ body {
 
 @media (max-width: 1445px) {
     .cta_box {
-        clip-path: polygon(0% 30%, 11% 30%, 11% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 26%, 12% 26%, 12% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     .bg_home {
         clip-path: polygon(0% 0%, 25% 0%, 30% 10%, 100% 10%, 100% 100%, 0% 100%);
@@ -420,10 +434,13 @@ body {
         clip-path: polygon(75% 0%, 75% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
     .fakultas_box {
-        clip-path: polygon(0% 85%, 14% 85%, 19% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+        clip-path: polygon(0% 82%, 14% 82%, 19% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
     .fakultas_dtl_box {
         clip-path: polygon(0% 85%, 15% 85%, 18% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 15% 80%, 20% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }
 
@@ -437,6 +454,12 @@ body {
     .fakultas_dtl_box {
         clip-path: polygon(0% 82%, 21% 82%, 26% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 15% 80%, 20% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
+    .cta_box {
+        clip-path: polygon(0% 26%, 12% 26%, 12% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
 }
 
 @media (max-width: 1300px) {
@@ -446,11 +469,26 @@ body {
     .testi_box {
         clip-path: polygon(80% 0%, 80% 35%, 100% 35%, 100% 100%, 0% 100%, 0% 0%);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 20% 80%, 25% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
+    .cta_box {
+        clip-path: polygon(0% 26%, 12% 26%, 12% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+@media (max-width: 1250px) {
+    .prodi_box{
+        clip-path: polygon(0% 80%, 20% 80%, 25% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
+    .cta_box {
+        clip-path: polygon(0% 26%, 16% 26%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
 }
 
 @media (max-width: 1025px) {
     .cta_box {
-        clip-path: polygon(0% 30%, 14% 30%, 14% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 29%, 16% 29%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     .bg_home {
         clip-path: polygon(0% 0%, 35% 0%, 40% 10%, 100% 10%, 100% 100%, 0% 100%);
@@ -464,11 +502,14 @@ body {
     .fakultas_dtl_box {
         clip-path: polygon(0% 83%, 21% 83%, 26% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 25% 80%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
 }
 
 @media (max-width: 1024px) {
     .cta_box {
-        clip-path: polygon(0% 30%, 17% 30%, 17% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 29%, 16% 29%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     .bg_home {
         clip-path: polygon(36% 0%, 36% 10%, 0% 10%, 0% 100%, 100% 100%, 100% 0%);
@@ -485,6 +526,9 @@ body {
     .iframe_hero{
         transform: scale(2.4);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 25% 80%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
 }
 
 @media (max-width: 900px) {
@@ -497,11 +541,20 @@ body {
     .iframe_hero{
         transform: scale(2.4);
     }
+    .fakultas_box {
+        clip-path: polygon(0% 76%, 30% 76%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 25% 80%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
+    .cta_box {
+        clip-path: polygon(0% 27%, 16% 27%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 800px) {
     .cta_box {
-        clip-path: polygon(0% 30%, 14% 30%, 14% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 27%, 18% 27%, 18% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     .bg_home {
         clip-path: polygon(38% 0%, 38% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);
@@ -518,6 +571,9 @@ body {
     .iframe_hero{
         transform: scale(2.6);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 25% 80%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
 }
 
 @media (max-width: 700px) {
@@ -530,11 +586,17 @@ body {
     .iframe_hero{
         transform: scale(3.2);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 30% 80%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
+    .cta_box {
+        clip-path: polygon(0% 30%, 16% 30%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
 }
 
 @media (max-width: 612px) {
     .cta_box {
-        clip-path: polygon(0% 30%, 20% 30%, 20% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 25%, 16% 25%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     .bg_home {
         clip-path: polygon(50% 0%, 50% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);
@@ -548,6 +610,9 @@ body {
     .fakultas_dtl_box {
         clip-path: polygon(0% 77%, 28% 77%, 38% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 30% 80%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
 }
 
 @media (max-width: 560px) {
@@ -560,11 +625,26 @@ body {
     .testi_box {
         clip-path: polygon(74% 0%, 74% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 40% 80%, 45% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
+    .cta_box {
+        clip-path: polygon(0% 25%, 20% 25%, 20% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+@media (max-width: 500px) {
+    .prodi_box{
+        clip-path: polygon(0% 80%, 45% 80%, 50% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
+    .cta_box {
+        clip-path: polygon(0% 25%, 22% 25%, 22% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
 }
 
 @media (max-width: 430px) {
     .cta_box {
-        clip-path: polygon(0% 28%, 21% 28%, 21% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 23%, 23% 23%, 23% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     .bg_home {
         clip-path: polygon(60% 0%, 60% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);
@@ -578,11 +658,14 @@ body {
     .fakultas_dtl_box {
         clip-path: polygon(0% 80%, 42% 80%, 52% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 50% 80%, 55% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
 }
 
 @media (max-width: 395px) {
     .cta_box {
-        clip-path: polygon(0% 28%, 24% 28%, 24% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 20%, 25% 20%, 25% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     .bg_home {
         clip-path: polygon(70% 0%, 70% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);
@@ -596,13 +679,15 @@ body {
     .fakultas_dtl_box {
         clip-path: polygon(0% 80%, 48% 80%, 58% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 55% 80%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
 }
 
 @media (max-width: 384px) {
     .cta_box {
-        clip-path: polygon(0% 27%, 27% 27%, 27% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 20%, 25% 20%, 25% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
-
     .bg_home {
         clip-path: polygon(80% 0%, 80% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);
     }
@@ -615,9 +700,15 @@ body {
     .fakultas_dtl_box {
         clip-path: polygon(0% 80%, 48% 80%, 58% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 55% 80%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
 }
 
 @media (max-width: 374px) {
+    .cta_box {
+        clip-path: polygon(0% 20%, 30% 20%, 30% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
     .fakultas_box {
         clip-path: polygon(0% 76%, 60% 76%, 70% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
@@ -632,5 +723,8 @@ body {
     }
     .iframe_hero{
         transform: scale(4.0);
+    }
+    .prodi_box{
+        clip-path: polygon(0% 80%, 65% 80%, 70% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }

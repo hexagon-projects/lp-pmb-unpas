@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 import Title from "./Title";
 
-const CTABox = ({ subtitle, title, textButton, subtitle2 }) => {
+const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://situ2.unpas.ac.id/spmbfront/', color = 'bg-primary'}) => {
     const handleClick = () => {
-        window.location.href = "https://situ2.unpas.ac.id/spmbfront/";
+        window.location.href = onClick;
     };
 
     return (
@@ -14,7 +14,7 @@ const CTABox = ({ subtitle, title, textButton, subtitle2 }) => {
             whileTap={{ scale: 0.98 }}
         >
             <div className="w-full flex justify-center items-center shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] duration-500">
-                <div className="w-full px-4 py-10 bg-primary rounded-2xl cta_box ">
+                <div className={`w-full px-4 py-10 rounded-2xl cta_box ${color}`}>
                     <div className="w-full text-center mt-10 md:mt-8 space-y-2">
                         <h3 className="text-gray-800 text-xs md:text-base lg:text-lg font-medium">{subtitle}</h3>
                         <Title sizeMobile="text-sm md:text-xl" title={title} />
@@ -46,7 +46,7 @@ const CTABox = ({ subtitle, title, textButton, subtitle2 }) => {
                     </svg>
                 </div>
                 <motion.div
-                    className="w-fit flex justify-center items-center absolute top-0 left-0 bg-primary p-3 md:p-4 rounded-md"
+                    className={`w-fit flex justify-center items-center absolute top-0 left-0 ${color} p-3 md:p-4 rounded-md`}
                 >
                     <ArrowDownRight size={32} className="text-black" />
                 </motion.div>

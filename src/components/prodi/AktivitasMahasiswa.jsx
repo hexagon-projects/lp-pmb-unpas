@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import MotionWrapper from "../MotionWrapper";
 import Title from "../Title";
 import RichText from "../RichText";
 
@@ -20,24 +19,14 @@ const AktivitasMahasiswa = ({ data = [] }) => {
 
     const getCardWidth = (isActive) => {
         if (windowWidth < 640) {
-            return isActive ? "90%" : "45%";
+            return isActive ? "50%" : "20%";
         } else if (windowWidth < 1024) {
-            return isActive ? "60%" : "30%";
+            return isActive ? "50%" : "30%";
         } else {
-            return isActive ? "500px" : "200px";
+            return isActive ? "50%" : "20%";
         }
     };
-
-    const getCardHeight = (isActive) => {
-        if (windowWidth < 640) {
-            return isActive ? 180 : 120;
-        } else if (windowWidth < 1024) {
-            return isActive ? 220 : 160;
-        } else {
-            return isActive ? 280 : 180;
-        }
-    };
-
+    
     if (!data || !Array.isArray(data)) {
         return <p className="text-center text-gray-500">No activities available.</p>;
     }
@@ -47,16 +36,15 @@ const AktivitasMahasiswa = ({ data = [] }) => {
             <div className="text-center">
                 <Title title="Aktivitas Mahasiswa" />
             </div>
-            <div className="flex justify-center flex-wrap gap-2 md:gap-4 px-2 md:px-0">
+            <div className="flex h-[40vh] lg:h-[50vh] justify-center flex-wrap gap-2 md:gap-4 px-2 md:px-0">
                 {data.map((card) => (
                     <motion.div
                         key={card.id}
-                        className="rounded-lg transition-all cursor-pointer p-2 md:p-4 flex flex-col justify-between overflow-hidden"
+                        className="rounded-xl md:rounded-2xl lg:rounded-4xl h-full transition-all cursor-pointer p-2 md:p-4 flex flex-col justify-between overflow-hidden"
                         animate={{ 
                             width: getCardWidth(activeCard === card.id),
-                            height: getCardHeight(activeCard === card.id)
                         }}
-                        whileHover={{ width: windowWidth >= 640 ? "500px" : getCardWidth(true) }}
+                        // whileHover={{ width: windowWidth >= 640 ? "500px" : '' }}
                         transition={{ duration: 0.3 }}
                         onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
                         style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imageURL}/portofolios/${card.image1})` }}
