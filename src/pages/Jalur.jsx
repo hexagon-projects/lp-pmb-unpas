@@ -91,7 +91,7 @@ const Jalur = () => {
                         </div>
                     </div>
                     <div className="w-full flex md:hidden">
-                        <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border={'w-full justify-center'} rounded="rounded-full" />
+                        <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border={'w-full justify-center'} />
                     </div>
                 </div>
 

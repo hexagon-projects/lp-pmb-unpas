@@ -101,8 +101,6 @@ const ProgramStudi = () => {
     const currentItems = ourteam.slice(indexOfFirstItem, indexOfLastItem);
     const totalPages = Math.ceil(ourteam.length / itemsPerPage);
 
-    console.log(data)
-
     if (loading) {
         return <Loading />;
     }
