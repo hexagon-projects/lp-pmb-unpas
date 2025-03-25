@@ -153,7 +153,7 @@ const Home = () => {
     // }
 
     return (
-        <UserLayout position={'fixed'} bgLayoutColor="bg-[#F3f4f4]" paddingDekstop={'md:p-6 lg:p-6'} paddingTop={'lg:pt-30'} bgColor={'bg-[#F3F3F3]'}>
+        <UserLayout position={'fixed'} bgLayoutColor="bg-[#F3f4f4]" paddingDekstop={'md:p-6 lg:p-6'} paddingTop={'lg:pt-[100px]'} bgColor={'bg-[#F3F3F3]'}>
             <Helmet>
                 <title>Beranda - Universitas Pasundan</title>
                 <meta
