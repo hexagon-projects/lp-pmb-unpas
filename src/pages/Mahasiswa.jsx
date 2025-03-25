@@ -23,22 +23,31 @@ const Mahasiswa = () => {
         prestasi: [],
     });
 
-    const fetchData = useCallback(async () => {
-        try {
-            const [ukm, prestasi] = await Promise.all([
-                OrganisasiService.getAllOrganisasi(),
-                PrestasiService.getAllPrestasi(),
-            ]);
-
-            setData({ ukm, prestasi });
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    }, []);
-
     useEffect(() => {
+        let isMounted = true;
+      
+        const fetchData = async () => {
+          try {
+            const timestamp = new Date().getTime();
+            const [ukm, prestasi] = await Promise.all([
+              OrganisasiService.getAllOrganisasi(`?timestamp=${timestamp}`),
+              PrestasiService.getAllPrestasi(`?timestamp=${timestamp}`),
+            ]);
+      
+            if (isMounted) {
+              setData({ ukm, prestasi });
+            }
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
+      
         fetchData();
-    }, [fetchData]);
+      
+        return () => {
+          isMounted = false;
+        };
+      }, []);
     
     const { ukm, prestasi } = data;
     // const HeroPrestasi = prestasi?.slice(0, 1);

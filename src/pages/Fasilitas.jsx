@@ -55,25 +55,34 @@ const Fasilitas = () => {
     // const [currentPage, setCurrentPage] = useState(1);
     // const [itemsPerPage] = useState(6);
 
-    const fetchFasilitas = async () => {
-        try {
-            const response = await FasilitasService.getAllFasilitas();
-            const slice = response?.slice(0, 5)
-            const sliceBento1 = response?.slice(0, 2)
-            const sliceBento2 = response?.slice(2, 3)
-            const sliceBento3 = response?.slice(3, 5)
-            setFasilitas(slice);
-            setBento1(sliceBento1)
-            setBento2(sliceBento2)
-            setBento3(sliceBento3)
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
     useEffect(() => {
+        let isMounted = true;
+      
+        const fetchFasilitas = async () => {
+          try {
+            const timestamp = new Date().getTime();
+            const response = await FasilitasService.getAllFasilitas(`?timestamp=${timestamp}`);
+            if (isMounted) {
+              const slice = response?.slice(0, 5);
+              const sliceBento1 = response?.slice(0, 2);
+              const sliceBento2 = response?.slice(2, 3);
+              const sliceBento3 = response?.slice(3, 5);
+              setFasilitas(slice);
+              setBento1(sliceBento1);
+              setBento2(sliceBento2);
+              setBento3(sliceBento3);
+            }
+          } catch (error) {
+            console.error(error);
+          }
+        };
+      
         fetchFasilitas();
-    }, []);
+      
+        return () => {
+          isMounted = false;
+        };
+      }, []);
 
     // const indexOfLastItem = currentPage * itemsPerPage;
     // const indexOfFirstItem = indexOfLastItem - itemsPerPage;

@@ -32,7 +32,6 @@ const Artikel = () => {
                     AgendaService.getAllAgenda(),
                 ]);
                 setBerita(beritaData);
-                console.log(beritaData)
                 setAgenda(agendaData);
             } catch (error) {
                 console.error(error);

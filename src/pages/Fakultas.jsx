@@ -130,13 +130,15 @@ const Fakultas = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    let isMounted = true; // Flag untuk menghindari memory leak
+    let isMounted = true;
   
     const fetchData = async () => {
       setLoading(true);
       try {
+        // Tambahkan timestamp atau cache-buster ke URL
+        const timestamp = new Date().getTime();
         const [fakultasData] = await Promise.all([
-          FakultasService.getAllFakultas(),
+          FakultasService.getAllFakultas(`?timestamp=${timestamp}`),
         ]);
         
         if (isMounted) {
@@ -154,7 +156,7 @@ const Fakultas = () => {
     fetchData();
   
     return () => {
-      isMounted = false; // Cleanup function
+      isMounted = false;
     };
   }, []);
 

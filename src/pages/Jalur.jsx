@@ -31,19 +31,27 @@ const Jalur = () => {
         setSelectedJalur(null);
     };
 
-    const fetchJalur = async () => {
-        try {
-            const response = await RegistrasiService.getAllRegistrasi()
-            // setLoading(false)
-            setJalur(response)
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
     useEffect(() => {
-        fetchJalur()
-    }, [])
+        let isMounted = true;
+      
+        const fetchJalur = async () => {
+          try {
+            const timestamp = new Date().getTime();
+            const response = await RegistrasiService.getAllRegistrasi(`?timestamp=${timestamp}`);
+            if (isMounted) {
+              setJalur(response);
+            }
+          } catch (error) {
+            console.error(error);
+          }
+        };
+      
+        fetchJalur();
+      
+        return () => {
+          isMounted = false;
+        };
+      }, []);
 
     // if (loading) {
     //     return <Loading />
