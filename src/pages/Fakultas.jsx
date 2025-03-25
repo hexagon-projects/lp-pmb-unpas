@@ -14,24 +14,85 @@ import Logo from '../assets/logo-outline.png'
 import Button from '../components/Button'
 import LogoText from '../components/LogoText'
 import { Helmet } from 'react-helmet-async'
+import { ThreeDot } from 'react-loading-indicators'
+import FakultasSection from '../views/home/FakultasSection'
+
+import { motion } from 'framer-motion'
+
+const faculties = [
+  {
+    name: 'Fakultas Keguruan dan Ilmu Pendidikan',
+    programs: [
+      'S1 - Pendidikan Pancasila & Kewarganegaraan',
+      'S1 - Pendidikan Ekonomi Akuntansi',
+      'S1 - Pendidikan Bahasa',
+      'S1 - Sastra Indonesia dan Daerah',
+      'S1 - Pendidikan Matematika',
+      'S1 - Pendidikan Biologi',
+      'S1 - Pendidikan Guru Sekolah Dasar',
+    ],
+  },
+  {
+    name: 'Fakultas Teknik',
+    programs: ['S1 - Teknik Informatika', 'S1 - Teknik Mesin', 'S1 - Teknik Industri', 'S1 - Teknik Lingkungan', 'S1 - Teknologi Pangan'],
+  },
+  {
+    name: 'Fakultas Ekonomi dan Bisnis',
+    programs: ['S1 - Akuntansi', 'S1 - Manajemen', 'S1 - Ekonomi Pembangunan'],
+  },
+  {
+    name: 'Fakultas Hukum',
+    programs: ['S1 - Ilmu Hukum'],
+  },
+  {
+    name: 'Program Pasca Sarjana',
+    programs: [
+      'S2 - Magister Ilmu Administrasi & Kebijakan Publik',
+      'S2 - Magister Manajemen',
+      'S2 - Magister Teknik Industri',
+      'S2 - Magister Ilmu Hukum',
+      'S2 - Magister Teknologi Pangan',
+      'S2 - Magister Pendidikan Matematika',
+      'S2 - Magister Teknik Mesin',
+      'S2 - Magister Ilmu Komunikasi',
+      'S2 - Magister Pendidikan Bahasa Indonesia',
+      'S3 - Doktor Ilmu Manajemen',
+      'S3 - Doktor Ilmu Sosial',
+      'S3 - Doktor Ilmu Hukum',
+    ],
+  },
+  {
+    name: 'Fakultas Kedokteran',
+    programs: ['S1 - Pendidikan Dokter', 'Profesi - Profesi Dokter'],
+  },
+  {
+    name: 'Fakultas Pendidikan',
+    programs: ['S1 - Pendidikan Matematika', 'S1 - Pendidikan Biologi', 'S1 - Pendidikan Pancasila dan Kewarganegaraan', 'S1 - Pendidikan Guru Sekolah Dasar', 'S1 - Pendidikan Bahasa dan Sastra Indonesia', 'S1 - Pendidikan Ekonomi'],
+  },
+  {
+    name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
+    programs: ['S1 - Administrasi Publik', 'S1 - Kesejahteraan Sosial', 'S1 - Hubungan Internasional', 'S1 - Ilmu Administrasi Bisnis', 'S1 - Ilmu Komunikasi'],
+  },
+  {
+    name: 'Fakultas Ilmu Seni dan Sastra',
+    programs: ['S1 - Sastra Inggris', 'S1 - Desain Komunikasi Visual', 'S1 - Fotografi dan Film', 'S1 - Seni Musik'],
+  },
+]
+
+const faculties1 = faculties.slice(0, 3)
+const faculties2 = faculties.slice(3, 6)
+const faculties3 = faculties.slice(6, 9)
 
 const Fakultas = () => {
   const [fakultas, setFakultas] = useState([])
-  const [prodi, setProdi] = useState([])
-  const [search, setSearch] = useState('')
-  const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(true) // Tambahkan state loading
-  const itemsPerPage = 10
-
-  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true) // Set loading sebelum memulai fetch
       try {
-        const [fakultasData, prodiData] = await Promise.all([FakultasService.getAllFakultas(), ProdiService.getAllProdi()])
+        const [fakultasData] = await Promise.all([FakultasService.getAllFakultas()])
         setFakultas(fakultasData)
-        setProdi(prodiData)
       } catch (error) {
         console.error('Error fetching data:', error)
       } finally {
@@ -42,17 +103,9 @@ const Fakultas = () => {
     fetchData()
   }, [])
 
-  const handleClick = (item) => {
-    navigate(`/program-studi/${item.slug}`)
-  }
-
-  const filteredProdi = prodi.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
-
-  const totalPages = Math.ceil(filteredProdi.length / itemsPerPage)
-  const paginatedProdi = filteredProdi.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
 
   return (
-    <UserLayout position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5} bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'}>
+    <UserLayout position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
       <Helmet>
         <title>Fakultas - Universitas Pasundan</title>
       </Helmet>
@@ -78,10 +131,10 @@ const Fakultas = () => {
           </div>
         </div>
 
-        <StatsSection prodi={20} mahasiswa={5000} lulusan={1234} prestasi={14} />
+        {/* <StatsSection prodi={20} mahasiswa={5000} lulusan={1234} prestasi={14} /> */}
         {loading ? (
           <div className="flex justify-center items-center h-[50vh]">
-            <p className="text-lg font-semibold text-gray-500">Loading data...</p>
+            <ThreeDot variant="bounce" color="#FEF251" size="medium" text="" textColor="" />
           </div>
         ) : (
           <>
@@ -90,36 +143,7 @@ const Fakultas = () => {
                 <FakultasCard key={item.id} image={item.image1} title={item.name} slug={item.slug} />
               ))}
             </MotionWrapper>
-
-            <div className={'w-full space-y-4 md:space-y-6 lg:space-y-12'}>
-              <div className="flex justify-between items-center gap-4">
-                <Title title={'Program Studi'} />
-                <SearchInput placeholder="Cari program studi..." searchTerm={search} setSearchTerm={setSearch} />
-              </div>
-
-              {paginatedProdi.length > 0 ? (
-                <table className="w-full border-collapse text-xs md:text-sm">
-                  <thead>
-                    <tr className="bg-gray-200">
-                      <th className="px-4 py-3 text-left">No</th>
-                      <th className="px-4 py-3 text-left">Program Studi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {paginatedProdi.map((item, index) => (
-                      <tr key={item.id} className="hover:bg-gray-100 transition-all duration-500 cursor-pointer" onClick={() => handleClick(item)}>
-                        <td className="px-4 py-3">{(currentPage - 1) * itemsPerPage + index + 1}</td>
-                        <td className="px-4 py-3">{item.name}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              ) : (
-                <p className="text-gray-500 text-center mt-4">Program studi tidak ditemukan</p>
-              )}
-
-              {totalPages > 1 && <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
-            </div>
+            <FakultasSection faculties={faculties} faculties1={faculties1} faculties2={faculties2} faculties3={faculties3} />
           </>
         )}
 
