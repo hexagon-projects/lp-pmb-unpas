@@ -30,11 +30,11 @@ const AktivitasMahasiswa = ({ data = [] }) => {
 
   const getCardHeight = (isActive) => {
     if (windowWidth < 640) {
-      return isActive ? 180 : 120
+      return isActive ? 240 : 240
     } else if (windowWidth < 1024) {
-      return isActive ? 220 : 160
+      return isActive ? 340 : 340
     } else {
-      return 421 // Tetap sama untuk tampilan besar
+      return 421
     }
   }
 
@@ -51,7 +51,7 @@ const AktivitasMahasiswa = ({ data = [] }) => {
         {data.map((card) => (
           <motion.div
             key={card.id}
-            className="rounded-4xl relative cursor-pointer p-2 md:p-4 flex flex-col justify-between overflow-hidden"
+            className="rounded-xl md:rounded-2xl lg:rounded-4xl relative cursor-pointer p-2 md:p-4 flex flex-col justify-between overflow-hidden"
             animate={{
               width: getCardWidth(activeCard === card.id),
               height: getCardHeight(activeCard === card.id),
@@ -69,7 +69,7 @@ const AktivitasMahasiswa = ({ data = [] }) => {
             }}
           >
             <motion.div
-              className="absolute bottom-7 left-10"
+              className="absolute bottom-7 left-7"
               initial={{ opacity: 0, y: 20 }}
               animate={activeCard === card.id ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: activeCard === card.id ? 0.5 : 0 }}

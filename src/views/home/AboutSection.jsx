@@ -67,7 +67,7 @@ const AboutSection = ({ data = {} }) => {
             <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] flex flex-col lg:flex-row-reverse justify-center items-start md:items-center gap-4 md:gap-6 lg:gap-8 md:mt-20 lg:mt-30 p-4 md:py-10 lg:py-12">
                 {data?.about?.image1 && (
                     <div
-                        className="w-full lg:w-[50%] h-56 md:h-[30vh] lg:h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl relative cursor-pointer group overflow-hidden intro_container"
+                        className="w-full lg:w-[50%] h-56 md:h-[30vh] lg:h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl relative cursor-pointer group overflow-hidden intro_container border border-red-500"
                         onClick={handleVideoOpen}
                         aria-label="Play video about university"
                     >

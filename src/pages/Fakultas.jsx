@@ -214,7 +214,7 @@ const Fakultas = () => {
                   opacity: 1, 
                   transition: { 
                     staggerChildren: 0.2,
-                    duration: 0.3 // Reduced duration for faster animation
+                    duration: 0.3
                   } 
                 },
               }}
