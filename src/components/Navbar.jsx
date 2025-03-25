@@ -46,11 +46,11 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
     <div className="w-full flex justify-center relative z-[999]">
       <nav
         className={`
-          w-[90%] lg:w-[95%]
+          w-[90%] lg:w-[97%]
           mt-3 xl:mt-4
           ${position} 
           z-50 
-          py-3 px-5
+          p-3
           justify-between 
           items-center 
           hidden lg:flex
@@ -62,7 +62,7 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
       >
         <div className="flex items-center gap-3 md:gap-4 z-1">
           <img src={Logo} alt="Logo Universitas Pasundan" className="w-10 h-10 md:w-12 md:h-12" loading="lazy" />
-          <div className="w-[85%]">
+          <div className="w-[90%]">
             <p className={`text-xs ${color}`}>Penerimaan Mahasiswa Baru</p>
             <span className={`text-lg md:text-base lg:text-lg font-medium ${color}`}>Universitas Pasundan</span>
           </div>
