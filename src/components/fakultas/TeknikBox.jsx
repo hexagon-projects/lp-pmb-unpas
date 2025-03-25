@@ -12,7 +12,7 @@ const TeknikBox = ({ image, title, slug }) => {
         <img
           src={image}
           alt={title}
-          className="w-12 h-12 md:w-12 md:h-12 lg:w-16 lg:h-16 rounded-xl md:rounded-2xl object-cover"
+          className="w-12 h-12 md:w-12 md:h-12 lg:w-24 lg:h-24 rounded-lg md:rounded-xl object-cover"
           loading="lazy"
         />
         <div className="overflow-auto">

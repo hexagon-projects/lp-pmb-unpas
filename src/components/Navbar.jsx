@@ -54,7 +54,7 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
     <div className="w-full flex justify-center relative z-[999]">
       <nav
         className={`
-          w-[90%] lg:w-[95%]
+          w-[90%] lg:w-[97%]
           mt-3 xl:mt-4
           ${position} 
           z-50 
