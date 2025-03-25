@@ -40,13 +40,13 @@ const ProgramStudi = () => {
     useEffect(() => {
         const updateItemsPerPage = () => {
             if (window.innerWidth >= 1024) {
-                setItemsPerPage(6); // Desktop
+                setItemsPerPage(6);
             } else {
-                setItemsPerPage(4); // Tablet & Mobile
+                setItemsPerPage(4);
             }
         };
 
-        updateItemsPerPage(); // Set initial value
+        updateItemsPerPage();
         window.addEventListener("resize", updateItemsPerPage);
 
         return () => {
