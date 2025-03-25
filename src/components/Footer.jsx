@@ -41,13 +41,13 @@ const Footer = () => {
             <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4 md:gap-6 lg:gap-8 bg-cover bg-no-repeat overflow-hidden">
                 <div className="w-full md:w-fit space-y-4 text-white mb-4 md:mb-0">
                     <img src={Logo} alt="Logo Universitas Pasundan" className="w-14 h-14 md:w-16 md:h-16" loading="lazy" />
-                    <Title title={'Terhubung Dengan Kami'} color="text-white" />
+                    <Title title={'Terhubung Dengan Kami'} color="text-white" sizeText="text-lg md:text-2xl"/>
                     <div className="flex justify-start gap-3">
-                        <FaSquareXTwitter className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
-                        <RiInstagramFill className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
-                        <FaFacebookSquare className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
-                        <AiFillTikTok className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
-                        <FaYoutube className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+                        <FaSquareXTwitter className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
+                        <RiInstagramFill className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
+                        <FaFacebookSquare className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
+                        <AiFillTikTok className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
+                        <FaYoutube className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
                     </div>
                 </div>
 

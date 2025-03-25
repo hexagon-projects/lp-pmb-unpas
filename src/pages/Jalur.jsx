@@ -12,6 +12,7 @@ import RichText from "../components/RichText";
 import Text from "../components/Text";
 import { X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Jalur = () => {
     const [jalur, setJalur] = useState([])
@@ -21,7 +22,6 @@ const Jalur = () => {
 
     const handleOpenModal = (event, jalur) => {
         event.preventDefault();
-
         setSelectedJalur(jalur);
         setIsOpen(true);
     };
@@ -31,19 +31,27 @@ const Jalur = () => {
         setSelectedJalur(null);
     };
 
-    const fetchJalur = async () => {
-        try {
-            const response = await RegistrasiService.getAllRegistrasi()
-            // setLoading(false)
-            setJalur(response)
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
     useEffect(() => {
-        fetchJalur()
-    }, [])
+        let isMounted = true;
+      
+        const fetchJalur = async () => {
+          try {
+            const timestamp = new Date().getTime();
+            const response = await RegistrasiService.getAllRegistrasi(`?timestamp=${timestamp}`);
+            if (isMounted) {
+              setJalur(response);
+            }
+          } catch (error) {
+            console.error(error);
+          }
+        };
+      
+        fetchJalur();
+      
+        return () => {
+          isMounted = false;
+        };
+      }, []);
 
     // if (loading) {
     //     return <Loading />
@@ -100,7 +108,7 @@ const Jalur = () => {
                         </div>
                     </div>
                     <div className="w-full flex md:hidden">
-                        <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border={'w-full justify-center'} rounded="rounded-full" />
+                        <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border={'w-full justify-center'} />
                     </div>
                 </div>
 
@@ -118,27 +126,40 @@ const Jalur = () => {
                         />
                     ))}
 
-                    {isOpen && selectedJalur && (
-                        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50" onClick={handleCloseModal}>
-                            <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-lg space-y-3">
-                                <div className="flex justify-between items-start gap-4">
-                                    <h2 className="text-xl font-bold">{selectedJalur.name}</h2>
-                                    <Button iconStatus="flex" icon={<X />} bgColor="bg-red-500" textColor="text-white" onClick={handleCloseModal} paddingMobile="p-2 md:p-2 lg:p-2" rounded="rounded-full" />
-                                </div>
-                                <RichText content={selectedJalur.content} />
-                                <Text text={`Periode: ${selectedJalur.start_date} - ${selectedJalur.end_date}`} />
-                                <div className="flex justify-start mt-4 gap-4">
-                                    <Button text="Daftar Sekarang" bgColor="bg-primary" textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />
-                                    <Button text="Buku Panduan" bgColor="bg-gray-500" textColor="text-white" onClick={() => window.open(selectedJalur.link, "_blank")} />
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                    <AnimatePresence>
+                        {isOpen && selectedJalur && (
+                            <motion.div
+                                className="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
+                                onClick={handleCloseModal}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                            >
+                                <motion.div
+                                    className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-lg space-y-3"
+                                    onClick={e => e.stopPropagation()}
+                                    initial={{ scale: 0.5, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    exit={{ scale: 0.5, opacity: 0 }}
+                                    transition={{ type: "spring", duration: 0.5 }}
+                                >
+                                    <div className="flex justify-between items-start gap-4">
+                                        <h2 className="text-xl font-bold">{selectedJalur.name}</h2>
+                                        <div className="w-fit">
+                                            <button className="p-2 rounded-full text-white bg-red-500" onClick={handleCloseModal}><X size={20} /></button>
+                                        </div>
+                                    </div>
+                                    <RichText content={selectedJalur.content} />
+                                    <Text text={`Periode: ${selectedJalur.start_date} - ${selectedJalur.end_date}`} />
+                                    <div className="flex justify-start mt-4 gap-4">
+                                        <Button text="Daftar Sekarang" bgColor="bg-primary" textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />
+                                        <Button text="Buku Panduan" bgColor="bg-gray-500" textColor="text-white" onClick={() => window.open(selectedJalur.link, "_blank")} />
+                                    </div>
+                                </motion.div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
-
-                {/* <div type="zoomOut" delay={0.2} className={'w-full h-[50vh] bg-gray-200  rounded-md'}>
-
-                </div> */}
 
                 <CTASection />
             </div>

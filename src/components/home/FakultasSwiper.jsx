@@ -1,4 +1,8 @@
-import Stack from "../Stack";
+import { useState, useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import Text from "../Text";
+import CustomPagination from "../CustomPagination";
 
 const FakultasSwiper = ({ faculties }) => {
     const [activeIndex, setActiveIndex] = useState(0);

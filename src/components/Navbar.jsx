@@ -10,12 +10,20 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
   const [isScrolled, setIsScrolled] = useState(false)
   const [color, setColor] = useState(titleColor)
   const [navbarColors, setNavbarColors] = useState(navbarColor)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   const menuItems = [
     { name: 'Beranda', path: '/', icon: <FiHome size={24} /> },
-    { name: 'Fakultas & Prodi', path: '/fakultas', icon: <FiBook size={24} /> },
-    { name: 'Jalur & Jadwal', path: '/jalur', icon: <FiCalendar size={24} /> },
+    { name: isMobile ? 'Fakultas' : 'Fakultas & Prodi', path: '/fakultas', icon: <FiBook size={24} /> },
+    { name: isMobile ? 'Jalur' : 'Jalur & Jadwal', path: '/jalur', icon: <FiCalendar size={24} /> },
     { name: 'Fasilitas', path: '/fasilitas', icon: <FiMapPin size={24} /> },
-    { name: 'Mahasiswa & Alumni', path: '/mahasiswa-dan-alumni', icon: <FiUsers size={24} /> },
+    { name: isMobile ? 'Mahasiswa' : 'Mahasiswa & Alumni', path: '/mahasiswa-dan-alumni', icon: <FiUsers size={24} /> },
   ]
 
   const handleClick = () => {
@@ -46,11 +54,11 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
     <div className="w-full flex justify-center relative z-[999]">
       <nav
         className={`
-          w-[90%] lg:w-[95%]
+          w-[90%] lg:w-[97%]
           mt-3 xl:mt-4
           ${position} 
           z-50 
-          py-3 px-5
+          p-4
           justify-between 
           items-center 
           hidden lg:flex

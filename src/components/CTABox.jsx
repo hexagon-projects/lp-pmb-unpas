@@ -1,12 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 import Title from "./Title";
+import IdentityService from "../fetching/identity";
+import Loading from "./Loading";
 
-const CTABox = ({ subtitle, title, textButton, subtitle2 }) => {
+const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://situ2.unpas.ac.id/spmbfront/', color = 'bg-primary' }) => {
+    const [identity, setIdentity] = useState(null);
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+        const fetchIdentity = async () => {
+            try {
+                const response = await IdentityService.getAllIdentities();
+                if (response.length > 0) {
+                    setIdentity(response[0]);
+                }
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching identity:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchIdentity();
+    }, []);
+    
     const handleClick = () => {
-        window.location.href = "https://situ2.unpas.ac.id/spmbfront/";
+        window.location.href = onClick;
     };
+
+    const handleWhatsApp = () => {
+        if (identity?.phone) {
+            window.location.href = `https://wa.me/${identity.phone}`;
+        } else {
+            alert("Nomor WhatsApp admin tidak tersedia.");
+        }
+    };
+
+    if (loading) {
+        return <Loading />;
+    }
 
     return (
         <motion.div
@@ -46,7 +80,7 @@ const CTABox = ({ subtitle, title, textButton, subtitle2 }) => {
                     </svg>
                 </div>
                 <motion.div
-                    className="w-fit flex justify-center items-center absolute top-0 left-0 bg-primary p-3 md:p-4 rounded-md"
+                    className={`w-fit flex justify-center items-center absolute top-0 left-0 ${color} p-3 md:p-4 rounded-md`}
                 >
                     <ArrowDownRight size={32} className="text-black" />
                 </motion.div>

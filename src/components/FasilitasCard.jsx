@@ -1,8 +1,8 @@
-const FasilitasCard = ({ image, title }) => {
+const FasilitasCard = ({ image, title, height ='h-52 md:h-64 lg:h-[60vh]' }) => {
   const imageURL = import.meta.env.VITE_IMAGE_URL;
 
   return (
-    <div className="relative w-full h-[446px] md:h-64 lg:h-[60vh] rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden group">
+    <div className={`relative w-full ${height} rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden group`}>
       <img
         src={`${imageURL}/facilities/${image}`}
         alt={title}

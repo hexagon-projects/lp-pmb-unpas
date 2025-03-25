@@ -41,7 +41,7 @@ const FloatingWhatsApp = () => {
 
   return (
     <div
-      className="fixed bottom-24 lg:bottom-6 right-6 z-999999 bg-green-500 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-green-600 transition"
+      className="fixed bottom-30 lg:bottom-6 right-6 z-999999 bg-green-500 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-green-600 transition"
       onClick={openWhatsApp}
     >
       <FaWhatsapp size={32} />

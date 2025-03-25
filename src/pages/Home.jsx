@@ -166,7 +166,7 @@ const Home = () => {
     // }
 
     return (
-        <UserLayout position={'fixed'} bgLayoutColor="bg-[#F3f4f4]" paddingDekstop={'md:p-6 lg:p-6'} paddingTop={'lg:pt-30'} bgColor={'bg-[#F3F3F3]'}>
+        <UserLayout position={'fixed'} bgLayoutColor="bg-[#F3f4f4]" paddingDekstop={'md:p-6 lg:p-6'} paddingTop={'lg:pt-[100px]'} bgColor={'bg-[#F3F3F3]'}>
             <Helmet>
                 <title>Beranda - Universitas Pasundan</title>
                 <meta
@@ -226,19 +226,13 @@ const Home = () => {
                 <StatsSection prodi={20} mahasiswa={5148} lulusan={3130} prestasi={100} />
 
                 <div className="space-y-8 md:space-y-14 lg:space-y-20">
-                    <div className="relative bg-[#efefef]">
-                        <div className="relative z-4">
-                            <PendaftaranSection
-                                image={Section3}
-                                title="Pendaftaran"
-                                subtitle="Jalur Pendaftaran"
-                                jalurPendaftaran={data?.jalur}
-                            />
-                        </div>
-
-                        <div className="absolute top-0 bottom-0 w-full h-full z-0">
-                            <InteractiveGrid />
-                        </div>
+                    <div className=" bg-[#717171]/5 border-2 border-[#ebebeb]">
+                        <PendaftaranSection
+                            image={Section3}
+                            title="Pendaftaran"
+                            subtitle="Jalur Pendaftaran"
+                            jalurPendaftaran={data?.jalur}
+                        />
                     </div>
 
                     <div className="w-full flex justify-center items-center">
@@ -249,8 +243,8 @@ const Home = () => {
                 </div>
 
                 <div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11">
-                    <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:px-8 :py-12 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] relative z-2'}>
-                        <div className="flex justify-start md:justify-between items-center text-center relative z-2">
+                    <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2'}>
+                        <div className="flex justify-between md:justify-between items-center text-center relative z-2">
                             <div className="flex items-center gap-4 text-left">
                                 <div className="w-[60%] md:w-fit">
                                     <Title sizeText="text-sm md:text-2xl lg:text-[32px]" fontWeight="font-semibold" title={'Yuk Daftar Di Unpas Sekarang!'} />
@@ -264,21 +258,11 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
+                <VideoSwiper data={data?.dukungan} />
 
-                    <div className="relative z-2">
-                        <VideoSwiper data={data?.dukungan} />
-                    </div>
+                <FakultasSection faculties={faculties} faculties1={faculties1} faculties2={faculties2} faculties3={faculties3} />
 
-                    <div className="relative z-2">
-                        <FakultasSection faculties={faculties} faculties1={faculties1} faculties2={faculties2} faculties3={faculties3} />
-                    </div>
-
-                    <div className="relative z-2">
-                        <PrestasiSection prestasi={data?.prestasi} imageURL={imageURL} />
-                    </div>
-
-                </div>
+                <PrestasiSection prestasi={data?.prestasi} imageURL={imageURL} />
 
                 <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
                     <div className="relative z-2">
@@ -292,9 +276,16 @@ const Home = () => {
                     <div className="relative z-2 p-4 md:px-10 lg:px-12">
                         <TestimonialSection data={data?.testimonials} displayDekstop="md:flex-col" />
                     </div>
+
+                    <div className="relative z-2 p-4 md:px-10 lg:px-12">
+                        <CTASection />
+                    </div>
+
+                    <div className="absolute top-0 h-full w-full">
+                        <InteractiveGrid />
+                    </div>
                 </div>
 
-                <CTASection />
             </div>
         </UserLayout>
     );

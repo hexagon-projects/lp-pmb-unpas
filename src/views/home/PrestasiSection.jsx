@@ -19,7 +19,7 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                     <table className="text-xs md:text-sm lg:text-base min-w-full ">
                         <thead>
                             <tr className="text-gray-700">
-                                <th className="text-sm md:text-base py-3 px-5 text-left">Prestasi</th>
+                                <th className="text-lg md:text-xl py-3 px-5 text-left">Prestasi</th>
                             </tr>
                         </thead>
                         <tbody>

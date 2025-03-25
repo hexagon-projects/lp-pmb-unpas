@@ -1,4 +1,4 @@
-const RichText = ({ content, textColor = 'text-gray-800', sizeText = 'text-xs md:text-sm lg:text-sm', lineclamp, padding }) => {
+const RichText = ({ content, textColor = 'text-gray-800 prose', sizeText = 'text-xs md:text-sm lg:text-sm', lineclamp, padding }) => {
     // Pastikan content adalah string
     const safeContent = content?.toString() || '';
     
