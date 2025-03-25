@@ -24,7 +24,7 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                         </thead>
                         <tbody>
                             {prestasi.map((item, index) => (
-                                <tr key={item.id} className="hover:bg-gray-50 border-b-2 border-gray-200">
+                                <tr key={item.id} className="hover:bg-gray-50 border-t border-gray-200">
                                     <td className="text-xs md:text-sm py-3 px-5">{item.title}</td>
                                 </tr>
                             ))}

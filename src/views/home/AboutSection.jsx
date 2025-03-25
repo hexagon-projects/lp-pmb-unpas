@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import RichText from "../../components/RichText";
 import Title from "../../components/Title";
 import { X } from "lucide-react";
@@ -19,7 +19,7 @@ const AboutSection = ({ data }) => {
                 >
                     <img
                         loading="lazy"
-                        src={`${imageURL}/identities/${data.about.image1}`}
+                        src={`${imageURL}/identities/${data?.about?.image1}`}
                         alt={data.about.subtitle}
                         className="w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl shadow-2xl shadow-primary/30 intro_img"
                     />
@@ -29,7 +29,7 @@ const AboutSection = ({ data }) => {
                         whileTap={{ scale: 0.9 }}
                     >
                         <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
-                            <FaPlay className="text-white  p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
+                            <FaPlay className="text-white p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
                         </div>
                     </motion.div>
                 </div>
@@ -44,39 +44,42 @@ const AboutSection = ({ data }) => {
                 </div>
             </div>
 
-            {playingVideo && (
-                <motion.div
-                    className="fixed inset-0 flex items-center justify-center bg-black/80 z-50"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onClick={() => setPlayingVideo(null)}
-                >
+            <AnimatePresence>
+                {playingVideo && (
                     <motion.div
-                        className="relative w-[90%] md:w-[70%] lg:w-[50%] border-2 border-white rounded-xl md:rounded-2xl lg:rounded-4xl"
-                        initial={{ scale: 0.8 }}
-                        animate={{ scale: 1 }}
+                        className="fixed inset-0 flex items-center justify-center bg-black/80 z-50"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        exit={{ scale: 0.8 }}
+                        onClick={() => setPlayingVideo(null)}
                     >
-                        <button
-                            className="absolute -top-3 -right-3 bg-red-500 text-white p-2 rounded-full cursor-pointer"
-                            onClick={() => setPlayingVideo(null)}
+                        <motion.div
+                            className="relative w-[90%] md:w-[70%] lg:w-[50%] border-2 border-white rounded-xl md:rounded-2xl lg:rounded-4xl"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
                         >
-                            <X size={20} />
-                        </button>
-                        <iframe
-                            width="100%"
-                            height="400"
-                            src={`https://www.youtube.com/embed/${playingVideo}`}
-                            title="YouTube Video"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            className="rounded-xl md:rounded-2xl lg:rounded-4xl"
-                        ></iframe>
+                            <button
+                                className="absolute -top-3 -right-3 bg-red-500 text-white p-2 rounded-full cursor-pointer"
+                                onClick={() => setPlayingVideo(null)}
+                            >
+                                <X size={20} />
+                            </button>
+                            <iframe
+                                width="100%"
+                                height="400"
+                                src={`https://www.youtube.com/embed/${playingVideo}`}
+                                title="YouTube Video"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="rounded-xl md:rounded-2xl lg:rounded-4xl"
+                            ></iframe>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
-            )}
+                )}
+            </AnimatePresence>
         </div>
     );
 };

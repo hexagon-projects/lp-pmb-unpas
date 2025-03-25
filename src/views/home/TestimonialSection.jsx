@@ -24,10 +24,12 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
         
         const text = data[activeIndex]?.description;
     // Pastikan text adalah string
+      
     const content = text?.toString() || '';
+
     
     const typingEffect = setInterval(() => {
-        if (index < content.length) {
+        if (index < content?.length) {
             setTypedText((prev) => prev + content[index]);
             index++;
         } else {
@@ -61,7 +63,7 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
                         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
                     >
-                        {data.map((item, index) => (
+                        {data?.map((item, index) => (
                             <SwiperSlide key={index}>
                                 <AnimatePresence mode="wait">
                                     <motion.div
