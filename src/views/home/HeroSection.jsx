@@ -170,7 +170,8 @@ const HeroSection = ({ data = [] }) => {
                         gap="py-2"
                         bgColor="bg-primary"
                         borderColor="border-primary"
-                        scale=""
+                        width="w-2 h-2"
+                        scale="w-2 h-2"
                         activeIndex={activeIndex}
                         totalSlides={data.length}
                         onPaginationClick={handlePaginationClick}
