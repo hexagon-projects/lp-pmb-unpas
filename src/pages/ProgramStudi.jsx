@@ -28,6 +28,12 @@ import LogoText from '../components/LogoText'
 import Button from '../components/Button'
 import CTASection from '../components/CTASection'
 import TestimonialSection from '../views/home/TestimonialSection'
+import Gedung from '../assets/gedung.jpeg'
+import { FaArrowRightLong } from 'react-icons/fa6'
+import { AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { FaPlay } from 'react-icons/fa'
+
 
 const ProgramStudi = () => {
   const { slug } = useParams()
@@ -145,21 +151,53 @@ const ProgramStudi = () => {
         <div className={'w-full flex justify-around items-center'}>
           <div className={'w-full lg:w-[90%] xl:w-[80%] flex flex-col lg:flex-row-reverse justify-around items-center gap-4'}>
             <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
-              <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer">
-                <img src={`https://img.youtube.com/vi/${fakultas.id_yt}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 flex justify-center items-center ">
-                  <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M3 22v-20l18 10-18 10z"></path>
-                  </svg>
-                </div>
+              <button
+                onClick={() => setIsOpen(true)}
+                className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group"
+              >
+                <img
+                  src={`https://img.youtube.com/vi/${fakultas.id_yt}/hqdefault.jpg`}
+                  alt="Thumbnail Video"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+                <motion.div
+                  className="absolute inset-0 flex justify-center items-center rounded-xl md:rounded-2xl lg:rounded-4xl"
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <div className="p-2 group-hover:scale-110 bg-gray-700 rounded-full">
+                    <FaPlay className="text-white p-4 w-14 h-14" />
+                  </div>
+                </motion.div>
               </button>
             </div>
             <div className="w-full md:w-fit space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <div className="flex flex-col items-center space-y-4 md:space-y-6 lg:space-y-8">
-                <Title title={'Visi dan Misi'} />
+                <Title title={'About'} />
                 <RichText content={`${fakultas.description2}`} />
               </div>
               <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/50'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+            </div>
+          </div>
+        </div>
+
+        <div className="relative w-full lg:py-40 rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden">
+          <div className="hidden lg:block absolute inset-0 border-1 border-gray-800/10 shadow-xl shadow-black/5 transform -skew-y-3 origin-top-left rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+
+          <div className="relative flex flex-col md:flex-row justify-center items-center text-center space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-10">
+            <div className="w-full md:w-1/2 lg:w-1/3 space-y-3 md:space-y-4">
+              <div className="w-full space-y-2 text-left md:text-left">
+                <Title title={'Mengapa Pilih Fakultas'} />
+                <Title color="text-blue-500" title={fakultas.name.replace('Fakultas ', '')} />
+              </div>
+              <div className="w-full h-full">
+                <img src={Gedung} alt="Gedung Unpas" className="w-full h-full rounded-lg bg-cover md:rounded-2xl lg:rounded-4xl" />
+              </div>
+            </div>
+            <div className="md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {unggulan.map((item, index) => (
+                <HighlightCard key={index} title={item.title} text={item.description} />
+              ))}
             </div>
           </div>
         </div>
@@ -184,7 +222,7 @@ const ProgramStudi = () => {
           <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </div>
 
-        <FasilitasSlider title={'Fasilitas & Inovasi'} facilities={fasilitas} />
+        <AktivitasMahasiswa data={latestActivity} />
 
         <div className={'space-y-4 md:space-y-6 lg:space-y-8'}>
           {prestasi.data && prestasi.data.length > 0 ? (
@@ -196,7 +234,7 @@ const ProgramStudi = () => {
           )}
         </div>
 
-        <AktivitasMahasiswa data={latestActivity} />
+        <FasilitasSlider title={'Fasilitas'} facilities={fasilitas} />
 
         <div className="w-full flex flex-row jusity-between items-center gap-4">
           <div className={'w-full flex flex-col gap-4 md:gap-6 lg:gap-10'}>
@@ -204,6 +242,7 @@ const ProgramStudi = () => {
           </div>
         </div>
 
+        <TestimonialSection data={data?.testimonials} displayDekstop="md:flex-col" />
         <div>
           <div className="text-center md:text-left space-y-4 md:space-y-6 lg:space-y-8">
             <Title title={'Berita Terbaru'} />
@@ -232,7 +271,21 @@ const ProgramStudi = () => {
           </div>
         </div>
 
-        <TestimonialSection data={data?.testimonials} displayDekstop="md:flex-col" />
+        <div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11">
+          <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2'}>
+            <div className="flex justify-between md:justify-between items-center text-center relative z-2">
+              <div className="flex items-center gap-4 text-left">
+                <div className="w-[60%] md:w-fit">
+                  <Title sizeText="text-sm md:text-2xl lg:text-[32px]" fontWeight="font-semibold" title={'Dapatkan Informasi Lengkap Seputar PMB'} />
+                </div>
+                <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
+              </div>
+              <div className="">
+                <Button css={'pulsating-button'} text={'Informasi Biaya'} bgColor="bg-primary" padding="p-4" />
+              </div>
+            </div>
+          </div>
+        </div>
 
         <CTASection onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} color={'bg-blue-500'} />
 
@@ -299,24 +352,41 @@ const ProgramStudi = () => {
                     </div>
                 </div> */}
 
-        {isOpen && (
-          <div className="fixed inset-0 flex justify-center items-center bg-black/80 z-50" onClick={() => setIsOpen(false)}>
-            <div className="relative p-4 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-lg w-[90%] md:w-[70%] lg:w-[50%]">
-              <button onClick={() => setIsOpen(false)} className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full cursor-pointer hover:bg-red-700">
-                <X size={20} />
-              </button>
-
-              <iframe
-                className="w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl"
-                src={`https://www.youtube.com/embed/${fakultas.id_yt}`}
-                title="Kisah Alumni"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="fixed inset-0 flex items-center justify-center bg-black/80 z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+            >
+              <motion.div
+                className="relative w-[90%] md:w-[70%] lg:w-[50%] border-2 border-white rounded-xl md:rounded-2xl lg:rounded-4xl"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  className="absolute -top-3 -right-3 bg-red-500 text-white p-2 rounded-full"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <X size={20} />
+                </button>
+                <iframe
+                  width="100%"
+                  height="400"
+                  src={`https://www.youtube.com/embed/${fakultas.id_yt}`}
+                  title="YouTube Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-xl"
+                ></iframe>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </UserLayout>
   )
