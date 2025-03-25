@@ -45,7 +45,7 @@ const AktivitasMahasiswa = ({ data = [] }) => {
   return (
     <div className="space-y-3 md:space-y-4">
       <div className="text-center">
-        <Title title="Aktivitas Mahasiswa" />
+        <Title title="Inovasi" />
       </div>
       <div className="flex justify-center flex-wrap gap-2 md:gap-4 px-2 md:px-0">
         {data.map((card) => (
