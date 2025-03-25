@@ -70,7 +70,7 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
       >
         <div className="lg:w-[40vh] xl:w-[30vh] flex items-center gap-3 md:gap-4 z-1">
           <img src={Logo} alt="Logo Universitas Pasundan" className="w-10 h-10 md:w-12 md:h-12" loading="lazy" />
-          <div className="w-[85%]">
+          <div className="w-[90%]">
             <p className={`text-xs ${color}`}>Penerimaan Mahasiswa Baru</p>
             <span className={`text-lg md:text-base lg:text-lg font-medium ${color}`}>Universitas Pasundan</span>
           </div>

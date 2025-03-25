@@ -23,17 +23,19 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
         setTypedText(""); // Reset teks sebelum mengetik ulang
 
         const text = data[activeIndex]?.description;
-        // Pastikan text adalah string
-        const content = text?.toString();
+    // Pastikan text adalah string
+      
+    const content = text?.toString() || '';
 
-        const typingEffect = setInterval(() => {
-            if (index < content?.length) {
-                setTypedText((prev) => prev + content[index]);
-                index++;
-            } else {
-                clearInterval(typingEffect);
-            }
-        }, 5); // Memperlambat kecepatan mengetik agar lebih terlihat
+    
+    const typingEffect = setInterval(() => {
+        if (index < content?.length) {
+            setTypedText((prev) => prev + content[index]);
+            index++;
+        } else {
+            clearInterval(typingEffect);
+        }
+    }, 5); // Memperlambat kecepatan mengetik agar lebih terlihat
 
         return () => clearInterval(typingEffect);
     }, [activeIndex, data]);
