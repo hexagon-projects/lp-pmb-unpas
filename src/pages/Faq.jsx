@@ -9,36 +9,79 @@ import Button from "../components/Button";
 import FaqService from "../fetching/faq";
 import Loading from "../components/Loading";
 import CTASection from "../components/CTASection";
-import Section1 from "../assets/gedung.jpeg"
+import Section1 from "../assets/gedung.jpeg";
 import { Helmet } from "react-helmet-async";
+import IdentityService from "../fetching/identity";
 
 const Faq = () => {
     const [faqs, setFaqs] = useState([]);
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
+    const [identity, setIdentity] = useState(null);
+    const [identityLoading, setIdentityLoading] = useState(true);
     const [openIndex, setOpenIndex] = useState(null);
     const [searchTermGeneral, setSearchTermGeneral] = useState("");
     const [searchTermBilling, setSearchTermBilling] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
+    const [formData, setFormData] = useState({
+        email: "",
+        phone: "",
+        message: ""
+    });
     const itemsPerPage = 3;
 
     const fetchFaqs = async () => {
         try {
             const response = await FaqService.getAllFaqs();
             setFaqs(response.data.data);
-            // setLoading(false);
+            setLoading(false);
         } catch (error) {
             console.error("Error fetching FAQs:", error);
-            // setLoading(false);
+            setLoading(false);
+        }
+    };
+
+    const fetchIdentity = async () => {
+        try {
+            const response = await IdentityService.getAllIdentities();
+            if (response.length > 0) {
+                setIdentity(response[0]);
+            }
+            setIdentityLoading(false);
+        } catch (error) {
+            console.error("Error fetching identity:", error);
+            setIdentityLoading(false);
         }
     };
 
     useEffect(() => {
         fetchFaqs();
+        fetchIdentity();
     }, []);
+
+    const handleInputChange = (e) => {
+        const { id, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [id]: value
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!identity?.phone) {
+            alert("Nomor WhatsApp admin tidak tersedia.");
+            return;
+        }
+
+        const { email, phone, message } = formData;
+        const whatsappMessage = `Halo Admin PMB Unpas,\n\nSaya ingin bertanya tentang:\n${message}\n\nKontak saya:\nEmail: ${email}\nTelepon: ${phone ? '+62' + phone : '-'}\n\nTerima kasih.`;
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        window.open(`https://wa.me/${identity.phone}?text=${encodedMessage}`, '_blank');
+    };
 
     const filteredGeneralFaqs = faqs.filter(
         (faq) =>
-            faq.id_kategori === 5 &&
+            faq.id_kategori === 6 &&
             faq.title.toLowerCase().includes(searchTermGeneral.toLowerCase())
     );
 
@@ -64,9 +107,9 @@ const Faq = () => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-    // if (loading) {
-    //     return <Loading />;
-    // }
+    if (loading || identityLoading) {
+        return <Loading />;
+    }
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'} type={'fadeInUp'} duration={0.5}>
@@ -79,16 +122,16 @@ const Faq = () => {
 
                     <div className="absolute inset-0 bg-black/30 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
 
-                    <div className="relative z-10">
-                        <Text text={"Bantuan"} />
-                        <Title title={"Frequently Asked Questions"} />
+                    <div className="relative z-">
+                        <Text text={"Bantuan"} color="text-white" />
+                        <Title title={"Frequently Asked Questions"} color="text-white" />
                     </div>
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4">
                     <div className="w-full space-y-3 text-center md:text-left">
-                        <Title title={`General FAQ's`} />
-                        <Text text={"Pertanyaan-pertanyaan umum"} />
+                        <Title title={`Jadwal Umum PMB`} />
+                        <Text text={"Pertanyaan-pertanyaan umum seputar PMB"} />
                     </div>
                     <div className="w-full flex flex-col gap-4">
                         <SearchInput
@@ -128,7 +171,7 @@ const Faq = () => {
 
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4">
                     <div className="w-full space-y-3 text-center md:text-left">
-                        <Title title={`Billing FAQ's`} />
+                        <Title title={`Pembayaran`} />
                         <Text text={"Pertanyaan-pertanyaan mengenai pembayaran"} />
                     </div>
                     <div className="w-full flex flex-col gap-4">
@@ -167,38 +210,64 @@ const Faq = () => {
                     </div>
                 </div>
 
-                <div className={'bg-primary p-4 md:p-10 lg:p-12 rounded-lg shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
-                    <div className="space-y-2">
-                        <h2 className="text-lg font-bold">Masih Punya Pertanyaan?</h2>
-                        <p className="text-xs md:text-sm lg:text-base">Hubungi kami </p>
-                    </div>
+                <div className="w-full flex justify-center items-center">
+                    <form onSubmit={handleSubmit} className={'w-full lg:w-[85%] bg-primary p-4 md:p-10 lg:p-12 rounded-lg shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
+                        <div className="space-y-2">
+                            <h2 className="text-lg font-bold">Masih Punya Pertanyaan?</h2>
+                            <p className="text-xs md:text-sm lg:text-base">Hubungi kami melalui WhatsApp</p>
+                        </div>
 
-                    <div>
-                        <label htmlFor="email" className="block text-xs md:text-sm lg:text-base font-medium">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            className="w-full text-xs md:text-sm lg:text-base p-4 bg-white rounded-lg mt-1"
-                            placeholder="Enter your email"
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="phone" className="block text-xs md:text-sm lg:text-base font-medium">Phone</label>
-                        <div className="flex items-center">
-                            <span className="p-4 text-xs md:text-sm lg:text-base bg-gray-200 rounded-l-md">+62</span>
+                        <div>
+                            <label htmlFor="email" className="block text-xs md:text-sm lg:text-base font-medium">Email</label>
                             <input
-                                type="tel"
-                                id="phone"
-                                className="w-full text-xs md:text-sm lg:text-base p-4 bg-white rounded-r-md"
-                                placeholder="Enter your phone number"
+                                type="email"
+                                id="email"
+                                className="w-full text-xs md:text-sm lg:text-base p-4 bg-white rounded-lg mt-1"
+                                placeholder="Enter your email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                required
                             />
                         </div>
-                    </div>
 
-                    <p className="mt-2 text-xs md:text-sm lg:text-base font-semibold">Jam Operasional 08:00 WIB - 16:00 WIB</p>
+                        <div>
+                            <label htmlFor="phone" className="block text-xs md:text-sm lg:text-base font-medium">Nomor Telepon</label>
+                            <div className="flex items-center">
+                                <span className="p-4 text-xs md:text-sm lg:text-base bg-gray-200 rounded-l-md">+62</span>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    className="w-full text-xs md:text-sm lg:text-base p-4 bg-white rounded-r-md"
+                                    placeholder="Enter your phone number"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+                        </div>
 
-                    <Button text={'Hubungi Kami'} bgColor={'bg-green-800'} hoverColor={'hover:bg-green-900'} textColor={'text-white'} hoverBgColor={'hover:border-3 hover:border-white/50'} />
+                        <div>
+                            <label htmlFor="message" className="block text-xs md:text-sm lg:text-base font-medium">Pertanyaan Anda</label>
+                            <textarea
+                                id="message"
+                                className="w-full text-xs md:text-sm lg:text-base p-4 bg-white rounded-lg mt-1"
+                                placeholder="Tulis pertanyaan Anda di sini"
+                                rows="4"
+                                value={formData.message}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </div>
+
+                        <p className="mt-2 text-xs md:text-sm lg:text-base font-semibold">Jam Operasional 08:00 WIB - 16:00 WIB</p>
+
+                        <button
+                            type="submit"
+                            className="w-full md:w-auto px-6 py-3 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg hover:border-3 hover:border-white/50 transition"
+                        >
+                            Kirim via WhatsApp
+                        </button>
+                    </form>
                 </div>
 
                 <CTASection />
