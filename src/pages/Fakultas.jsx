@@ -130,21 +130,33 @@ const Fakultas = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    let isMounted = true; // Flag untuk menghindari memory leak
+  
     const fetchData = async () => {
-      setLoading(true)
+      setLoading(true);
       try {
-        const [fakultasData] = await Promise.all([FakultasService.getAllFakultas()])
-        setFakultas(fakultasData)
+        const [fakultasData] = await Promise.all([
+          FakultasService.getAllFakultas(),
+        ]);
+        
+        if (isMounted) {
+          setFakultas(fakultasData);
+        }
       } catch (error) {
-        console.error('Error fetching data:', error)
+        console.error('Error fetching data:', error);
       } finally {
-        setLoading(false)
+        if (isMounted) {
+          setLoading(false);
+        }
       }
-    }
-
-    fetchData()
-  }, [])
-
+    };
+  
+    fetchData();
+  
+    return () => {
+      isMounted = false; // Cleanup function
+    };
+  }, []);
 
   return (
     <UserLayout position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
@@ -181,7 +193,7 @@ const Fakultas = () => {
         ) : (
           <>
             <MotionWrapper delay={0.2} className={'w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'}>
-              {fakultas.map((item) => (
+              {fakultas?.map((item) => (
                 <FakultasCard key={item.id} image={item.image1} title={item.name} slug={item.slug} />
               ))}
             </MotionWrapper>
