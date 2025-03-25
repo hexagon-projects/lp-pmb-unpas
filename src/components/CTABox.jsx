@@ -63,7 +63,7 @@ const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://sit
                             </motion.button>
                             <motion.button
                                 onClick={handleWhatsApp}
-                                className="rounded-full border-3 border-transparent hover:border-3 hover:border-white/40 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 text-black font-semibold shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition"
+                                className="rounded-full border-1 border-text hover:border-2 hover:border-red-500 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 text-text font-semibold shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition"
                                 whileTap={{ scale: 0.95 }}
                             >
                                 Hubungi Admin

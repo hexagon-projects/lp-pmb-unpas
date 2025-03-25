@@ -7,7 +7,7 @@ const GedungCard = ({ title, text, mapUrl, image }) => {
 
     return (
         <div
-            className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl p-4 space-y-3 relative cursor-pointer flex flex-col justify-between items-stretch"
+            className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl p-8 space-y-3 relative cursor-pointer flex flex-col justify-between items-stretch"
             // className="bg-gray-200 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg md:rounded-2xl lg:rounded-4xl p-8 space-y-3 relative cursor-pointer flex flex-col justify-between items-stretch"
             onClick={() => window.open(mapUrl, "_blank")}
         >
@@ -17,7 +17,7 @@ const GedungCard = ({ title, text, mapUrl, image }) => {
                 <img src={image} alt="" className="w-full h-full rounded-lg md:rounded-2xl object-cover "/>
             </div>
             <motion.div
-                className="absolute bottom-7 right-4 bg-white p-2 rounded-lg cursor-pointer"
+                className="absolute right-4 bg-transparent p-2 rounded-lg cursor-pointer"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={(e) => {
