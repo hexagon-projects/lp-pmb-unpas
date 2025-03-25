@@ -18,108 +18,109 @@ import { ThreeDot } from 'react-loading-indicators'
 import FakultasSection from '../views/home/FakultasSection'
 
 import { motion } from 'framer-motion'
+import FakultasItem from '../components/FakultasItem'
+
+import Loading from '../components/Loading'
 
 const faculties = [
   {
-      name: 'Fakultas Keguruan dan Ilmu Pendidikan',
-      slug: 'fakultas-keguruan-dan-ilmu-pendidikan',
-      programs: [
-          { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
-          { name: 'S1 - Pendidikan Ekonomi Akuntansi', slug: 'pendidikan-ekonomi-akuntansi' },
-          { name: 'S1 - Pendidikan Bahasa', slug: 'pendidikan-bahasa' },
-          { name: 'S1 - Sastra Indonesia dan Daerah', slug: 'sastra-indonesia-daerah' },
-          { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
-          { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
-          { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' }
-      ]
+    name: 'Fakultas Keguruan dan Ilmu Pendidikan',
+    slug: 'fakultas-keguruan-dan-ilmu-pendidikan',
+    programs: [
+      { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
+      { name: 'S1 - Pendidikan Ekonomi Akuntansi', slug: 'pendidikan-ekonomi-akuntansi' },
+      { name: 'S1 - Pendidikan Bahasa', slug: 'pendidikan-bahasa' },
+      { name: 'S1 - Sastra Indonesia dan Daerah', slug: 'sastra-indonesia-daerah' },
+      { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
+      { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
+      { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' },
+    ],
   },
   {
-      name: 'Fakultas Teknik',
-      slug: 'fakultas-teknik',
-      programs: [
-          { name: 'S1 - Teknik Informatika', slug: 'teknik-informatika' },
-          { name: 'S1 - Teknik Mesin', slug: 'teknik-mesin' },
-          { name: 'S1 - Teknik Industri', slug: 'teknik-industri' },
-          { name: 'S1 - Teknik Lingkungan', slug: 'teknik-lingkungan' },
-          { name: 'S1 - Teknologi Pangan', slug: 'teknologi-pangan' }
-      ]
+    name: 'Fakultas Teknik',
+    slug: 'fakultas-teknik',
+    programs: [
+      { name: 'S1 - Teknik Informatika', slug: 'teknik-informatika' },
+      { name: 'S1 - Teknik Mesin', slug: 'teknik-mesin' },
+      { name: 'S1 - Teknik Industri', slug: 'teknik-industri' },
+      { name: 'S1 - Teknik Lingkungan', slug: 'teknik-lingkungan' },
+      { name: 'S1 - Teknologi Pangan', slug: 'teknologi-pangan' },
+    ],
   },
   {
-      name: 'Fakultas Ekonomi dan Bisnis',
-      slug: 'fakultas-ekonomi-dan-bisnis',
-      programs: [
-          { name: 'S1 - Akuntansi', slug: 'akuntansi' },
-          { name: 'S1 - Manajemen', slug: 'manajemen' },
-          { name: 'S1 - Ekonomi Pembangunan', slug: 'ekonomi-pembangunan' }
-      ]
+    name: 'Fakultas Ekonomi dan Bisnis',
+    slug: 'fakultas-ekonomi-dan-bisnis',
+    programs: [
+      { name: 'S1 - Akuntansi', slug: 'akuntansi' },
+      { name: 'S1 - Manajemen', slug: 'manajemen' },
+      { name: 'S1 - Ekonomi Pembangunan', slug: 'ekonomi-pembangunan' },
+    ],
   },
   {
-      name: 'Fakultas Hukum',
-      slug: 'fakultas-hukum',
-      programs: [
-          { name: 'S1 - Ilmu Hukum', slug: 'ilmu-hukum' }
-      ]
+    name: 'Fakultas Hukum',
+    slug: 'fakultas-hukum',
+    programs: [{ name: 'S1 - Ilmu Hukum', slug: 'ilmu-hukum' }],
   },
   {
-      name: 'Program Pasca Sarjana',
-      slug: 'program-pasca-sarjana',
-      programs: [
-          { name: 'S2 - Magister Ilmu Administrasi & Kebijakan Publik', slug: 'magister-ilmu-administrasi-kebijakan-publik' },
-          { name: 'S2 - Magister Manajemen', slug: 'magister-manajemen' },
-          { name: 'S2 - Magister Teknik Industri', slug: 'magister-teknik-industri' },
-          { name: 'S2 - Magister Ilmu Hukum', slug: 'magister-ilmu-hukum' },
-          { name: 'S2 - Magister Teknologi Pangan', slug: 'magister-teknologi-pangan' },
-          { name: 'S2 - Magister Pendidikan Matematika', slug: 'magister-pendidikan-matematika' },
-          { name: 'S2 - Magister Teknik Mesin', slug: 'magister-teknik-mesin' },
-          { name: 'S2 - Magister Ilmu Komunikasi', slug: 'magister-ilmu-komunikasi' },
-          { name: 'S2 - Magister Pendidikan Bahasa Indonesia', slug: 'magister-pendidikan-bahasa-indonesia' },
-          { name: 'S3 - Doktor Ilmu Manajemen', slug: 'doktor-ilmu-manajemen' },
-          { name: 'S3 - Doktor Ilmu Sosial', slug: 'doktor-ilmu-sosial' },
-          { name: 'S3 - Doktor Ilmu Hukum', slug: 'doktor-ilmu-hukum' }
-      ]
+    name: 'Program Pasca Sarjana',
+    slug: 'program-pasca-sarjana',
+    programs: [
+      { name: 'S2 - Magister Ilmu Administrasi & Kebijakan Publik', slug: 'magister-ilmu-administrasi-kebijakan-publik' },
+      { name: 'S2 - Magister Manajemen', slug: 'magister-manajemen' },
+      { name: 'S2 - Magister Teknik Industri', slug: 'magister-teknik-industri' },
+      { name: 'S2 - Magister Ilmu Hukum', slug: 'magister-ilmu-hukum' },
+      { name: 'S2 - Magister Teknologi Pangan', slug: 'magister-teknologi-pangan' },
+      { name: 'S2 - Magister Pendidikan Matematika', slug: 'magister-pendidikan-matematika' },
+      { name: 'S2 - Magister Teknik Mesin', slug: 'magister-teknik-mesin' },
+      { name: 'S2 - Magister Ilmu Komunikasi', slug: 'magister-ilmu-komunikasi' },
+      { name: 'S2 - Magister Pendidikan Bahasa Indonesia', slug: 'magister-pendidikan-bahasa-indonesia' },
+      { name: 'S3 - Doktor Ilmu Manajemen', slug: 'doktor-ilmu-manajemen' },
+      { name: 'S3 - Doktor Ilmu Sosial', slug: 'doktor-ilmu-sosial' },
+      { name: 'S3 - Doktor Ilmu Hukum', slug: 'doktor-ilmu-hukum' },
+    ],
   },
   {
-      name: 'Fakultas Kedokteran',
-      slug: 'fakultas-kedokteran',
-      programs: [
-          { name: 'S1 - Pendidikan Dokter', slug: 'pendidikan-dokter' },
-          { name: 'Profesi - Profesi Dokter', slug: 'profesi-dokter' }
-      ]
+    name: 'Fakultas Kedokteran',
+    slug: 'fakultas-kedokteran',
+    programs: [
+      { name: 'S1 - Pendidikan Dokter', slug: 'pendidikan-dokter' },
+      { name: 'Profesi - Profesi Dokter', slug: 'profesi-dokter' },
+    ],
   },
   {
-      name: 'Fakultas Pendidikan',
-      slug: 'fakultas-pendidikan',
-      programs: [
-          { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
-          { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
-          { name: 'S1 - Pendidikan Pancasila dan Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
-          { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' },
-          { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-sastra-indonesia' },
-          { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' }
-      ]
+    name: 'Fakultas Pendidikan',
+    slug: 'fakultas-pendidikan',
+    programs: [
+      { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
+      { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
+      { name: 'S1 - Pendidikan Pancasila dan Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
+      { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' },
+      { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-sastra-indonesia' },
+      { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' },
+    ],
   },
   {
-      name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
-      slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
-      programs: [
-          { name: 'S1 - Administrasi Publik', slug: 'administrasi-publik' },
-          { name: 'S1 - Kesejahteraan Sosial', slug: 'kesejahteraan-sosial' },
-          { name: 'S1 - Hubungan Internasional', slug: 'hubungan-internasional' },
-          { name: 'S1 - Ilmu Administrasi Bisnis', slug: 'ilmu-administrasi-bisnis' },
-          { name: 'S1 - Ilmu Komunikasi', slug: 'ilmu-komunikasi' }
-      ]
+    name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
+    slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
+    programs: [
+      { name: 'S1 - Administrasi Publik', slug: 'administrasi-publik' },
+      { name: 'S1 - Kesejahteraan Sosial', slug: 'kesejahteraan-sosial' },
+      { name: 'S1 - Hubungan Internasional', slug: 'hubungan-internasional' },
+      { name: 'S1 - Ilmu Administrasi Bisnis', slug: 'ilmu-administrasi-bisnis' },
+      { name: 'S1 - Ilmu Komunikasi', slug: 'ilmu-komunikasi' },
+    ],
   },
   {
-      name: 'Fakultas Ilmu Seni dan Sastra',
-      slug: 'fakultas-ilmu-seni-dan-sastra',
-      programs: [
-          { name: 'S1 - Sastra Inggris', slug: 'sastra-inggris' },
-          { name: 'S1 - Desain Komunikasi Visual', slug: 'desain-komunikasi-visual' },
-          { name: 'S1 - Fotografi dan Film', slug: 'fotografi-dan-film' },
-          { name: 'S1 - Seni Musik', slug: 'seni-musik' }
-      ]
-  }
-];
+    name: 'Fakultas Ilmu Seni dan Sastra',
+    slug: 'fakultas-ilmu-seni-dan-sastra',
+    programs: [
+      { name: 'S1 - Sastra Inggris', slug: 'sastra-inggris' },
+      { name: 'S1 - Desain Komunikasi Visual', slug: 'desain-komunikasi-visual' },
+      { name: 'S1 - Fotografi dan Film', slug: 'fotografi-dan-film' },
+      { name: 'S1 - Seni Musik', slug: 'seni-musik' },
+    ],
+  },
+]
 
 const faculties1 = faculties.slice(0, 3)
 const faculties2 = faculties.slice(3, 6)
@@ -130,35 +131,33 @@ const Fakultas = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    let isMounted = true;
-  
+    let isMounted = true
+
     const fetchData = async () => {
-      setLoading(true);
+      setLoading(true)
       try {
         // Tambahkan timestamp atau cache-buster ke URL
-        const timestamp = new Date().getTime();
-        const [fakultasData] = await Promise.all([
-          FakultasService.getAllFakultas(`?timestamp=${timestamp}`),
-        ]);
-        
+        const timestamp = new Date().getTime()
+        const [fakultasData] = await Promise.all([FakultasService.getAllFakultas(`?timestamp=${timestamp}`)])
+
         if (isMounted) {
-          setFakultas(fakultasData);
+          setFakultas(fakultasData)
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data:', error)
       } finally {
         if (isMounted) {
-          setLoading(false);
+          setLoading(false)
         }
       }
-    };
-  
-    fetchData();
-  
+    }
+
+    fetchData()
+
     return () => {
-      isMounted = false;
-    };
-  }, []);
+      isMounted = false
+    }
+  }, [])
 
   return (
     <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
@@ -194,11 +193,20 @@ const Fakultas = () => {
           </div>
         ) : (
           <>
-            <MotionWrapper delay={0.2} className={'w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'}>
-              {fakultas?.map((item) => (
-                <FakultasCard key={item.id} image={item.image1} title={item.name} slug={item.slug} />
+            <motion.div
+              className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+              }}
+            >
+              {fakultas?.map((item, index) => (
+                <FakultasItem key={item.id} image={item.image1} title={item.name} slug={item.slug} index={index} />
               ))}
-            </MotionWrapper>
+            </motion.div>
+
             <FakultasSection faculties={faculties} faculties1={faculties1} faculties2={faculties2} faculties3={faculties3} />
           </>
         )}

@@ -65,7 +65,7 @@ const Navbar = ({ position = 'absolute top-0 left-0', bgColor = 'bg-[#DCDCDC]', 
           rounded-lg md:rounded-4xl
           transition-all duration-500 ease-in-out
           ${shadow}
-          ${isScrolled ? 'bg-[#d5d5d5]/80 backdrop-blur-md border-2 border-[#FAFAFA]/50' : `${bgColor} border-2 border-[#DCDCDC]`}
+          ${isScrolled ? 'bg-[#d5d5d5]/50 backdrop-blur-sm border-2 border-[#FAFAFA]/50' : `${bgColor} border-2 border-[#DCDCDC]`}
         `}
       >
         <div className="flex items-center gap-3 md:gap-4 z-1">
