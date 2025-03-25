@@ -52,27 +52,32 @@ const FakultasDetail = () => {
 
   const fetchData = useCallback(async () => {
     try {
-      const [fakultasRes, partnerRes, beritaRes, agendaRes, unggulanRes] = await Promise.all([
-        FakultasService.getFakultasBySlug(slug),
+      const fakultasPromise = FakultasService.getFakultasBySlug(slug);
+      
+      // First get fakultas data
+      const fakultasRes = await fakultasPromise;
+      setFakultas(fakultasRes.fakultas);
+      setProdi(fakultasRes.departements);
+  
+      // Then get other data using the fakultas ID
+      const [partnerRes, beritaRes, agendaRes, unggulanRes] = await Promise.all([
         PartnerService.getAllPartner(),
         BeritaService.getAllBerita(),
         AgendaService.getAllAgenda(),
-        UnggulanService.getUnggulanByID(fakultasRes?.fakultas?.id),
-      ])
-
-      setFakultas(fakultasRes.fakultas)
-      setProdi(fakultasRes.departements)
-      setPartner(partnerRes)
-      setBerita(beritaRes)
-      const sliceUnggulan = unggulanRes?.slice(0, 4)
-      setAgenda(agendaRes)
-      setUnggulan(sliceUnggulan)
+        UnggulanService.getUnggulanByID(fakultasRes.fakultas.id),
+      ]);
+  
+      setPartner(partnerRes);
+      setBerita(beritaRes);
+      const sliceUnggulan = unggulanRes?.slice(0, 4);
+      setAgenda(agendaRes);
+      setUnggulan(sliceUnggulan);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [slug])
+  }, [slug]);
 
   const [data, setData] = useState({
     dukungan: [],
