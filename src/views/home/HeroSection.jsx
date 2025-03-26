@@ -200,54 +200,7 @@ const HeroSection = ({ data = [] }) => {
                 <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] border border-gray-500 p-4 md:p-6 md:flex-row md:max-w-xl lg:max-w-fit md:rounded-full bg-white">
                     <Button iconStatus="flex" icon={<IoDocumentTextOutline size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Daftar Sekarang'} rounded="rounded-full" weight="font-normal" />
                     <Button iconStatus="flex" icon={<IoWalletOutline size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Biaya'} rounded="rounded-full" weight="font-normal" />
-                    <Button iconStatus="flex" icon={<MdOutlineBook size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Buku Panduan'} rounded="rounded-full" weight="font-normal" /> */}
-
-                </>
-            )}
-
-            <div className="block md:hidden absolute top-1/2 left-4 z-10 cursor-pointer custom-swiper-prev text-primary text-3xl lg:text-4xl">
-                <MdOutlineKeyboardArrowLeft />
-            </div>
-            <div className="block md:hidden absolute top-1/2 right-4 z-10 cursor-pointer custom-swiper-next text-primary text-3xl lg:text-4xl">
-                <MdOutlineKeyboardArrowRight />
-            </div>
-            {/* Dibawah ini adalah kode yang sebelumnya */}
-            {/* <div className="absolute -bottom-30 left-0 right-0 z-10 md:-bottom-10 w-full justify-center items-center hidden md:flex"> */}
-            <div className="absolute bottom-5 left-0 right-0 z-10 w-full justify-center items-center hidden md:flex">
-                <div className="flex flex-col justify-center items-center gap-4 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] border border-gray-500 p-4 md:p-6 md:flex-row md:max-w-xl md:rounded-full bg-white">
-                    <Button iconStatus="flex" icon={<IoDocumentTextOutline size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Daftar'} rounded="rounded-full" />
-                    <Button iconStatus="flex" icon={<IoWalletOutline size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Biaya'} rounded="rounded-full" />
-                    <Button iconStatus="flex" icon={<MdOutlineBook size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Buku Panduan'} rounded="rounded-full" />
-                    <Button
-                        iconStatus="flex"
-                        icon={<IoDocumentTextOutline size={24} />}
-                        textColor="text-white"
-                        bgColor="bg-footer"
-                        hoverBgColor="hover:border-3 hover:border-white/40"
-                        text="Daftar Sekarang"
-                        rounded="rounded-full"
-                        weight="font-normal"
-                    />
-                    <Button
-                        iconStatus="flex"
-                        icon={<IoWalletOutline size={24} />}
-                        textColor="text-white"
-                        bgColor="bg-footer"
-                        hoverBgColor="hover:border-3 hover:border-white/40"
-                        text="Biaya"
-                        rounded="rounded-full"
-                        weight="font-normal"
-                    />
-                    <Button
-                        iconStatus="flex"
-                        icon={<MdOutlineBook size={24} />}
-                        textColor="text-white"
-                        bgColor="bg-footer"
-                        hoverBgColor="hover:border-3 hover:border-white/40"
-                        text="Buku Panduan"
-                        rounded="rounded-full"
-                        weight="font-normal"
-                    />
+                    <Button iconStatus="flex" icon={<MdOutlineBook size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Buku Panduan'} rounded="rounded-full" weight="font-normal" />
                 </div>
             </div>
         </div>
