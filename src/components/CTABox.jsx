@@ -16,20 +16,29 @@ const CTABox = ({ subtitle, title, textButton, subtitle2 }) => {
             <div className="w-full flex justify-center items-center shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] duration-500">
                 <div className="w-full px-4 py-10 bg-primary rounded-2xl cta_box ">
                     <div className="w-full text-center mt-10 md:mt-8 space-y-2">
-                        <h3 className="text-gray-800 text-xs md:text-base lg:text-lg font-medium">{subtitle}</h3>
-                        <Title sizeMobile="text-sm md:text-xl" title={title} />
-                        <Title sizeMobile="text-sm md:text-xl" title={subtitle2} />
+                        <h3 className="text-gray-800 text-[26px] font-medium">{subtitle}</h3>
+                        <Title sizeMobile="text[32px]" title={title} />
+                        <Title sizeMobile="text-[32px]" title={subtitle2} />
                         <div className="w-full flex justify-center items-center gap-4">
                             <motion.button
                                 onClick={handleClick}
+<<<<<<< Updated upstream
                                 className="rounded-full border-3 border-transparent hover:border-3 hover:border-primary/40 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 bg-gray-100 text-black font-semibold shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] hover:bg-white transition"
+=======
+                                className="rounded-full border-3 border-transparent hover:border-3 hover:border-primary/40 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 bg-gray-100 text-black font-semibold shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] hover:bg-white transition"
+>>>>>>> Stashed changes
                                 whileTap={{ scale: 0.95 }}
                             >
                                 {textButton}
                             </motion.button>
                             <motion.button
+<<<<<<< Updated upstream
                                 onClick={handleClick}
                                 className="rounded-full border-3 border-transparent hover:border-3 hover:border-white/40 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 text-black font-semibold shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition"
+=======
+                                onClick={handleWhatsApp}
+                                className="rounded-full border-1 border-text hover:border-2 hover:border-red-500 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 text-text font-semibold shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition"
+>>>>>>> Stashed changes
                                 whileTap={{ scale: 0.95 }}
                             >
                                 Hubungi Admin

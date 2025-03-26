@@ -1,3 +1,4 @@
+
 import { FaYoutube, FaFacebookSquare } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
@@ -5,19 +6,20 @@ import { AiFillTikTok } from "react-icons/ai";
 import Title from "./Title";
 import Text from "./Text";
 import Logo from "../assets/logo.png"
+import LogoOutline from "../assets/logo-outline1.png";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import FakultasService from "../fetching/fakultas";
 
 const Footer = () => {
     const [fakultas, setFakultas] = useState([])
-    // const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
 
     const fetchFakultas = async () => {
         try {
             const response = await FakultasService.getAllFakultas()
             setFakultas(response)
-            // setLoading(false)
+            setLoading(false)
         } catch (error) {
             console.error(error)
         }
@@ -27,13 +29,16 @@ const Footer = () => {
         fetchFakultas()
     }, [])
 
-    // if (loading) {
-    //     return <Loading />
-    // }
+    if (loading) {
+        return <Loading />
+    }
 
     return (
-        <footer className="bg-green-800 text-white p-4 md:p-6 lg:p-8 rounded-t-xl m-2 md:m-6 lg:m-6 rounded-xl md:rounded-2xl lg:rounded-4xl">
-            <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4 md:gap-6 lg:gap-8">
+        <footer className="bg-[#034833] text-white p-4 md:p-6 lg:p-8 rounded-t-xl m-2 md:m-6 lg:m-6 rounded-lg md:rounded-2xl lg:rounded-4xl relative overflow-hidden">
+            <div className="absolute -top-0 left-3/5 w-full h-full opacity-50">
+                <img src={LogoOutline} alt={"Logo Outline Unpas"} loading="lazy" className="h-[70vh]" />
+            </div>
+            <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4 md:gap-6 lg:gap-8 bg-cover bg-no-repeat overflow-hidden">
                 <div className="w-full md:w-fit space-y-4 text-white mb-4 md:mb-0">
                     <img src={Logo} alt="Logo Universitas Pasundan" className="w-14 h-14 md:w-16 md:h-16" loading="lazy" />
                     <Title title={'Terhubung Dengan Kami'} color="text-white" />
@@ -105,7 +110,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="mt-8 w-full text-center py-4 bg-primary rounded-xl md:rounded-2xl lg:rounded-4xl">
+            <div className="mt-8 w-full text-center py-4 bg-primary rounded-lg md:rounded-2xl lg:rounded-4xl">
                 <Text
                     sizeMobile="text-xs md:text-xs lg:text-xs"
                     text={`© ${new Date().getFullYear()} Unpas Copyright and rights reserved`}

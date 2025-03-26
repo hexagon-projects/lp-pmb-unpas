@@ -150,4 +150,9 @@ const PendaftaranSection = ({ title, subtitle, jalurPendaftaran }) => {
     );
 };
 
+<<<<<<< Updated upstream
 export default PendaftaranSection;
+=======
+
+export default memo(PendaftaranSection);
+>>>>>>> Stashed changes

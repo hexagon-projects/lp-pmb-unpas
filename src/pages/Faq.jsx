@@ -70,6 +70,7 @@ const Faq = () => {
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'} type={'fadeInUp'} duration={0.5}>
+        {/* <UserLayout bgLayoutColor="bg-gray-100" position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'} type={'fadeInUp'} duration={0.5}> */}
             <Helmet>
                 <title>FAQ - Universitas Pasundan</title>
             </Helmet>
@@ -101,6 +102,7 @@ const Faq = () => {
                         {paginatedGeneralFaqs.length > 0 ? (
                             paginatedGeneralFaqs.map((faq, index) => (
                                 <div key={faq.id} className="w-full shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
+                                {/* <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4"> */}
                                     <button
                                         className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base"
                                         onClick={() => toggleDropdown(index)}
@@ -142,6 +144,7 @@ const Faq = () => {
                         {paginatedBillingFaqs.length > 0 ? (
                             paginatedBillingFaqs.map((faq, index) => (
                                 <div key={faq.id} className="w-full shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
+                                {/* <div key={faq.id} className="w-full shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4"> */}
                                     <button
                                         className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base"
                                         onClick={() => toggleDropdown(index)}
@@ -167,11 +170,19 @@ const Faq = () => {
                     </div>
                 </div>
 
+<<<<<<< Updated upstream
                 <div className={'bg-primary p-4 md:p-10 lg:p-12 rounded-lg shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
                     <div className="space-y-2">
                         <h2 className="text-lg font-bold">Masih Punya Pertanyaan?</h2>
                         <p className="text-xs md:text-sm lg:text-base">Hubungi kami </p>
                     </div>
+=======
+                <div className="w-full flex justify-center items-center px-4 md:px-6 lg:px-8">
+                    <form onSubmit={handleSubmit} className={'w-full bg-primary p-4 md:p-10 lg:p-12 rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
+                        <div className="space-y-2 flex justify-center">
+                            <h2 className="text-[30px] font-bold">Masih Punya Pertanyaan?</h2>
+                        </div>
+>>>>>>> Stashed changes
 
                     <div>
                         <label htmlFor="email" className="block text-xs md:text-sm lg:text-base font-medium">Email</label>

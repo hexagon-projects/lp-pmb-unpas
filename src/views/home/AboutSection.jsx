@@ -43,6 +43,7 @@ const AboutSection = ({ data }) => {
                     </MotionWrapper>
                 </div>
             </div>
+<<<<<<< Updated upstream
 
             {playingVideo && (
                 <motion.div
@@ -77,6 +78,11 @@ const AboutSection = ({ data }) => {
                     </motion.div>
                 </motion.div>
             )}
+=======
+            <AnimatePresence>
+                {playingVideo && <VideoPlayer />}
+            </AnimatePresence>
+>>>>>>> Stashed changes
         </div>
     );
 };

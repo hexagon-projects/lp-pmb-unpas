@@ -41,13 +41,13 @@ const Testimoni = () => {
             paddingTop={'lg:pt-30'}
             type={'fadeInUp'} duration={0.5}
         >
-            <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-24">
-                <div className="w-full h-42 md:h-60 lg:h-[65vh]">
-                    <img src={Section1} alt="" className="w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl" />
+            <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-[66px]">
+                <div className="w-full h-42 md:h-40 lg:h-[55vh]">
+                    <img src={Section1} alt="" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
                 </div>
-                <div className="flex flex-col justify-center items-center text-center space-y-2">
+                <div className="flex flex-col justify-center items-center text-center space-y-[16px]">
                     <div className="w-fit p-2 rounded-full border border-black/20">
-                        <Text text={'Testimoni'} color="text-text" weight={'font-bold'} />
+                        <Text text={'Testimonial'} color="text-text" weight={'font-bold'} />
                     </div>
                     <Title sizeMobile='text-2xl md:text-3xl lg:text-5xl' title={'Kata Mereka Tentang Unpas'} />
                 </div>

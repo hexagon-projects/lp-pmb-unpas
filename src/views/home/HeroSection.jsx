@@ -31,6 +31,8 @@ const HeroSection = ({ data }) => {
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 spaceBetween={0}
+                // modules={[Navigation, Pagination, Autoplay]}
+                // spaceBetween={50}
                 slidesPerView={1}
                 direction={isDesktopOrTablet ? "vertical" : "horizontal"}
                 navigation={isDesktopOrTablet ? { prevEl: ".custom-swiper-prev", nextEl: ".custom-swiper-next" } : false}
@@ -139,4 +141,9 @@ const HeroSection = ({ data }) => {
     );
 };
 
+<<<<<<< Updated upstream
 export default HeroSection;
+=======
+
+export default memo(HeroSection);
+>>>>>>> Stashed changes

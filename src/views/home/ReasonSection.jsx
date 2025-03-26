@@ -59,4 +59,8 @@ const ReasonSection = ({ data }) => {
     );
 };
 
+<<<<<<< Updated upstream
 export default ReasonSection;
+=======
+export default memo(ReasonSection);
+>>>>>>> Stashed changes

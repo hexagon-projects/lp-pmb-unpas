@@ -18,7 +18,7 @@ const GedungCard = ({ title, text, mapUrl }) => {
                 ></iframe>
             </div>
             <motion.div
-                className="absolute bottom-7 right-4 bg-lime-400 p-2 rounded-lg cursor-pointer"
+                className="absolute right-4 bg-transparent p-2 rounded-lg cursor-pointer"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={(e) => {

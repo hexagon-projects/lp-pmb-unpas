@@ -62,9 +62,10 @@ const Mitra = () => {
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}>
-            <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-24">
+        {/* <UserLayout bgLayoutColor="bg-gray-100" position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}> */}
+            <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-18">
                 <div className="w-full mitra_container">
-                    <div className="w-full h-42 md:h-60 lg:h-80 mitra_box">
+                    <div className="w-full h-42 md:h-60 lg:h-120 mitra_box">
                         <img
                             src={Section1}
                             alt="Mitra Unpas"
@@ -73,13 +74,13 @@ const Mitra = () => {
                     </div>
                 </div>
 
-                <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-10">
+                <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8">
                     <div className="space-y-4 text-center">
                         <Title title={'Mitra'} />
                         <Text text={'Kuliah di UNPAS, Pilihan Tepat dengan 100+ Mitra Kerjasama untuk Masa Depan Gemilang!'} />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {currentPartners.map((partner, index) => (
                             <MitraCard
                                 key={index}
@@ -109,6 +110,7 @@ const Mitra = () => {
                                 src={`${imageURL}/partners/${selectedPartner.image}`}
                                 alt={selectedPartner.name}
                                 className="w-full h-48 object-cover object-center rounded-xl md:rounded-2xl lg:rounded-4xl"
+                                // className="w-full h-48 object-cover object-center rounded-lg md:rounded-2xl lg:rounded-4xl"
                             />
                             <div className="space-y-3">
                                 <h2 className="text-xl font-bold">{selectedPartner.name}</h2>
