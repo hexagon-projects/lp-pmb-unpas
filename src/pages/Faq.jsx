@@ -213,11 +213,10 @@ const Faq = () => {
                     </div>
                 </div>
 
-                <div className="w-full flex justify-center items-center">
-                    <form onSubmit={handleSubmit} className={'w-full lg:w-[85%] bg-primary p-4 md:p-10 lg:p-12 rounded-lg shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
-                        <div className="space-y-2">
-                            <h2 className="text-lg font-bold">Masih Punya Pertanyaan?</h2>
-                            <p className="text-xs md:text-sm lg:text-base">Hubungi kami melalui WhatsApp</p>
+                <div className="w-full flex justify-center items-center px-4 md:px-6 lg:px-8">
+                    <form onSubmit={handleSubmit} className={'w-full bg-primary p-4 md:p-10 lg:p-12 rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
+                        <div className="space-y-2 flex justify-center">
+                            <h2 className="text-[30px] font-bold">Masih Punya Pertanyaan?</h2>
                         </div>
 
                         <div>
