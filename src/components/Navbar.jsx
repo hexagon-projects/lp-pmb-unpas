@@ -34,7 +34,7 @@ const Navbar = ({
   ]
 
   const handleClick = () => {
-    window.location.href = 'https://situ2.unpas.ac.id/spmbfront/'
+    window.location.href = 'https://registrasi.unpas.ac.id/register'
   }
 
   useEffect(() => {

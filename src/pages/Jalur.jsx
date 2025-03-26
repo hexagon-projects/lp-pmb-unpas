@@ -33,25 +33,25 @@ const Jalur = () => {
 
     useEffect(() => {
         let isMounted = true;
-      
+
         const fetchJalur = async () => {
-          try {
-            const timestamp = new Date().getTime();
-            const response = await RegistrasiService.getAllRegistrasi(`?timestamp=${timestamp}`);
-            if (isMounted) {
-              setJalur(response);
+            try {
+                const timestamp = new Date().getTime();
+                const response = await RegistrasiService.getAllRegistrasi(`?timestamp=${timestamp}`);
+                if (isMounted) {
+                    setJalur(response);
+                }
+            } catch (error) {
+                console.error(error);
             }
-          } catch (error) {
-            console.error(error);
-          }
         };
-      
+
         fetchJalur();
-      
+
         return () => {
-          isMounted = false;
+            isMounted = false;
         };
-      }, []);
+    }, []);
 
     // if (loading) {
     //     return <Loading />
@@ -94,7 +94,7 @@ const Jalur = () => {
                                 Universitas Pasundan.
                             </h2>
                             <div className="hidden md:flex">
-                                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} />
+                                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'} />
                             </div>
                         </div>
                     </div>

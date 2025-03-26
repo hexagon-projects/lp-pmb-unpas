@@ -183,7 +183,7 @@ const ProgramStudi = () => {
           <div className="relative flex flex-col md:flex-row justify-center items-center text-center space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-10">
             <div className="w-full md:w-1/2 lg:w-1/3 space-y-3 md:space-y-4">
               <div className="w-full space-y-2 text-left md:text-left">
-                <Title title="Mengapa Pilih Fakultas" />
+                <Title title="Mengapa Pilih Prodi" />
                 <Title color="text-blue-500" title={fakultas.name.replace('Fakultas ', '')} />
               </div>
               <div className="w-full h-full">
@@ -220,9 +220,9 @@ const ProgramStudi = () => {
         </motion.div>
 
         {/* Aktivitas Mahasiswa Section */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.6 }}>
+        {/* <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.6 }}>
           <AktivitasMahasiswa data={latestActivity} />
-        </motion.div>
+        </motion.div> */}
 
         {/* Prestasi Section */}
         <motion.div className="space-y-4 md:space-y-6 lg:space-y-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.8 }}>

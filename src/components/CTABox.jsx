@@ -5,7 +5,7 @@ import Title from "./Title";
 import IdentityService from "../fetching/identity";
 import Loading from "./Loading";
 
-const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://situ2.unpas.ac.id/spmbfront/', color = 'bg-primary' }) => {
+const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://registrasi.unpas.ac.id/register', color = 'bg-primary' }) => {
     const [identity, setIdentity] = useState(null);
     const [loading, setLoading] = useState(true);
     

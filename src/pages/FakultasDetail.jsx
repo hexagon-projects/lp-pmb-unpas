@@ -156,7 +156,7 @@ const FakultasDetail = () => {
             </div>
           </div>
           <div className="absolute bottom-0 left-0 z-20">
-            <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/50'} padding={'px-4 py-4'} />
+            <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/50'} padding={'px-4 py-4'} onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'}/>
           </div>
         </motion.div>
 
@@ -242,7 +242,7 @@ const FakultasDetail = () => {
                 <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
               </div>
               <div className="">
-                <Button css={'pulsating-button'} text={'Daftar Sekarang'} bgColor="bg-primary" padding="p-4" />
+                <Button css={'pulsating-button'} text={'Daftar Sekarang'} bgColor="bg-primary" padding="p-4" onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'}/>
               </div>
             </div>
           </div>

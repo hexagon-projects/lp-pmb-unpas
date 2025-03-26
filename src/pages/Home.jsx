@@ -34,105 +34,107 @@ const MemoizedCTASection = React.memo(CTASection);
 const MemoizedInteractiveGrid = React.memo(InteractiveGrid);
 
 const FACULTIES_DATA = [
-    {
-        name: 'Fakultas Keguruan dan Ilmu Pendidikan',
-        slug: 'fakultas-keguruan-dan-ilmu-pendidikan',
-        programs: [
-            { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
-            { name: 'S1 - Pendidikan Ekonomi Akuntansi', slug: 'pendidikan-ekonomi-akuntansi' },
-            { name: 'S1 - Pendidikan Bahasa', slug: 'pendidikan-bahasa' },
-            { name: 'S1 - Sastra Indonesia dan Daerah', slug: 'sastra-indonesia-daerah' },
-            { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
-            { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
-            { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' }
-        ]
-    },
-    {
-        name: 'Fakultas Teknik',
-        slug: 'fakultas-teknik',
-        programs: [
-            { name: 'S1 - Teknik Informatika', slug: 'teknik-informatika' },
-            { name: 'S1 - Teknik Mesin', slug: 'teknik-mesin' },
-            { name: 'S1 - Teknik Industri', slug: 'teknik-industri' },
-            { name: 'S1 - Teknik Lingkungan', slug: 'teknik-lingkungan' },
-            { name: 'S1 - Teknologi Pangan', slug: 'teknologi-pangan' }
-        ]
-    },
-    {
-        name: 'Fakultas Ekonomi dan Bisnis',
-        slug: 'fakultas-ekonomi-dan-bisnis',
-        programs: [
-            { name: 'S1 - Akuntansi', slug: 'akuntansi' },
-            { name: 'S1 - Manajemen', slug: 'manajemen' },
-            { name: 'S1 - Ekonomi Pembangunan', slug: 'ekonomi-pembangunan' }
-        ]
-    },
-    {
-        name: 'Fakultas Hukum',
-        slug: 'fakultas-hukum',
-        programs: [
-            { name: 'S1 - Ilmu Hukum', slug: 'ilmu-hukum' }
-        ]
-    },
-    {
-        name: 'Program Pasca Sarjana',
-        slug: 'program-pasca-sarjana',
-        programs: [
-            { name: 'S2 - Magister Ilmu Administrasi & Kebijakan Publik', slug: 'magister-ilmu-administrasi-kebijakan-publik' },
-            { name: 'S2 - Magister Manajemen', slug: 'magister-manajemen' },
-            { name: 'S2 - Magister Teknik Industri', slug: 'magister-teknik-industri' },
-            { name: 'S2 - Magister Ilmu Hukum', slug: 'magister-ilmu-hukum' },
-            { name: 'S2 - Magister Teknologi Pangan', slug: 'magister-teknologi-pangan' },
-            { name: 'S2 - Magister Pendidikan Matematika', slug: 'magister-pendidikan-matematika' },
-            { name: 'S2 - Magister Teknik Mesin', slug: 'magister-teknik-mesin' },
-            { name: 'S2 - Magister Ilmu Komunikasi', slug: 'magister-ilmu-komunikasi' },
-            { name: 'S2 - Magister Pendidikan Bahasa Indonesia', slug: 'magister-pendidikan-bahasa-indonesia' },
-            { name: 'S3 - Doktor Ilmu Manajemen', slug: 'doktor-ilmu-manajemen' },
-            { name: 'S3 - Doktor Ilmu Sosial', slug: 'doktor-ilmu-sosial' },
-            { name: 'S3 - Doktor Ilmu Hukum', slug: 'doktor-ilmu-hukum' }
-        ]
-    },
-    {
-        name: 'Fakultas Kedokteran',
-        slug: 'fakultas-kedokteran',
-        programs: [
-            { name: 'S1 - Pendidikan Dokter', slug: 'pendidikan-dokter' },
-            { name: 'Profesi - Profesi Dokter', slug: 'profesi-dokter' }
-        ]
-    },
-    {
-        name: 'Fakultas Pendidikan',
-        slug: 'fakultas-pendidikan',
-        programs: [
-            { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
-            { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
-            { name: 'S1 - Pendidikan Pancasila dan Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
-            { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' },
-            { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-sastra-indonesia' },
-            { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' }
-        ]
-    },
-    {
-        name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
-        slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
-        programs: [
-            { name: 'S1 - Administrasi Publik', slug: 'administrasi-publik' },
-            { name: 'S1 - Kesejahteraan Sosial', slug: 'kesejahteraan-sosial' },
-            { name: 'S1 - Hubungan Internasional', slug: 'hubungan-internasional' },
-            { name: 'S1 - Ilmu Administrasi Bisnis', slug: 'ilmu-administrasi-bisnis' },
-            { name: 'S1 - Ilmu Komunikasi', slug: 'ilmu-komunikasi' }
-        ]
-    },
-    {
-        name: 'Fakultas Ilmu Seni dan Sastra',
-        slug: 'fakultas-ilmu-seni-dan-sastra',
-        programs: [
-            { name: 'S1 - Sastra Inggris', slug: 'sastra-inggris' },
-            { name: 'S1 - Desain Komunikasi Visual', slug: 'desain-komunikasi-visual' },
-            { name: 'S1 - Fotografi dan Film', slug: 'fotografi-dan-film' },
-            { name: 'S1 - Seni Musik', slug: 'seni-musik' }
-        ]
-    }
+  {
+    name: 'Fakultas Keguruan dan Ilmu Pendidikan',
+    slug: 'fakultas-keguruan-dan-ilmu-pendidikan',
+    programs: [
+      { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
+      { name: 'S1 - Pendidikan Ekonomi Akuntansi', slug: 'pendidikan-ekonomi-akuntansi' },
+      { name: 'S1 - Pendidikan Bahasa', slug: 'pendidikan-bahasa' },
+      { name: 'S1 - Sastra Indonesia dan Daerah', slug: 'sastra-indonesia-daerah' },
+      { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
+      { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
+      { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' }
+    ]
+  },
+  {
+    name: 'Fakultas Teknik',
+    slug: 'fakultas-teknik',
+    programs: [
+      { name: 'S1 - Teknik Informatika', slug: 'teknik-informatika' },
+      { name: 'S1 - Teknik Mesin', slug: 'teknik-mesin' },
+      { name: 'S1 - Teknik Industri', slug: 'teknik-industri' },
+      { name: 'S1 - Teknik Lingkungan', slug: 'teknik-lingkungan' },
+      { name: 'S1 - Teknologi Pangan', slug: 'teknologi-pangan' },
+      { name: 'S1 - Perencanaan Wilayah dan Kota', slug: 'perencanaan-wilayah-dan-kota' }
+    ]
+  },
+  {
+    name: 'Fakultas Ekonomi dan Bisnis',
+    slug: 'fakultas-ekonomi-dan-bisnis',
+    programs: [
+      { name: 'S1 - Akuntansi', slug: 'akuntansi' },
+      { name: 'S1 - Manajemen', slug: 'manajemen' },
+      { name: 'S1 - Ekonomi Pembangunan', slug: 'ekonomi-pembangunan' }
+    ]
+  },
+  {
+    name: 'Fakultas Hukum',
+    slug: 'fakultas-hukum',
+    programs: [
+      { name: 'S1 - Ilmu Hukum', slug: 'ilmu-hukum' }
+    ]
+  },
+  {
+    name: 'Program Pasca Sarjana',
+    slug: 'program-pasca-sarjana',
+    programs: [
+      { name: 'S2 - Magister Ilmu Administrasi & Kebijakan Publik', slug: 'magister-ilmu-administrasi-kebijakan-publik' },
+      { name: 'S2 - Magister Manajemen', slug: 'magister-manajemen' },
+      { name: 'S2 - Magister Teknik Industri', slug: 'magister-teknik-industri' },
+      { name: 'S2 - Magister Ilmu Hukum', slug: 'magister-ilmu-hukum' },
+      { name: 'S2 - Magister Teknologi Pangan', slug: 'magister-teknologi-pangan' },
+      { name: 'S2 - Magister Pendidikan Matematika', slug: 'magister-pendidikan-matematika' },
+      { name: 'S2 - Magister Teknik Mesin', slug: 'magister-teknik-mesin' },
+      { name: 'S2 - Magister Akutansi', slug: 'magister-akutansi' },
+      { name: 'S2 - Magister Ilmu Komunikasi', slug: 'magister-ilmu-komunikasi' },
+      { name: 'S2 - Magister Pendidikan Bahasa Indonesia', slug: 'magister-pendidikan-bahasa-indonesia' },
+      { name: 'S3 - Doktor Ilmu Manajemen', slug: 'doktor-ilmu-manajemen' },
+      { name: 'S3 - Doktor Ilmu Sosial', slug: 'doktor-ilmu-sosial' },
+      { name: 'S3 - Doktor Ilmu Hukum', slug: 'doktor-ilmu-hukum' }
+    ]
+  },
+  {
+    name: 'Fakultas Kedokteran',
+    slug: 'fakultas-kedokteran',
+    programs: [
+      { name: 'S1 - Pendidikan Dokter', slug: 'pendidikan-dokter' },
+      { name: 'Profesi - Profesi Dokter', slug: 'profesi-dokter' }
+    ]
+  },
+  {
+    name: 'Fakultas Pendidikan',
+    slug: 'fakultas-pendidikan',
+    programs: [
+      { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
+      { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
+      { name: 'S1 - Pendidikan Pancasila dan Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
+      { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' },
+      { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-sastra-indonesia' },
+      { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' }
+    ]
+  },
+  {
+    name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
+    slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
+    programs: [
+      { name: 'S1 - Administrasi Publik', slug: 'administrasi-publik' },
+      { name: 'S1 - Kesejahteraan Sosial', slug: 'kesejahteraan-sosial' },
+      { name: 'S1 - Hubungan Internasional', slug: 'hubungan-internasional' },
+      { name: 'S1 - Ilmu Administrasi Bisnis', slug: 'ilmu-administrasi-bisnis' },
+      { name: 'S1 - Ilmu Komunikasi', slug: 'ilmu-komunikasi' }
+    ]
+  },
+  {
+    name: 'Fakultas Ilmu Seni dan Sastra',
+    slug: 'fakultas-ilmu-seni-dan-sastra',
+    programs: [
+      { name: 'S1 - Sastra Inggris', slug: 'sastra-inggris' },
+      { name: 'S1 - Desain Komunikasi Visual', slug: 'desain-komunikasi-visual' },
+      { name: 'S1 - Fotografi dan Film', slug: 'fotografi-dan-film' },
+      { name: 'S1 - Seni Musik', slug: 'seni-musik' }
+    ]
+  }
 ];
 
 const Home = () => {
@@ -189,7 +191,7 @@ const Home = () => {
 
   useEffect(() => {
     let isMounted = true;
-    
+
     const loadData = async () => {
       try {
         const fetchedData = await fetchAllData();
@@ -209,11 +211,11 @@ const Home = () => {
   }, []);
 
   return (
-    <UserLayout 
-      position={'fixed'} 
-      bgLayoutColor="bg-[#F3f4f4]" 
-      paddingDekstop={'md:p-6 lg:p-6'} 
-      paddingTop={'lg:pt-[100px]'} 
+    <UserLayout
+      position={'fixed'}
+      bgLayoutColor="bg-[#F3f4f4]"
+      paddingDekstop={'md:p-6 lg:p-6'}
+      paddingTop={'lg:pt-[100px]'}
       bgColor={'bg-[#F3F3F3]'}
     >
       <Helmet>
@@ -232,18 +234,18 @@ const Home = () => {
 
       <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
         <MemoizedHeroSection data={data?.slider} />
-        
+
         <div className={'flex md:hidden w-full justify-center items-center p-4 md:px-10 lg:px-12'}>
           <InfoBox />
         </div>
 
         <MemoizedAboutSection data={data} />
 
-        <StatsSection 
-          prodi={44} 
-          mahasiswa={9112} 
-          lulusan={9877436} 
-          prestasi={2139} 
+        <StatsSection
+          prodi={44}
+          mahasiswa={9112}
+          lulusan={9877436}
+          prestasi={2139}
         />
 
         <div className="space-y-8 md:space-y-14 lg:space-y-20">
@@ -268,20 +270,21 @@ const Home = () => {
             <div className="flex justify-between md:justify-between items-center text-center relative z-2">
               <div className="flex items-center gap-4 text-left">
                 <div className="w-[60%] md:w-fit">
-                  <Title 
-                    sizeText="text-sm md:text-2xl lg:text-[32px]" 
-                    fontWeight="font-semibold" 
-                    title={'Yuk Daftar Di Unpas Sekarang!'} 
+                  <Title
+                    sizeText="text-sm md:text-2xl lg:text-[32px]"
+                    fontWeight="font-semibold"
+                    title={'Yuk Daftar Di Unpas Sekarang!'}
                   />
                 </div>
                 <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
               </div>
               <div className="">
-                <Button 
-                  css={'pulsating-button'} 
-                  text={'Daftar Sekarang'} 
-                  bgColor="bg-primary" 
-                  padding="p-4" 
+                <Button
+                  css={'pulsating-button'}
+                  text={'Daftar Sekarang'}
+                  bgColor="bg-primary"
+                  padding="p-4"
+                  onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'}
                 />
               </div>
             </div>
@@ -290,24 +293,24 @@ const Home = () => {
 
         <VideoSwiper data={data?.dukungan} />
 
-        <MemoizedFakultasSection 
-          faculties={FACULTIES_DATA} 
-          faculties1={faculties1} 
-          faculties2={faculties2} 
-          faculties3={faculties3} 
+        <MemoizedFakultasSection
+          faculties={FACULTIES_DATA}
+          faculties1={faculties1}
+          faculties2={faculties2}
+          faculties3={faculties3}
         />
 
-        <MemoizedPrestasiSection 
-          prestasi={data?.prestasi} 
-          imageURL={imageURL} 
+        <MemoizedPrestasiSection
+          prestasi={data?.prestasi}
+          imageURL={imageURL}
         />
 
         <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
           <MemoizedArtikelSection data={data} />
           <MemoizedMitraSection data={data?.partner} />
-          <MemoizedTestimonialSection 
-            data={data?.testimonials} 
-            displayDekstop="md:flex-col" 
+          <MemoizedTestimonialSection
+            data={data?.testimonials}
+            displayDekstop="md:flex-col"
           />
           <MemoizedCTASection />
           <MemoizedInteractiveGrid />
