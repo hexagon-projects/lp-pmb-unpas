@@ -114,7 +114,6 @@ const AboutSection = ({ data = {} }) => {
                     </MotionWrapper>
                 </div>
             </div>
-
             <AnimatePresence>
                 {playingVideo && <VideoPlayer />}
             </AnimatePresence>

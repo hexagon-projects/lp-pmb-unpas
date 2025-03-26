@@ -100,7 +100,6 @@ const VideoSwiper = ({ data = [] }) => {
             </motion.div>
         </motion.div>
     ), [playingVideo, closeVideo]);
-
     return (
         <div className="w-full h-fit space-y-4 md:space-y-6">
             <div className="text-center space-y-2">
@@ -108,8 +107,9 @@ const VideoSwiper = ({ data = [] }) => {
             </div>
             
             <Swiper
-                slidesPerView={1.1}
-                spaceBetween={-80}
+                slidesPerView={1.5}
+                spaceBetween={-50}
+                // spaceBetween={-40}
                 centeredSlides={true}
                 autoplay={{ 
                     delay: 3000, 
@@ -135,7 +135,6 @@ const VideoSwiper = ({ data = [] }) => {
                 width="w-2 h-2"
                 scale="w-7 h-2"
             />
-
             <AnimatePresence>
                 {playingVideo && videoPlayer}
             </AnimatePresence>

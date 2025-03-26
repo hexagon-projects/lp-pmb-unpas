@@ -34,6 +34,7 @@ const Contact = () => {
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'} type={'fadeInUp'} duration={0.5}>
+        {/* <UserLayout bgLayoutColor="bg-gray-100" position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-20'} type={'fadeInUp'} duration={0.5}> */}
             <Helmet>
                 <title>Kontak - Universitas Pasundan</title>
             </Helmet>
@@ -42,6 +43,10 @@ const Contact = () => {
                     style={{ backgroundImage: `url(${Mahasiswa})` }}>
 
                     <div className="absolute inset-0 bg-black/30 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+                {/* <div className="relative w-full h-[70vh] p-4 md:px-10 lg:px-12 rounded-lg md:rounded-2xl lg:rounded-4xl flex flex-col justify-center items-center bg-cover bg-no-repeat"
+                    style={{ backgroundImage: `url(${Mahasiswa})` }}>
+
+                    <div className="absolute inset-0 bg-black/30 rounded-lg md:rounded-2xl lg:rounded-4xl"></div> */}
 
                     <div className="relative space-y-3 md:space-y-4 z-10 text-center">
                         <Text text={'Kontak'} />

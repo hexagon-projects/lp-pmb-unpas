@@ -12,7 +12,8 @@ const FakultasCard = ({ image, title, slug }) => {
 
   return (
     <div
-      className="relative w-full h-[30vh] md:h-[45vh] lg:h-[55vh] rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] cursor-pointer group"
+      // className="relative w-full h-[30vh] md:h-[45vh] lg:h-[55vh] rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] cursor-pointer group"
+      className="relative w-full h-[30vh] md:h-[45vh] lg:h-[55vh] rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] cursor-pointer group"
       onClick={handleClick}
     >
       <img
@@ -39,6 +40,8 @@ const FakultasCard = ({ image, title, slug }) => {
       >
         <MdOutlineArrowOutward size={30} className="text-text" />
       </motion.div>
+
+      <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-primary/40 to-transparent"></div>
     </div>
   );
 };

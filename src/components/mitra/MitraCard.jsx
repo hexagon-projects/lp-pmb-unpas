@@ -11,6 +11,11 @@ const MitraCard = ({ title, image, widthImg = 'w-1/2 md:w-[40%]', widthText = 'w
                 <div className={`${widthImg} flex items-center`}>
                     <img src={`${imageURL}/partners/${image}`} alt={title} 
                         className="w-full h-full object-contain rounded-xl md:rounded-2xl lg:rounded-4xl" />
+            {/* <div className="w-full h-full flex justify-center place-items-stretch gap-4 bg-white p-4 rounded-lg md:rounded-2xl lg:rounded-4xl shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] 
+                transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
+                <div className={`${widthImg} flex items-center`}>
+                    <img src={`${imageURL}/partners/${image}`} alt={title} 
+                        className="w-full h-full object-contain rounded-lg md:rounded-2xl lg:rounded-4xl" /> */}
                 </div>
                 <div className={`${widthText} flex flex-col justify-center gap-4 min-h-[150px]`}>
                     <div onClick={() => window.location.href = linkWeb}>
