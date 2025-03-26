@@ -1,73 +1,128 @@
-import { Calendar } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { useCallback, useEffect, useMemo, useRef, useState, memo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Calendar } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import Text from "../../components/Text";
-import Title from "../../components/Title";
-import Button from "../../components/Button";
-import SelengkapnyaButton from "../../components/SelengkapnyaButton";
-import Section1 from "../../assets/gedung.jpeg";
-import CustomPagination from "../../components/CustomPagination";
-import { useEffect, useRef, useState } from "react";
+import Text from '../../components/Text';
+import Title from '../../components/Title';
+import Button from '../../components/Button';
+import SelengkapnyaButton from '../../components/SelengkapnyaButton';
+import Section1 from '../../assets/gedung.jpeg';
+import CustomPagination from '../../components/CustomPagination';
 
-const dummyImages = [
-    { image: Section1 },
-    { image: Section1 },
-    { image: Section1 },
-    { image: Section1 }
-];
+const DUMMY_IMAGES = Array(4).fill({ image: Section1 });
 
-const PendaftaranSection = ({ title, subtitle, jalurPendaftaran }) => {
+const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }) => {
     const navigate = useNavigate();
     const swiperRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
+    const formattedJalur = useMemo(() => (
+        jalurPendaftaran.map(jalur => ({
+            ...jalur,
+            formattedStart: formatDate(jalur.start_date),
+            formattedEnd: formatDate(jalur.end_date)
+        }))
+    ), [jalurPendaftaran]);
 
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+    const handleResize = useCallback(() => {
+        setIsMobile(window.innerWidth < 768);
     }, []);
 
-    const handlePaginationClick = (index) => {
-        setActiveIndex(index);
-        if (swiperRef.current) {
-            swiperRef.current.slideTo(index);
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
         }
-    };
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        return date.toLocaleDateString("id-ID", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-        });
-    };
+    }, [handleResize]);
 
-    const handleClick = (link) => {
-        window.open(link, "_blank");
-    };
+    const handlePaginationClick = useCallback((index) => {
+        setActiveIndex(index);
+        swiperRef.current?.slideTo(index);
+    }, []);
 
-    const handleClickJalur = () => {
+    const handleClick = useCallback((link) => {
+        window.open(link, '_blank');
+    }, []);
+
+    const handleClickJalur = useCallback(() => {
         navigate('/jalur');
-    };
+    }, [navigate]);
+
+    function formatDate(dateString) {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        return date.toLocaleDateString('id-ID', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+        });
+    }
+
+    const swiperSlides = useMemo(() => (
+        DUMMY_IMAGES.map((item, index) => (
+            <SwiperSlide key={index}>
+                <div className="rounded-xl md:rounded-2xl lg:rounded-4xl pb-5">
+                    <img
+                        loading="lazy"
+                        src={item.image}
+                        alt="Gedung Universitas"
+                        className="w-full h-[40vh] lg:h-[50vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
+                        width="100%"
+                        height="100%"
+                    />
+                </div>
+            </SwiperSlide>
+        ))
+    ), []);
+
+    const jalurItems = useMemo(() => (
+        formattedJalur.map((jalur, index) => (
+            <motion.div
+                key={jalur.id || index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="bg-[#F3F4F4] w-full p-4 md:p-6 lg:p-8 border border-white shadow-primary/10 shadow-xl rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer flex gap-4 items-center"
+            >
+                <div className="hidden lg:block p-3 rounded-full shadow-xl shadow-text/10">
+                    <Calendar className="w-6 h-6 md:w-8 md:h-8 text-text" />
+                </div>
+                <div className="w-full flex flex-row justify-between items-center gap-4">
+                    <div className="w-[70%] flex flex-col gap-2">
+                        <Title sizeText="text-sm md:text-base lg:text-lg" title={jalur.name} fontWeight="font-semibold" />
+                        <div className="space-y-1">
+                            <Text sizeMobile="text-xs md:text-xs" text={`Jadwal Pendaftaran: ${jalur.formattedStart}`} />
+                            <Text sizeMobile="text-xs md:text-xs" text={`Pendaftaran ditutup: ${jalur.formattedEnd}`} />
+                        </div>
+                    </div>
+                    <div className="w-fit">
+                        <Button 
+                            rounded="rounded-xl md:rounded-2xl" 
+                            text={isMobile ? 'Daftar' : 'Daftar Sekarang'} 
+                            bgColor="bg-primary" 
+                            onClick={() => handleClick(jalur.link)} 
+                            padding="p-3 md:p-4"
+                        />
+                    </div>
+                </div>
+            </motion.div>
+        ))
+    ), [formattedJalur, isMobile, handleClick]);
 
     return (
         <div className="w-full flex justify-center items-center bg-transparent">
-            <div className="w-full md:w-full flex flex-col gap-4 md:gap-6 lg:gap-10 p-4 md:p-10 lg:p-12">
+            <div className="w-full md:w-full flex flex-col gap-4 md:gap-6 lg:gap-8 p-4 md:p-8 lg:p-10">
                 <div className="text-center space-y-2">
-                    <Text sizeText="text-base md:text-lg lg:text-2xl" text={title} color="text-text" weight={'font-bold'} />
-                    <Title title={subtitle} />
+                    {title && <Text sizeText="text-base md:text-lg lg:text-2xl" text={title} color="text-text" weight="font-bold" />}
+                    {subtitle && <Title title={subtitle} />}
                 </div>
-                <div className="w-full flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-10">
-                    <div className="w-full lg:w-[35%] jalur-swiper-blur-mask">
+                
+                <div className="w-full flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-8">
+                    <div className="w-full lg:w-[35%]">
                         <Swiper
                             spaceBetween={10}
                             centeredSlides={true}
@@ -77,71 +132,29 @@ const PendaftaranSection = ({ title, subtitle, jalurPendaftaran }) => {
                             autoplay={{
                                 delay: 3000,
                                 disableOnInteraction: false,
+                                pauseOnMouseEnter: true
                             }}
-                            modules={[Autoplay, Pagination, Navigation]}
-                            direction="horizontal"
+                            modules={[Autoplay]}
                             breakpoints={{
-                                640: {
-                                    spaceBetween: 20,
-                                },
-                                1024: {
-                                    spaceBetween: 30,
-                                },
-                                1440: {
-                                    spaceBetween: 40,
-                                },
+                                640: { spaceBetween: 20 },
+                                1024: { spaceBetween: 30 },
+                                1440: { spaceBetween: 40 }
                             }}
                         >
-                            {dummyImages.map((item, index) => (
-                                <SwiperSlide key={index}>
-                                    <div className="rounded-xl md:rounded-2xl lg:rounded-4xl pb-5">
-                                        <img
-                                            loading="lazy"
-                                            src={item.image}
-                                            alt="Section"
-                                            className="w-full h-[40vh] lg:h-[50vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
-                                        />
-                                    </div>
-                                </SwiperSlide>
-                            ))}
+                            {swiperSlides}
                         </Swiper>
 
                         <CustomPagination
                             activeIndex={activeIndex}
-                            totalSlides={dummyImages.length}
+                            totalSlides={DUMMY_IMAGES.length}
                             onPaginationClick={handlePaginationClick}
                             width="w-2 h-2"
                             scale="w-7 h-2"
                         />
                     </div>
-                    <div className="w-full lg:w-[60%] space-y-3 md:space-y-4 flex flex-col items-start md:items-start pt-4 md:pt-0">
-                        {jalurPendaftaran.map((jalur, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.2 }}
-                                className="bg-[#F3F4F4] w-full h-full p-4 md:p-6 lg:p-8 border-1 border-white shadow-primary/10 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] flex gap-4 rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer items-center"
-                            >
-                                <div className="hidden lg:block p-3 rounded-full shadow-xl shadow-text/10 shadow-[0px_20px_40px_rgba(254, 242, 81, 0.7)]">
-                                    <Calendar className="w-6 h-6 md:w-8 md:h-8 text-text" />
-                                </div>
-                                <div className="w-full h-full flex flex-row justify-around md:justify-between items-center gap-4">
-                                    <div className="w-[70%] md:w-full flex flex-col justify-evenly gap-2">
-                                        <Title sizeText="text-sm md:text-base lg:text-lg" title={jalur.name} fontWeight="font-semibold" />
-                                        <div>
-                                            <Text sizeMobile="text-xs md:text-xs" text={`Jadwal Pendaftaran: ${formatDate(jalur.start_date)}`} />
-                                            <Text sizeMobile="text-xs md:text-xs" text={`Pendaftaran ditutup: ${formatDate(jalur.end_date)}`} />
-                                        </div>
-                                    </div>
-                                    <div className="w-fit lg:w-1/2">
-                                        <div className="w-full flex justify-end">
-                                            <Button rounded={'rounded-xl md:rounded-2xl lg:rounded-2xl'} hoverBgColor={'hover:border-3 hover:border-white/50'} text={isMobile ? 'Daftar' : 'Daftar Sekarang'} bgColor="bg-primary" hoverColor={''} onClick={() => (handleClick(jalur.link))} padding="p-4" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
+
+                    <div className="w-full lg:w-[60%] space-y-3 md:space-y-4">
+                        {jalurItems}
                         <SelengkapnyaButton onClick={handleClickJalur} />
                     </div>
                 </div>
@@ -150,4 +163,5 @@ const PendaftaranSection = ({ title, subtitle, jalurPendaftaran }) => {
     );
 };
 
-export default PendaftaranSection;
+
+export default memo(PendaftaranSection);

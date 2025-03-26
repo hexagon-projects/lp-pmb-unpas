@@ -1,70 +1,100 @@
-import { useState, useEffect, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import Text from "../Text";
-import CustomPagination from "../CustomPagination";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import { motion, AnimatePresence } from 'framer-motion';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import FakultasCardMobile from '../FacultasCardMobile';
+import CustomPagination from '../CustomPagination';
+import { useState, useRef } from 'react';
 
-const FakultasSwiper = ({ faculties }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [maxHeight, setMaxHeight] = useState(0);
-    const slideRefs = useRef([]);
-    const swiperInstance = useRef(null);
+const FakultasSwiper = ({ faculties = [], faculties2 = [], faculties3 = [] }) => {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const swiperRef = useRef(null);
 
-    useEffect(() => {
-        if (slideRefs.current.length > 0) {
-            const heights = slideRefs.current.map((ref) => ref?.offsetHeight || 0);
-            setMaxHeight(Math.max(...heights));
-        }
-    }, [faculties]);
-
-    const handlePaginationClick = (index) => {
-        if (swiperInstance.current) {
-            swiperInstance.current.slideTo(index);
-        }
-    };
-
+  const allFaculties = [...faculties, ...faculties2, ...faculties3];
+  const facultyGroups = [faculties, faculties2, faculties3];
+  
+  if (allFaculties.length === 0) {
     return (
-        <div className="lg:hidden h-full">
-            <Swiper
-                slidesPerView={1.5}
-                spaceBetween={-30}
-                centeredSlides={true}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
-                modules={[Navigation, Autoplay]}
-                onActiveIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-                onSwiper={(swiper) => (swiperInstance.current = swiper)}
-            >
-                {faculties.map((faculty, index) => (
-                    <SwiperSlide key={index} className="w-full flex justify-start items-start pb-5 lg:pb-0">
-                    {/* <SwiperSlide key={index} className="w-full flex justify-start items-start pb-10 md:pb-0"> */}
-                        <div
-                            ref={(el) => (slideRefs.current[index] = el)}
-                            className={`grid grid-rows-[auto_1fr] space-y-4 p-4 rounded-2xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ease-in-out ${index === activeIndex
-                                ? `w-[100%] bg-primary/30 border-2 border-white hover:shadow-[0px_10px_20px_rgba(0,0,0,0.5)] hover:shadow-primary/30 scale-100`
-                                : `w-[100%] bg-primary/30 border-2 border-white hover:shadow-[0px_10px_20px_rgba(0,0,0,0.5)] hover:shadow-primary/30 text-gray-800 scale-75`
-                                }`}
-                            style={{ minHeight: maxHeight || "300px" }}
-                        >
-                            <Text sizeMobile="text-sm" weight="font-semibold" text={faculty.name} />
-                            <div className="flex-grow p-2 rounded-lg space-y-2">
-                                {faculty.programs.map((program, idx) => (
-                                    <Text key={idx} text={program} color="bg-gray-100 border-2 border-white rounded-2xl p-4" />
-                                ))}
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-
-            <CustomPagination
-                activeIndex={activeIndex}
-                totalSlides={faculties.length}
-                onPaginationClick={handlePaginationClick}
-                width="w-3 h-3"
-                scale="w-7 h-3"
-            />
+      <div className="w-full h-full flex justify-center items-center px-8">
+        <div className="text-center text-gray-500">
+          Data fakultas tidak tersedia
         </div>
+      </div>
     );
+  }
+
+  const containerVariants = {
+    hidden: { 
+      opacity: 0,
+      transition: {
+        when: "afterChildren"
+      }
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+        when: "beforeChildren"
+      }
+    }
+  };
+
+  const handlePaginationClick = (index) => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideTo(index);
+    }
+  };
+
+  return (
+    <div className="w-full lg:hidden px-4 py-4 space-y-4">
+      <Swiper
+        ref={swiperRef}
+        modules={[Navigation, Pagination]}
+        spaceBetween={16}
+        slidesPerView={1}
+        centeredSlides={true}
+        onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
+      >
+        {facultyGroups.map((facultyGroup, groupIndex) => (
+          <SwiperSlide key={`slide-${groupIndex}`}>
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={`slide-content-${groupIndex}`}
+                className="space-y-4"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+              >
+                {facultyGroup.map((faculty, index) => (
+                  <FakultasCardMobile 
+                    key={`group${groupIndex + 1}-${faculty.slug}-${index}`} 
+                    faculty={faculty}
+                    index={index}
+                    isVisible={activeSlide === groupIndex}
+                  />
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <CustomPagination 
+        activeIndex={activeSlide}
+        totalSlides={facultyGroups.length}
+        onPaginationClick={handlePaginationClick}
+        width="w-2 h-2"
+        heightHover="hover:h-4 hover:w-4"
+        borderColor="border-text"
+        bgColor="bg-text"
+        scale="w-7 h-2"
+      />
+    </div>
+  );
 };
 
 export default FakultasSwiper;

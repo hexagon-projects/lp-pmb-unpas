@@ -25,6 +25,7 @@ const gedungKampus = [
   {
     title: "Kampus II",
     text: "Jl. Tamansari No. 6-8, Tamansari, Kota Bandung, Jawa Barat",
+
     mapUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.881429342535!2d107.60619231511143!3d-6.904779869493546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e646497c416b%3A0xd00d7d33274e7e5!2sUniversitas%20Pasundan%20Kampus%20II!5e0!3m2!1sen!2sid!4v1455945783003",
     image: Kampus2,
@@ -262,5 +263,6 @@ const Fasilitas = () => {
     </UserLayout>
   );
 };
+
 
 export default Fasilitas;

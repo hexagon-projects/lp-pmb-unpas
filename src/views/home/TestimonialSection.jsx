@@ -38,7 +38,7 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
             } else {
                 clearInterval(typingEffect);
             }
-        }, 1);// Adjusted typing speed for better readability
+        }, 4);// Adjusted typing speed for better readability
 
         return () => clearInterval(typingEffect);
     }, [activeIndex, data]);

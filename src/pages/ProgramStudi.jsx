@@ -99,7 +99,7 @@ const ProgramStudi = () => {
   const latestBerita = berita.slice(0, 4)
   const latestActivity = gallery?.slice(0, 4)
   const fakultas = prodi?.departement || {}
-  const unggulan = prodi?.unggulan || []
+  const unggulan = prodi?.unggulan?.slice(0, 4) || []
   const ourteam = prodi?.ourteam || []
   const fasilitas = prodi?.fasilitas || []
 
@@ -134,7 +134,7 @@ const ProgramStudi = () => {
               </svg>
               <div className="relative z-10 w-full h-[40vh] flex flex-col justify-center items-start gap-4">
                 <Title color="text-white" title={`Selamat Datang di Program Studi ${fakultas.name}`} />
-                <RichText textColor="text-white" lineclamp="line-clamp-4 md:line-clamp-5 lg:line-clamp-8" content={fakultas.description1} />
+                {/* <RichText textColor="text-white" lineclamp="line-clamp-4 md:line-clamp-5 lg:line-clamp-8" content={fakultas.description1} /> */}
               </div>
               <div className="absolute top-4 left-4 z-10">
                 <LogoText titleColor="text-white" />
@@ -152,7 +152,7 @@ const ProgramStudi = () => {
         </motion.div>
 
         {/* Video & About Section */}
-        <motion.div className="w-full flex flex-row justify-around items-center gap-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
+        <motion.div className="w-full flex flex-col lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
           <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
             <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
               <img src={`https://img.youtube.com/vi/${fakultas.id_yt}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
