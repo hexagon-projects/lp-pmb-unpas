@@ -40,7 +40,7 @@ export const fetchAllData = async () => {
             unggulan,
             jalur: jalur.slice(0, 4),
             artikel: artikel.slice(0, 4),
-            prestasi: prestasi.slice(0, 4),
+            prestasi: prestasi.slice(0, 6),
             dukungan,
         };
     } catch (error) {

@@ -29,6 +29,7 @@ const FasilitasSlider = ({ title, facilities }) => {
                 <Title title={title} />
                 {selectedFacility && (
                     <div className="relative h-96 lg:h-[80vh] rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden">
+                    {/* <div className="relative h-96 lg:h-[80vh] rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden"> */}
                         <div
                             className="relative h-full bg-cover bg-center"
                             style={{ backgroundImage: `url(${imageURL}/facilities/${selectedFacility.image})` }}

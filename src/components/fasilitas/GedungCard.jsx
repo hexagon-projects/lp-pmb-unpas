@@ -26,17 +26,17 @@ const GedungCard = ({ title, text, mapUrl, image, index }) => {
 
     return (
         <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={cardVariants}
-            className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl p-4 space-y-3 relative cursor-pointer flex flex-col justify-between items-stretch"
+            className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl p-8 space-y-3 relative cursor-pointer flex flex-col justify-between items-stretch"
             onClick={() => window.open(mapUrl, "_blank")}
             whileHover={{ 
                 scale: 1.02,
                 transition: { duration: 0.2 }
             }}
             whileTap={{ scale: 0.98 }}
+            variants={cardVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            ref={ref}
         >
             <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
             <p className="text-xs md:text-sm">{text}</p>
@@ -49,7 +49,7 @@ const GedungCard = ({ title, text, mapUrl, image, index }) => {
                 />
             </div>
             <motion.div
-                className="absolute bottom-7 right-4 bg-white p-2 rounded-lg cursor-pointer"
+                className="absolute right-4 bg-transparent p-2 rounded-lg cursor-pointer"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={(e) => {

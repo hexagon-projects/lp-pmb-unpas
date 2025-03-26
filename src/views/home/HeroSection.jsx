@@ -82,11 +82,11 @@ const HeroSection = ({ data = [] }) => {
                         <div
                             className="px-12 md:px-20 lg:px-20 w-full h-full flex justify-start items-center bg-cover md:bg-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
                             style={{
-                                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imageURL}/sliders/${slide.image})`,
+                                backgroundImage: `url(${imageURL}/sliders/${slide.image})`,
                                 backgroundAttachment: isDesktopOrTablet ? 'fixed' : 'scroll'
                             }}
                         >
-                            <MotionWrapper
+                            {/* <MotionWrapper
                                 key={motionKey}
                                 type="fadeInUp"
                                 duration={0.5}
@@ -104,7 +104,7 @@ const HeroSection = ({ data = [] }) => {
                                     hoverBgColor={'hover:border-3 hover:border-white/50'}
                                     onClick={() => window.location.href = slide.link}
                                 />
-                            </MotionWrapper>
+                            </MotionWrapper> */}
                         </div>
                     )}
                 </div>
@@ -140,6 +140,8 @@ const HeroSection = ({ data = [] }) => {
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 spaceBetween={0}
+                // modules={[Navigation, Pagination, Autoplay]}
+                // spaceBetween={50}
                 slidesPerView={1}
                 direction={isDesktopOrTablet ? "vertical" : "horizontal"}
                 navigation={isDesktopOrTablet ? {
@@ -196,40 +198,14 @@ const HeroSection = ({ data = [] }) => {
 
             <div className="absolute -bottom-30 left-0 right-0 z-10 md:-bottom-13 w-full justify-center items-center hidden md:flex">
                 <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] border border-gray-500 p-4 md:p-6 md:flex-row md:max-w-xl lg:max-w-fit md:rounded-full bg-white">
-                    <Button
-                        iconStatus="flex"
-                        icon={<IoDocumentTextOutline size={24} />}
-                        textColor="text-white"
-                        bgColor="bg-footer"
-                        hoverBgColor="hover:border-3 hover:border-white/40"
-                        text="Daftar Sekarang"
-                        rounded="rounded-full"
-                        weight="font-normal"
-                    />
-                    <Button
-                        iconStatus="flex"
-                        icon={<IoWalletOutline size={24} />}
-                        textColor="text-white"
-                        bgColor="bg-footer"
-                        hoverBgColor="hover:border-3 hover:border-white/40"
-                        text="Biaya"
-                        rounded="rounded-full"
-                        weight="font-normal"
-                    />
-                    <Button
-                        iconStatus="flex"
-                        icon={<MdOutlineBook size={24} />}
-                        textColor="text-white"
-                        bgColor="bg-footer"
-                        hoverBgColor="hover:border-3 hover:border-white/40"
-                        text="Buku Panduan"
-                        rounded="rounded-full"
-                        weight="font-normal"
-                    />
+                    <Button iconStatus="flex" icon={<IoDocumentTextOutline size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Daftar Sekarang'} rounded="rounded-full" weight="font-normal" />
+                    <Button iconStatus="flex" icon={<IoWalletOutline size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Biaya'} rounded="rounded-full" weight="font-normal" />
+                    <Button iconStatus="flex" icon={<MdOutlineBook size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Buku Panduan'} rounded="rounded-full" weight="font-normal" />
                 </div>
             </div>
         </div>
     );
 };
+
 
 export default memo(HeroSection);

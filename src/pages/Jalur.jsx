@@ -59,6 +59,7 @@ const Jalur = () => {
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}>
+        {/* <UserLayout bgLayoutColor="bg-gray-100" position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}> */}
             <Helmet>
                 <title>Jalur Pendaftaran - Universitas Pasundan</title>
             </Helmet>
@@ -70,6 +71,7 @@ const Jalur = () => {
                                 src={Section1}
                                 alt="Gedung Unpas"
                                 className="w-full h-full object-cover rounded-xl"
+                                loading="lazy"
                             />
                             <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent rounded-xl md:hidden"></div>
                         </div>
@@ -94,7 +96,15 @@ const Jalur = () => {
                                 Universitas Pasundan.
                             </h2>
                             <div className="hidden md:flex">
-                                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'} />
+                    {/* <div className="w-fit flex flex-row md:flex-col justify-center md:justify-start items-center md:items-start">
+                        <h2 className="text-[96px] font-bold">{jalur.length}</h2>
+                        <div className="">
+                            <h3 className="text-[26px] font-semibold text-gray-800">Jalur Masuk</h3>
+                            <h2 className="text-[64px] font-bold text-text">
+                                Universitas Pasundan.
+                            </h2>
+                            <div className="hidden md:flex pt-4"> */}
+                                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} />
                             </div>
                         </div>
                     </div>

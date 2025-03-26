@@ -163,4 +163,5 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
     );
 };
 
+
 export default memo(PendaftaranSection);

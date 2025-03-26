@@ -1,7 +1,7 @@
 const CustomPagination = ({ width = 'w-2 h-2', activeIndex, totalSlides, onPaginationClick, display = '', heightHover, borderColor = 'border-text', bgColor = 'bg-text', gap = 'space-x-2', scale = 'scale-125' }) => {
     return (
         <div className="flex justify-center items-center">
-            <div className={`flex justify-center items-center border ${borderColor} ${display} rounded-full py-2 px-2 ${gap}`}>
+            <div className={`border ${borderColor} ${display} rounded-full py-1 px-2 ${gap}`}>
                 {Array.from({ length: totalSlides }).map((_, index) => (
                     <button
                         key={index}

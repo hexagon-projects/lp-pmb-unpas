@@ -695,6 +695,9 @@ body {
     .prodi_box{
         clip-path: polygon(0% 80%, 50% 80%, 55% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+    .iframe_hero{
+        transform: scale(4.5);
+    }
 }
 
 @media (max-width: 395px) {
@@ -715,6 +718,9 @@ body {
     }
     .prodi_box{
         clip-path: polygon(0% 80%, 55% 80%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
+    }
+    .iframe_hero{
+        transform: scale(4.5);
     }
 }
 
@@ -756,7 +762,7 @@ body {
         clip-path: polygon(66% 0%, 66% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
     .iframe_hero{
-        transform: scale(4.0);
+        transform: scale(5.0);
     }
     .prodi_box{
         clip-path: polygon(0% 80%, 65% 80%, 70% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);

@@ -1,23 +1,27 @@
+import { memo, useCallback } from 'react';
 import Button from "./Button";
 import RichText from "./RichText";
 
-const JalurCard = ({ icon, title, text, link, startDate, endDate, onClick }) => {
-
-    const formatDate = (dateString) => {
+const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }) => {
+    const formatDate = useCallback((dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString("id-ID", {
             day: "numeric",
             month: "long",
             year: "numeric",
         });
-    };
+    }, []);
 
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         window.open(link, "_blank");
-    };
+    }, [link]);
 
     return (
-        <div className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl space-y-3 cursor-pointer hover:scale-102 duration-500" onClick={onClick}>
+        <div 
+            className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl space-y-3 cursor-pointer hover:scale-102 duration-500" 
+            onClick={onClick}
+            style={{ willChange: 'transform' }}
+        >
             <div className="w-fit p-4 bg-transparent text-text rounded-xl md:rounded-2xl lg:rounded-4xl">
                 {icon}
             </div>
@@ -48,6 +52,6 @@ const JalurCard = ({ icon, title, text, link, startDate, endDate, onClick }) => 
             </div>
         </div>
     );
-};
+});
 
 export default JalurCard;
