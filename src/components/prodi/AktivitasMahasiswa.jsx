@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import MotionWrapper from '../MotionWrapper'
 import Title from '../Title'
 import RichText from '../RichText'
 
 const AktivitasMahasiswa = ({ data = [] }) => {
-  const [activeCard, setActiveCard] = useState(data[0]?.id || null) // Set first card as active by default
+  const [activeCard, setActiveCard] = useState(data[0]?.id || null)
   const [windowWidth, setWindowWidth] = useState(0)
   const imageURL = import.meta.env.VITE_IMAGE_URL
 
@@ -39,11 +38,14 @@ const AktivitasMahasiswa = ({ data = [] }) => {
   }
 
   if (!data || !Array.isArray(data)) {
-    return <p className="text-center text-gray-500">No activities available.</p>
+    return <div className="text-center space-y-4 md:space-y-6 lg:space-y-8">
+      <Title title="Inovasi" />
+      <p className="text-center text-gray-500">Tidak ada Aktivitas</p>
+    </div>
   }
 
   return (
-    <div className="space-y-3 md:space-y-4">
+    <div className="space-y-4 md:space-y-6 lg:space-y-8">
       <div className="text-center">
         <Title title="Inovasi" />
       </div>

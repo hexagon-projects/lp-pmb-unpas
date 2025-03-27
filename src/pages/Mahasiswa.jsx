@@ -3,8 +3,8 @@ import UserLayout from "./layouts/UserLayout";
 import Section1 from "../assets/gedung.jpeg";
 import Section2 from "../assets/mhsw.webp";
 import Title from "../components/Title";
-import UKMCard from "../components/UkmCard";
 import Text from "../components/Text";
+import UKMCard from "../components/UkmCard";
 import PrestasiCard from "../components/PrestasiCard";
 import CTASection from "../components/CTASection";
 import OrganisasiService from "../fetching/organisasi";
@@ -267,7 +267,7 @@ const Mahasiswa = () => {
                     </button>
                     <iframe
                       className="w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl"
-                      src="https://www.youtube.com/embed/OYDn-UHfNBM"
+                      src="https://www.youtube-nocookie.com/embed/OYDn-UHfNBM"
                       title="Kisah Alumni"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

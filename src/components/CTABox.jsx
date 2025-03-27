@@ -5,7 +5,7 @@ import Title from "./Title";
 import IdentityService from "../fetching/identity";
 import Loading from "./Loading";
 
-const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://situ2.unpas.ac.id/spmbfront/', color = 'bg-primary' }) => {
+const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://registrasi.unpas.ac.id/register', color = 'bg-primary' }) => {
     const [identity, setIdentity] = useState(null);
     const [loading, setLoading] = useState(true);
     
@@ -56,14 +56,14 @@ const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://sit
                         <div className="w-full flex justify-center items-center gap-4">
                             <motion.button
                                 onClick={handleClick}
-                                className="rounded-full border-3 border-transparent hover:border-3 hover:border-primary/40 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 bg-gray-100 text-black font-semibold shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] hover:bg-white transition"
+                                className="rounded-lg md:rounded-xl lg:rouned-2xl border-3 border-transparent hover:border-3 hover:border-primary/40 cursor-pointer text-xs md:text-base mt-6 px-6 py-4 bg-gray-100 text-black shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] hover:bg-white transition"
                                 whileTap={{ scale: 0.95 }}
                             >
                                 {textButton}
                             </motion.button>
                             <motion.button
                                 onClick={handleWhatsApp}
-                                className="rounded-full border-1 border-text hover:border-2 hover:border-red-500 cursor-pointer text-xs md:text-base mt-6 px-6 py-2 text-text font-semibold shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition"
+                                className="rounded-lg md:rounded-xl lg:rouned-2xl border-1 border-text hover:border-2 hover:border-red-500 cursor-pointer text-xs md:text-base mt-6 px-6 py-4 text-black shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition"
                                 whileTap={{ scale: 0.95 }}
                             >
                                 Hubungi Admin

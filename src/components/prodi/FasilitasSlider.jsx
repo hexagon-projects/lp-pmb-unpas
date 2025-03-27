@@ -39,7 +39,7 @@ const FasilitasSlider = ({ title, facilities }) => {
                                     <h3 className="text-xl font-bold">{selectedFacility.title}</h3>
                                 </div>
                             </div>
-                            <div className="border border-transparent absolute bottom-4 right-4 w-full max-w-[120px] md:max-w-[240px] lg:max-w-lg z-20">
+                            <div className="mx-4 border border-transparent absolute bottom-4 right-4 w-full max-w-[120px] md:max-w-[240px] lg:max-w-lg z-20">
                                 <Slider {...settings}>
                                     {facilities.map((facility, index) => (
                                         <div key={index} onClick={() => setSelectedFacility(facility)} className="justify-center items-center cursor-pointer">

@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, memo } from "react";
+import { useState, useCallback, useMemo, memo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { FaPlay } from "react-icons/fa";
@@ -6,23 +6,31 @@ import { X } from "lucide-react";
 import CustomPagination from "../CustomPagination";
 import { motion, AnimatePresence } from "framer-motion";
 import Title from "../Title";
+import Text from "../Text";
+import SelengkapnyaButton from "../SelengkapnyaButton";
 
 const VideoSwiper = ({ data = [] }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(1);
+    const [realActiveIndex, setRealActiveIndex] = useState(1);
     const [playingVideo, setPlayingVideo] = useState(null);
     const imageURL = import.meta.env.VITE_IMAGE_URL;
+    const swiperRef = useRef(null);
 
     const videos = useMemo(() => (
         data.map((item) => ({
             id: item.id.toString(),
             title: item.title,
-            url: `https://www.youtube.com/embed/${item.id_yt}?autoplay=1`,
+            url: `https://www.youtube-nocookie.com/embed/${item.id_yt}?autoplay=1`,
             image: `${imageURL}/dukungans/${item.image}`
         }))
     ), [data, imageURL]);
 
     const handlePaginationClick = useCallback((index) => {
+        if (swiperRef.current) {
+            swiperRef.current.swiper.slideToLoop(index);
+        }
         setActiveIndex(index);
+        setRealActiveIndex(index);
     }, []);
 
     const openVideo = useCallback((url) => {
@@ -38,7 +46,7 @@ const VideoSwiper = ({ data = [] }) => {
             <SwiperSlide key={video.id} className="w-full flex justify-center items-center p-4">
                 <motion.div
                     className={`w-full relative h-fit rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-300 ease-in-out cursor-pointer group ${
-                        index === activeIndex ? "w-[100%] scale-90" : "scale-75"
+                        index === realActiveIndex ? "w-[100%] scale-90" : "scale-75"
                     }`}
                     onClick={() => openVideo(video.url)}
                     whileHover={{ scale: 1.02 }}
@@ -61,7 +69,7 @@ const VideoSwiper = ({ data = [] }) => {
                 </motion.div>
             </SwiperSlide>
         ))
-    ), [videos, activeIndex, openVideo]);
+    ), [videos, realActiveIndex, openVideo]);
 
     const videoPlayer = useMemo(() => (
         <motion.div
@@ -100,16 +108,25 @@ const VideoSwiper = ({ data = [] }) => {
             </motion.div>
         </motion.div>
     ), [playingVideo, closeVideo]);
+
+    const handleSlideChange = useCallback((swiper) => {
+        const newRealIndex = swiper.realIndex % videos.length;
+        setRealActiveIndex(newRealIndex);
+        setActiveIndex(newRealIndex);
+    }, [videos.length]);
+
     return (
         <div className="w-full h-fit space-y-4 md:space-y-6">
-            <div className="text-center space-y-2">
-                <Title title="Video Dukungan" />
+            <div className="p-4 md:px-10 lg:px-12 flex justify-between items-center space-y-2">
+                <Title title="Bersama Unpas Membangun Generasi Unggul!" />
+                <SelengkapnyaButton onClick={()=>window.location.href(`/dukungan`)} />
             </div>
             
             <Swiper
+                ref={swiperRef}
                 slidesPerView={1.5}
                 spaceBetween={-50}
-                // spaceBetween={-40}
+                loop={videos.length >= 3}
                 centeredSlides={true}
                 autoplay={{ 
                     delay: 3000, 
@@ -117,7 +134,7 @@ const VideoSwiper = ({ data = [] }) => {
                     pauseOnMouseEnter: true
                 }}
                 modules={[Autoplay]}
-                onActiveIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+                onSlideChange={handleSlideChange}
                 speed={600}
                 breakpoints={{
                     640: { spaceBetween: -120, slidesPerView: 1.2 },

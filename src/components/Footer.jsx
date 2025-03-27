@@ -1,36 +1,39 @@
-
-import { FaYoutube, FaFacebookSquare } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { RiInstagramFill } from "react-icons/ri";
-import { AiFillTikTok } from "react-icons/ai";
+import { useState, useEffect, lazy, Suspense } from "react";
 import Title from "./Title";
 import Text from "./Text";
-import Logo from "../assets/logo.png"
+import Logo from "../assets/logo.png";
 import LogoOutline from "../assets/logo-outline1.png";
-import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import FakultasService from "../fetching/fakultas";
 
+// Dynamic imports for icons
+const FaYoutube = lazy(() => import("react-icons/fa").then(module => ({ default: module.FaYoutube })));
+const FaFacebookSquare = lazy(() => import("react-icons/fa").then(module => ({ default: module.FaFacebookSquare })));
+const FaSquareXTwitter = lazy(() => import("react-icons/fa6").then(module => ({ default: module.FaSquareXTwitter })));
+const RiInstagramFill = lazy(() => import("react-icons/ri").then(module => ({ default: module.RiInstagramFill })));
+const AiFillTikTok = lazy(() => import("react-icons/ai").then(module => ({ default: module.AiFillTikTok })));
+
 const Footer = () => {
-    const [fakultas, setFakultas] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [fakultas, setFakultas] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const fetchFakultas = async () => {
         try {
-            const response = await FakultasService.getAllFakultas()
-            setFakultas(response)
-            setLoading(false)
+            const response = await FakultasService.getAllFakultas();
+            setFakultas(response);
+            setLoading(false);
         } catch (error) {
-            console.error(error)
+            console.error(error);
+            setLoading(false);
         }
-    }
+    };
 
     useEffect(() => {
-        fetchFakultas()
-    }, [])
+        fetchFakultas();
+    }, []);
 
     if (loading) {
-        return <Loading />
+        return <Loading />;
     }
 
     return (
@@ -41,13 +44,23 @@ const Footer = () => {
             <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4 md:gap-6 lg:gap-8 bg-cover bg-no-repeat overflow-hidden">
                 <div className="w-full md:w-fit space-y-4 text-white mb-4 md:mb-0">
                     <img src={Logo} alt="Logo Universitas Pasundan" className="w-14 h-14 md:w-16 md:h-16" loading="lazy" />
-                    <Title title={'Terhubung Dengan Kami'} color="text-white" sizeText="text-lg md:text-2xl"/>
+                    <Title title={'Terhubung Dengan Kami'} color="text-white" sizeText="text-lg md:text-2xl" />
                     <div className="flex justify-start gap-3">
-                        <FaSquareXTwitter className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
-                        <RiInstagramFill className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
-                        <FaFacebookSquare className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
-                        <AiFillTikTok className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
-                        <FaYoutube className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
+                        <Suspense fallback={<div className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />}>
+                            <FaSquareXTwitter className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
+                        </Suspense>
+                        <Suspense fallback={<div className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />}>
+                            <RiInstagramFill className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
+                        </Suspense>
+                        <Suspense fallback={<div className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />}>
+                            <FaFacebookSquare className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
+                        </Suspense>
+                        <Suspense fallback={<div className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />}>
+                            <AiFillTikTok className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
+                        </Suspense>
+                        <Suspense fallback={<div className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />}>
+                            <FaYoutube className="w-3 h-3 md:w-5 md:h-5 lg:w-7 lg:h-7" />
+                        </Suspense>
                     </div>
                 </div>
 
@@ -92,10 +105,10 @@ const Footer = () => {
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Jl. Tamansari No.6-8</a>
                         </div>
 
-                        <div className="flex flex-col justify-center items-start gap-2">
+                        {/* <div className="flex flex-col justify-center items-start gap-2">
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Kampus III</a>
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Jl. Wartawan IV No.22</a>
-                        </div>
+                        </div> */}
 
                         <div className="flex flex-col justify-center items-start gap-2">
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Kampus IV</a>

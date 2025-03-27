@@ -10,10 +10,20 @@ const useGoogleAnalytics = () => {
       try {
         const response = await AnaliticService.getAnalitic();
         if (response.length > 0 && response[0].ganalytics_code) {
-          const trackingIdMatch = response[0].ganalytics_code.match(/['"](G-[A-Z0-9]+|UA-[0-9]+-[0-9]+)['"]/);
+          const trackingIdMatch = response[0].ganalytics_code.match(
+            /['"](G-[A-Z0-9]+|UA-[0-9]+-[0-9]+)['"]/
+          );
           if (trackingIdMatch) {
             const trackingId = trackingIdMatch[1];
-            ReactGA.initialize(trackingId);
+            
+            ReactGA.initialize(trackingId, {
+              gaOptions: {
+                anonymize_ip: true,
+                allow_google_signals: false,
+                allow_ad_personalization_signals: false
+              }
+            });
+            
             setAnalyticsData(trackingId);
           }
         }
@@ -25,12 +35,18 @@ const useGoogleAnalytics = () => {
     fetchAnalytics();
   }, []);
 
-  return analyticsData;
+  return {
+    trackingId: analyticsData
+  };
 };
 
 export const logPageView = () => {
   if (window.location.pathname) {
-    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+    ReactGA.send({ 
+      hitType: "pageview", 
+      page: window.location.pathname,
+      anonymizeIp: true
+    });
   }
 };
 

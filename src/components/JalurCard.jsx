@@ -1,29 +1,33 @@
+import { memo, useCallback } from 'react';
 import Button from "./Button";
 import RichText from "./RichText";
 
-const JalurCard = ({ icon, title, text, link, startDate, endDate, onClick }) => {
-
-    const formatDate = (dateString) => {
+const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }) => {
+    const formatDate = useCallback((dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString("id-ID", {
             day: "numeric",
             month: "long",
             year: "numeric",
         });
-    };
+    }, []);
 
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         window.open(link, "_blank");
-    };
+    }, [link]);
 
     return (
-        <div className="flex justify-center items-center flex-col bg-gray-200 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-lg md:rounded-2xl lg:rounded-4xl space-y-3 cursor-pointer hover:scale-102 duration-500" onClick={onClick}>
-            <div className="w-fit p-4 bg-transparent text-text rounded-lg md:rounded-2xl lg:rounded-4xl">
+        <div 
+            className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl space-y-3 cursor-pointer hover:scale-102 duration-500" 
+            onClick={onClick}
+            style={{ willChange: 'transform' }}
+        >
+            <div className="w-fit p-4 bg-transparent text-text rounded-xl md:rounded-2xl lg:rounded-4xl">
                 {icon}
             </div>
-            <h2 className="text-[24px] font-semibold text-center">{title}</h2>
+            <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
             <RichText content={text} />
-            <p className="text-xs md:text-sm lg:text-base">
+            <p className="text-xs md:text-sm lg:text-sm">
                 Periode {formatDate(startDate)} - {formatDate(endDate)}
             </p>
             <div className="flex gap-4">
@@ -48,6 +52,6 @@ const JalurCard = ({ icon, title, text, link, startDate, endDate, onClick }) => 
             </div>
         </div>
     );
-};
+});
 
 export default JalurCard;

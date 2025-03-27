@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import ArticleTitle from "./ArticleTitle";
 import RichText from "./RichText";
-import { FaArrowRight } from "react-icons/fa";
+import { lazy } from "react";
+const FaArrowRight = lazy(() => import("react-icons/fa").then((mod) => ({ default: mod.FaArrowRight })));
 
 const ArticleTransparentCard = ({ image, title, slug, description }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -14,7 +15,7 @@ const ArticleTransparentCard = ({ image, title, slug, description }) => {
 
     return (
         <div
-            className="cursor-pointer h-full w-full flex flex-col justify-end p-4 md:p-6 rounded-xl md:rounded-2xl lg:rounded-4xl bg-cover bg-center relative min-h-[200px] md:min-h-[250px] lg:min-h-[300px] group"
+            className="cursor-pointer h-full w-full flex flex-col justify-end p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl lg:rounded-4xl bg-cover bg-center relative min-h-[200px] md:min-h-[250px] lg:min-h-[300px] group"
             style={{ backgroundImage: `url(${imageURL}/posts/${image})` }}
             onClick={handleClick}
         >

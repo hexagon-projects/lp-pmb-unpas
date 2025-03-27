@@ -33,25 +33,25 @@ const Jalur = () => {
 
     useEffect(() => {
         let isMounted = true;
-      
+
         const fetchJalur = async () => {
-          try {
-            const timestamp = new Date().getTime();
-            const response = await RegistrasiService.getAllRegistrasi(`?timestamp=${timestamp}`);
-            if (isMounted) {
-              setJalur(response);
+            try {
+                const timestamp = new Date().getTime();
+                const response = await RegistrasiService.getAllRegistrasi(`?timestamp=${timestamp}`);
+                if (isMounted) {
+                    setJalur(response);
+                }
+            } catch (error) {
+                console.error(error);
             }
-          } catch (error) {
-            console.error(error);
-          }
         };
-      
+
         fetchJalur();
-      
+
         return () => {
-          isMounted = false;
+            isMounted = false;
         };
-      }, []);
+    }, []);
 
     // if (loading) {
     //     return <Loading />
@@ -71,6 +71,7 @@ const Jalur = () => {
                                 src={Section1}
                                 alt="Gedung Unpas"
                                 className="w-full h-full object-cover rounded-xl"
+                                loading="lazy"
                             />
                             <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent rounded-xl md:hidden"></div>
                         </div>

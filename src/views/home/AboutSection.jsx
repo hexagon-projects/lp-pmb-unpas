@@ -51,7 +51,7 @@ const AboutSection = ({ data = {} }) => {
                 <iframe
                     width="100%"
                     height="100%"
-                    src={`https://www.youtube.com/embed/${playingVideo}?autoplay=1`}
+                    src={`https://www.youtube-nocookie.com/embed/${playingVideo}?autoplay=1`}
                     title="About University Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -67,7 +67,7 @@ const AboutSection = ({ data = {} }) => {
             <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] flex flex-col lg:flex-row-reverse justify-center items-start md:items-center gap-4 md:gap-6 lg:gap-8 md:mt-20 lg:mt-30 p-4 md:py-10 lg:py-12">
                 {data?.about?.image1 && (
                     <div
-                        className="w-full lg:w-[50%] h-56 md:h-[30vh] lg:h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl relative cursor-pointer group overflow-hidden intro_container "
+                        className="w-full lg:w-[50%] h-56 md:h-[30vh] lg:h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl relative cursor-pointer group overflow-hidden intro_container"
                         onClick={handleVideoOpen}
                         aria-label="Play video about university"
                     >
@@ -79,7 +79,7 @@ const AboutSection = ({ data = {} }) => {
                             width="100%"
                             height="100%"
                         />
-                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-300 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 group-hover:scale-105 transition-all duration-300 flex items-center justify-center intro_img">
                             <motion.div
                                 className="p-2 bg-gradient-to-b from-gray-600 via-gray-700 to-gray-800 rounded-full"
                                 whileTap={{ scale: 0.9 }}
@@ -90,27 +90,19 @@ const AboutSection = ({ data = {} }) => {
                     </div>
                 )}
 
-                <div className=" space-y-2 md:space-y-4 text-justify md:text-left w-full lg:w-fit">
-                    <MotionWrapper type="slideInLeft" duration={0.5} once className="space-y-2 md:space-y-4">
-                        {data?.about?.title && <Title title={data.about.title} />}
-                        {data?.about?.subtitle && (
-                            <Title 
-                                sizeText="text-sm md:text-lg lg:text-[18px]" 
-                                title={data.about.subtitle} 
-                            />
-                        )}
-                        {data?.about?.description && (
-                            <RichText 
-                                lineclamp="text-justify" 
-                                content={data.about.description} 
-                            />
-                        )}
-                        {data?.about?.content && (
-                            <RichText 
-                                lineclamp="text-justify" 
-                                content={data.about.content} 
-                            />
-                        )}
+                <div className="space-y-2 md:space-y-4 text-justify md:text-left w-full lg:w-fit">
+                    <MotionWrapper type="slideInLeft" duration={0.5} once className="w-full space-y-2 md:space-y-4">
+                        <Title title={data?.about?.title} />
+                        <Title
+                            sizeText="text-sm md:text-lg lg:text-[18px]"
+                            title={data?.about?.subtitle}
+                        />
+                        <RichText
+                            content={data?.about?.description}
+                        />
+                        <RichText
+                            content={data?.about?.content}
+                        />
                     </MotionWrapper>
                 </div>
             </div>

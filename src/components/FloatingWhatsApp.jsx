@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { FaWhatsapp } from "react-icons/fa";
+import React, { lazy, useEffect, useState } from "react";
+const FaWhatsapp = lazy(() => import("react-icons/fa").then((mod) => ({ default: mod.FaWhatsapp })));
 import ChatService from "../fetching/chat";
 import IdentityService from "../fetching/identity";
 

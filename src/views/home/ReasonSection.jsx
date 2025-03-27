@@ -15,29 +15,26 @@ const ReasonSection = ({ data = [] }) => {
     const dropdownItems = useMemo(() => (
         data.map((item) => (
             <div key={item.id} className="w-full">
-                <div
-                    className={`bg-[#F0F0F0] border border-white w-full flex flex-col justify-between items-start shadow-md rounded-xl md:rounded-2xl overflow-hidden cursor-pointer ${
-                        openDropdown === item.id ? "rounded-b-none" : ""
-                    }`}
-                    onClick={() => toggleDropdown(item.id)}
-                    aria-expanded={openDropdown === item.id}
-                >
-                    <div className="w-full flex justify-between items-center px-4 py-4 md:py-5">
+                <div className={`bg-[#F0F0F0] border border-white w-full flex flex-col justify-between items-start shadow-md rounded-xl md:rounded-2xl overflow-hidden cursor-pointer ${openDropdown === item.id ? "rounded-b-none" : "" }`}>
+                    <button
+                        className="w-full flex justify-between items-center px-4 py-4 md:py-5 text-left"
+                        onClick={() => toggleDropdown(item.id)}
+                        aria-expanded={openDropdown === item.id}
+                    >
                         <div className="w-[90%]">
-                            <Text 
-                                sizeText="text-xs md:text-sm lg:text-sm" 
-                                weight="font-semibold" 
-                                text={item.title} 
-                                leading="text-left" 
+                            <Text
+                                sizeText="text-xs md:text-sm lg:text-sm"
+                                weight="font-semibold"
+                                text={item.title}
+                                leading="text-left"
                             />
                         </div>
                         <BiChevronDown
                             size={24}
-                            className={`transition-transform duration-200 text-text ${
-                                openDropdown === item.id ? "rotate-0" : "-rotate-90"
-                            }`}
+                            className={`transition-transform duration-200 text-text ${openDropdown === item.id ? "rotate-0" : "-rotate-90"
+                                }`}
                         />
-                    </div>
+                    </button>
 
                     <AnimatePresence>
                         {openDropdown === item.id && (
@@ -49,9 +46,9 @@ const ReasonSection = ({ data = [] }) => {
                                 className="w-full overflow-hidden"
                             >
                                 <div className="p-4 pt-0 w-full text-left space-y-2">
-                                    <RichText 
-                                        sizeText="text-xs md:text-sm lg:text-sm" 
-                                        content={item.description} 
+                                    <RichText
+                                        sizeText="text-xs md:text-sm lg:text-sm"
+                                        content={item.description}
                                     />
                                 </div>
                             </motion.div>
@@ -59,6 +56,7 @@ const ReasonSection = ({ data = [] }) => {
                     </AnimatePresence>
                 </div>
             </div>
+
         ))
     ), [data, openDropdown, toggleDropdown]);
 

@@ -18,9 +18,10 @@ import Artikel from './pages/Artikel'
 import Prestasi from './pages/Prestasi'
 import Mitra from './pages/Mitra'
 import Testimoni from './pages/Testimoni'
+import Dukungan from './pages/Dukungan'
 
 function App() {
-  const trackingId = useGoogleAnalytics()
+  const { trackingId } = useGoogleAnalytics();
 
   return (
     <HelmetProvider>
@@ -29,7 +30,7 @@ function App() {
         <AnimatedRoutes />
       </Router>
     </HelmetProvider>
-  )
+  );
 }
 
 const AnimatedRoutes = () => {
@@ -143,6 +144,14 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/dukungan"
+          element={
+            <PageWrapper>
+              <Dukungan />
+            </PageWrapper>
+          }
+        />
+        <Route
           path="/mahasiswa-dan-alumni"
           element={
             <PageWrapper>
@@ -164,13 +173,17 @@ const PageWrapper = ({ children }) => {
 }
 
 const GAListener = () => {
-  const location = useLocation()
+  const location = useLocation();
 
   useEffect(() => {
-    logPageView()
-  }, [location])
+    logPageView(true);
+    
+    document.querySelectorAll('iframe[src*="youtube.com"]').forEach(iframe => {
+      iframe.src = iframe.src.replace('youtube-nocookie.com', 'youtube.com');
+    });
+  }, [location]);
 
-  return null
-}
+  return null;
+};
 
 export default App

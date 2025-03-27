@@ -6,7 +6,7 @@ const Button = ({
     bgColor = 'bg-white',
     hoverBgColor='hover:border-3 hover:border-white/50',
     onClick,
-    rounded = 'rounded-full',
+    rounded = 'rounded-lg md:rounded-xl lg:rounded-2xl',
     icon,
     iconStatus = 'hidden',
     border = 'border-3 border-transparent',

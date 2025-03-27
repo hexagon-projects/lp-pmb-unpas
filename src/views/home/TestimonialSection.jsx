@@ -1,10 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-creative";
 
 import RichText from "../../components/RichText";
 import Text from "../../components/Text";
@@ -20,10 +16,9 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
 
     useEffect(() => {
         let index = 0;
-        setTypedText(""); // Reset teks sebelum mengetik ulang
+        setTypedText("");
 
         const text = data[activeIndex]?.description;
-        // Check if text exists before converting to string
         if (!text) {
             return;
         }
@@ -32,13 +27,12 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
     
         const typingEffect = setInterval(() => {
             if (index < content.length) {
-                // Use substring instead of concatenation for better performance
                 setTypedText(content.substring(0, index + 1));
                 index++;
             } else {
                 clearInterval(typingEffect);
             }
-        }, 4);// Adjusted typing speed for better readability
+        }, 4);
 
         return () => clearInterval(typingEffect);
     }, [activeIndex, data]);
@@ -77,7 +71,7 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
                         transition={{ duration: 0.5 }}
                         className="w-[80%] md:w-[50%] lg:w-[40%] min-h-[300px] rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden"
                       >
-                        <img src={`${imageURL}/testimonies/${item.image}`} alt={item.name} className="w-full h-full object-cover" />
+                        <img src={`${imageURL}/testimonies/${item.image}`} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
                       </motion.div>
 
                       <div className="w-full md:w-1/2 lg:w-[60%] min-h-[200px] flex flex-col justify-between items-start gap-4 md:gap-6 lg:gap-8">
