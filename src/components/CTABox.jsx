@@ -50,9 +50,9 @@ const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://sit
             <div className="w-full flex justify-center items-center shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] duration-500">
                 <div className={`w-full px-4 py-10 rounded-2xl cta_box ${color}`}>
                     <div className="w-full text-center mt-10 md:mt-8 space-y-2">
-                        <h3 className="text-gray-800 text-[26px] font-medium">{subtitle}</h3>
-                        <Title sizeMobile="text[32px]" title={title} />
-                        <Title sizeMobile="text-[32px]" title={subtitle2} />
+                        <h3 className="text-gray-800 text-[36px] font-bold">{subtitle}</h3>
+                        <Title sizeText="text-[20px]" fontWeight="font-semibold" title={title} />
+                        <Title sizeText="text-[20px]" fontWeight="font-semibold" title={subtitle2} />
                         <div className="w-full flex justify-center items-center gap-4">
                             <motion.button
                                 onClick={handleClick}

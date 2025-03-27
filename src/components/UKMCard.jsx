@@ -61,11 +61,11 @@ const UKMCard = ({ title, text, image, onClick }) => {
       </div>
 
       {/* <motion.div
-        className="absolute bottom-11 right-8 bg-lime-400 p-2 rounded-xl cursor-pointer"
+        className="absolute right-8 bg-transparent p-2 rounded-xl cursor-pointer"
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.9 }}
       >
-        <ArrowUpRight size={24} className="text-black" />
+        <ArrowUpRight size={24} className="text-text" />
       </motion.div> */}
     </motion.div>
   );

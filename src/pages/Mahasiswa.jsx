@@ -13,6 +13,8 @@ import { X } from "lucide-react";
 import { AnimatePresence, motion as Motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import SelengkapnyaButton from "../components/SelengkapnyaButton";
+import VideoSwiper from "../components/home/VideoSwiper";
+import VideoSwiperDummy from "../components/home/VideoSwiperDummy";
 
 const Mahasiswa = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +25,7 @@ const Mahasiswa = () => {
   });
   const [isImage1Loaded, setIsImage1Loaded] = useState(false);
   const [isImage2Loaded, setIsImage2Loaded] = useState(false);
-  const [isThumbnailLoaded, setIsThumbnailLoaded] = useState(false);
+  // const [isThumbnailLoaded, setIsThumbnailLoaded] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -169,15 +171,16 @@ const Mahasiswa = () => {
                 "flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-10 px-[50px]"
               }
             >
-              <div className="space-y-4 text-center lg:text-left">
-                <Title title={"Kisah Alumni"} />
+              {/* <div className="space-y-4 text-center lg:text-left">
+                <Title title={"Kisah - Kisah Alumni"}/>
                 <Text
                   text={
-                    "Temukan perjalanan inspiratif para alumni yang telah menapaki jalur sukses di dunia Profesional"
+                    "Rasakan inspirasi dari kisah para alumni yang telah menapaki jalan gemilang menuju kesuksesan di dunia profesional."
                   }
+                  sizeText="text-[12px] md:text-[14px] lg:text-[18px]"
                 />
-              </div>
-              <div className="w-full h-96 md:h-[20vh] lg:h-[40vh] flex justify-center">
+              </div> */}
+              {/* <div className="w-full h-96 md:h-[20vh] lg:h-[50vh] flex justify-center">
                 <button
                   onClick={() => setIsOpen(true)}
                   className="relative w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer"
@@ -204,7 +207,8 @@ const Mahasiswa = () => {
                     </svg>
                   </div>
                 </button>
-              </div>
+              </div> */}
+              <VideoSwiperDummy/>
             </Motion.div>
 
             {/* Bagian Prestasi */}
@@ -223,10 +227,11 @@ const Mahasiswa = () => {
                   text={
                     "Simak kisah inspiratif mereka dan jadilah bagian dari generasi berprestasi berikutnya!"
                   }
+                  sizeText="text-[12px] md:text-[14px] lg:text-[18px]"
                 />
               </div>
               <div className="flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8">
-                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {latestPrestasi?.map((prestasi) => (
                     <PrestasiCard
                       key={prestasi.id}
