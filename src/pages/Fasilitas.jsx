@@ -52,7 +52,6 @@ const gedungKampus = [
   },
 ];
 
-// Variabel Animasi
 const pageVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -140,7 +139,6 @@ const Fasilitas = () => {
           variants={pageVariants}
         >
           <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-24">
-            {/* Hero Section */}
             <Motion.div className="space-y-4 md:space-y-6 lg:space-y-10">
               <div className="w-full h-42 md:h-60 lg:h-[65vh] relative">
                 <Motion.img
@@ -191,7 +189,6 @@ const Fasilitas = () => {
               </div>
             </Motion.div>
 
-            {/* Gedung Kampus Section */}
             <Motion.div
               className="space-y-4 md:space-y-6 lg:space-y-10 p-[50px]"
               initial={{ opacity: 0 }}
@@ -220,7 +217,6 @@ const Fasilitas = () => {
               </div>
             </Motion.div>
 
-            {/* Fasilitas Unggulan Section */}
             <Motion.div
               className="w-full h-full space-y-4 md:space-y-6 lg:space-y-10"
               initial={{ opacity: 0 }}

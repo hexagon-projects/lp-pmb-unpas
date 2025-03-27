@@ -68,13 +68,15 @@ const ProgramStudi = () => {
   const fetchData = useCallback(async () => {
     if (!slug) return
     try {
-      const [partners, testimonials, berita, prestasi, prodi, gallery] = await Promise.all([
+
+      const prodi = await ProdiService.getProdiBySlug(slug)
+
+      const [partners, testimonials, berita, prestasi, gallery] = await Promise.all([
         PartnerService.getAllPartner(),
-        TestimoniService.getAllTestimoni(),
+        TestimoniService.getTestimonibyDepartement(prodi?.departement?.id),
         BeritaService.getAllBerita(),
         PrestasiService.getPrestasiProdi(slug),
-        ProdiService.getProdiBySlug(slug),
-        GalleryService.getAllGallery(),
+        GalleryService.getAllInovasiSlug(slug),
       ])
       setData({
         partner: partners,
@@ -97,7 +99,7 @@ const ProgramStudi = () => {
 
   const { partner, testimonials, berita, prestasi, prodi, gallery } = data
   const latestBerita = berita.slice(0, 4)
-  const latestActivity = gallery?.slice(0, 4)
+  const latestActivity = gallery
   const fakultas = prodi?.departement || {}
   const unggulan = prodi?.unggulan?.slice(0, 4) || []
   const ourteam = prodi?.ourteam || []
@@ -115,14 +117,13 @@ const ProgramStudi = () => {
   return (
     <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor="bg-[#F3F3F3]" position="fixed" margin="" titleColor="text-black" paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6" paddingTop="lg:pt-20">
       <div className="p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20">
-        {/* Header Section */}
         <motion.div className="relative" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="w-full prodi_container">
             <div
               className="flex flex-col justify-center bg-cover bg-no-repeat rounded-xl md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-8 relative overflow-hidden space-y-3 h-fit lg:h-[55vh] prodi_box"
               style={{ backgroundImage: `url(${fakultas.image1 ? `${imageURL}/programs/${fakultas.image1}` : Gedung})` }}
             >
-              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/40 to-transparent"></div>
               <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <defs>
                   <filter id="goo">
@@ -146,12 +147,10 @@ const ProgramStudi = () => {
           </div>
         </motion.div>
 
-        {/* Stats Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
           <StatsSection colorIcon="text-blue-500" title1="Karya Ilmiah" prodi={fakultas.periode} mahasiswa={fakultas.age} lulusan={fakultas.weekly} prestasi={fakultas.class_size} />
         </motion.div>
 
-        {/* Video & About Section */}
         <motion.div className="w-full flex flex-col lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
           <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
             <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
@@ -177,34 +176,30 @@ const ProgramStudi = () => {
           </div>
         </motion.div>
 
-        {/* Mengapa Pilih Fakultas Section */}
-        <motion.div className="relative w-full lg:py-40 rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.2 }}>
-          <div className="hidden lg:block absolute inset-0 border-1 border-gray-800/10 shadow-xl shadow-black/5 transform -skew-y-3 origin-top-left rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
-          <div className="relative flex flex-col md:flex-row justify-center items-center text-center space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-10">
-            <div className="w-full md:w-1/2 lg:w-1/3 space-y-3 md:space-y-4">
-              <div className="w-full space-y-2 text-left md:text-left">
-                <Title title="Mengapa Pilih Prodi" />
-                <Title color="text-blue-500" title={fakultas.name.replace('Fakultas ', '')} />
-              </div>
-              <div className="w-full h-full">
-                <img src={Gedung} alt="Gedung Unpas" className="w-full h-full rounded-lg bg-cover md:rounded-2xl lg:rounded-4xl" />
-              </div>
+        <motion.div className="relative w-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden space-y-4 md:space-y-6 lg:space-y-8">
+          <div className='w-full flex justify-center items-center'>
+            <div className="w-full md:w-1/3 lg:w-1/4 xl:w-1/5 flex justify-center items-center text-center gap-2 flex-wrap">
+              <Title
+                sizeText="text-base md:text-lg lg:text-2xl"
+                title={`Kenapa Harus Memilih Program Studi ${fakultas?.name?.replace('Fakultas ', '')} Unpas`}
+                color="text-blue-500"
+              />
             </div>
-            <div className="md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {unggulan.map((item, index) => (
-                <HighlightCard key={index} title={item.title} text={item.description} />
-              ))}
-            </div>
+          </div>
+          <Text text={''} />
+          <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-10'>
+            {unggulan.map((item, index) => (
+              <HighlightCard key={index} title={item.title} text={item.description} />
+            ))}
           </div>
         </motion.div>
 
-        {/* Dosen Penelitian (Our Team) Section */}
         <motion.div className="space-y-4 md:space-y-6 lg:space-y-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.4 }}>
           <div className="text-center">
             <Title title="Dosen Penelitian" />
           </div>
           {ourteam && ourteam.length > 0 ? (
-            <div className="w-full h-full grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
+            <div className="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10">
               {currentItems.map((member, index) => (
                 <div key={index}>
                   <DosenCard name={member.name} title={member.title} image={member.image} />
@@ -219,56 +214,60 @@ const ProgramStudi = () => {
           <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </motion.div>
 
-        {/* Aktivitas Mahasiswa Section */}
-        {/* <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.6 }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.6 }}>
           <AktivitasMahasiswa data={latestActivity} />
-        </motion.div> */}
+        </motion.div>
 
-        {/* Prestasi Section */}
         <motion.div className="space-y-4 md:space-y-6 lg:space-y-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.8 }}>
           {prestasi.data && prestasi.data.length > 0 ? (
             <PrestasiSection prestasi={prestasi.data} />
           ) : (
-            <div className="text-center py-6">
-              <Text text="Tidak ada data prestasi yang tersedia." color="text-gray-500" />
+            <div className="text-center space-y-4 md:space-y-6 lg:space-y-8">
+              <Title title="Prestasi" />
+              <p className="text-center text-gray-500">Tidak ada Prestasi</p>
             </div>
           )}
         </motion.div>
 
-        {/* Fasilitas Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2 }}>
           <FasilitasSlider title="Fasilitas" facilities={fasilitas} />
         </motion.div>
 
-        {/* Mitra Section */}
         <motion.div className="w-full flex flex-row justify-between items-center gap-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2.2 }}>
           <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-10">
             <MitraSection data={partner} />
           </div>
         </motion.div>
 
-        {/* Testimonial Section */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2.4 }}>
-          <TestimonialSection data={data?.testimonials} displayDekstop="md:flex-col" />
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}>
+          {testimonials.length > 0 ? (
+            <TestimonialSlider testimonials={testimonials} />
+          ) : (
+            <div className="text-center space-y-4 md:space-y-6 lg:space-y-8">
+              <Title title="Testimoni" />
+              <p className="text-center text-gray-500">Tidak ada testimoni</p>
+            </div>
+          )}
         </motion.div>
 
-        {/* Berita Terbaru Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2.6 }}>
           <div className="text-center md:text-left space-y-4 md:space-y-6 lg:space-y-8">
-            <Title title="Berita Terbaru" />
+            <div className='text-center'>
+              <Title title="Berita Terbaru" />
+            </div>
             {latestBerita && latestBerita.length > 0 ? (
               <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
-                <div className="md:w-1/2 lg:w-full">
-                  <ArticleTransparentCard image={latestBerita[0]?.image} title={latestBerita[0]?.title} slug={latestBerita[0]?.slug} />
+                <div className="md:w-1/2 lg:w-1/fit">
+                  <ArticleTransparentCard image={latestBerita[0]?.image} title={latestBerita[0]?.title} slug={latestBerita[0]?.slug} description={latestBerita[0]?.description}/>
                 </div>
                 <div className="md:w-1/2 flex flex-col gap-4">
-                  <ArticleTransparentCard image={latestBerita[1]?.image} title={latestBerita[1]?.title} slug={latestBerita[1]?.slug} />
+                  <ArticleTransparentCard image={latestBerita[1]?.image} title={latestBerita[1]?.title} slug={latestBerita[1]?.slug} description={latestBerita[0]?.description}/>
                   <div className="w-full flex flex-col md:flex-row gap-4">
                     <div className="md:w-1/2">
-                      <ArticleTransparentCard image={latestBerita[2]?.image} title={latestBerita[2]?.title} slug={latestBerita[2]?.slug} />
+                      <ArticleTransparentCard image={latestBerita[2]?.image} title={latestBerita[2]?.title} slug={latestBerita[2]?.slug} description={latestBerita[0]?.description}/>
                     </div>
                     <div className="md:w-1/2">
-                      <ArticleTransparentCard image={latestBerita[3]?.image} title={latestBerita[3]?.title} slug={latestBerita[3]?.slug} />
+                      <ArticleTransparentCard image={latestBerita[3]?.image} title={latestBerita[3]?.title} slug={latestBerita[3]?.slug} description={latestBerita[0]?.description}/>
                     </div>
                   </div>
                 </div>
@@ -281,7 +280,6 @@ const ProgramStudi = () => {
           </div>
         </motion.div>
 
-        {/* Informasi Biaya Section */}
         <motion.div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2.8 }}>
           <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
             <div className="flex justify-between md:justify-between items-center text-center relative z-2">
@@ -298,12 +296,10 @@ const ProgramStudi = () => {
           </div>
         </motion.div>
 
-        {/* CTA Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 3 }}>
           <CTASection onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} color="bg-blue-500" />
         </motion.div>
 
-        {/* Modal Video */}
         <AnimatePresence>
           {isOpen && (
             <motion.div className="fixed inset-0 flex items-center justify-center bg-black/80 z-50" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsOpen(false)}>

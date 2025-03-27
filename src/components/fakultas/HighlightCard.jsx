@@ -8,14 +8,8 @@ const HighlightCard = ({ title, text }) => {
 
     return (
         <div 
-            className={`group flex flex-col justify-start items-start text-start rounded-xl md:rounded-2xl lg:rounded-4xl p-4 md:p-6 cursor-pointer space-y-3 md:space-y-4 transition-all duration-500 border border-[#CDCDCD] ${
-                isActive ? 'bg-blue-500' : 'hover:bg-blue-500'
-            }`}
-            onClick={() => setIsActive(!isActive)}
-        >
-            <div className={`p-2 rounded-full transition ${
-                isActive ? 'bg-white' : 'bg-blue-500 group-hover:bg-white'
-            }`}>
+            className={`group flex flex-col justify-center items-center text-center rounded-xl md:rounded-2xl lg:rounded-4xl p-4 md:p-6 cursor-pointer space-y-3 md:space-y-4 transition-all duration-500 border border-[#E4E4E7] ${isActive ? 'bg-blue-500' : 'hover:bg-blue-500' }`} onClick={() => setIsActive(!isActive)}>
+            <div className={`p-2 rounded-full transition ${ isActive ? 'bg-white' : 'bg-blue-500 group-hover:bg-white'}`}>
                 <FaStar 
                     size={30} 
                     className={`transition ${
@@ -32,11 +26,7 @@ const HighlightCard = ({ title, text }) => {
                     title={title} 
                 />
                 <RichText 
-                    lineclamp={'md:line-clamp-4'} 
-                    sizeText={`text-xs md:text-sm transition ${
-                        isActive ? 'text-white' : 'group-hover:text-white'
-                    }`} 
-                    content={text}
+                    lineclamp={'md:line-clamp-4'} sizeText={`text-xs md:text-sm transition ${ isActive ? 'text-white' : 'group-hover:text-white'}`} content={text}
                 />
             </div>
         </div>
