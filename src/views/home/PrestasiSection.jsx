@@ -89,7 +89,7 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                                     <img
                                         src={`${imageURL}/prestasis/${item.image}`}
                                         alt={item.title}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-[25vh] lg:h-full object-cover"
                                         loading="lazy"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
@@ -126,7 +126,7 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                                     <img
                                         src={`${imageURL}/prestasis/${item.image}`}
                                         alt={item.title}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-[25vh] lg:h-full object-cover"
                                         loading="lazy"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">

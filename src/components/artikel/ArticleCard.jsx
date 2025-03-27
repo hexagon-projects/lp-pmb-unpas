@@ -63,7 +63,7 @@ const ArticleCard = ({ data, border }) => {
                     onClick={() => handleClick(item?.slug)}
                     transition={{ duration: 0.3 }}
                 >
-                    <div className="h-[30vh] md:h-full flex md:flex-col justify-between items-start gap-4">
+                    <div className="h-[28vh] md:h-full flex md:flex-col justify-between items-start gap-4">
                         <div className="md:p-4 w-1/2 h-full md:w-full">
                             <img
                                 src={`${imageURL}/posts/${item?.image}`}

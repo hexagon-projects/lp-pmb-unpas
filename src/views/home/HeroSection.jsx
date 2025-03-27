@@ -46,11 +46,11 @@ const HeroSection = ({ data = [] }) => {
 
         return (
             <SwiperSlide key={slide.id} className="relative">
-                <div className="w-full h-full">
+                <div className="w-full h-[85vh] md:h-full lg:h-full max-h-fit">
                     {isVideo ? (
                         <div className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden relative">
                             <iframe
-                                src={`https://www.youtube.com/embed/${slide.yt_id}?autoplay=1&mute=1&loop=1&playlist=${slide.yt_id}&controls=0&showinfo=0&rel=0`}
+                                src={`https://www.youtube-nocookie.com/embed/${slide.yt_id}?autoplay=1&mute=1&loop=3&playlist=${slide.yt_id}&controls=0&showinfo=0&rel=0`}
                                 title={slide.title}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
@@ -86,25 +86,6 @@ const HeroSection = ({ data = [] }) => {
                                 backgroundAttachment: isDesktopOrTablet ? 'fixed' : 'scroll'
                             }}
                         >
-                            {/* <MotionWrapper
-                                key={motionKey}
-                                type="fadeInUp"
-                                duration={0.5}
-                                className="md:max-w-lg lg:max-w-4xl space-y-3 md:space-y-4"
-                            >
-                                <h1 className="text-white font-bold text-xl md:text-2xl lg:text-[32px]">
-                                    {slide.title}
-                                </h1>
-                                <RichText content={slide.description} textColor="text-white" />
-                                <Button
-                                    css={'pulsating-button'}
-                                    textColor={'text-gray-700'}
-                                    bgColor={'bg-primary'}
-                                    text={slide.button}
-                                    hoverBgColor={'hover:border-3 hover:border-white/50'}
-                                    onClick={() => window.location.href = slide.link}
-                                />
-                            </MotionWrapper> */}
                         </div>
                     )}
                 </div>
@@ -140,8 +121,6 @@ const HeroSection = ({ data = [] }) => {
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 spaceBetween={0}
-                // modules={[Navigation, Pagination, Autoplay]}
-                // spaceBetween={50}
                 slidesPerView={1}
                 direction={isDesktopOrTablet ? "vertical" : "horizontal"}
                 navigation={isDesktopOrTablet ? {
@@ -181,20 +160,21 @@ const HeroSection = ({ data = [] }) => {
                 </div>
             )}
 
-            <div
+            <button
                 className="block md:hidden absolute top-1/2 left-4 z-10 cursor-pointer text-primary text-3xl lg:text-4xl"
                 onClick={goPrev}
                 aria-label="Previous slide"
             >
                 <MdOutlineKeyboardArrowLeft />
-            </div>
-            <div
+            </button>
+
+            <button
                 className="block md:hidden absolute top-1/2 right-4 z-10 cursor-pointer text-primary text-3xl lg:text-4xl"
                 onClick={goNext}
                 aria-label="Next slide"
             >
                 <MdOutlineKeyboardArrowRight />
-            </div>
+            </button>
 
             <div className="absolute -bottom-30 left-0 right-0 z-10 md:-bottom-13 w-full justify-center items-center hidden md:flex">
                 <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] border border-gray-500 p-4 md:p-6 md:flex-row md:max-w-xl lg:max-w-fit md:rounded-full bg-white">

@@ -1,4 +1,5 @@
-import { GoArrowUpRight } from "react-icons/go";
+import { lazy } from "react";
+const GoArrowUpRight = lazy(() => import("react-icons/go").then((mod) => ({ default: mod.GoArrowUpRight })));
 
 const ButtonArrow = ({ text, onClick }) => {
     return (

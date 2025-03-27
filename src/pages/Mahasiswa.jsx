@@ -267,7 +267,7 @@ const Mahasiswa = () => {
                     </button>
                     <iframe
                       className="w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl"
-                      src="https://www.youtube.com/embed/OYDn-UHfNBM"
+                      src="https://www.youtube-nocookie.com/embed/OYDn-UHfNBM"
                       title="Kisah Alumni"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -13,10 +13,9 @@ const TestimonialSlider = ({ data, bgColor, textColor, cssBox, cssContainer, ico
     const swiperRef = useRef(null);
     const fullText = data[activeIndex]?.testimonial || "";
 
-    // Efek mengetik saat slide berubah
     useEffect(() => {
         let index = 0;
-        setDisplayedText(""); // Reset teks saat slide berubah
+        setDisplayedText("");
 
         const typingEffect = setInterval(() => {
             if (index < fullText.length) {
@@ -25,7 +24,7 @@ const TestimonialSlider = ({ data, bgColor, textColor, cssBox, cssContainer, ico
             } else {
                 clearInterval(typingEffect);
             }
-        }, 30); // Kecepatan mengetik
+        }, 30);
 
         return () => clearInterval(typingEffect);
     }, [activeIndex]);
@@ -79,7 +78,7 @@ const TestimonialSlider = ({ data, bgColor, textColor, cssBox, cssContainer, ico
                             key={testimonial.id}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }} // Geser ke atas saat menghilang
+                            exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.5 }}
                         >
                             <TestimonialCard 

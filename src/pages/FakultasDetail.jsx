@@ -115,7 +115,7 @@ const FakultasDetail = () => {
               </button>
               <iframe
                 className="w-full aspect-video border-2 border-white rounded-lg md:rounded-2xl lg:rounded-4xl"
-                src={`https://www.youtube.com/embed/${fakultas.yt_id}`}
+                src={`https://www.youtube-nocookie.com/embed/${fakultas.yt_id}`}
                 title="Kisah Alumni"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -320,7 +320,7 @@ const ProgramStudi = () => {
                 <iframe
                   width="100%"
                   height="400"
-                  src={`https://www.youtube.com/embed/${fakultas.id_yt}`}
+                  src={`https://www.youtube-nocookie.com/embed/${fakultas.id_yt}`}
                   title="YouTube Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

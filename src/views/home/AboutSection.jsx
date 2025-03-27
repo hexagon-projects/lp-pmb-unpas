@@ -51,7 +51,7 @@ const AboutSection = ({ data = {} }) => {
                 <iframe
                     width="100%"
                     height="100%"
-                    src={`https://www.youtube.com/embed/${playingVideo}?autoplay=1`}
+                    src={`https://www.youtube-nocookie.com/embed/${playingVideo}?autoplay=1`}
                     title="About University Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -79,7 +79,7 @@ const AboutSection = ({ data = {} }) => {
                             width="100%"
                             height="100%"
                         />
-                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-300 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 group-hover:scale-105 transition-all duration-300 flex items-center justify-center intro_img">
                             <motion.div
                                 className="p-2 bg-gradient-to-b from-gray-600 via-gray-700 to-gray-800 rounded-full"
                                 whileTap={{ scale: 0.9 }}

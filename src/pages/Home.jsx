@@ -19,7 +19,7 @@ import TestimonialSection from "../views/home/TestimonialSection";
 import Title from "../components/Title";
 import Button from "../components/Button";
 import { FaArrowRightLong } from "react-icons/fa6";
-import InteractiveGrid from "@/components/InteractiveCard";
+import InteractiveGrid from "../components/InteractiveCard";
 
 const MemoizedHeroSection = React.memo(HeroSection);
 const MemoizedAboutSection = React.memo(AboutSection);
@@ -293,12 +293,15 @@ const Home = () => {
 
         <VideoSwiper data={data?.dukungan} />
 
-        <MemoizedFakultasSection
-          faculties={FACULTIES_DATA}
-          faculties1={faculties1}
-          faculties2={faculties2}
-          faculties3={faculties3}
-        />
+        <div className="bg-[#717171]/5 p-4 md:p-6 lg:p-8 border-2 border-[#ebebeb]">
+          <MemoizedFakultasSection
+            faculties={FACULTIES_DATA}
+            faculties1={faculties1}
+            faculties2={faculties2}
+            faculties3={faculties3}
+          />
+        </div>
+
 
         <MemoizedPrestasiSection
           prestasi={data?.prestasi}
@@ -306,14 +309,24 @@ const Home = () => {
         />
 
         <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
-          <MemoizedArtikelSection data={data} />
-          <MemoizedMitraSection data={data?.partner} />
-          <MemoizedTestimonialSection
-            data={data?.testimonials}
-            displayDekstop="md:flex-col"
-          />
-          <MemoizedCTASection />
-          <MemoizedInteractiveGrid />
+          <div className="relative z-1">
+            <MemoizedArtikelSection data={data} />
+          </div>
+          <div className="relative z-1">
+            <MemoizedMitraSection data={data?.partner} />
+          </div>
+          <div className="relative z-1">
+            <MemoizedTestimonialSection
+              data={data?.testimonials}
+              displayDekstop="md:flex-col"
+            />
+          </div>
+          <div className="relative z-1">
+            <MemoizedCTASection />
+          </div>
+          <div className="absolute inset-0 w-full h-full">
+            <MemoizedInteractiveGrid />
+          </div>
         </div>
       </div>
     </UserLayout>

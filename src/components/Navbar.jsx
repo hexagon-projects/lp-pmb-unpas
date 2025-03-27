@@ -100,7 +100,7 @@ const Navbar = ({
           aria-hidden="true"
         />
 
-        <div className={`hidden md:flex items-center gap-4 xl:gap-8 font-medium ${navbarColors}`}>
+        <div className={`hidden xl:w-9/12 md:flex items-center xl:justify-between gap-4 xl:gap-8 font-medium ${navbarColors}`}>
           {menuItems.map((item, index) => (
             <Link
               key={index}

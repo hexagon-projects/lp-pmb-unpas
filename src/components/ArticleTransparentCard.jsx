@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import ArticleTitle from "./ArticleTitle";
 import RichText from "./RichText";
-import { FaArrowRight } from "react-icons/fa";
+import { lazy } from "react";
+const FaArrowRight = lazy(() => import("react-icons/fa").then((mod) => ({ default: mod.FaArrowRight })));
 
 const ArticleTransparentCard = ({ image, title, slug, description }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;

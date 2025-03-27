@@ -6,6 +6,8 @@ import { X } from "lucide-react";
 import CustomPagination from "../CustomPagination";
 import { motion, AnimatePresence } from "framer-motion";
 import Title from "../Title";
+import Text from "../Text";
+import SelengkapnyaButton from "../SelengkapnyaButton";
 
 const VideoSwiper = ({ data = [] }) => {
     const [activeIndex, setActiveIndex] = useState(1);
@@ -18,7 +20,7 @@ const VideoSwiper = ({ data = [] }) => {
         data.map((item) => ({
             id: item.id.toString(),
             title: item.title,
-            url: `https://www.youtube.com/embed/${item.id_yt}?autoplay=1`,
+            url: `https://www.youtube-nocookie.com/embed/${item.id_yt}?autoplay=1`,
             image: `${imageURL}/dukungans/${item.image}`
         }))
     ), [data, imageURL]);
@@ -115,15 +117,16 @@ const VideoSwiper = ({ data = [] }) => {
 
     return (
         <div className="w-full h-fit space-y-4 md:space-y-6">
-            <div className="text-center space-y-2">
-                <Title title="Video Dukungan" />
+            <div className="p-4 md:px-10 lg:px-12 flex justify-between items-center space-y-2">
+                <Title title="Bersama Unpas Membangun Generasi Unggul!" />
+                <SelengkapnyaButton onClick={()=>window.location.href(`/dukungan`)} />
             </div>
             
             <Swiper
                 ref={swiperRef}
                 slidesPerView={1.5}
                 spaceBetween={-50}
-                loop={true}
+                loop={videos.length >= 3}
                 centeredSlides={true}
                 autoplay={{ 
                     delay: 3000, 
