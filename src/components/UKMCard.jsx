@@ -7,7 +7,6 @@ const UKMCard = ({ title, text, image, onClick }) => {
   const imageURL = import.meta.env.VITE_IMAGE_URL;
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  // Variabel animasi untuk card
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -33,8 +32,7 @@ const UKMCard = ({ title, text, image, onClick }) => {
     >
       <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
       <RichText content={text}/>
-      
-      {/* Image Container dengan Fade In */}
+
       <div className="relative w-full h-52 md:h-64 lg:h-72">
         <motion.img
           src={`${imageURL}/organisasi/${image}`}
@@ -48,8 +46,7 @@ const UKMCard = ({ title, text, image, onClick }) => {
           animate={{ opacity: isImageLoaded ? 1 : 0 }}
           transition={{ duration: 0.5 }}
         />
-        
-        {/* Skeleton Loading */}
+
         {!isImageLoaded && (
           <motion.div
             className="absolute inset-0 bg-gray-200 animate-pulse rounded-xl"
@@ -59,14 +56,6 @@ const UKMCard = ({ title, text, image, onClick }) => {
           />
         )}
       </div>
-
-      {/* <motion.div
-        className="absolute bottom-11 right-8 bg-lime-400 p-2 rounded-xl cursor-pointer"
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <ArrowUpRight size={24} className="text-black" />
-      </motion.div> */}
     </motion.div>
   );
 };
