@@ -104,12 +104,12 @@ const Jalur = () => {
                                 Universitas Pasundan.
                             </h2>
                             <div className="hidden md:flex pt-4"> */}
-                                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} />
+                                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} onClick={()=>window.location.href = `https://registrasi.unpas.ac.id/register`}/>
                             </div>
                         </div>
                     </div>
                     <div className="w-full flex md:hidden">
-                        <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border={'w-full justify-center'} />
+                        <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border={'w-full justify-center'} onClick={()=>window.location.href = `https://registrasi.unpas.ac.id/register`}/>
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-const SearchInput = ({ placeholder, searchTerm, setSearchTerm, widthDekstop = 'md:w-1/2' }) => (
+const SearchInput = ({ placeholder, searchTerm, setSearchTerm, widthDekstop = 'md:w-1/4' }) => (
     <input
         type="text"
         placeholder={placeholder}

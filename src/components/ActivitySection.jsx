@@ -40,7 +40,7 @@ const ActivitySection = ({ title, activities }) => {
                                     className="absolute inset-0 h-full w-full bg-cover bg-center rounded-xl md:rounded-2xl lg:rounded-4xl"
                                     style={{ backgroundImage: `url(${imageURL}/agendas/${selectedActivity.image})` }}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#D3C61D]/10 to-transparent flex flex-col justify-end p-6">
                                         <motion.div
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}

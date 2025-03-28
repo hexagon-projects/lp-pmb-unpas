@@ -185,6 +185,7 @@ const Fasilitas = () => {
                   text={"Daftar Sekarang"}
                   bgColor={"bg-primary"}
                   border={"w-full justify-center"}
+                  onClick={()=>window.location.href = `https://registrasi.unpas.ac.id/register`}
                 />
               </div>
             </Motion.div>

@@ -4,6 +4,19 @@ import tailwindcss from "@tailwindcss/vite";
 import compression from "vite-plugin-compression";
 
 export default defineConfig({
+  theme: {
+    extend: {
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
+      keyframes: {
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
+        }
+      }
+    },
+  },
   plugins: [
     react(),
     tailwindcss(),
@@ -24,9 +37,6 @@ export default defineConfig({
   define: {
     "process.env": {},
   },
-  optimizeDeps: {
-    include: ["react-cookie-consent"],
-  },
   build: {
     rollupOptions: {
       output: {
@@ -43,6 +53,7 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ["react", "react-dom"],
+    include: ["react-cookie-consent"],
   },
   minify: "esbuild",
   terserOptions: {

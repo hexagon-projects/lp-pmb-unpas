@@ -13,12 +13,16 @@ const HeroSection = ({ data = [] }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
     const [activeIndex, setActiveIndex] = useState(0);
     const swiperRef = useRef(null);
-    const [isDesktopOrTablet, setIsDesktopOrTablet] = useState(
-        typeof window !== 'undefined' ? window.innerWidth >= 768 : false
-    );
+    const [windowSize, setWindowSize] = useState({
+        width: typeof window !== 'undefined' ? window.innerWidth : 0,
+        height: typeof window !== 'undefined' ? window.innerHeight : 0
+    });
 
     const handleResize = useCallback(() => {
-        setIsDesktopOrTablet(window.innerWidth >= 768);
+        setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight
+        });
     }, []);
 
     useEffect(() => {
@@ -27,6 +31,9 @@ const HeroSection = ({ data = [] }) => {
             return () => window.removeEventListener("resize", handleResize);
         }
     }, [handleResize]);
+
+    const isMobile = windowSize.width < 768;
+    const isDesktopOrTablet = windowSize.width >= 768;
 
     const handleSlideChange = useCallback((swiper) => {
         setActiveIndex(swiper.activeIndex);
@@ -40,13 +47,18 @@ const HeroSection = ({ data = [] }) => {
         swiperRef.current?.slideNext();
     }, []);
 
+    const calculateAspectRatioHeight = (width) => {
+        return (width * 9) / 16;
+    };
+
     const renderSlide = useCallback((slide) => {
         const isVideo = !!slide.yt_id;
         const motionKey = `${slide.id}-${activeIndex}`;
+        const slideHeight = isMobile ? `${calculateAspectRatioHeight(windowSize.width)}px` : '100%';
 
         return (
             <SwiperSlide key={slide.id} className="relative">
-                <div className="w-full h-[85vh] md:h-full lg:h-full max-h-fit">
+                <div className="w-full" style={{ height: slideHeight }}>
                     {isVideo ? (
                         <div className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden relative">
                             <iframe
@@ -54,36 +66,23 @@ const HeroSection = ({ data = [] }) => {
                                 title={slide.title}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
-                                className="absolute top-0 left-0 w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl iframe_hero"
+                                className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl iframe_hero"
                                 loading="lazy"
+                                style={{ height: slideHeight }}
                             />
                             <div className="absolute inset-0 bg-black/50 flex justify-start items-center px-12 md:px-20 lg:px-20">
-                                <MotionWrapper
-                                    key={motionKey}
-                                    type="fadeInUp"
-                                    duration={0.5}
-                                    className="md:max-w-lg lg:max-w-4xl space-y-3 md:space-y-4"
-                                >
-                                    <h1 className="text-white font-bold text-xl md:text-2xl lg:text-[32px]">
-                                        {slide.title}
-                                    </h1>
-                                    <RichText content={slide.description} textColor="text-white" />
-                                    <Button
-                                        css={'pulsating-button'}
-                                        textColor={'text-gray-700'}
-                                        bgColor={'bg-primary'}
-                                        text={slide.button}
-                                        onClick={() => window.location.href = slide.link}
-                                    />
-                                </MotionWrapper>
                             </div>
                         </div>
                     ) : (
                         <div
-                            className="px-12 md:px-20 lg:px-20 w-full h-full flex justify-start items-center bg-cover md:bg-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
+                            className="w-full bg-contain rounded-xl md:rounded-2xl lg:rounded-4xl"
                             style={{
                                 backgroundImage: `url(${imageURL}/sliders/${slide.image})`,
-                                backgroundAttachment: isDesktopOrTablet ? 'fixed' : 'scroll'
+                                backgroundAttachment: isDesktopOrTablet ? 'fixed' : 'scroll',
+                                height: slideHeight,
+                                backgroundSize: isMobile ? 'cover' : 'cover',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundPosition: 'center'
                             }}
                         >
                         </div>
@@ -109,7 +108,7 @@ const HeroSection = ({ data = [] }) => {
                 </div>
             </SwiperSlide>
         );
-    }, [activeIndex, imageURL, isDesktopOrTablet]);
+    }, [activeIndex, imageURL, isDesktopOrTablet, isMobile, windowSize.width]);
 
     const handlePaginationClick = useCallback((index) => {
         setActiveIndex(index);
@@ -132,7 +131,8 @@ const HeroSection = ({ data = [] }) => {
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true
                 }}
-                className="w-full h-[85vh] md:h-[80vh] lg:h-[75vh]"
+                className="w-full"
+                style={{ height: isMobile ? 'auto' : '75vh' }}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 effect="fade"
                 fadeEffect={{ crossFade: true }}
@@ -177,15 +177,14 @@ const HeroSection = ({ data = [] }) => {
             </button>
 
             <div className="absolute -bottom-30 left-0 right-0 z-10 md:-bottom-13 w-full justify-center items-center hidden md:flex">
-                <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] border border-gray-500 p-4 md:p-6 md:flex-row md:max-w-xl lg:max-w-fit md:rounded-full bg-white">
-                    <Button iconStatus="flex" icon={<IoDocumentTextOutline size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Daftar Sekarang'} rounded="rounded-full" weight="font-normal" />
-                    <Button iconStatus="flex" icon={<IoWalletOutline size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Biaya'} rounded="rounded-full" weight="font-normal" />
-                    <Button iconStatus="flex" icon={<MdOutlineBook size={24} />} textColor={'text-white'} bgColor={'bg-footer'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Buku Panduan'} rounded="rounded-full" weight="font-normal" />
+                <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 md:p-6 md:flex-row md:max-w-xl lg:max-w-fit rounded-xl md:rounded-2xl lg:rounded-4xl bg-white rainbow-border">
+                    <Button iconStatus="flex" icon={<IoDocumentTextOutline size={24} className="text-text" />} textColor={'text-black'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Daftar Sekarang'} weight="font-normal" onClick={()=>window.location.href = `https://registrasi.unpas.ac.id/register`}/>
+                    <Button iconStatus="flex" icon={<IoWalletOutline size={24} className="text-text" />} textColor={'text-black'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Biaya'} weight="font-normal" />
+                    <Button iconStatus="flex" icon={<MdOutlineBook size={24} className="text-text" />} textColor={'text-black'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/40'} text={'Buku Panduan'} weight="font-normal" />
                 </div>
             </div>
         </div>
     );
 };
-
 
 export default memo(HeroSection);

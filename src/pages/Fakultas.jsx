@@ -40,7 +40,6 @@ const Fakultas = () => {
     window.location.href = 'https://registrasi.unpas.ac.id/register'
   }, [])
 
-  // Preload main logo image
   useEffect(() => {
     const img = new Image()
     img.src = Logo
@@ -56,7 +55,7 @@ const Fakultas = () => {
       paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6" 
       paddingTop="lg:pt-30" 
       type="fadeInUp" 
-      duration={0.5} // Reduced animation duration
+      duration={0.5}
     >
       <Helmet>
         <title>Fakultas - Universitas Pasundan</title>

@@ -134,7 +134,7 @@ const Fasilitas = () => {
             </div>
           </div>
           <div className="w-full flex md:hidden">
-            <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border={'w-full justify-center'} />
+            <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border={'w-full justify-center'} onClick={()=>window.location.href = `https://registrasi.unpas.ac.id/register`}/>
           </div>
         </div>
 

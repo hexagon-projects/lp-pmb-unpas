@@ -12,7 +12,7 @@ const TestimoniService = {
   },
   getTestimoniHome: async () => {
     try {
-      const response = await axios.get("/testimoni");
+      const response = await axios.get("/testimoni-home");
       return response.data;
     } catch (error) {
       console.error("Error fetching testimonis:", error);

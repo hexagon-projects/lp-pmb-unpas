@@ -313,22 +313,22 @@ body {
 
 .rainbow-border {
     position: relative;
-    overflow: hidden; /* Pastikan tidak ada elemen yang keluar */
+    overflow: hidden;
 }
 
 .rainbow-border::before {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: inherit; /* Mengikuti border-radius utama */
-    padding: 1px; /* Ketebalan border */
+    border-radius: inherit;
+    padding: 1px;
     background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
     background-size: 200% 200%;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    z-index: -1; /* Letakkan di belakang */
+    /* z-index: -1; Letakkan di belakang */
     animation: rainbow-border 10s linear infinite;
 }
 
@@ -378,11 +378,11 @@ body {
     }
 }
 
-.rainbow-border {
+/* .rainbow-border {
     box-shadow: 0 10px 60px rgba(254, 242, 81, 0.1), 
                 0 10px 60px rgba(201, 56, 41, 0.1), 
                 0 10px 60px rgba(3, 72, 51, 0.1);
-}
+} */
 
 /* Animasi ring */
 @keyframes ring-animation {
@@ -695,9 +695,9 @@ body {
     .prodi_box{
         clip-path: polygon(0% 80%, 50% 80%, 55% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .iframe_hero{
+    /* .iframe_hero{
         transform: scale(4.5);
-    }
+    } */
 }
 
 @media (max-width: 395px) {
@@ -719,9 +719,9 @@ body {
     .prodi_box{
         clip-path: polygon(0% 80%, 55% 80%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .iframe_hero{
+    /* .iframe_hero{
         transform: scale(4.5);
-    }
+    } */
 }
 
 @media (max-width: 384px) {
@@ -761,9 +761,9 @@ body {
     .testi_box {
         clip-path: polygon(66% 0%, 66% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
-    .iframe_hero{
+    /* .iframe_hero{
         transform: scale(5.0);
-    }
+    } */
     .prodi_box{
         clip-path: polygon(0% 80%, 65% 80%, 70% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }

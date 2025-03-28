@@ -49,7 +49,7 @@ const FakultasSwiper = ({ faculties = [], faculties2 = [], faculties3 = [] }) =>
   };
 
   return (
-    <div className="w-full lg:hidden px-4 py-4 space-y-4">
+    <div className="w-full lg:hidden px-4 py-4 space-y-4 bg-gray-200/10 p-4 rounded-lg md:rounded-2xl border border-white">
       <Swiper
         ref={swiperRef}
         modules={[Navigation, Pagination]}

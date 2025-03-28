@@ -44,11 +44,9 @@ const FakultasDetail = () => {
   const fetchData = useCallback(async () => {
     try {
       const fakultasPromise = FakultasService.getFakultasBySlug(slug)
-      // First get fakultas data
       const fakultasRes = await fakultasPromise
       setFakultas(fakultasRes.fakultas)
       setProdi(fakultasRes.departements)
-      // Then get other data using the fakultas ID
       const [partnerRes, beritaRes, agendaRes, unggulanRes] = await Promise.all([PartnerService.getAllPartner(), BeritaService.getAllBerita(), AgendaService.getAllAgenda(), UnggulanService.getUnggulanByID(fakultasRes.fakultas.id)])
       setPartner(partnerRes)
       setBerita(beritaRes)
@@ -99,7 +97,6 @@ const FakultasDetail = () => {
         <meta property="og:url" content="https://pmb.unpas.ac.id/fakultas-teknik" />
       </Helmet>
 
-      {/* Modal Video */}
       <AnimatePresence>
         {isOpen && (
           <motion.div className="fixed inset-0 flex justify-center items-center bg-black/80 z-50" onClick={() => setIsOpen(false)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.3 } }}>
@@ -127,14 +124,13 @@ const FakultasDetail = () => {
       </AnimatePresence>
 
       <motion.div className="w-full p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-        {/* Header Section */}
         <motion.div className="relative" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="w-full fakultas_dtl_container">
             <div
               className={`w-full flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 md:px-8 lg:px-12 relative overflow-hidden fakultas_dtl_box lg:h-[55vh]`}
               style={{ backgroundImage: `url(${fakultas.image1 ? `${imageURL}/fakultas/${fakultas.image1}` : Gedung})` }}
             >
-              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-[#D3C61D]/100 via-[#D3C61D]/10 to-transparentt"></div>
               <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <defs>
                   <filter id="goo">
@@ -160,7 +156,6 @@ const FakultasDetail = () => {
           </div>
         </motion.div>
 
-        {/* Program Studi Section */}
         <motion.div className="flex flex-wrap flex-row justify-center gap-4 md:gap-6 lg:gap-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
           {prodi.map((item, index) => (
             <div key={index}>
@@ -169,7 +164,6 @@ const FakultasDetail = () => {
           ))}
         </motion.div>
 
-        {/* Visi & Misi Section */}
         <motion.div className="w-full flex justify-center items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
           <div className="w-full flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-y-4 md:gap-y-0 gap-x-18">
             <div className="w-full md:w-full space-y-3 md:space-y-4 flex flex-col justify-center items-left text-justify md:items-start md:text-left">
@@ -231,7 +225,6 @@ const FakultasDetail = () => {
           </div>
         </motion.div> */}
 
-        {/* Button Daftar Sekarang Section */}
         <motion.div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.2 }}>
           <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
             <div className="flex justify-between md:justify-between items-center text-center relative z-2">
@@ -248,12 +241,10 @@ const FakultasDetail = () => {
           </div>
         </motion.div>
 
-        {/* Mitra Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.4 }}>
           <MitraSection data={partner} />
         </motion.div>
 
-        {/* Berita Terbaru Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.6 }}>
           <div className="text-center md:text-left space-y-3 md:space-y-4">
             <Title title={'Berita Terbaru'} />
@@ -276,7 +267,6 @@ const FakultasDetail = () => {
           </div>
         </motion.div>
 
-        {/* Agenda / Activity Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.8 }}>
           {agenda.length > 0 ? (
             <ActivitySection title={'Agenda'} activities={agenda} />
@@ -287,7 +277,6 @@ const FakultasDetail = () => {
           )}
         </motion.div>
 
-        {/* CTA Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2 }}>
           <CTASection color={'bg-blue-500'} />
         </motion.div>

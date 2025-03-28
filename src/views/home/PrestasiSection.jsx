@@ -92,7 +92,7 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                                         className="w-full h-[25vh] lg:h-full object-cover"
                                         loading="lazy"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#D3C61D]/10 to-transparent flex items-end p-4">
                                         <h3 className="text-white text-sm md:text-base font-bold">
                                             {item.title}
                                         </h3>
@@ -129,7 +129,7 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                                         className="w-full h-[25vh] lg:h-full object-cover"
                                         loading="lazy"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#D3C61D]/10 to-transparent flex items-end p-4">
                                         <h3 className="text-white text-sm md:text-base font-bold">
                                             {item.title}
                                         </h3>

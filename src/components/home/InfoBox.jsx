@@ -29,7 +29,7 @@ const infoBoxData = [
 
 const InfoBox = () => {
     return (
-        <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] flex justify-center items-center">
+        <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] flex justify-center items-center m-8 bg-[#F0F0F0] rounded-lg md:rounded-2xl lg:rounded-4xl">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 p-4 justify-items-center items-center rounded-lg text-center">
                 {infoBoxData.map((item, index) => (
                     <a

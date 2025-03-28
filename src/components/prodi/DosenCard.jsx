@@ -8,7 +8,7 @@ const DosenCard = ({ name, title, image }) => {
     return (
         <div className="relative">
             <div className="w-full h-72 md:h-96 lg:h-[44vh] bg-cover bg-center bg-no-repeat dosen-card" style={{ backgroundImage: `url(${imageURL}/ourteams/${image})` }}>
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#D3C61D]/100 via-[#D3C61D]/10 to-transparent"></div>
 
                 <div className="w-[80%] p-4 md:p-6 h-full flex flex-col items-start justify-end gap-2 relative z-10">
                     <ArticleTitle color="text-white" title={title} />

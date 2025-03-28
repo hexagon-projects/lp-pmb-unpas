@@ -33,7 +33,7 @@ const PrestasiSection = ({ prestasi }) => {
                     {prestasi.map((item, index) => (
                         <SwiperSlide key={index}>
                             <div className="relative h-full bg-cover bg-center rounded-xl md:rounded-2xl lg:rounded-4xl" style={{ backgroundImage: `url(${imageURL}/prestasis/${item?.image})` }}>
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6 rounded-xl md:rounded-2xl lg:rounded-4xl">
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#D3C61D]/10 to-transparent flex flex-col justify-end p-6 rounded-xl md:rounded-2xl lg:rounded-4xl">
                                     <div className="w-full text-white text-left space-y-2 z-10">
                                         <h3 className="text-sm md:text-base lg:text-base font-bold">{item?.title}</h3>
                                         <div className="flex gap-2">

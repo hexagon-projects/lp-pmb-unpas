@@ -39,7 +39,7 @@ const FasilitasCard = ({ image, title, height = 'h-52 md:h-64 lg:h-[60vh]', inde
         loading="lazy"
       />
 
-      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#D3C61D]/100 via-[#D3C61D]/10 to-transparent"></div>
 
       <h3 className="absolute bottom-4 left-4 text-white text-sm md:text-base lg:text-lg font-semibold text-left">
         {title}

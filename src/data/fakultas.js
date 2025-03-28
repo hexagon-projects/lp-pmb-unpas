@@ -25,22 +25,6 @@ export const FACULTIES = [
       ]
     },
     {
-      name: 'Fakultas Ekonomi dan Bisnis',
-      slug: 'fakultas-ekonomi-dan-bisnis',
-      programs: [
-        { name: 'S1 - Akuntansi', slug: 'akuntansi' },
-        { name: 'S1 - Manajemen', slug: 'manajemen' },
-        { name: 'S1 - Ekonomi Pembangunan', slug: 'ekonomi-pembangunan' }
-      ]
-    },
-    {
-      name: 'Fakultas Hukum',
-      slug: 'fakultas-hukum',
-      programs: [
-        { name: 'S1 - Ilmu Hukum', slug: 'ilmu-hukum' }
-      ]
-    },
-    {
       name: 'Program Pasca Sarjana',
       slug: 'program-pasca-sarjana',
       programs: [
@@ -60,6 +44,13 @@ export const FACULTIES = [
       ]
     },
     {
+      name: 'Fakultas Hukum',
+      slug: 'fakultas-hukum',
+      programs: [
+        { name: 'S1 - Ilmu Hukum', slug: 'ilmu-hukum' }
+      ]
+    },
+    {
       name: 'Fakultas Kedokteran',
       slug: 'fakultas-kedokteran',
       programs: [
@@ -67,18 +58,18 @@ export const FACULTIES = [
         { name: 'Profesi - Profesi Dokter', slug: 'profesi-dokter' }
       ]
     },
-    {
-      name: 'Fakultas Pendidikan',
-      slug: 'fakultas-pendidikan',
-      programs: [
-        { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
-        { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
-        { name: 'S1 - Pendidikan Pancasila dan Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
-        { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' },
-        { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-sastra-indonesia' },
-        { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' }
-      ]
-    },
+    // {
+    //   name: 'Fakultas Pendidikan',
+    //   slug: 'fakultas-pendidikan',
+    //   programs: [
+    //     { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
+    //     { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
+    //     { name: 'S1 - Pendidikan Pancasila dan Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
+    //     { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' },
+    //     { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-sastra-indonesia' },
+    //     { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' }
+    //   ]
+    // },
     {
       name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
       slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
@@ -91,17 +82,16 @@ export const FACULTIES = [
       ]
     },
     {
-      name: 'Fakultas Ilmu Seni dan Sastra',
-      slug: 'fakultas-ilmu-seni-dan-sastra',
+      name: 'Fakultas Ekonomi dan Bisnis',
+      slug: 'fakultas-ekonomi-dan-bisnis',
       programs: [
-        { name: 'S1 - Sastra Inggris', slug: 'sastra-inggris' },
-        { name: 'S1 - Desain Komunikasi Visual', slug: 'desain-komunikasi-visual' },
-        { name: 'S1 - Fotografi dan Film', slug: 'fotografi-dan-film' },
-        { name: 'S1 - Seni Musik', slug: 'seni-musik' }
+        { name: 'S1 - Akuntansi', slug: 'akuntansi' },
+        { name: 'S1 - Manajemen', slug: 'manajemen' },
+        { name: 'S1 - Ekonomi Pembangunan', slug: 'ekonomi-pembangunan' }
       ]
-    }
+    },
   ];
   
-  export const FACULTIES1 = FACULTIES.slice(0, 3);
-  export const FACULTIES2 = FACULTIES.slice(3, 6);
-  export const FACULTIES3 = FACULTIES.slice(6, 9);
+  export const FACULTIES1 = FACULTIES.slice(0, 2);
+  export const FACULTIES2 = FACULTIES.slice(2, 4);
+  export const FACULTIES3 = FACULTIES.slice(4, 9);

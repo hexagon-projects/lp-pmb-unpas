@@ -48,7 +48,7 @@ const FakultasCardMobile = ({ faculty, index = 0, isVisible = true }) => {
       variants={cardVariants}
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}
-      className="rounded-xl bg-[#F4F1C0] p-4 shadow-black/5 shadow-xl mb-4"
+      className="rounded-xl bg-white p-4 shadow-black/5 shadow-xl mb-4"
     >
       <div className="text-gray-900 space-y-2" onClick={() => window.location.href = `/fakultas/${faculty.slug}`}>
         <Text
@@ -66,7 +66,7 @@ const FakultasCardMobile = ({ faculty, index = 0, isVisible = true }) => {
             <motion.span
               key={`${program.slug}-${idx}`}
               variants={programVariants}
-              className="text-xs bg-gray-100 border border-white rounded-xl px-2 py-1 hover:bg-primary cursor-pointer"
+              className="text-xs bg-[#F0F0F0] border border-white rounded-xl px-2 py-1 hover:bg-primary cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 10 }}
               initial="hidden"

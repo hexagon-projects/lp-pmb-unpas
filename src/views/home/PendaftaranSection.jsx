@@ -86,7 +86,7 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-[#F3F4F4] w-full p-4 md:p-6 lg:p-8 border border-white shadow-primary/10 shadow-xl rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer flex gap-4 items-center"
+                className="bg-[#F3F4F4] w-full p-4 md:p-6 lg:p-8 border border-white shadow-text/10 shadow-xl rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer flex gap-4 items-center"
             >
                 <div className="hidden lg:block p-3 rounded-full shadow-xl shadow-text/10">
                     <Calendar className="w-6 h-6 md:w-8 md:h-8 text-text" />

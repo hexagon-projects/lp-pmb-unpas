@@ -20,7 +20,7 @@ import Title from "../components/Title";
 import Button from "../components/Button";
 import { FaArrowRightLong } from "react-icons/fa6";
 import InteractiveGrid from "../components/InteractiveCard";
-import { FACULTIES } from "../data/fakultas";
+import { FACULTIES, FACULTIES1, FACULTIES2, FACULTIES3 } from "../data/fakultas";
 
 const MemoizedHeroSection = React.memo(HeroSection);
 const MemoizedAboutSection = React.memo(AboutSection);
@@ -48,12 +48,6 @@ const Home = () => {
   });
 
   const imageURL = import.meta.env.VITE_IMAGE_URL;
-
-  const [faculties1, faculties2, faculties3] = useMemo(() => [
-    FACULTIES.slice(0, 3),
-    FACULTIES.slice(3, 6),
-    FACULTIES.slice(6, 9)
-  ], []);
 
   const metaData = useMemo(() => ({
     title: "Beranda - Universitas Pasundan",
@@ -132,7 +126,7 @@ const Home = () => {
       <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
         <MemoizedHeroSection data={data?.slider} />
 
-        <div className={'flex md:hidden w-full justify-center items-center p-4 md:px-10 lg:px-12'}>
+        <div className={'flex md:hidden w-full justify-center items-center p-4 md:px-10 lg:px-12 mt-8'}>
           <InfoBox />
         </div>
 
@@ -192,10 +186,10 @@ const Home = () => {
 
         <div className="bg-[#717171]/5 p-4 md:p-6 lg:p-8 border-2 border-[#ebebeb]">
           <MemoizedFakultasSection
-            faculties={FACULTIES_DATA}
-            faculties1={faculties1}
-            faculties2={faculties2}
-            faculties3={faculties3}
+            faculties={FACULTIES}
+            faculties1={FACULTIES1}
+            faculties2={FACULTIES2}
+            faculties3={FACULTIES3}
           />
         </div>
 

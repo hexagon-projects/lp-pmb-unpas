@@ -27,15 +27,14 @@ const ArticleCard = ({ data, border }) => {
         window.location.href = `/artikel/${slug}`;
     };
 
-    // Function to format date
     const formatDate = (dateString) => {
         const date = parseISO(dateString);
         const sevenDaysAgo = subDays(new Date(), 7);
 
         if (isBefore(date, sevenDaysAgo)) {
-            return format(date, "dd MMM yyyy", { locale: id }); // e.g., 30 Mar 2025
+            return format(date, "dd MMM yyyy", { locale: id });
         } else {
-            return formatDistanceToNow(date, { addSuffix: true, locale: id }); // e.g., 3 hari yang lalu
+            return formatDistanceToNow(date, { addSuffix: true, locale: id });
         }
     };
 

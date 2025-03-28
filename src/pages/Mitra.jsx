@@ -3,7 +3,6 @@ import CTASection from "../components/CTASection";
 import Text from "../components/Text";
 import Title from "../components/Title";
 import UserLayout from "./layouts/UserLayout";
-import Loading from "../components/Loading";
 import PartnerService from "../fetching/partner";
 import MitraCard from "../components/mitra/MitraCard";
 import Section1 from "../assets/gedung.jpeg";
@@ -14,7 +13,6 @@ import { X } from "lucide-react";
 
 const Mitra = () => {
     const [partners, setPartners] = useState([]);
-    // const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedPartner, setSelectedPartner] = useState(null);
@@ -26,7 +24,6 @@ const Mitra = () => {
         try {
             const response = await PartnerService.getAllPartner();
             setPartners(response);
-            // setLoading(false);
         } catch (error) {
             console.error(error);
         }
@@ -48,12 +45,8 @@ const Mitra = () => {
             setIsModalOpen(false);
             setSelectedPartner(null);
             setIsModalFading(false);
-        }, 300); // Match this with CSS transition duration
+        }, 300);
     };
-
-    // if (loading) {
-    //     return <Loading />;
-    // }
 
     const indexOfLastPartner = currentPage * partnersPerPage;
     const indexOfFirstPartner = indexOfLastPartner - partnersPerPage;
@@ -62,7 +55,6 @@ const Mitra = () => {
 
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}>
-        {/* <UserLayout bgLayoutColor="bg-gray-100" position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}> */}
             <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-18">
                 <div className="w-full mitra_container">
                     <div className="w-full h-42 md:h-60 lg:h-120 mitra_box">
@@ -109,8 +101,7 @@ const Mitra = () => {
                             <img
                                 src={`${imageURL}/partners/${selectedPartner.image}`}
                                 alt={selectedPartner.name}
-                                className="w-full h-48 object-cover object-center rounded-xl md:rounded-2xl lg:rounded-4xl"
-                                // className="w-full h-48 object-cover object-center rounded-lg md:rounded-2xl lg:rounded-4xl"
+                                className="w-full h-48 object-contain object-center rounded-xl md:rounded-2xl lg:rounded-4xl"
                             />
                             <div className="space-y-3">
                                 <h2 className="text-xl font-bold">{selectedPartner.name}</h2>

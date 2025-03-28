@@ -143,7 +143,7 @@ const ProgramStudi = () => {
             </div>
           </div>
           <div className="absolute bottom-0 left-0 z-20">
-            <Button text="Daftar Sekarang" bgColor="bg-primary" hoverBgColor="hover:border-3 hover:border-white/50" />
+            <Button text="Daftar Sekarang" bgColor="bg-primary" hoverBgColor="hover:border-3 hover:border-white/50" onClick={()=>window.location.href = `https://registrasi.unpas.ac.id/register`}/>
           </div>
         </motion.div>
 
@@ -187,7 +187,7 @@ const ProgramStudi = () => {
             </div>
           </div>
           <Text text={''} />
-          <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-10'>
+          <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-x divide-y divide-[#E4E4E7]'>
             {unggulan.map((item, index) => (
               <HighlightCard key={index} title={item.title} text={item.description} />
             ))}
