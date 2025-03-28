@@ -191,14 +191,14 @@ const Fasilitas = () => {
             </Motion.div>
 
             <Motion.div
-              className="space-y-4 md:space-y-6 lg:space-y-10 p-[50px]"
+              className="w-full space-y-4 md:space-y-6 lg:space-y-10 lg:p-[50px]"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "0px 0px -100px 0px" }}
               transition={{ duration: 0.6 }}
             >
               <Title sizeMobile="text-xl" title={"Gedung Kampus"} />
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-6">
+              <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-6">
                 {gedungKampus?.map((gedung, index) => (
                   <Motion.div
                     key={index}

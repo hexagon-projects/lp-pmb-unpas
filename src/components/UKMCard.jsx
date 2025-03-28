@@ -39,7 +39,7 @@ const UKMCard = ({ title, text, image, index }) => {
       style={{ willChange: 'transform, opacity' }}
     >
       <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
-      <RichText content={text}/>
+      <RichText content={text} lineclamp={'line-clamp-2 md:line-clamp-none'}/>
 
       <motion.div 
         className="relative w-full h-52 md:h-64 lg:h-72"
