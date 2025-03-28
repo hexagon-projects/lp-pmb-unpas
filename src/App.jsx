@@ -3,6 +3,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import useGoogleAnalytics, { logPageView } from './utils/analitics'
+import MetaPixelListener from './utils/MetaPixelListener'
 
 import Home from './pages/Home'
 import Fakultas from './pages/Fakultas'
@@ -27,6 +28,7 @@ function App() {
     <HelmetProvider>
       <Router>
         {trackingId && <GAListener />}
+        <MetaPixelListener />
         <AnimatedRoutes />
       </Router>
     </HelmetProvider>
@@ -177,7 +179,7 @@ const GAListener = () => {
 
   useEffect(() => {
     logPageView(true);
-    
+
     document.querySelectorAll('iframe[src*="youtube.com"]').forEach(iframe => {
       iframe.src = iframe.src.replace('youtube-nocookie.com', 'youtube.com');
     });
