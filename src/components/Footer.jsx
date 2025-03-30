@@ -74,6 +74,7 @@ const Footer = () => {
                             <a href="/fasilitas" className="text-xs hover:font-bold cursor-pointer">Fasilitas</a>
                             <a href="/mahasiswa-dan-alumni" className="text-xs hover:font-bold cursor-pointer">Mahasiswa & Alumni</a>
                             <a href="/prestasi" className="text-xs hover:font-bold cursor-pointer">Prestasi</a>
+                            <a href="/dukungan" className="text-xs hover:font-bold cursor-pointer">Dukungan</a>
                             <a href="/artikel" className="text-xs hover:font-bold cursor-pointer">Artikel</a>
                             <a href="/mitra" className="text-xs hover:font-bold cursor-pointer">Mitra</a>
                             <a href="/testimoni" className="text-xs hover:font-bold cursor-pointer">Testimoni</a>

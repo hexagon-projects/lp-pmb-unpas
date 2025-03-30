@@ -45,9 +45,8 @@ const VideoSwiper = ({ data = [] }) => {
         videos.map((video, index) => (
             <SwiperSlide key={video.id} className="w-full flex justify-center items-center p-4">
                 <motion.div
-                    className={`w-full relative h-fit rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-300 ease-in-out cursor-pointer group ${
-                        index === realActiveIndex ? "w-[100%] scale-90" : "scale-75"
-                    }`}
+                    className={`w-full relative h-fit rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-300 ease-in-out cursor-pointer group ${index === realActiveIndex ? "w-[100%] scale-90" : "scale-75"
+                        }`}
                     onClick={() => openVideo(video.url)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -119,17 +118,17 @@ const VideoSwiper = ({ data = [] }) => {
         <div className="w-full h-fit space-y-4 md:space-y-6">
             <div className="p-4 md:px-10 lg:px-12 flex justify-between items-center space-y-2">
                 <Title title="Bersama Unpas Membangun Generasi Unggul!" />
-                <SelengkapnyaButton onClick={()=>window.location.href(`/dukungan`)} />
+                <SelengkapnyaButton onClick={() => window.location.href = `/dukungan`} />
             </div>
-            
+
             <Swiper
                 ref={swiperRef}
                 slidesPerView={1.5}
                 spaceBetween={-50}
                 loop={videos.length >= 3}
                 centeredSlides={true}
-                autoplay={{ 
-                    delay: 3000, 
+                autoplay={{
+                    delay: 3000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true
                 }}

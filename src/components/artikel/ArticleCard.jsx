@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { formatDistanceToNow, parseISO, isBefore, subDays, format } from "date-fns";
 import { id } from "date-fns/locale";
 
-const ArticleCard = ({ data, border }) => {
+const ArticleCard = ({ data, border, grid = 'grid grid-cols-1 md:grid-cols-4', visibilty = 'block' }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
     const [displayData, setDisplayData] = useState([]);
 
@@ -39,24 +39,24 @@ const ArticleCard = ({ data, border }) => {
     };
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-[32px] lg:gap-8 md:pb-8">
+        <div className={`${grid} gap-2 md:gap-[32px] lg:gap-8 md:pb-8`}>
             {displayData.map((item) => (
                 <motion.div
-                //     key={item.id}
-                //     className={`xl:w-full cursor-pointer flex flex-col justify-between p-4 md:p-0 bg-white rounded-lg md:rounded-2xl lg:rounded-4xl shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] space-y-3 ${border}`}
-                //     onClick={() => handleClick(item.slug)}
-                //     whileHover={{ scale: 1.05 }}
-                //     transition={{ duration: 0.3 }}
-                // >
-                //     <div className="space-y-3">
-                //         <img
-                //             src={`${imageURL}/posts/${item.image}`}
-                //             alt={item.title}
-                //             className=" w-full h-30 md:h-40 lg:h-52 object-cover rounded-t-lg md:p-6 rounded-lg md:rounded-2xl lg:rounded-4xl"
-                //         />
-                //         <div className="bg-white px-0 md:px-6 md:rounded-b-md space-y-3">
-                //             <h3 className="font-semibold text-xs md:text-sm lg:text-base">{item.title}</h3>
-                //             <RichText lineclamp="line-clamp-2 md:line-clamp-3" sizeText="text-xs md:text-sm" content={item.description} />
+                    //     key={item.id}
+                    //     className={`xl:w-full cursor-pointer flex flex-col justify-between p-4 md:p-0 bg-white rounded-lg md:rounded-2xl lg:rounded-4xl shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] space-y-3 ${border}`}
+                    //     onClick={() => handleClick(item.slug)}
+                    //     whileHover={{ scale: 1.05 }}
+                    //     transition={{ duration: 0.3 }}
+                    // >
+                    //     <div className="space-y-3">
+                    //         <img
+                    //             src={`${imageURL}/posts/${item.image}`}
+                    //             alt={item.title}
+                    //             className=" w-full h-30 md:h-40 lg:h-52 object-cover rounded-t-lg md:p-6 rounded-lg md:rounded-2xl lg:rounded-4xl"
+                    //         />
+                    //         <div className="bg-white px-0 md:px-6 md:rounded-b-md space-y-3">
+                    //             <h3 className="font-semibold text-xs md:text-sm lg:text-base">{item.title}</h3>
+                    //             <RichText lineclamp="line-clamp-2 md:line-clamp-3" sizeText="text-xs md:text-sm" content={item.description} />
                     key={item?.id}
                     className={`article-card xl:w-full cursor-pointer flex flex-col justify-between p-4 md:p-0 bg-white rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] ${border}`}
                     onClick={() => handleClick(item?.slug)}
@@ -73,7 +73,9 @@ const ArticleCard = ({ data, border }) => {
                         <div className="w-1/2 h-full md:w-full bg-white px-0 md:px-4 md:rounded-b-md flex flex-col justify-between">
                             <div className="space-y-3">
                                 <h3 className="font-semibold text-sm md:text-base lg:text-base line-clamp-4">{item?.title}</h3>
-                                <RichText lineclamp="line-clamp-4 md:line-clamp-3" sizeText="text-xs md:text-sm" content={item?.description} />
+                                <div className={`${visibilty}`}>
+                                    <RichText lineclamp="line-clamp-4 md:line-clamp-3" sizeText="text-xs md:text-sm" content={item?.description} />
+                                </div>
                             </div>
                             <div className="md:hidden md:px-4 flex justify-between items-center">
                                 <motion.div

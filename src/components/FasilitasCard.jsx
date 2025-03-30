@@ -1,50 +1,70 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useState, useRef, useEffect } from "react";
 
 const FasilitasCard = ({ image, title, height = 'h-52 md:h-64 lg:h-[60vh]', index }) => {
   const imageURL = import.meta.env.VITE_IMAGE_URL;
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef(null);
+  const observerRef = useRef(null);
 
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 50,
-      scale: 0.95
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: "easeOut"
+  useEffect(() => {
+    if ('IntersectionObserver' in window) {
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !loaded) {
+              const img = new Image();
+              img.src = `${imageURL}/facilities/${image}`;
+              img.onload = () => {
+                if (imgRef.current) {
+                  imgRef.current.src = img.src;
+                  setLoaded(true);
+                }
+              };
+              observerRef.current.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: '200px 0px' }
+      );
+
+      if (imgRef.current) {
+        observerRef.current.observe(imgRef.current.parentElement);
       }
+    } else {
+      const img = new Image();
+      img.src = `${imageURL}/facilities/${image}`;
+      img.onload = () => setLoaded(true);
     }
-  };
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [image, imageURL, loaded]);
 
   return (
-    <motion.div 
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={cardVariants}
-      className={`relative w-full ${height} rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden group`}
-    >
-      <img
-        src={`${imageURL}/facilities/${image}`}
-        alt={title}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        loading="lazy"
-      />
+    <div className={`relative w-full ${height} rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden group`}>
+      <div className="absolute inset-0">
+        {!loaded && (
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-300 animate-pulse"></div>
+        )}
+
+        <img
+          ref={imgRef}
+          alt={title}
+          className={`w-full h-full object-cover transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
 
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#D3C61D]/100 via-[#D3C61D]/10 to-transparent"></div>
 
       <h3 className="absolute bottom-4 left-4 text-white text-sm md:text-base lg:text-lg font-semibold text-left">
         {title}
       </h3>
-    </motion.div>
+    </div>
   );
 };
 

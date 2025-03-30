@@ -52,8 +52,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
   },
   optimizeDeps: {
-    include: ["react", "react-dom"],
-    include: ["react-cookie-consent"],
+    include: ["react", "react-dom", "react-cookie-consent"],
   },
   minify: "esbuild",
   terserOptions: {
