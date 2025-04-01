@@ -130,7 +130,7 @@ const FakultasDetail = () => {
               className={`w-full flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 md:px-8 lg:px-12 relative overflow-hidden fakultas_dtl_box lg:h-[55vh]`}
               style={{ backgroundImage: `url(${fakultas.image1 ? `${imageURL}/fakultas/${fakultas.image1}` : Gedung})` }}
             >
-              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-[#D3C61D]/100 via-[#D3C61D]/10 to-transparentt"></div>
+              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-[#D3C61D]/100 via-[#C5B91B40]/25 to-transparentt"></div>
               <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <defs>
                   <filter id="goo">

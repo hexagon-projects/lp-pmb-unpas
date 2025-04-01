@@ -22,7 +22,7 @@ const Prestasi = () => {
             try {
                 const response = await PrestasiService.getAllPrestasi();
                 setPrestasi(response);
-                // setLoading(false);
+                setLoading(false);
             } catch (error) {
                 console.error(error);
             }

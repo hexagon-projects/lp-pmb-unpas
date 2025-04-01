@@ -165,7 +165,7 @@ const ProgramStudi = () => {
           </div>
           <div className="w-full md:w-fit space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}>
-              <div className="flex flex-col items-center space-y-4 md:space-y-6 lg:space-y-8">
+              <div className="flex flex-col items-start space-y-4 md:space-y-6 lg:space-y-8">
                 <Title title="About" />
                 <RichText content={fakultas.description2} />
               </div>
@@ -178,7 +178,7 @@ const ProgramStudi = () => {
 
         <motion.div className="relative w-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden space-y-4 md:space-y-6 lg:space-y-8">
           <div className='w-full flex justify-center items-center'>
-            <div className="w-full md:w-1/3 lg:w-1/4 xl:w-1/5 flex justify-center items-center text-center gap-2 flex-wrap">
+            <div className="w-full md:w-1/3 lg:w-1/3 xl:w-1/4 flex justify-center items-center text-center gap-2 flex-wrap">
               <Title
                 sizeText="text-base md:text-lg lg:text-2xl"
                 title={`Kenapa Harus Memilih Program Studi ${fakultas?.name?.replace('Fakultas ', '')} Unpas`}

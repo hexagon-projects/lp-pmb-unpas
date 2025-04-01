@@ -1,6 +1,6 @@
 import { FiHome, FiBook, FiCalendar, FiMapPin, FiUsers } from 'react-icons/fi'
 import { Link, useLocation } from 'react-router-dom'
-import Logo from '../assets/logo.png'
+import Logo from '../assets/logo.webp'
 import Button from './Button'
 import { useEffect, useState } from 'react'
 import Union from '../assets/navbar.png'
@@ -77,7 +77,7 @@ const Navbar = ({
         `}
         aria-label="Main navigation"
       >
-        <div className="flex items-center gap-3 md:gap-4 z-1">
+        <div className="flex items-center gap-3 md:gap-4 z-1 cursor-pointer" onClick={()=>window.location.href = '/'}>
           <img 
             src={Logo} 
             alt="Logo Universitas Pasundan" 

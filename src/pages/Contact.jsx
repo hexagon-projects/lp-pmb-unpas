@@ -81,9 +81,10 @@ const Contact = () => {
               />
               <Button
                 text={"Permintaan Konsultan"}
-                bgColor={"bg-black"}
-                hoverBgColor={"hover:bg-black/70"}
-                textColor={"text-white"}
+                bgColor={"bg-transparent"}
+                // hoverBgColor={"hover:bg-black/70"}
+                textColor={"text-black"}
+                border="border border-text"
               />
             </div>
           </div>
@@ -180,12 +181,13 @@ const Contact = () => {
 
         <div type="zoomIn" delay={0.2}>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
-            {fakultas.map((gedung, index) => (
+            {fakultas?.map((gedung, index) => (
               <GedungCard
                 key={index}
                 title={gedung.name}
                 text={gedung.subtitle}
                 mapUrl={gedung.map}
+                imagedb={gedung.image1}
               />
             ))}
           </div>

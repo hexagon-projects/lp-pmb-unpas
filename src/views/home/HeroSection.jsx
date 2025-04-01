@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import { MdOutlineKeyboardArrowRight, MdOutlineKeyboardArrowLeft, MdOutlineBook } from "react-icons/md";
 import { useRef, useState, useEffect, useCallback, memo } from "react";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo.webp";
 import MotionWrapper from "../../components/MotionWrapper";
 import RichText from "../../components/RichText";
 import Button from "../../components/Button";

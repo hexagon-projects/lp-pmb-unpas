@@ -60,8 +60,8 @@ const ArticleContent = ({ title, image, description, slug }) => {
                             </p>
                         </div>
 
-                        <div className="text-sm leading-6 text-neutral-700 w-full">
-                            <p>{description.slice(300)}</p>
+                        <div className="text-sm leading-6 text-neutral-700 w-full line-clamp-[8] overflow-hidden">
+                            <p>{description.slice(300, 750)}</p>
                         </div>
                     </section>
                 </div>

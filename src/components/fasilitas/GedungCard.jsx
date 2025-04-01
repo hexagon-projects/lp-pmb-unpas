@@ -1,6 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 
-const GedungCard = ({ title, text, mapUrl, image, index }) => {
+const GedungCard = ({ title, text, mapUrl, image, imagedb, index }) => {
+    const imageURL = import.meta.env.VITE_IMAGE_URL;
+    const displayImage = image || `${imageURL}/fakultas/${imagedb}`;
+
     return (
         <div
             className="h-full bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl p-8 space-y-3 relative cursor-pointer flex flex-col justify-between items-stretch"
@@ -10,14 +13,14 @@ const GedungCard = ({ title, text, mapUrl, image, index }) => {
             <p className="text-xs md:text-sm">{text}</p>
             <div className="h-40 md:h-[40vh] rounded-lg md:rounded-2xl">
                 <img 
-                    src={image} 
+                    src={displayImage} 
                     alt={title} 
                     className="w-full h-full rounded-lg md:rounded-2xl object-cover"
                     loading="lazy"
                 />
             </div>
             <div
-                className="absolute right-4 bg-transparent p-2 rounded-lg cursor-pointer"
+                className="absolute bg-white bottom-8 right-8 p-2 rounded-lg cursor-pointer"
                 onClick={(e) => {
                     e.stopPropagation();
                     window.open(mapUrl, "_blank");

@@ -115,7 +115,7 @@ const VideoSwiper = ({ data = [] }) => {
     }, [videos.length]);
 
     return (
-        <div className="w-full h-fit space-y-4 md:space-y-6">
+        <div className="w-full h-fit space-y-2 md:space-y-2">
             <div className="p-4 md:px-10 lg:px-12 flex justify-between items-center space-y-2">
                 <Title title="Bersama Unpas Membangun Generasi Unggul!" />
                 <SelengkapnyaButton onClick={() => window.location.href = `/dukungan`} />

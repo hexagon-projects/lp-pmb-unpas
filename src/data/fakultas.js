@@ -6,7 +6,7 @@ export const FACULTIES = [
         { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
         { name: 'S1 - Pendidikan Ekonomi Akuntansi', slug: 'pendidikan-ekonomi-akuntansi' },
         { name: 'S1 - Pendidikan Bahasa', slug: 'pendidikan-bahasa' },
-        { name: 'S1 - Sastra Indonesia dan Daerah', slug: 'sastra-indonesia-daerah' },
+        { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-dan-sastra-indonesia' },
         { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
         { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
         { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' }
@@ -25,10 +25,28 @@ export const FACULTIES = [
       ]
     },
     {
+      name: 'Fakultas Hukum',
+      slug: 'fakultas-hukum',
+      programs: [
+        { name: 'S1 - Ilmu Hukum', slug: 'ilmu-hukum' }
+      ]
+    },
+    {
+      name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
+      slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
+      programs: [
+        { name: 'S1 - Ilmu Administrasi Publik', slug: 'ilmu-administrasi-publik' },
+        { name: 'S1 - Ilmu Kesejahteraan Sosial', slug: 'ilmu-kesejahteraan-sosial' },
+        { name: 'S1 - Ilmu Hubungan Internasional', slug: 'ilmu-hubungan-internasional' },
+        { name: 'S1 - Ilmu Administrasi Bisnis', slug: 'ilmu-administrasi-bisnis' },
+        { name: 'S1 - Ilmu Komunikasi', slug: 'ilmu-komunikasi' }
+      ]
+    },
+    {
       name: 'Program Pasca Sarjana',
       slug: 'program-pasca-sarjana',
       programs: [
-        { name: 'S2 - Magister Ilmu Administrasi & Kebijakan Publik', slug: 'magister-ilmu-administrasi-kebijakan-publik' },
+        { name: 'S2 - Magister Administrasi & Kebijakan Publik', slug: 'magister-administrasi-kebijakan-publik' },
         { name: 'S2 - Magister Manajemen', slug: 'magister-manajemen' },
         { name: 'S2 - Magister Teknik Industri', slug: 'magister-teknik-industri' },
         { name: 'S2 - Magister Ilmu Hukum', slug: 'magister-ilmu-hukum' },
@@ -38,16 +56,8 @@ export const FACULTIES = [
         { name: 'S2 - Magister Akutansi', slug: 'magister-akutansi' },
         { name: 'S2 - Magister Ilmu Komunikasi', slug: 'magister-ilmu-komunikasi' },
         { name: 'S2 - Magister Pendidikan Bahasa Indonesia', slug: 'magister-pendidikan-bahasa-indonesia' },
-        { name: 'S3 - Doktor Ilmu Manajemen', slug: 'doktor-ilmu-manajemen' },
-        { name: 'S3 - Doktor Ilmu Sosial', slug: 'doktor-ilmu-sosial' },
-        { name: 'S3 - Doktor Ilmu Hukum', slug: 'doktor-ilmu-hukum' }
-      ]
-    },
-    {
-      name: 'Fakultas Hukum',
-      slug: 'fakultas-hukum',
-      programs: [
-        { name: 'S1 - Ilmu Hukum', slug: 'ilmu-hukum' }
+        { name: 'S2 - Magister Kenotariatan', slug: 'magister-kenotariatan' },
+        { name: 'S2 - Magister Akutansi', slug: 'magister-akutansi' },
       ]
     },
     {
@@ -56,6 +66,34 @@ export const FACULTIES = [
       programs: [
         { name: 'S1 - Pendidikan Dokter', slug: 'pendidikan-dokter' },
         { name: 'Profesi - Profesi Dokter', slug: 'profesi-dokter' }
+      ]
+    },
+    {
+      name: 'Fakultas Ekonomi dan Bisnis',
+      slug: 'fakultas-ekonomi-dan-bisnis',
+      programs: [
+        { name: 'S1 - Akuntansi', slug: 'akuntansi' },
+        { name: 'S1 - Manajemen', slug: 'manajemen' },
+        { name: 'S1 - Ekonomi Pembangunan', slug: 'ekonomi-pembangunan' }
+      ]
+    },
+    {
+      name: 'Fakultas Ilmu Seni dan Sastra',
+      slug: 'fakultas-ilmu-seni-dan-sastra',
+      programs: [
+        { name: 'S1 - Sastra Inggris', slug: 'sastra-inggris' },
+        { name: 'S1 - Desain Komunikasi Visual', slug: 'desain-komunikasi-visual' },
+        { name: 'S1 - Fotografi dan Film', slug: 'fotografi-dan-film' },
+        { name: 'S1 - Seni Musik', slug: 'seni-musik' }
+      ]
+    },
+    {
+      name: 'Program Doktor',
+      slug: 'program-pasca-sarjana',
+      programs: [
+        { name: 'S3 - Doktor Ilmu Manajemen', slug: 'doktor-ilmu-manajemen' },
+        { name: 'S3 - Doktor Ilmu Sosial', slug: 'doktor-ilmu-sosial' },
+        { name: 'S3 - Doktor Ilmu Hukum', slug: 'doktor-ilmu-hukum' }
       ]
     },
     // {
@@ -70,28 +108,8 @@ export const FACULTIES = [
     //     { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' }
     //   ]
     // },
-    {
-      name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
-      slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
-      programs: [
-        { name: 'S1 - Administrasi Publik', slug: 'administrasi-publik' },
-        { name: 'S1 - Kesejahteraan Sosial', slug: 'kesejahteraan-sosial' },
-        { name: 'S1 - Hubungan Internasional', slug: 'hubungan-internasional' },
-        { name: 'S1 - Ilmu Administrasi Bisnis', slug: 'ilmu-administrasi-bisnis' },
-        { name: 'S1 - Ilmu Komunikasi', slug: 'ilmu-komunikasi' }
-      ]
-    },
-    {
-      name: 'Fakultas Ekonomi dan Bisnis',
-      slug: 'fakultas-ekonomi-dan-bisnis',
-      programs: [
-        { name: 'S1 - Akuntansi', slug: 'akuntansi' },
-        { name: 'S1 - Manajemen', slug: 'manajemen' },
-        { name: 'S1 - Ekonomi Pembangunan', slug: 'ekonomi-pembangunan' }
-      ]
-    },
   ];
   
-  export const FACULTIES1 = FACULTIES.slice(0, 2);
-  export const FACULTIES2 = FACULTIES.slice(2, 4);
-  export const FACULTIES3 = FACULTIES.slice(4, 9);
+  export const FACULTIES1 = FACULTIES.slice(0, 3);
+  export const FACULTIES2 = FACULTIES.slice(3, 5);
+  export const FACULTIES3 = FACULTIES.slice(5, 9);

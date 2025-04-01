@@ -31,7 +31,7 @@ const FakultasCard = ({ image, title, slug }) => {
           onLoad={handleImageLoad}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#D3C61D]/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#C5B91B40]/25 to-transparent" />
       </div>
 
       <div className="absolute bottom-2 w-full flex items-center justify-between p-4">

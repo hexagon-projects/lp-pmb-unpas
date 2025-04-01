@@ -109,7 +109,7 @@ const Artikel = () => {
                         <ArticleContent
                             title={latestBerita.title}
                             image={`${imageURL}/posts/${latestBerita.image}`}
-                            description={stripHtmlTags(latestBerita.description)}
+                            description={stripHtmlTags(latestBerita.content)}
                             slug={latestBerita.slug}
                         />
                     </div>

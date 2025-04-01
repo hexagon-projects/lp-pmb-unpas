@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import Title from "./Title";
 import Text from "./Text";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo.webp";
 import LogoOutline from "../assets/logo-outline1.png";
 import Loading from "./Loading";
 import FakultasService from "../fetching/fakultas";
