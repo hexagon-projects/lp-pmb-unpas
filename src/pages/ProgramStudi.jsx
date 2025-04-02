@@ -98,6 +98,7 @@ const ProgramStudi = () => {
   const latestBerita = berita.slice(0, 4)
   const latestActivity = gallery
   const fakultas = prodi?.departement || {}
+  const test = prodi?.test || {}
   const unggulan = prodi?.unggulan?.slice(0, 4) || []
   const ourteam = prodi?.ourteam || []
   const fasilitas = prodi?.fasilitas || []
@@ -133,10 +134,31 @@ const ProgramStudi = () => {
                   </filter>
                 </defs>
               </svg>
-              <div className="relative z-10 w-full md:w-1/2 mx-auto text-center h-[40vh] flex flex-col justify-center items-start gap-4">
-                <Title color="text-white mx-auto" title={`Selamat Datang`} />
-                <Title color="text-white mx-auto" title={`di Program Studi ${fakultas.name}`} />
-                <RichText textColor="text-white" lineclamp="line-clamp-4 md:line-clamp-5 lg:line-clamp-8" content={fakultas.description1} />
+              <div className="relative z-10 w-full md:w-1/2 h-[40vh] flex flex-col justify-center items-start gap-4">
+                <Title color="text-white" title={`Selamat Datang`} />
+                <Title color="text-white" title={`di Program Studi ${fakultas.name}`} />
+                <nav class="flex text-white text-sm" aria-label="Breadcrumb">
+                  <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li>
+                      <a href="/" class="flex items-center text-white">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7m-9 5v6m4-6v6m5-10l2 2"></path>
+                        </svg>
+                        Beranda
+                      </a>
+                    </li>
+                    <li>
+                      <span class="mx-2 text-white">/</span>
+                    </li>
+                    <li>
+                      <a href={`/fakultas/${test.fakultas_slug}`} class="text-white">{test.fakultas_name}</a>
+                    </li>
+                    <li>
+                      <span class="mx-2 text-white">/</span>
+                    </li>
+                    <li class="text-white font-medium">{fakultas.name}</li>
+                  </ol>
+                </nav>
               </div>
               <div className="absolute top-4 left-4 z-10">
                 <LogoText titleColor="text-white" />

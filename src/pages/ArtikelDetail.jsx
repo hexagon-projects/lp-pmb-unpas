@@ -109,7 +109,9 @@ const ArtikelDetail = () => {
           <p 
             dangerouslySetInnerHTML={{ __html: artikel.content }} 
             style={{ 
-              textAlign: 'justify' 
+              textAlign: 'justify',
+              marginBottom: '20px',
+              marginTop: '20px',
             }}
           />
           
