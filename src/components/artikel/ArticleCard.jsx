@@ -12,7 +12,7 @@ const ArticleCard = ({ data, border, grid = 'grid grid-cols-1 md:grid-cols-4', v
     useEffect(() => {
         const updateDisplayData = () => {
             if (window.innerWidth > 1280) {
-                setDisplayData(data.slice(0, 4));
+                setDisplayData(data.slice(0, 10));
             } else {
                 setDisplayData(data.slice(0, 3));
             }
