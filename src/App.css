@@ -378,6 +378,12 @@ body {
     }
 }
 
+.rainbow-border::before,
+.rainbow-border::after {
+    pointer-events: none;
+}
+
+
 /* .rainbow-border {
     box-shadow: 0 10px 60px rgba(254, 242, 81, 0.1), 
                 0 10px 60px rgba(201, 56, 41, 0.1), 
@@ -695,9 +701,9 @@ body {
     .prodi_box{
         clip-path: polygon(0% 80%, 50% 80%, 55% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    /* .iframe_hero{
-        transform: scale(4.5);
-    } */
+    .iframe_hero{
+        transform: scale(1.2);
+    }
 }
 
 @media (max-width: 395px) {
@@ -719,9 +725,9 @@ body {
     .prodi_box{
         clip-path: polygon(0% 80%, 55% 80%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    /* .iframe_hero{
-        transform: scale(4.5);
-    } */
+    .iframe_hero{
+        transform: scale(1.2);
+    }
 }
 
 @media (max-width: 384px) {
@@ -761,9 +767,9 @@ body {
     .testi_box {
         clip-path: polygon(66% 0%, 66% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
-    /* .iframe_hero{
-        transform: scale(5.0);
-    } */
+    .iframe_hero{
+        transform: scale(1.2);
+    }
     .prodi_box{
         clip-path: polygon(0% 80%, 65% 80%, 70% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }

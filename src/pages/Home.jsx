@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import UserLayout from "./layouts/UserLayout";
-import Section3 from "../assets/home/section2.png";
+import Section3 from "../assets/gedung.jpeg";
 import StatsSection from "../components/StatsSection";
 import CTASection from "../components/CTASection";
 import VideoSwiper from "../components/home/VideoSwiper";
@@ -55,7 +55,7 @@ const Home = () => {
     keywords: "Universitas Pasundan, Unpas, Kampus Bandung, Program Studi, Pendaftaran Mahasiswa, Fakultas Unpas",
     ogTitle: "Universitas Pasundan - Kampus Unggulan di Bandung",
     ogDescription: "Universitas Pasundan (Unpas) adalah kampus unggulan di Bandung yang menawarkan program studi lengkap, fasilitas modern, dan kerjasama dengan industri.",
-    ogImage: "https://pmb.unpas.ac.id/logo-unpas.png",
+    ogImage: "https://pmb.unpas.ac.id/logo.webp",
     ogUrl: "https://pmb.unpas.ac.id"
   }), []);
 
@@ -216,7 +216,7 @@ const Home = () => {
             <MemoizedCTASection />
           </div>
           <div className="absolute inset-0 w-full h-full">
-            <MemoizedInteractiveGrid />
+            {/* <MemoizedInteractiveGrid /> */}
           </div>
         </div>
       </div>

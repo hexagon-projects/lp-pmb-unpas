@@ -24,10 +24,8 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
         if (tableRef.current) {
             setTableHeight(tableRef.current.clientHeight);
         }
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+    
+        return () => window.removeEventListener('resize', handleResize);
     }, [prestasi]);
 
     const getSwiperHeight = () => {
@@ -37,14 +35,17 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
         return `${tableHeight / 2 - 32}px`;
     };
 
+    const isMobileOrTablet = windowWidth < 1024;
+    const displayedPrestasi = isMobileOrTablet ? prestasi.slice(0, 5) : prestasi;
+
     return (
         <MotionWrapper className={'w-full flex flex-col gap-4 md:gap-6 lg:gap-10 p-4 md:px-10 lg:px-12'}>
             <div className="text-center">
                 <Text sizeText="text-base md:text-lg lg:text-2xl" text={'Universitas Pasundan'} color="text-red-500" weight={'font-bold'} />
                 <Title title={'Kegiatan dan Prestasi Mahasiswa'} />
             </div>
-            <div className="w-full flex flex-col-reverse md:flex-row-reverse md:justify-evenly items-center gap-4">
-                <div className="w-full md:max-w-1/2 overflow-x-auto" ref={tableRef}>
+            <div className="w-full flex flex-col-reverse lg:flex-row-reverse md:justify-evenly items-center gap-4">
+                <div className="w-full lg:max-w-1/2 overflow-x-auto" ref={tableRef}>
                     <table className="text-xs md:text-sm lg:text-base min-w-full">
                         <thead>
                             <tr className="text-gray-700">
@@ -52,7 +53,7 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {prestasi.map((item, index) => (
+                            {displayedPrestasi.map((item, index) => (
                                 <tr key={item.id} className="hover:bg-gray-50 border-t border-gray-200">
                                     <td className="text-xs md:text-sm py-3 px-5">{item.title}</td>
                                 </tr>
@@ -63,27 +64,28 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                         <Button text={'Selengkapnya'} bgColor={'bg-primary'} textColor={'text-black'} onClick={() => window.location.href = '/prestasi'} />
                     </div>
                 </div>
-                <div className="w-full md:max-w-1/2 flex flex-col gap-4" style={{ height: windowWidth >= 768 ? tableHeight : 'auto' }}>
+                <div className="w-full lg:max-w-1/2 flex flex-col items-center justify-center gap-4" style={{ height: windowWidth >= 768 ? tableHeight : 'auto' }}>
                     <Swiper
                         modules={[Navigation, Pagination, Autoplay]}
                         spaceBetween={16}
-                        slidesPerView={1.2}
+                        slidesPerView={1.3}
                         autoplay={{ delay: 2000 }}
+                        loop={true}
                         breakpoints={{
                             640: {
-                                slidesPerView: 1.2,
+                                slidesPerView: 1.3,
                             },
                             768: {
-                                slidesPerView: 1.3,
+                                slidesPerView: 1.5,
                             },
                             1024: {
-                                slidesPerView: 1.3,
+                                slidesPerView: 1.5,
                             },
                         }}
                         style={{ height: getSwiperHeight() }}
                         className="w-full"
                     >
-                        {prestasi.map((item) => (
+                        {displayedPrestasi.map((item) => (
                             <SwiperSlide key={item.id}>
                                 <div className="relative w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden">
                                     <img
@@ -104,23 +106,24 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                     <Swiper
                         modules={[Navigation, Pagination, Autoplay]}
                         spaceBetween={16}
-                        slidesPerView={1}
+                        slidesPerView={1.3}
                         autoplay={{ delay: 2000, reverseDirection: true }}
+                        loop={true}
                         breakpoints={{
                             640: {
-                                slidesPerView: 1,
+                                slidesPerView: 1.3,
                             },
                             768: {
-                                slidesPerView: 1.3,
+                                slidesPerView: 1.5,
                             },
                             1024: {
-                                slidesPerView: 1.3,
+                                slidesPerView: 1.5,
                             },
                         }}
                         style={{ height: getSwiperHeight() }}
                         className="w-full"
                     >
-                        {prestasi.map((item) => (
+                        {displayedPrestasi.map((item) => (
                             <SwiperSlide key={item.id}>
                                 <div className="relative w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden">
                                     <img

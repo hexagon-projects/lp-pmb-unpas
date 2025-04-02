@@ -72,7 +72,6 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
                         alt="Gedung Universitas"
                         className="w-full h-[40vh] lg:h-[50vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
                         width="100%"
-                        height="100%"
                     />
                 </div>
             </SwiperSlide>

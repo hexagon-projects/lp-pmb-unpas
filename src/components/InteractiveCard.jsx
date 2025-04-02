@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 
-export default function InteractiveGrid() {
+export default function InteractiveCard() {
   const gridSize = 50;
+  const cellSize = 20;
   const [visibleCells, setVisibleCells] = useState([]);
 
   useEffect(() => {
@@ -10,17 +11,27 @@ export default function InteractiveGrid() {
   }, []);
 
   return (
-    <div className="w-full h-full grid grid-cols-10 md:grid-cols-20 lg:grid-cols-50">
-      {visibleCells.map((index) => (
-        <div
-          key={index}
-          className="border border-gray-200/20 transition-all hover:bg-primary/50 bg-transparent"
-          style={{
-            width: "20px", 
-            height: "20px",
-          }}
-        ></div>
-      ))}
-    </div>
+    <svg 
+      className="w-full h-screen"
+      viewBox={`0 0 ${gridSize * cellSize} ${gridSize * cellSize}`} 
+      preserveAspectRatio="xMidYMid meet"
+    >
+      {visibleCells.map((index) => {
+        const x = (index % gridSize) * cellSize;
+        const y = Math.floor(index / gridSize) * cellSize;
+        return (
+          <rect
+            key={index}
+            x={x}
+            y={y}
+            width={cellSize}
+            height={cellSize}
+            fill="transparent"
+            stroke="rgba(200, 200, 200, 0.2)"
+            className="transition-all hover:fill-primary/50"
+          />
+        );
+      })}
+    </svg>
   );
 }

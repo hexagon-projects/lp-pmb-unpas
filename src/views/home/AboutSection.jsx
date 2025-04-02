@@ -51,7 +51,7 @@ const AboutSection = ({ data = {} }) => {
                 <iframe
                     width="100%"
                     height="100%"
-                    src={`https://www.youtube-nocookie.com/embed/${playingVideo}?autoplay=1`}
+                    src={`https://www.youtube-nocookie.com/embed/${playingVideo}?autoplay=0`}
                     title="About University Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

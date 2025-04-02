@@ -11,8 +11,8 @@ const DosenCard = ({ name, title, image }) => {
                 <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#D3C61D]/100 via-[#C5B91B40]/25 to-transparent"></div>
 
                 <div className="w-[80%] p-4 md:p-6 h-full flex flex-col items-start justify-end gap-2 relative z-10">
-                    <ArticleTitle color="text-white" title={title} />
-                    <Text color="text-white" text={name} />
+                    <ArticleTitle color="text-white" title={name} />
+                    <Text color="text-white" text={title} />
                 </div>
             </div>
 

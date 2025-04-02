@@ -2,37 +2,31 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import compression from "vite-plugin-compression";
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
-  theme: {
-    extend: {
-      animation: {
-        'spin-slow': 'spin 3s linear infinite',
-      },
-      keyframes: {
-        spin: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' }
-        }
-      }
-    },
-  },
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: [],
+      },
+    }),
     tailwindcss(),
+    compression({
+      algorithm: "gzip",
+      ext: ".gz",
+      threshold: 1024,
+    }),
     compression({
       algorithm: "brotliCompress",
       ext: ".br",
       threshold: 1024,
-    })[
-      ("transform-imports",
-      {
-        "react-icons": {
-          transform: "react-icons/${member}",
-          preventFullImport: true,
-        },
-      })
-    ],
+    }),
+    visualizer({
+      open: false,
+      gzipSize: true,
+      brotliSize: true,
+    }),
   ],
   define: {
     "process.env": {},
@@ -44,20 +38,31 @@ export default defineConfig({
           if (id.includes("node_modules")) {
             if (id.includes("react-icons")) return "vendor-icons";
             if (id.includes("swiper")) return "vendor-swiper";
+            if (id.includes("lodash")) return "vendor-lodash";
+            if (id.includes("axios")) return "vendor-axios";
             return "vendor";
           }
         },
+        hoistTransitiveImports: false,
       },
     },
     chunkSizeWarningLimit: 1000,
+    cssCodeSplit: true,
+    minify: "esbuild",
+    target: "esnext",
   },
   optimizeDeps: {
-    include: ["react", "react-dom", "react-cookie-consent"],
+    include: ["react", "react-dom", "react-cookie-consent", "axios"],
+    exclude: ["swiper"],
   },
-  minify: "esbuild",
-  terserOptions: {
-    compress: {
-      drop_console: true,
+  esbuild: {
+    drop: ["console", "debugger"],
+    target: "es2020",
+  },
+  css: {
+    devSourcemap: true,
+    modules: {
+      localsConvention: "camelCase",
     },
   },
 });

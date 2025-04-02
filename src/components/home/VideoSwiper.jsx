@@ -20,7 +20,7 @@ const VideoSwiper = ({ data = [] }) => {
         data.map((item) => ({
             id: item.id.toString(),
             title: item.title,
-            url: `https://www.youtube-nocookie.com/embed/${item.id_yt}?autoplay=1`,
+            url: `https://www.youtube-nocookie.com/embed/${item.id_yt}?autoplay=0`,
             image: `${imageURL}/dukungans/${item.image}`
         }))
     ), [data, imageURL]);
@@ -116,8 +116,11 @@ const VideoSwiper = ({ data = [] }) => {
 
     return (
         <div className="w-full h-fit space-y-2 md:space-y-2">
-            <div className="p-4 md:px-10 lg:px-12 flex justify-between items-center space-y-2">
-                <Title title="Bersama Unpas Membangun Generasi Unggul!" />
+            <div className="w-full p-4 md:px-10 lg:px-20 flex justify-between items-center space-y-2">
+                <div className="flex flex-col gap-2">
+                    <Title sizeText="text-sm md:text-2xl lg:text-[32px]" title="Bersama Unpas Membangun Generasi Unggul!" />
+                    <p className="text-sm md:text-base lg:text-lg text-gray-800">Dukungan nyata dari <i>akademisi, profesional, dan pemimpin bangsa!</i></p>
+                </div>
                 <SelengkapnyaButton onClick={() => window.location.href = `/dukungan`} />
             </div>
 

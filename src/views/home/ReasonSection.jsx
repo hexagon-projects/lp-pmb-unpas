@@ -14,14 +14,14 @@ const ReasonSection = ({ data = [] }) => {
 
     const dropdownItems = useMemo(() => (
         data.map((item) => (
-            <div key={item.id} className="w-full">
-                <div className={`bg-[#F0F0F0] border border-white w-full flex flex-col justify-between items-start shadow-md rounded-xl md:rounded-2xl overflow-hidden cursor-pointer ${openDropdown === item.id ? "rounded-b-none" : "" }`}>
+            <div key={item.id} className="w-full lg:w-[30%]">
+                <div className={`bg-[#F0F0F0] border border-white w-full flex flex-col justify-between items-start shadow-black/5 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl overflow-hidden cursor-pointer ${openDropdown === item.id ? "rounded-b-none" : "" }`}>
                     <button
                         className="w-full flex justify-between items-center px-4 py-4 md:py-5 text-left"
                         onClick={() => toggleDropdown(item.id)}
                         aria-expanded={openDropdown === item.id}
                     >
-                        <div className="w-[90%]">
+                        <div className="w-[90%] h-10 flex items-center">
                             <Text
                                 sizeText="text-xs md:text-sm lg:text-sm"
                                 weight="font-semibold"
@@ -63,9 +63,9 @@ const ReasonSection = ({ data = [] }) => {
     return (
         <div className="w-full flex flex-col justify-center items-center text-center p-4 md:pt-8 lg:pt-10 md:px-8 lg:px-10 space-y-4 md:space-y-6 lg:space-y-8">
             <div className="md:w-[80%] xl:w-[65%]">
-                <Title title="Alasan Memilih Universitas Pasundan (UNPAS)" />
+                <Title title={`${data?.length} Alasan Memilih Universitas Pasundan (UNPAS)`} />
             </div>
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+            <div className="w-full flex flex-wrap justify-center items-center gap-3 md:gap-4">
                 {dropdownItems}
             </div>
         </div>

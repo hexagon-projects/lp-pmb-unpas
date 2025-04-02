@@ -9,7 +9,7 @@ const SelengkapnyaButton = ({ onClick, color = "text-text" }) => {
             className="w-fit relative group cursor-pointer p-2"
             onClick={onClick}
         >
-            <Text text={"Selengkapnya"} color={color} weight={"font-semibold"} />
+            <Text sizeText="text-sm md:text-base lg:text-lg" text={"Selengkapnya"} color={color} weight={"font-semibold"} />
             <motion.div
                 className="absolute left-0 bottom-0 h-[2px] z-10000 bg-text pointer-events-none"
                 initial={{ width: "0%" }}

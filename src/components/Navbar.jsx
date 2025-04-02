@@ -81,7 +81,7 @@ const Navbar = ({
           <img 
             src={Logo} 
             alt="Logo Universitas Pasundan" 
-            className="w-10 h-10 md:w-12 md:h-12" 
+            className="w-10 h-10 md:w-12 md:h-12 object-cover" 
             loading="lazy" 
             width="48"
             height="48"

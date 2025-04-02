@@ -59,7 +59,7 @@ const VideoGrid = ({ videos = [], visibleVideos }) => {
       videos.map((item) => ({
         id: item.id.toString(),
         title: item.title,
-        url: `https://www.youtube-nocookie.com/embed/${item.id_yt}?autoplay=1`,
+        url: `https://www.youtube-nocookie.com/embed/${item.id_yt}?autoplay=0`,
         image: `${imageURL}/dukungans/${item.image}`,
       })),
     [videos, imageURL]
