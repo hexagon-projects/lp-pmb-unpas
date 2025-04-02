@@ -93,28 +93,57 @@ const ArtikelDetail = () => {
               </div>
             )}
 
-            <div
-              className="w-full"
-              style={{
-                whiteSpace: 'pre-line', // Menjaga format spasi dan line breaks
-                wordBreak: 'break-word', // Memecah kata yang terlalu panjang agar tidak keluar dari kontainer
-                overflowWrap: 'break-word', // Menjamin kata-kata panjang yang tidak bisa dipotong akan dibungkus
-                lineHeight: '1.6', // Mengatur jarak antar baris teks untuk kenyamanan membaca
-                fontSize: '16px', // Ukuran font agar teks mudah dibaca
-                color: '#2D3748', // Warna teks default, bisa disesuaikan
-                padding: '16px', // Memberikan padding sekitar teks
-                textAlign: 'justify',
-              }}
-            >
-              <p dangerouslySetInnerHTML={{ __html: artikel.content }} />
-            </div>
+        <div
+          className="w-full"
+          style={{
+            whiteSpace: 'pre-line', 
+            wordBreak: 'break-word', 
+            overflowWrap: 'break-word',
+            lineHeight: '1.6', 
+            fontSize: '16px', 
+            color: '#2D3748', 
+            padding: '16px', 
+            textAlign: 'justify',
+          }}
+        >
+          <p 
+            dangerouslySetInnerHTML={{ __html: artikel.content }} 
+            style={{ 
+              textAlign: 'justify' 
+            }}
+          />
+          
+          {/* Tambahkan CSS tambahan untuk link dan list */}
+          <style>
+            {`
+              p a {
+                color: #c73929 !important; /* Warna link */
+                text-decoration: none; /* Hilangkan underline */
+              }
+              p a:hover {
+                text-decoration: underline; /* Tambahkan underline saat hover */
+              }
+              ol {
+                list-style-type: decimal; /* Pastikan angka muncul di ol */
+                margin-left: 20px;
+              }
+              ul {
+                list-style-type: disc; /* Pastikan bullet muncul di ul */
+                margin-left: 20px;
+              }
+            `}
+          </style>
+        </div>
+
 
             {/* Sosmed  */}
 
             <div className="w-fit flex flex-col justify-between items-start gap-6 md:gap-10 lg:gap-10">
               <div className="space-y-2">
-                <Text text={artikel.pub_date} />
-                <Text text="Politik" />
+              <Text text={new Date(artikel.pub_date).toLocaleDateString('id-ID', {
+                year: 'numeric', month: 'long', day: 'numeric'
+              })} />
+                <Text text={artikel.category.name} />
               </div>
               <div className="flex items-center gap-2 py-3">
                 <Text text="Bagikan" />
