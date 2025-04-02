@@ -119,10 +119,13 @@ const ProgramStudi = () => {
       <div className="p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20">
         <motion.div className="relative" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="w-full prodi_container">
-            <div
-              className="flex flex-col justify-center bg-cover bg-no-repeat rounded-xl md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-8 relative overflow-hidden space-y-3 h-fit lg:h-[55vh] prodi_box"
-              style={{ backgroundImage: `url(${fakultas.image1 ? `${imageURL}/programs/${fakultas.image1}` : Gedung})` }}
-            >
+          <div
+            className="flex flex-col justify-center bg-cover bg-no-repeat rounded-xl md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-8 relative overflow-hidden space-y-3 h-fit lg:h-[55vh] prodi_box md:mt-10"
+            style={{ 
+              backgroundImage: `url(${fakultas.image1 ? `${imageURL}/programs/${fakultas.image1}` : Gedung})`,
+              backgroundPosition: "center",
+            }}
+>
               <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/40 to-transparent"></div>
               <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <defs>
@@ -133,9 +136,10 @@ const ProgramStudi = () => {
                   </filter>
                 </defs>
               </svg>
-              <div className="relative z-10 w-full h-[40vh] flex flex-col justify-center items-start gap-4">
-                <Title color="text-white" title={`Selamat Datang di Program Studi ${fakultas.name}`} />
-                {/* <RichText textColor="text-white" lineclamp="line-clamp-4 md:line-clamp-5 lg:line-clamp-8" content={fakultas.description1} /> */}
+              <div className="relative z-10 w-full md:w-1/2 mx-auto text-center h-[40vh] flex flex-col justify-center items-start gap-4">
+                <Title color="text-white mx-auto" title={`Selamat Datang`} />
+                <Title color="text-white mx-auto" title={`di Program Studi ${fakultas.name}`} />
+                <RichText textColor="text-white" lineclamp="line-clamp-4 md:line-clamp-5 lg:line-clamp-8" content={fakultas.description1} />
               </div>
               <div className="absolute top-4 left-4 z-10">
                 <LogoText titleColor="text-white" />
@@ -189,7 +193,7 @@ const ProgramStudi = () => {
           <Text text={''} />
           <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-x divide-y divide-[#E4E4E7]'>
             {unggulan.map((item, index) => (
-              <HighlightCard key={index} title={item.title} text={item.description} />
+              <HighlightCard key={index} title={item.title} text={item.description} image={item.image} />
             ))}
           </div>
         </motion.div>
