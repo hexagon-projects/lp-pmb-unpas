@@ -12,7 +12,7 @@ const ArticleCard = ({ data, border, grid = 'grid grid-cols-1 md:grid-cols-4', v
     useEffect(() => {
         const updateDisplayData = () => {
             if (window.innerWidth > 1280) {
-                setDisplayData(data.slice(0, 4));
+                setDisplayData(data.slice(0, 12));
             } else {
                 setDisplayData(data.slice(0, 3));
             }
@@ -95,9 +95,10 @@ const ArticleCard = ({ data, border, grid = 'grid grid-cols-1 md:grid-cols-4', v
                                         <FaArrowRight size={16} />
                                     </motion.span>
                                 </motion.div>
-                                <p className="text-gray-700 font-semibold text-xs md:text-xs hidden">
+                                {/* <p className="text-gray-700 font-semibold text-xs md:text-xs hidden">
                                     {formatDate(item?.pub_date)}
-                                </p>
+                                </p> */}
+                                <p className="text-gray-700 font-semibold text-xs md:text-xs bg-amber-100 px-2 py-1 rounded-full">{item?.category.name}</p>
                             </div>
                         </div>
                     </div>
@@ -119,9 +120,10 @@ const ArticleCard = ({ data, border, grid = 'grid grid-cols-1 md:grid-cols-4', v
                                 <FaArrowRight size={16} />
                             </motion.span>
                         </motion.div>
-                        <p className="text-gray-700 font-semibold text-xs md:text-xs">
+                        {/* <p className="text-gray-700 font-semibold text-xs md:text-xs">
                             {formatDate(item?.pub_date)}
-                        </p>
+                        </p> */}
+                        <p className="text-gray-700 font-semibold text-xs md:text-xs bg-amber-100 px-2 py-1 rounded-full">{item?.category.name}</p>
                     </div>
                 </motion.div>
             ))}
