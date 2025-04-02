@@ -99,6 +99,7 @@ const ProgramStudi = () => {
   const latestActivity = gallery
   const fakultas = prodi?.departement || {}
   const test = prodi?.test || {}
+  const dekan = prodi?.dekan || {}
   const unggulan = prodi?.unggulan?.slice(0, 4) || []
   const ourteam = prodi?.ourteam || []
   const fasilitas = prodi?.fasilitas || []
@@ -170,14 +171,10 @@ const ProgramStudi = () => {
           </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
-          <StatsSection colorIcon="text-blue-500" title1="Karya Ilmiah" prodi={fakultas.periode} mahasiswa={fakultas.age} lulusan={fakultas.weekly} prestasi={fakultas.class_size} />
-        </motion.div>
-
         <motion.div className="w-full flex flex-col lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
           <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
             <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
-              <img src={`https://img.youtube.com/vi/${fakultas.id_yt}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
+              <img src={`${imageURL}/programs/${fakultas.image2}`} alt="Thumbnail Video" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
               <motion.div className="absolute inset-0 flex justify-center items-center rounded-xl md:rounded-2xl lg:rounded-4xl" whileTap={{ scale: 0.9 }}>
                 <div className="p-2 group-hover:scale-110 bg-gray-700 rounded-full">
@@ -189,12 +186,59 @@ const ProgramStudi = () => {
           <div className="w-full md:w-fit space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}>
               <div className="flex flex-col items-start space-y-4 md:space-y-6 lg:space-y-8">
-                <Title title="About" />
-                <RichText content={fakultas.description2} />
+                <Title title={fakultas.title1} />
+                <RichText content={fakultas.description1} />
+                <div className="flex gap-3">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1 }}>
+                  <Button text="Tonton Vidio" bgColor="bg-[#034833] text-white" hoverBgColor="hover:border-3 hover:border-white/50" onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+                </motion.div>
+                
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1 }}>
+                  <Button text="Daftar Sekarang" bgColor="bg-primary" hoverBgColor="hover:border-3 hover:border-white/50" onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+                </motion.div>
+                </div>
+                <div className="flex gap-5 bg-gray-300 p-3 rounded-xl items-center shadow-2xs">
+                  <img src={`${imageURL}/ourteams/${dekan.image}`} alt={dekan.image} className='rounded-full w-16 h-16' />
+                  <div className="flex flex-col gap-1">
+                    <h1 className="font-sora text-lg font-bold text-gray-900">{dekan.name}</h1>
+                    <span className='font-sora text-sm text-gray-900'>{dekan.title}</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
+          <StatsSection colorIcon="text-blue-500" title1="Karya Ilmiah" prodi={fakultas.periode} mahasiswa={fakultas.age} lulusan={fakultas.weekly} prestasi={fakultas.class_size} />
+        </motion.div>
+
+        <motion.div className="w-full flex flex-col lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
+          <div className="w-3/4 flex justify-center">
+            <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
+              <img src={`https://img.youtube.com/vi/${fakultas.id_yt}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+              <motion.div className="absolute inset-0 flex justify-center items-center rounded-xl md:rounded-2xl lg:rounded-4xl" whileTap={{ scale: 0.9 }}>
+                <div className="p-2 group-hover:scale-110 bg-gray-700 rounded-full">
+                  <FaPlay className="text-white p-4 w-14 h-14" />
+                </div>
+              </motion.div>
+            </button>
+          </div>
+        </motion.div>
+        
+        <motion.div className="w-full flex flex-col lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
+          <div className="w-full md:w-3/4 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center gap-4 items-start text-justify md:items-start md:text-left">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}>
+              <div className="flex flex-col items-start space-y-4 md:space-y-6 lg:space-y-8">
+                <Title fontWeight="font-bold mx-auto" title={fakultas.title1} />
+                <RichText textColor="" content={fakultas.description2} />
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1 }}>
-              <Button text="Daftar Sekarang" bgColor="bg-primary" hoverBgColor="hover:border-3 hover:border-white/50" onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+              <div className="flex items-center justify-center">
+              <Button text="Daftar Sekarang" bgColor="bg-primary mx-auto" hoverBgColor="hover:border-3 hover:border-white/50" onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+              </div>
             </motion.div>
           </div>
         </motion.div>
