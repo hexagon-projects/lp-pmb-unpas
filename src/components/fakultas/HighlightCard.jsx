@@ -70,4 +70,5 @@ const HighlightCard = ({ title, text, image }) => {
     );
 };
 
+
 export default HighlightCard;
