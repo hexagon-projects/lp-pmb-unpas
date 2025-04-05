@@ -43,11 +43,12 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
                 <Button
                     paddingMobile="py-2 px-4"
                     text={'Selengkapnya'}
-                    bgColor={'bg-gray-500'}
-                    hoverColor={'hover:bg-gray-700'}
-                    textColor={'text-white'}
+                    bgColor={'bg-transparent'}
+                    // hoverColor={'hover:bg-gray-700'}
+                    textColor={'text-black'}
                     onClick={onClick}
-                    hoverBgColor={'hover:border-3 hover:border-white/50'}
+                    border='border-2 border-footer'
+                    hoverBgColor={'hover:border-2 hover:border-footer'}
                 />
             </div>
         </div>

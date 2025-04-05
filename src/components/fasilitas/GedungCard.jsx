@@ -19,7 +19,7 @@ const GedungCard = ({ title, text, mapUrl, image, imagedb, index }) => {
                     loading="lazy"
                 />
                 <div
-                    className="absolute bg-white bottom-0 right-0 p-2 rounded-lg cursor-pointer"
+                    className="absolute bg-white bottom-2 right-2 p-2 rounded-lg cursor-pointer"
                     onClick={(e) => {
                         e.stopPropagation();
                         window.open(mapUrl, "_blank");

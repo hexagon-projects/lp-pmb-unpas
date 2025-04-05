@@ -156,7 +156,7 @@ const FakultasDetail = () => {
           </div>
         </motion.div>
 
-        <motion.div className="flex flex-wrap flex-row justify-center gap-4 md:gap-6 lg:gap-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
+        <motion.div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
           {prodi.map((item, index) => (
             <div key={index}>
               <TeknikBox image={`${imageURL}/programs/${item.image1}`} title={item.program_name} slug={item.slug} />

@@ -106,13 +106,13 @@ const Fasilitas = () => {
             )}
           </div>
 
-          <div className="flex justify-between items-center gap-4">
-            <div className="w-[50%]">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="w-full md:w-[50%]">
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold whitespace-none break-words text-gray-500">
                 Fasilitas
               </h2>
             </div>
-            <div className="w-[50%]">
+            <div className="w-full md:w-[50%]">
               <p className="text-sm md:text-base lg:text-lg break-words">
                 Fasilitas pendukung kami dirancang untuk memberikan
                 kenyamanan, kemudahan, dan efisiensi dalam setiap aktivitas{" "}

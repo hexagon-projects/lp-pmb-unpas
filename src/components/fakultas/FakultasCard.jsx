@@ -34,7 +34,7 @@ const FakultasCard = ({ image, title, slug }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#C5B91B40]/25 to-transparent" />
       </div>
 
-      <div className="absolute bottom-2 w-full flex items-center justify-between p-4">
+      <div className="absolute bottom-2 w-full flex items-end justify-between p-4">
         <h3 className="text-white text-2xl w-[140px] lg:w-[75%] font-semibold">
           {title}
         </h3>
