@@ -26,7 +26,7 @@ const MitraSection = ({ data }) => {
       <div className="w-full flex flex-col justify-center items-center text-center space-y-3">
         <Title title="Mitra Unpas" />
         <div className="w-2/3 md:w-1/3 xl:w-1/4">
-          <Text sizeMobile="text-sm md:text-xl lg:text-2xl" text={'Lebih dari 100+ mitra kerja sama antar perguruan tinggi.'} />
+          <Text sizeText="text-sm md:text-base lg:text-xl" text={'Lebih dari 100+ mitra kerja sama antar perguruan tinggi.'} />
         </div>
       </div>
 

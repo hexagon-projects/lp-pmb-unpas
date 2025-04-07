@@ -5,7 +5,7 @@ import Title from '../../components/Title'
 
 const FakultasSection = ({ faculties, faculties1, faculties2, faculties3 }) => {
   return (
-    <div className="flex flex-col gap-4 md:gap-6 lg:gap-10 md:px-10 lg:px-12">
+    <div className="flex flex-col gap-4 md:gap-6 lg:gap-10 md:px-10 lg:px-12 md:py-16 lg:py-20">
       <div className="text-center p-4 md:px-10 lg:px-12">
         <Text sizeText="text-base md:text-lg lg:text-2xl" text="Universitas Pasundan" color="text-text" weight="font-bold" />
         <Title title="Fakultas dan Program Studi" />

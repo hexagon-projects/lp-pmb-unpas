@@ -49,10 +49,9 @@ const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://reg
         >
             <div className="w-full flex justify-center items-center shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] duration-500 cta_container">
                 <div className={`w-full px-4 py-10 rounded-xl md:rounded-2xl lg:rounded-4xl cta_box ${color}`}>
-                    <div className="w-full text-center mt-10 md:mt-8 space-y-2">
+                    <div className="w-full text-center mt-10 md:mt-8 space-y-2 py-6 md:py-8">
                         <h3 className="text-gray-800 text-sm md:text-base lg:text-[26px] font-medium">{subtitle}</h3>
                         <Title sizeMobile="text[32px]" title={title} />
-                        <Title sizeMobile="text-[32px]" title={subtitle2} />
                         <div className="w-full flex justify-center items-center gap-4">
                             <motion.button
                                 onClick={handleClick}

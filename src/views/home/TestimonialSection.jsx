@@ -1,110 +1,103 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCreative, Navigation, Pagination } from "swiper/modules";
+import { EffectFade, Navigation } from "swiper/modules";
 
-import RichText from "../../components/RichText";
+import "swiper/css";
+import "swiper/css/effect-fade";
+
 import Text from "../../components/Text";
 import Title from "../../components/Title";
-import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
-import { AnimatePresence, motion } from "framer-motion";
+import Button from "../../components/Button";
+import { ArrowUpRight } from "lucide-react";
 
 const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
-    const imageURL = import.meta.env.VITE_IMAGE_URL;
-    const swiperRef = useRef(null);
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [typedText, setTypedText] = useState("");
+  const imageURL = import.meta.env.VITE_IMAGE_URL;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
 
-    useEffect(() => {
-        let index = 0;
-        setTypedText("");
+  return (
+    <div className={`w-full flex flex-col ${displayDekstop} pt-4 md:pt-0 gap-4 md:gap-6 lg:gap-10`}>
+      <div className="text-center">
+        <Title title={'Testimoni'} />
+      </div>
 
-        const text = data[activeIndex]?.description;
-        if (!text) {
-            return;
-        }
-      
-        const content = text.toString();
-    
-        const typingEffect = setInterval(() => {
-            if (index < content.length) {
-                setTypedText(content.substring(0, index + 1));
-                index++;
-            } else {
-                clearInterval(typingEffect);
-            }
-        }, 4);
+      <div className="w-full flex justify-center items-center relative">
+        <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] relative">
+          <Swiper
+            modules={[Navigation, EffectFade]}
+            spaceBetween={20}
+            slidesPerView={1}
+            effect="fade"
+            fadeEffect={{ crossFade: true }}
+            navigation={{
+              prevEl: navigationPrevRef.current,
+              nextEl: navigationNextRef.current,
+            }}
+            loop={true}
+            speed={1000}
+            onBeforeInit={(swiper) => {
+              swiper.params.navigation.prevEl = navigationPrevRef.current;
+              swiper.params.navigation.nextEl = navigationNextRef.current;
+            }}
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+          >
+            {data?.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="w-full flex flex-col md:flex-row-reverse justify-center items-center gap-4 md:gap-6 lg:gap-8 p-4 md:p-6 lg:p-8">
+                  <div className="w-[80%] md:w-[50%] lg:w-[40%] rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden relative">
+                    <div className="w-full h-[40vh] lg:h-[50vh]">
+                      <img
+                        src={`${imageURL}/testimonies/${item.image}`}
+                        alt={item.name}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
+                    <div className="w-full text-center md:text-left absolute bottom-4 left-4 overflow-auto">
+                      <Title color="text-white" sizeText="text-sm md:text-lg lg:text-[18px]" title={item.name} />
+                      <Text color="text-white" text={item.title} weight={'font-light'}/>
+                    </div>
+                  </div>
 
-        return () => clearInterval(typingEffect);
-    }, [activeIndex, data]);
-
-    return (
-      <div className={`w-full flex flex-col ${displayDekstop} pt-4 md:pt-0 gap-4 md:gap-6 lg:gap-10`}>
-          <div className="text-center">
-            <Title title={'Testimoni'} />
-          </div>
-
-        <div className="w-full flex justify-center items-center">
-          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%]">
-            <Swiper
-              modules={[Navigation, Pagination, EffectCreative]}
-              spaceBetween={20}
-              slidesPerView={1}
-              effect={'creative'}
-              creativeEffect={{
-                prev: { opacity: 0, translate: [0, 0, -100] },
-                next: { opacity: 0, translate: [0, 0, -100] },
-              }}
-              speed={1200}
-              onSwiper={(swiper) => (swiperRef.current = swiper)}
-              onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            >
-              {data?.map((item, index) => (
-                <SwiperSlide key={index}>
-                  <AnimatePresence mode="wait">
-                    <motion.div key={activeIndex} className="w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-8 p-4 md:p-6 lg:p-8 rounded-lg">
-                      <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -50 }}
-                        transition={{ duration: 0.5 }}
-                        className="w-[80%] md:w-[50%] lg:w-[40%] min-h-[300px] rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden"
-                      >
-                        <img src={`${imageURL}/testimonies/${item.image}`} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
-                      </motion.div>
-
-                      <div className="w-full md:w-1/2 lg:w-[60%] min-h-[200px] flex flex-col justify-between items-start gap-4 md:gap-6 lg:gap-8">
-                        <div className="w-full flex flex-col justify-evenly md:justify-start items-start gap-4 md:gap-6 lg:gap-8">
-                          <div className="w-full space-y-2 text-center md:text-left">
-                            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}>
-                              <Title sizeText="text-sm md:text-lg lg:text-[18px]" title={item.name} />
-                            </motion.div>
-                            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.5 }}>
-                              <Text color="text-gray-500" text={item.title} />
-                            </motion.div>
-                          </div>
-                          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, y: -50 }} transition={{ duration: 0.3 }} className="min-h-[100px]">
-                            <RichText content={typedText}/>
-                          </motion.div>
-                        </div>
-
-                        <div className="w-full flex justify-center md:justify-start gap-4 mt-4">
-                          <div className="cursor-pointer text-black/80 text-3xl lg:text-4xl" onClick={() => swiperRef.current?.slidePrev()}>
-                            <IoArrowBackCircleOutline />
-                          </div>
-                          <div className="z-10 cursor-pointer text-black/80 text-3xl lg:text-4xl" onClick={() => swiperRef.current?.slideNext()}>
-                            <IoArrowForwardCircleOutline />
-                          </div>
-                        </div>
+                  <div className="w-full md:w-1/2 lg:w-[60%] flex flex-col justify-between items-start gap-4 md:gap-6 lg:gap-8">
+                    <div className="w-full flex flex-col items-start gap-4">
+                      <div className="w-full text-center md:text-left block md:hidden">
+                        <Title sizeText="text-sm md:text-lg lg:text-[18px]" title={item.name} />
+                        <Text color="text-gray-500" text={item.title} />
                       </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                      <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 line-clamp-4 md:line-clamp-5 lg:line-clamp-6`} dangerouslySetInnerHTML={{ __html: item.description }}/>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <button
+            ref={navigationPrevRef}
+            className="absolute left-0 md:-left-6 top-1/2 z-10 -translate-y-1/2 p-2 cursor-pointer rounded-full transition-all"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            ref={navigationNextRef}
+            className="absolute right-0 md:-right-6 top-1/2 z-10 -translate-y-1/2 p-2 cursor-pointer rounded-full transition-all"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          <div className="w-full flex justify-center md:justify-start md:-mt-20 md:ml-6 xl:-mt-20 xl:ml-8" onClick={() => window.location.href = '/testimoni'}>
+            <Button icon={<ArrowUpRight />} iconStatus="visible" css={'flex-row-reverse'} text={'Selengkapnya'} bgColor={'bg-primary'} textColor={'text-black'} onClick={() => window.location.href = '/testimoni'} paddingMobile="px-4 py-2" paddingTablet="md:px-4 md:py-2" />
           </div>
         </div>
       </div>
-    )
+    </div>
+  );
 };
 
 export default TestimonialSection;

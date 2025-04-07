@@ -116,7 +116,7 @@ const VideoSwiper = ({ data = [] }) => {
     return (
         <div className="w-full h-fit md:space-y-2">
             <div className="w-full px-4 md:px-10 lg:px-20 flex justify-between items-center space-y-2">
-                <div className="flex flex-col gap-2 text-center">
+                <div className="flex flex-col gap-2 text-center md:text-left">
                     <Title sizeText="text-base md:text-2xl lg:text-[32px]" title="Bersama Unpas Membangun Generasi Unggul!" />
                     <p className="text-xs md:text-base lg:text-lg text-gray-800">Dukungan nyata dari <i>akademisi, profesional, dan pemimpin bangsa!</i></p>
                 </div>
@@ -129,7 +129,7 @@ const VideoSwiper = ({ data = [] }) => {
                 ref={swiperRef}
                 slidesPerView={1.3}
                 spaceBetween={-70}
-                loop={videos.length >= 3}
+                loop={true}
                 centeredSlides={true}
                 autoplay={{
                     delay: 3000,
