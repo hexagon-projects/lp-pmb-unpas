@@ -118,7 +118,7 @@ const Artikel = () => {
                 <div className="w-full space-y-3 md:space-y-4">
                     <div className="w-full flex justify-between items-center">
                         <Title sizeMobile="w-full text-base" title="Artikel Terkait" />
-                        <SearchInput placeholder="Cari Artikel" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                        <SearchInput placeholder="Cari Artikel" searchTerm={searchTerm} setSearchTerm={setSearchTerm} widthMobile="w-1/2"/>
                     </div>
 
                     {currentItems.length > 0 ? (

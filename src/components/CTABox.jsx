@@ -5,7 +5,7 @@ import Title from "./Title";
 import IdentityService from "../fetching/identity";
 import Loading from "./Loading";
 
-const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://registrasi.unpas.ac.id/register', color = 'bg-primary' }) => {
+const CTABox = ({ subtitle, title, textButton, subtitle2, border = 'border-text', onClick = 'https://registrasi.unpas.ac.id/register', color = 'bg-primary' }) => {
     const [identity, setIdentity] = useState(null);
     const [loading, setLoading] = useState(true);
     
@@ -62,7 +62,7 @@ const CTABox = ({ subtitle, title, textButton, subtitle2, onClick = 'https://reg
                             </motion.button>
                             <motion.button
                                 onClick={handleWhatsApp}
-                                className="rounded-xl md:rounded-xl lg:rounded-2xl border-1 border-text hover:border-2 hover:border-red-500 cursor-pointer text-xs md:text-base mt-6 px-6 py-4 text-black shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition"
+                                className={`rounded-xl md:rounded-xl lg:rounded-2xl border-1 ${border} cursor-pointer text-xs md:text-base mt-6 px-6 py-4 text-black shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition`}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 Hubungi Admin

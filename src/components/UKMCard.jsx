@@ -32,7 +32,7 @@ const UKMCard = ({ title, text, image, index }) => {
 
   return (
     <motion.div
-      className="article-card bg-white shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-8 space-y-2 flex flex-col justify-center md:justify-between md:items-stretch relative overflow-hidden"
+      className="article-card bg-[#F0F0F0] shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-8 space-y-2 flex flex-col justify-center md:justify-between md:items-stretch relative overflow-hidden"
       variants={cardVariants}
       initial="hidden"
       animate="visible"

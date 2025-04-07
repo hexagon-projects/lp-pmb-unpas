@@ -278,7 +278,7 @@ const FakultasDetail = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2 }}>
-          <CTASection color={'bg-blue-500'} />
+          <CTASection color={'bg-blue-500'} border={'border-white'}/>
         </motion.div>
       </motion.div>
     </UserLayout>

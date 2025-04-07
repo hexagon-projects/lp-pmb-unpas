@@ -16,7 +16,7 @@ const TeknikBox = ({ image, title, slug }) => {
           loading="lazy"
         />
         <div className="overflow-auto">
-          <h2 className="text-sm md:text-base lg:text-sm font-semibold">{title}</h2>
+          <h2 className="text-xs md:text-base lg:text-sm font-semibold">{title}</h2>
         </div>
       {/* <div className="lg:max-w-4xl flex items-center gap-4 md:gap-6 lg:gap-8">
       </div> */}

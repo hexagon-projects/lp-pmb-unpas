@@ -42,39 +42,24 @@ const ArticleCard = ({ data, border, grid = 'grid grid-cols-1 md:grid-cols-2 lg:
         <div className={`${grid} gap-4 md:gap-[32px] lg:gap-8 md:pb-8`}>
             {displayData.map((item) => (
                 <motion.div
-                    //     key={item.id}
-                    //     className={`xl:w-full cursor-pointer flex flex-col justify-between p-4 md:p-0 bg-white rounded-lg md:rounded-2xl lg:rounded-4xl shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] space-y-3 ${border}`}
-                    //     onClick={() => handleClick(item.slug)}
-                    //     whileHover={{ scale: 1.05 }}
-                    //     transition={{ duration: 0.3 }}
-                    // >
-                    //     <div className="space-y-3">
-                    //         <img
-                    //             src={`${imageURL}/posts/${item.image}`}
-                    //             alt={item.title}
-                    //             className=" w-full h-30 md:h-40 lg:h-52 object-cover rounded-t-lg md:p-6 rounded-lg md:rounded-2xl lg:rounded-4xl"
-                    //         />
-                    //         <div className="bg-white px-0 md:px-6 md:rounded-b-md space-y-3">
-                    //             <h3 className="font-semibold text-xs md:text-sm lg:text-base">{item.title}</h3>
-                    //             <RichText lineclamp="line-clamp-2 md:line-clamp-3" sizeText="text-xs md:text-sm" content={item.description} />
                     key={item?.id}
                     className={`article-card xl:w-full cursor-pointer flex flex-col justify-between p-4 md:p-0 bg-white rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] ${border}`}
                     onClick={() => handleClick(item?.slug)}
                     transition={{ duration: 0.3 }}
                 >
-                    <div className="h-[28vh] md:h-full flex md:flex-col justify-between items-start gap-4">
-                        <div className="md:p-4 w-1/2 h-full md:w-full">
+                    <div className="h-fit md:h-full flex md:flex-col items-start gap-4">
+                        <div className="md:p-4 w-[40%] h-full md:w-full">
                             <img
                                 src={`${imageURL}/posts/${item?.image}`}
                                 alt={item?.title}
                                 className="w-full h-full object-cover rounded-lg md:rounded-xl lg:rounded-2xl"
                             />
                         </div>
-                        <div className="w-1/2 h-full md:w-full bg-white px-0 md:px-4 md:rounded-b-md flex flex-col justify-between">
-                            <div className="space-y-3">
+                        <div className="w-[60%] h-full md:w-full bg-white px-0 md:px-4 md:rounded-b-md flex flex-col justify-between gap-2">
+                            <div className="space-y-1">
                                 <h3 className="font-semibold text-sm md:text-base lg:text-base line-clamp-4">{item?.title}</h3>
                                 <div className={`${visibilty}`}>
-                                    <RichText lineclamp="line-clamp-4 md:line-clamp-3" sizeText="text-xs md:text-sm" content={item?.description} />
+                                    <RichText lineclamp="line-clamp-3 md:line-clamp-4" sizeText="text-xs md:text-sm" content={item?.description} />
                                 </div>
                             </div>
                             <div className="md:hidden md:px-4 flex justify-between items-center">
