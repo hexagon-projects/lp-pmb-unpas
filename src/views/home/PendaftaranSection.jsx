@@ -4,17 +4,16 @@ import { Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
 import Text from '../../components/Text';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
 import SelengkapnyaButton from '../../components/SelengkapnyaButton';
 import Section1 from '../../assets/gedung.jpeg';
-import CustomPagination from '../../components/CustomPagination';
+import CustomPaginationProdi from '../../components/prodi/CustomPaginationProdi';
 
 const DUMMY_IMAGES = Array(4).fill({ image: Section1 });
 
-const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }) => {
+const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [], titleColor = 'text-text', subtitleColor, borderPaginationColor, paginationColor, iconColor = '#C73929' }) => {
     const navigate = useNavigate();
     const swiperRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
@@ -40,7 +39,7 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
     }, [handleResize]);
 
     const handlePaginationClick = useCallback((index) => {
-        swiperRef.current?.slideToLoop(index);  // Gunakan slideToLoop bukan slideTo
+        swiperRef.current?.slideToLoop(index);
     }, []);
 
     const handleClick = useCallback((link) => {
@@ -84,10 +83,13 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-[#F3F4F4] w-full p-4 md:p-6 lg:p-8 border-2 border-[#f0f0f0] shadow-primary/10 shadow-xl rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer flex gap-4 items-center"
+                className="bg-[#F3F4F4] w-full p-4 md:p-6 lg:p-8 border-2 border-[#fafafa] shadow-primary/10 shadow-xl rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer flex gap-4 items-center"
             >
-                <div className="hidden lg:block p-3 rounded-full shadow-xl shadow-text/5 bg-[#fafafa] border-2 border-[#f0f0f0]">
-                    <Calendar className="w-6 h-6 md:w-8 md:h-8 text-text" />
+                <div className="hidden lg:block p-3 rounded-full shadow-xl shadow-text/5 bg-[#f3f4f4] border-2 border-[#fafafa]">
+                    <Calendar
+                        className="w-6 h-6 md:w-8 md:h-8"
+                        style={{ color: iconColor }}
+                    />
                 </div>
                 <div className="w-full flex flex-row justify-between items-center gap-4">
                     <div className="w-[70%] flex flex-col gap-2">
@@ -116,8 +118,8 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
         <div className="w-full flex justify-center items-center bg-transparent">
             <div className="w-full md:w-full flex flex-col gap-4 md:gap-6 lg:gap-8 p-4 md:p-8 lg:p-10">
                 <div className="text-center md:space-y-2">
-                    {title && <Text sizeText="text-base md:text-lg lg:text-2xl" text={title} color="text-text" weight="" />}
-                    {subtitle && <Title title={subtitle} />}
+                    {title && <Text sizeText="text-base md:text-lg lg:text-2xl" text={title} color={titleColor} weight="" />}
+                    {subtitle && <Title title={subtitle} color={subtitleColor} />}
                 </div>
 
                 <div className="w-full flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-8">
@@ -144,12 +146,14 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
                             {swiperSlides}
                         </Swiper>
 
-                        <CustomPagination
+                        <CustomPaginationProdi
                             activeIndex={activeIndex}
                             totalSlides={DUMMY_IMAGES.length}
                             onPaginationClick={handlePaginationClick}
                             width="w-2 h-2"
                             scale="w-7 h-2"
+                            borderColor={borderPaginationColor}
+                            bgColor={paginationColor}
                         />
                     </div>
 
@@ -157,7 +161,7 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
                         <div className='space-y-4 h-50 lg:h-[50vh] overflow-y-scroll'>
                             {jalurItems}
                         </div>
-                        <SelengkapnyaButton onClick={handleClickJalur} />
+                        <SelengkapnyaButton onClick={handleClickJalur} color={iconColor}/>
                     </div>
                 </div>
             </div>

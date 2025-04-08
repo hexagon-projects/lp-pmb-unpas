@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import Text from "./Text";
 
-const SelengkapnyaButton = ({ onClick, color = "text-text" }) => {
+const SelengkapnyaButton = ({ onClick, color = "#C73929" }) => {
     return (
         <motion.div
             whileTap={{ scale: 0.95 }}
@@ -9,7 +8,7 @@ const SelengkapnyaButton = ({ onClick, color = "text-text" }) => {
             className="w-fit relative group cursor-pointer p-2"
             onClick={onClick}
         >
-            <Text sizeText="text-xs md:text-base lg:text-lg" text={"Selengkapnya"} color={color} weight={"font-semibold"} />
+            <p className="text-xs md:text-base lg:text-lg font-semibold" style={{ color: color }}>Selengkapnya</p>
             <motion.div
                 className="absolute left-0 bottom-0 h-[2px] z-10000 bg-text pointer-events-none"
                 initial={{ width: "0%" }}

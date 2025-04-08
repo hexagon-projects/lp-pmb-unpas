@@ -1,30 +1,22 @@
-import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation } from "swiper/modules";
+import { useRef } from "react";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
+import "swiper/css/navigation";
 
 import Text from "../../components/Text";
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 import { ArrowUpRight } from "lucide-react";
-import { IoArrowForwardCircleOutline, IoArrowBackCircleOutline  } from "react-icons/io5";
-import Koma from '../../assets/koma.svg'
+import { IoArrowForwardCircleOutline, IoArrowBackCircleOutline } from "react-icons/io5";
+import Koma from '../../assets/koma.svg';
 
 const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
   const imageURL = import.meta.env.VITE_IMAGE_URL;
-  const [activeIndex, setActiveIndex] = useState(0);
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
-  const swiperRef = useRef(null);
-
-  useEffect(() => {
-    if (swiperRef.current && swiperRef.current.initialized) {
-      swiperRef.current.navigation.init();
-      swiperRef.current.navigation.update();
-    }
-  }, []);
 
   return (
     <div className={`w-full flex flex-col ${displayDekstop} pt-4 md:pt-0 gap-4 md:gap-6 lg:gap-10`}>
@@ -40,20 +32,16 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
             slidesPerView={1}
             effect="fade"
             fadeEffect={{ crossFade: true }}
+            loop={true}
+            speed={1000}
             navigation={{
               prevEl: navigationPrevRef.current,
               nextEl: navigationNextRef.current,
             }}
-            loop={true}
-            speed={1000}
             onBeforeInit={(swiper) => {
-              swiperRef.current = swiper;
+              swiper.params.navigation.prevEl = navigationPrevRef.current;
+              swiper.params.navigation.nextEl = navigationNextRef.current;
             }}
-            onInit={(swiper) => {
-              swiper.navigation.init();
-              swiper.navigation.update();
-            }}
-            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           >
             {data?.map((item, index) => (
               <SwiperSlide key={index}>
@@ -88,7 +76,7 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
           <div className="hidden md:block">
             <button
               ref={navigationPrevRef}
-              className="absolute left-0 md:-left-6 top-1/2 z-10 -translate-y-1/2 p-2 cursor-pointer rounded-full transition-all"
+              className="absolute left-0 md:-left-10 top-1/2 z-10 -translate-y-1/2 p-2 cursor-pointer rounded-full transition-all"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -96,14 +84,14 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
             </button>
             <button
               ref={navigationNextRef}
-              className="absolute right-0 md:-right-6 top-1/2 z-10 -translate-y-1/2 p-2 cursor-pointer rounded-full transition-all"
+              className="absolute right-0 md:-right-10 top-1/2 z-10 -translate-y-1/2 p-2 cursor-pointer rounded-full transition-all"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
           </div>
-          <div className="w-full flex justify-start md:justify-start ml-14 md:-mt-20 md:ml-6 xl:-mt-20 xl:ml-8" onClick={() => window.location.href = '/testimoni'}>
+          <div className="w-full flex justify-start md:justify-start ml-14 md:-mt-20 md:ml-6 xl:-mt-20 xl:ml-8">
             <Button icon={<ArrowUpRight />} iconStatus="visible" css={'flex-row-reverse'} text={'Selengkapnya'} bgColor={'bg-primary'} textColor={'text-black'} onClick={() => window.location.href = '/testimoni'} paddingMobile="px-4 py-2" paddingTablet="md:px-4 md:py-2" />
           </div>
 

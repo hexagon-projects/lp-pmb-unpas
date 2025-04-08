@@ -142,7 +142,7 @@ const Jalur = () => {
                                             <button className="p-2 rounded-full text-white bg-red-500 cursor-pointer" onClick={handleCloseModal}><X size={20} /></button>
                                         </div>
                                     </div>
-                                    <div className="overflow-auto max-h-50">
+                                    <div className="overflow-auto max-h-50 lg:max-h-60">
                                     <RichText content={selectedJalur.content} />
                                     </div>
                                     <Text text={`Periode: ${selectedJalur.start_date} - ${selectedJalur.end_date}`} />

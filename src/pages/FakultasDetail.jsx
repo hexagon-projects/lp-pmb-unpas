@@ -143,7 +143,7 @@ const FakultasDetail = () => {
               <div className="text-white relative my-8 z-10 w-1/2 md:w-1/4 lg:w-1/5">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl px-4 py-14 font-bold">
                   <span className="block">Fakultas</span>
-                  <span className="block">{fakultas.name.replace('Fakultas ', '')}</span>
+                  <span className="block">{fakultas?.name?.replace('Fakultas ', '')}</span>
                 </h2>
               </div>
               <div className="absolute top-4 left-4 z-10">

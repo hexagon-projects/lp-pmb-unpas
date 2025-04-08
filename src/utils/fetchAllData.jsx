@@ -41,7 +41,7 @@ export const fetchAllData = async () => {
             partner,
             testimonials,
             unggulan,
-            jalur: jalur.slice(0, 4),
+            jalur,
             artikel: artikel.slice(0, 4),
             prestasi: prestasi.slice(0, 10),
             dukungan,

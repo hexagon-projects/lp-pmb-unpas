@@ -20,7 +20,7 @@ const ArticleTransparentCard = ({ image, title, slug, description }) => {
             onClick={handleClick}
         >
             <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#C5B91B40]/25 to-transparent rounded-xl md:rounded-2xl lg:rounded-4xl"
+                className="absolute inset-0 bg-gradient-to-t from-black/100 via-[#C5B91B40]/25 to-transparent rounded-xl md:rounded-2xl lg:rounded-4xl"
                 initial={{ opacity: 0.4 }}
                 whileHover={{ opacity: 0.8 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
