@@ -32,7 +32,6 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
             slidesPerView={1}
             effect="fade"
             fadeEffect={{ crossFade: true }}
-            loop={true}
             speed={1000}
             navigation={{
               prevEl: navigationPrevRef.current,
@@ -91,20 +90,20 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
               </svg>
             </button>
           </div>
-          <div className="w-full flex justify-start md:justify-start ml-14 md:-mt-20 md:ml-6 xl:-mt-20 xl:ml-8">
+          <div className="w-full flex justify-start md:justify-start ml-14 md:-mt-20 md:ml-6 xl:-mt-20 xl:ml-8 ">
             <Button icon={<ArrowUpRight />} iconStatus="visible" css={'flex-row-reverse'} text={'Selengkapnya'} bgColor={'bg-primary'} textColor={'text-black'} onClick={() => window.location.href = '/testimoni'} paddingMobile="px-4 py-2" paddingTablet="md:px-4 md:py-2" />
           </div>
 
           <div className="w-full flex justify-center items-center md:hidden mt-2">
             <button
               ref={navigationPrevRef}
-              className="p-2 cursor-pointer rounded-full transition-all bg-gray-100"
+              className="p-2 cursor-pointer rounded-full transition-all"
             >
               <IoArrowBackCircleOutline size={30}/>
             </button>
             <button
               ref={navigationNextRef}
-              className="p-2 cursor-pointer rounded-full transition-all bg-gray-100 ml-2"
+              className="p-2 cursor-pointer rounded-full transition-all ml-2"
             >
               <IoArrowForwardCircleOutline size={30}/>
             </button>

@@ -107,6 +107,7 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [], 
                             onClick={() => handleClick(jalur.link)}
                             padding="p-3 md:p-4"
                             border='border-2 border-text'
+                            hoverBgColor='hover:border-2 hover:border-text'
                         />
                     </div>
                 </div>

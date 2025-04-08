@@ -46,14 +46,14 @@ const HeroSection = ({ data = [] }) => {
     }, []);
 
     const renderSlide = useCallback((slide) => {
-        const slideHeight = isMobile ? `65vh` : '100%';
+        const slideHeight = isMobile ? `75vh` : '100%';
         const selectedImage = isMobile ? slide.image2 : slide.image;
 
         return (
             <SwiperSlide key={slide.id} className="relative">
                 <div className="w-full h-full" style={{ height: slideHeight }}>
                     <div
-                        className="w-full h-full bg-cover rounded-b-4xl md:rounded-b-2xl lg:rounded-b-4xl "
+                        className="w-full h-full bg-cover rounded-b-4xl md:rounded-2xl lg:rounded-4xl "
                         style={{
                             backgroundImage: `url(${imageURL}/sliders/${selectedImage})`,
                             backgroundAttachment: isDesktopOrTablet ? 'fixed' : 'scroll',
@@ -91,7 +91,7 @@ const HeroSection = ({ data = [] }) => {
                     pauseOnMouseEnter: true
                 }}
                 className="w-full"
-                style={{ height: isMobile ? '65vh' : '75vh' }}
+                style={{ height: isMobile ? '75vh' : '75vh' }}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 effect="fade"
                 fadeEffect={{ crossFade: true }}

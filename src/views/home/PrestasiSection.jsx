@@ -45,8 +45,8 @@ const PrestasiSection = ({ organisasi, prestasi, imageURL }) => {
             <div className="text-center">
                 <Title title={'Kegiatan dan Prestasi Mahasiswa'} />
             </div>
-            <div className="w-full flex flex-col-reverse lg:flex-row-reverse md:justify-evenly items-center gap-4">
-                <div className="w-full lg:max-w-1/2 overflow-x-auto" ref={tableRef}>
+            <div className="w-full flex flex-col-reverse lg:flex-row-reverse md:justify-evenly items-center gap-4 md:gap-6 lg:gap-8">
+                <div className="w-full lg:max-w-1/2 overflow-x-auto p-2 md:p-4 rounded-xl md:rounded-2xl lg:rounded-4xl bg-[#f0f0f0] border-2 border-[#fafafa]" ref={tableRef}>
                     <table className="text-xs md:text-sm lg:text-base min-w-full">
                         <thead>
                             <tr className="text-gray-700">
@@ -66,7 +66,7 @@ const PrestasiSection = ({ organisasi, prestasi, imageURL }) => {
                     </div>
                 </div>
 
-                <div className="hidden lg:flex w-full lg:max-w-1/2 flex-col items-center justify-center gap-4 mt-4 md:mt-0" style={{ height: windowWidth >= 768 ? tableHeight : 'auto' }}>
+                <div className="hidden lg:flex w-full h-full lg:max-w-1/2 flex-col items-center justify-center gap-4 mt-4 md:mt-0" style={{ height: windowWidth >= 768 ? tableHeight : 'auto' }}>
                     <Swiper
                         modules={[Navigation, Pagination, Autoplay]}
                         spaceBetween={16}
@@ -139,7 +139,7 @@ const PrestasiSection = ({ organisasi, prestasi, imageURL }) => {
                         loop={true}
                         className="w-full"
                     >
-                        {organisasi.map((item) => (
+                        {organisasi2.map((item) => (
                             <SwiperSlide key={item.id}>
                                 <div className={`w-full relative h-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden`}>
                                     <img

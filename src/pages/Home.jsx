@@ -127,7 +127,7 @@ const Home = () => {
         <MemoizedHeroSection data={data?.slider} />
 
         <div>
-          <div className={'flex md:hidden w-full justify-center items-center p-4 md:px-10 lg:px-12 mt-4'}>
+          <div className={'flex md:hidden w-full justify-center items-center px-4 pb-4 md:px-10 lg:px-12'}>
             <StatsSection
               prodi={44}
               mahasiswa={9112}

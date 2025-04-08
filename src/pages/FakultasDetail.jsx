@@ -191,7 +191,7 @@ const FakultasDetail = () => {
         </motion.div>
 
         <motion.div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.2 }}>
-          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border-2 rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
+          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
             <div className="flex justify-between md:justify-between items-center text-center relative z-2">
               <div className="flex items-center gap-4 text-left">
                 <div className="w-[60%] md:w-fit">

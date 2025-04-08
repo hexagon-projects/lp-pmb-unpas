@@ -145,20 +145,19 @@ const ProgramStudi = () => {
         >
           <div className="w-full">
             <div
-              className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[70vh] md:mt-10 rounded-b-3xl"
+              className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[75vh] rounded-b-3xl"
               style={{
-                backgroundImage: `url(${
-                  fakultas.image1
+                backgroundImage: `url(${fakultas.image1
                     ? `${imageURL}/programs/${fakultas.image1}`
                     : Gedung
-                })`,
+                  })`,
                 backgroundPosition: "center",
               }}
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/100 to-transparent"></div>
-              <div className="relative grid gap-5 p-5 py-36 h-[60vh]">
+              <div className="relative grid gap-3 p-5 py-16 h-[60vh] ">
                 <div className="flex justify-center items-center">
-                  <div className="flex items-center md:hidden gap-3 md:gap-4 z-1 cursor-pointer absolute top-10 rounded-lg bg-white/60 p-2 md:p-4">
+                  <div className="flex items-center md:hidden gap-3 md:gap-4 z-1 cursor-pointer absolute top-4 rounded-lg bg-white/60 p-2 md:p-4">
                     <img
                       src={Logo}
                       alt="Logo Universitas Pasundan"
@@ -179,13 +178,13 @@ const ProgramStudi = () => {
                     </div>
                   </div>
                 </div>
-                <div>
-                  <h1 className="text-2xl md:text-3xl lg:text-4xl md:font-bold font-medium text-white text-center">
+                <div className="">
+                  <h1 className="text-xl md:text-3xl lg:text-4xl md:font-bold font-medium text-white text-center">
                     Selamat Datang di
                   </h1>
-                  <h1 className="text-2xl md:text-3xl lg:text-4xl md:font-bold font-medium text-white text-center">
+                  <h1 className="text-xl md:text-3xl lg:text-4xl md:font-bold text-white text-center">
                     Program Studi{" "}
-                    <span style={{ color: fakultas.color }}>
+                    <span style={{ color: fakultas.color }} className="font-bold">
                       {fakultas.name}
                     </span>
                   </h1>
@@ -196,6 +195,7 @@ const ProgramStudi = () => {
                     content={fakultas.description1}
                     textColor="text-white"
                     sizeText="text-xs md:text-sm lg:text-lg text-center"
+                    leading="leading-5 lg:leading-6"
                   />
                 </div>
 
@@ -205,7 +205,7 @@ const ProgramStudi = () => {
                     paddingMobile="px-4 py-3"
                     text="Daftar Sekarang"
                     bgColor="bg-primary"
-                    hoverBgColor="hover:border-3 hover:border-white/50"
+                    hoverBgColor="hover:outline-2 hover:outline-text"
                     onClick={() =>
                       (window.location.href = `https://registrasi.unpas.ac.id/register`)
                     }
@@ -214,7 +214,7 @@ const ProgramStudi = () => {
                     css="w-fit h-fit"
                     paddingMobile="px-4 py-3"
                     text="Hubungi Admin"
-                    bgColor="outline outline-2 outline-[#fafafa] text-[#F3F4F4] bg-[#F0F0F0]/50"
+                    bgColor="outline outline-2 outline-footer text-[#F3F4F4]"
                     hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
                   />
                 </div>
@@ -222,7 +222,7 @@ const ProgramStudi = () => {
             </div>
           </div>
         </motion.div>
-        
+
         <motion.div
           className="w-full flex lg:flex-row justify-around items-center gap-6 md:gap-6 lg:gap-8 px-6 md:px-0 flex-col-reverse"
           initial={{ opacity: 0, y: 20 }}

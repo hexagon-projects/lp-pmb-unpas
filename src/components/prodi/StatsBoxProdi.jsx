@@ -55,7 +55,7 @@ const StatsBoxProdi = ({ icon, number, title, colorIcon = 'text-text' }) => {
         <div ref={ref} className="w-full lg:w-fit flex justify-start md:justify-center items-center gap-4 md:gap-6 lg:gap-6 border-2 border-[#fafafa] md:border-none rounded-lg md:rounded-xl lg:rounded-2xl">
             <div className="w-[30%] md:w-fit">
                 <div
-                    className={`w-fit p-3 bg-[#f3f4f4] md:bg-[#f0f0f0] md:border-2 md:border-[#fafafa] md:rounded-full ${!isHex ? colorIcon : ''} transition ${!isHex
+                    className={`w-fit p-3 md:bg-[#f0f0f0] md:border-2 md:border-[#fafafa] md:rounded-full ${!isHex ? colorIcon : ''} transition ${!isHex
                             ? 'md:shadow-text/20'
                             : 'md:[box-shadow:0px_15px_30px_-10px_var(--shadow-color)]'
                         }`}
