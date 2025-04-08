@@ -121,7 +121,7 @@ const Faq = () => {
             <Helmet>
                 <title>FAQ - Universitas Pasundan</title>
             </Helmet>
-            <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-20">
+            <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-16">
                 <div className="relative h-[30vh] lg:h-[70vh] p-4 md:px-10 lg:px-12 rounded-xl md:rounded-2xl lg:rounded-4xl flex flex-col justify-center items-start bg-cover bg-no-repeat"
                     style={{ backgroundImage: `url(${Section1})` }}>
 

@@ -57,9 +57,9 @@ const ArticleCard = ({ data, border, grid = 'grid grid-cols-1 md:grid-cols-2 lg:
                         </div>
                         <div className="w-[60%] h-full md:w-full bg-white px-0 md:px-4 md:rounded-b-md flex flex-col justify-between gap-2">
                             <div className="space-y-1">
-                                <h3 className="font-semibold text-sm md:text-base lg:text-base line-clamp-4">{item?.title}</h3>
+                                <h3 className="font-semibold text-sm md:text-base lg:text-base line-clamp-2">{item?.title}</h3>
                                 <div className={`${visibilty}`}>
-                                    <RichText lineclamp="line-clamp-3 md:line-clamp-4" sizeText="text-xs md:text-sm" content={item?.description} />
+                                    <RichText lineclamp="line-clamp-2 md:line-clamp-4" sizeText="text-xs md:text-sm" content={item?.description} />
                                 </div>
                             </div>
                             <div className="md:hidden md:px-4 flex justify-between items-center">

@@ -43,7 +43,8 @@ const Home = () => {
     jalur: [],
     artikel: [],
     prestasi: [],
-    dukungan: []
+    dukungan: [],
+    organisasi: []
   });
 
   const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -122,7 +123,7 @@ const Home = () => {
         <script type="application/ld+json">{schemaData}</script>
       </Helmet>
 
-      <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
+      <div className="relative space-y-8 md:space-y-14 lg:space-y-16">
         <MemoizedHeroSection data={data?.slider} />
 
         <div>
@@ -138,7 +139,7 @@ const Home = () => {
           <MemoizedAboutSection data={data} />
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden md:block">
           <StatsSection
             prodi={44}
             mahasiswa={9112}
@@ -147,7 +148,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="space-y-8 md:space-y-14 lg:space-y-20">
+        <div className="space-y-8 md:space-y-14 lg:space-y-16">
           <div className="bg-[#717171]/5 border-2 border-[#ebebeb]">
             <MemoizedPendaftaranSection
               image={Section3}
@@ -202,11 +203,12 @@ const Home = () => {
         </div>
 
         <MemoizedPrestasiSection
+          organisasi={data?.organisasi}
           prestasi={data?.prestasi}
           imageURL={imageURL}
         />
 
-        <div className="relative space-y-8 md:space-y-14 lg:space-y-20">
+        <div className="relative space-y-8 md:space-y-14 lg:space-y-16">
           <div className="relative z-1">
             <MemoizedArtikelSection data={data} />
           </div>

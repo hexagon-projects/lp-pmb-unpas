@@ -53,7 +53,7 @@ const Prestasi = () => {
             <Helmet>
                 <title>Prestasi - Universitas Pasundan</title>
             </Helmet>
-            <div className="p-4 md:p-6 lg:p-12 space-y-6 md:space-y-8 lg:space-y-20">
+            <div className="p-4 md:p-6 lg:p-12 space-y-6 md:space-y-8 lg:space-y-16">
                 {slicePrestasi.length > 0 && (
                     <div className="w-full h-full space-y-4 md:space-y-6 lg:space-y-12">
                         <div className="w-full h-full md:h-[40vh] lg:h-[70vh]">

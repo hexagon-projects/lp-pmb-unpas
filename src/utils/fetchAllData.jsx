@@ -7,6 +7,7 @@ import RegistrasiService from "../fetching/registration";
 import BeritaService from "../fetching/berita";
 import PrestasiService from "../fetching/prestasi";
 import DukunganService from "../fetching/dukungan";
+import OrganisasiService from "../fetching/organisasi";
 
 export const fetchAllData = async () => {
     try {
@@ -19,29 +20,32 @@ export const fetchAllData = async () => {
             jalur,
             artikel,
             prestasi,
-            dukungan
+            dukungan,
+            organisasi
         ] = await Promise.all([
             SliderService.getAllSlider(),
             AboutService.getAllAbouts(),
             PartnerService.getAllPartner(),
-            TestimoniService.getAllTestimoni(),
+            TestimoniService.getTestimoniHome(),
             UnggulanService.getAllUnggulan(),
             RegistrasiService.getAllRegistrasi(),
             BeritaService.getAllBerita(),
             PrestasiService.getAllPrestasi(),
-            DukunganService.getAllDukungan()
+            DukunganService.getAllDukungan(),
+            OrganisasiService.getAllOrganisasi()
         ]);
 
         return {
             slider,
             about,
             partner,
-            testimonials: testimonials.slice(0, 5),
+            testimonials,
             unggulan,
             jalur: jalur.slice(0, 4),
             artikel: artikel.slice(0, 4),
             prestasi: prestasi.slice(0, 10),
             dukungan,
+            organisasi
         };
     } catch (error) {
         console.error("Error fetching data:", error);

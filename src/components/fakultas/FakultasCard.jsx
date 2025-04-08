@@ -14,7 +14,7 @@ const FakultasCard = ({ image, title, slug }) => {
 
   return (
     <div
-      className="relative w-full h-[30vh] md:h-[45vh] lg:h-[55vh] rounded-lg md:rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+      className="relative w-full h-[30vh] md:h-[45vh] lg:h-[55vh] rounded-lg md:rounded-2xl overflow-hidden shadow-lg cursor-pointer group"
       onClick={handleClick}
     >
       <div className="absolute inset-0 z-0">
@@ -40,7 +40,7 @@ const FakultasCard = ({ image, title, slug }) => {
         </h3>
 
         <div className="bg-white p-2 rounded-xl">
-          <MdOutlineArrowOutward size={30} className="text-text" />
+          <MdOutlineArrowOutward size={30} className="text-text transition duration-300 group-hover:rotate-45" /> 
         </div>
       </div>
     </div>

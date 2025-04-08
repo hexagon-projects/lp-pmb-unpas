@@ -84,9 +84,9 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-[#F3F4F4] w-full p-4 md:p-6 lg:p-8 border border-white shadow-primary/10 shadow-xl rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer flex gap-4 items-center"
+                className="bg-[#F3F4F4] w-full p-4 md:p-6 lg:p-8 border-2 border-[#f0f0f0] shadow-primary/10 shadow-xl rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer flex gap-4 items-center"
             >
-                <div className="hidden lg:block p-3 rounded-full shadow-xl shadow-text/10">
+                <div className="hidden lg:block p-3 rounded-full shadow-xl shadow-text/5 bg-[#fafafa] border-2 border-[#f0f0f0]">
                     <Calendar className="w-6 h-6 md:w-8 md:h-8 text-text" />
                 </div>
                 <div className="w-full flex flex-row justify-between items-center gap-4">
@@ -104,6 +104,7 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
                             bgColor="bg-primary"
                             onClick={() => handleClick(jalur.link)}
                             padding="p-3 md:p-4"
+                            border='border-2 border-text'
                         />
                     </div>
                 </div>
@@ -152,8 +153,10 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
                         />
                     </div>
 
-                    <div className="w-full lg:w-[60%] space-y-3 md:space-y-4">
-                        {jalurItems}
+                    <div className="w-full lg:w-[60%] space-y-4 md:space-y-4">
+                        <div className='space-y-4 h-50 lg:h-[50vh] overflow-y-scroll'>
+                            {jalurItems}
+                        </div>
                         <SelengkapnyaButton onClick={handleClickJalur} />
                     </div>
                 </div>

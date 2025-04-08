@@ -8,7 +8,7 @@ const TeknikBox = ({ image, title, slug }) => {
   }
 
   return (
-    <div className="w-full lg:w-full flex justify-start items-center bg-white rounded-xl md:rounded-2xl gap-4 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 cursor-pointer transition-transform transform hover:scale-105 hover:shadow-lg" onClick={() => handleClick()}>
+    <div className="w-full lg:w-full flex justify-start items-center bg-white rounded-xl md:rounded-2xl gap-4 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-2 md:p-4 cursor-pointer transition-transform transform hover:scale-105 hover:shadow-lg" onClick={() => handleClick()}>
         <img
           src={image}
           alt={title}
@@ -16,7 +16,7 @@ const TeknikBox = ({ image, title, slug }) => {
           loading="lazy"
         />
         <div className="overflow-auto">
-          <h2 className="text-xs md:text-base lg:text-sm font-semibold">{title}</h2>
+          <h2 className="text-[10px] md:text-base lg:text-sm font-medium">{title}</h2>
         </div>
       {/* <div className="lg:max-w-4xl flex items-center gap-4 md:gap-6 lg:gap-8">
       </div> */}

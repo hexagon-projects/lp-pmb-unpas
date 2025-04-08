@@ -59,7 +59,7 @@ const Fakultas = () => {
         <link rel="preload" href={Logo} as="image" />
       </Helmet>
 
-      <div className="relative p-4 md:px-10 lg:px-12 space-y-8 md:space-y-12 lg:space-y-20">
+      <div className="relative p-4 md:px-10 lg:px-12 space-y-8 md:space-y-12 lg:space-y-16">
         <div className="relative">
           <div className="w-full fakultas_container">
             <div className="flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 bg-primary relative overflow-hidden fakultas_box lg:h-[55vh]">
@@ -90,6 +90,8 @@ const Fakultas = () => {
               bgColor="bg-primary"
               onClick={handleRegisterClick}
               aria-label="Daftar sekarang di Universitas Pasundan"
+              border='border-2 border-text'
+              hoverBgColor='hover:border-2 hover:border-text'
             />
           </div>
         </div>

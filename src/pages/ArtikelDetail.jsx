@@ -80,7 +80,7 @@ const ArtikelDetail = () => {
         <meta name="robots" content="index, follow" />
       </Helmet>
 
-      <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-20">
+      <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-16">
         <div className="w-full flex flex-col lg:flex-row justify-center items-start lg:space-x-12 ">
           <div className="w-full lg:w-[70%] space-y-8  ">
             <div className="w-full  flex flex-col justify-between items-start gap-4 md:gap-6 lg:gap-10">
@@ -95,16 +95,16 @@ const ArtikelDetail = () => {
 
             <div
               className="w-full"
-              style={{
-                whiteSpace: 'pre-line', // Menjaga format spasi dan line breaks
-                wordBreak: 'break-word', // Memecah kata yang terlalu panjang agar tidak keluar dari kontainer
-                overflowWrap: 'break-word', // Menjamin kata-kata panjang yang tidak bisa dipotong akan dibungkus
-                lineHeight: '1.6', // Mengatur jarak antar baris teks untuk kenyamanan membaca
-                fontSize: '16px', // Ukuran font agar teks mudah dibaca
-                color: '#2D3748', // Warna teks default, bisa disesuaikan
-                // padding: '16px', // Memberikan padding sekitar teks
-                textAlign: 'justify',
-              }}
+              // style={{
+              //   whiteSpace: 'pre-line', // Menjaga format spasi dan line breaks
+              //   wordBreak: 'break-word', // Memecah kata yang terlalu panjang agar tidak keluar dari kontainer
+              //   overflowWrap: 'break-word', // Menjamin kata-kata panjang yang tidak bisa dipotong akan dibungkus
+              //   lineHeight: '1.6', // Mengatur jarak antar baris teks untuk kenyamanan membaca
+              //   fontSize: '16px', // Ukuran font agar teks mudah dibaca
+              //   color: '#2D3748', // Warna teks default, bisa disesuaikan
+              //   // padding: '16px', // Memberikan padding sekitar teks
+              //   textAlign: 'justify',
+              // }}
             >
               <p dangerouslySetInnerHTML={{ __html: artikel.content }} />
             </div>

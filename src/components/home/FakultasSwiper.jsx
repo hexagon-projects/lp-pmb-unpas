@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { motion, AnimatePresence } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -14,7 +14,7 @@ const FakultasSwiper = ({ faculties = [], faculties2 = [], faculties3 = [] }) =>
 
   const allFaculties = [...faculties, ...faculties2, ...faculties3];
   const facultyGroups = [faculties, faculties2, faculties3];
-  
+
   if (allFaculties.length === 0) {
     return (
       <div className="w-full h-full flex justify-center items-center px-8">
@@ -26,7 +26,7 @@ const FakultasSwiper = ({ faculties = [], faculties2 = [], faculties3 = [] }) =>
   }
 
   const containerVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
       transition: {
         when: "afterChildren"
@@ -49,19 +49,20 @@ const FakultasSwiper = ({ faculties = [], faculties2 = [], faculties3 = [] }) =>
   };
 
   return (
-    <div className="w-full lg:hidden px-4 py-4 space-y-4 bg-[#F0F0F0] p-4 rounded-xl md:rounded-2xl border border-[#FAFAFA80]">
+    <div className="w-full lg:hidden px-4 py-4 space-y-4 bg-[#F0F0F0] p-4 rounded-xl md:rounded-2xl border-2 border-[#FAFAFA80]">
       <Swiper
         ref={swiperRef}
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={16}
         slidesPerView={1}
         centeredSlides={true}
         onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
+        autoplay={{ delay: 3000 }}
       >
         {facultyGroups.map((facultyGroup, groupIndex) => (
           <SwiperSlide key={`slide-${groupIndex}`}>
             <AnimatePresence mode="wait">
-              <motion.div 
+              <motion.div
                 key={`slide-content-${groupIndex}`}
                 className="space-y-4"
                 variants={containerVariants}
@@ -70,8 +71,8 @@ const FakultasSwiper = ({ faculties = [], faculties2 = [], faculties3 = [] }) =>
                 exit="hidden"
               >
                 {facultyGroup.map((faculty, index) => (
-                  <FakultasCardMobile 
-                    key={`group${groupIndex + 1}-${faculty.slug}-${index}`} 
+                  <FakultasCardMobile
+                    key={`group${groupIndex + 1}-${faculty.slug}-${index}`}
                     faculty={faculty}
                     index={index}
                     isVisible={activeSlide === groupIndex}
@@ -83,7 +84,7 @@ const FakultasSwiper = ({ faculties = [], faculties2 = [], faculties3 = [] }) =>
         ))}
       </Swiper>
 
-      <CustomPagination 
+      <CustomPagination
         activeIndex={activeSlide}
         totalSlides={facultyGroups.length}
         onPaginationClick={handlePaginationClick}

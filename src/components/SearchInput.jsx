@@ -2,7 +2,7 @@ const SearchInput = ({ placeholder, searchTerm, setSearchTerm, widthMobile = 'w-
     <input
         type="text"
         placeholder={placeholder}
-        className={`bg-white ${widthMobile} text-xs md:text-sm lg:text-sm ${widthDekstop} border border-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+        className={`bg-white ${widthMobile} text-xs md:text-sm lg:text-sm ${widthDekstop} border-2 border-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
     />

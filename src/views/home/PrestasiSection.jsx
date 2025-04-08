@@ -6,7 +6,7 @@ import Title from "../../components/Title";
 import Button from "../../components/Button";
 import MotionWrapper from "../../components/MotionWrapper";
 
-const PrestasiSection = ({ prestasi, imageURL }) => {
+const PrestasiSection = ({ organisasi, prestasi, imageURL }) => {
     const [tableHeight, setTableHeight] = useState(0);
     const tableRef = useRef(null);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -37,11 +37,12 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
 
     const isMobileOrTablet = windowWidth < 1024;
     const displayedPrestasi = isMobileOrTablet ? prestasi.slice(0, 5) : prestasi;
+    const organisasi1 = organisasi.slice(11, 15)
+    const organisasi2 = organisasi.slice(15, 19)
 
     return (
         <MotionWrapper className={'w-full flex flex-col gap-4 md:gap-6 lg:gap-10 px-4 md:px-10 lg:px-12'}>
             <div className="text-center">
-                {/* <Text sizeText="text-base md:text-lg lg:text-2xl" text={'Universitas Pasundan'} color="text-red-500" weight={'font-bold'} /> */}
                 <Title title={'Kegiatan dan Prestasi Mahasiswa'} />
             </div>
             <div className="w-full flex flex-col-reverse lg:flex-row-reverse md:justify-evenly items-center gap-4">
@@ -70,23 +71,23 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                         modules={[Navigation, Pagination, Autoplay]}
                         spaceBetween={16}
                         slidesPerView="auto"
-                        autoplay={{ delay: 2000 }}
                         loop={true}
                         style={{ height: getSwiperHeight() }}
                         className="w-full"
                     >
-                        {displayedPrestasi.map((item, index) => (
+                        {organisasi1.map((item, index) => (
                             <SwiperSlide
                                 key={item.id}
-                                className={index % 2 === 0 ? '!w-[70%]' : '!w-[30%]'}
-                                style={{ width: index % 2 === 0 ? '70%' : '30%' }}
+                                className={index % 2 === 0 ? '!w-[65%]' : '!w-[35%]'}
+                                style={{ width: index % 2 === 0 ? '65%' : '35%' }}
                             >
                                 <div className={`relative w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden`}>
                                     <img
-                                        src={`${imageURL}/prestasis/${item.image}`}
+                                        src={`${imageURL}/organisasi/${item.image}`}
                                         alt={item.title}
                                         className="w-full h-[25vh] lg:h-full object-cover object-top"
                                         loading="lazy"
+                                        decoding="async"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#C5B91B40]/25 to-transparent flex items-end p-4">
                                         <h3 className="text-white text-sm md:text-base font-bold line-clamp-3 md:line-clamp-5">
@@ -98,25 +99,25 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                         ))}
                     </Swiper>
                     <Swiper
-                        modules={[Navigation, Pagination, Autoplay]}
+                        modules={[Navigation, Pagination]}
                         spaceBetween={16}
                         slidesPerView="auto"
-                        autoplay={{ delay: 2000, reverseDirection: true }}
                         loop={true}
                         style={{ height: getSwiperHeight() }}
                         className="w-full"
                     >
-                        {displayedPrestasi.map((item, index) => (
+                        {organisasi2.map((item, index) => (
                             <SwiperSlide key={item.id}
-                                className={index % 2 === 0 ? '!w-[30%]' : '!w-[70%]'}
-                                style={{ width: index % 2 === 0 ? '30%' : '70%' }}
+                                className={index % 2 === 0 ? '!w-[35%]' : '!w-[65%]'}
+                                style={{ width: index % 2 === 0 ? '35%' : '65%' }}
                             >
                                 <div className="relative w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden">
                                     <img
-                                        src={`${imageURL}/prestasis/${item.image}`}
+                                        src={`${imageURL}/organisasi/${item.image}`}
                                         alt={item.title}
                                         className="w-full h-[25vh] lg:h-full object-cover object-top"
                                         loading="lazy"
+                                        decoding="async"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#C5B91B40]/25 to-transparent flex items-end p-4">
                                         <h3 className="text-white text-sm md:text-base font-bold line-clamp-3 md:line-clamp-5">
@@ -138,14 +139,15 @@ const PrestasiSection = ({ prestasi, imageURL }) => {
                         loop={true}
                         className="w-full"
                     >
-                        {displayedPrestasi.map((item) => (
+                        {organisasi.map((item) => (
                             <SwiperSlide key={item.id}>
                                 <div className={`w-full relative h-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden`}>
                                     <img
-                                        src={`${imageURL}/prestasis/${item.image}`}
+                                        src={`${imageURL}/organisasi/${item.image}`}
                                         alt={item.title}
                                         className="w-full h-[25vh] md:h-[35vh] lg:h-full rounded-xl md:rounded-2xl lg:rounded-4xl object-cover object-top"
                                         loading="lazy"
+                                        decoding="async"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#C5B91B40]/25 to-transparent flex items-end p-4">
                                         <h3 className="text-white text-sm md:text-base font-bold line-clamp-3 md:line-clamp-5">

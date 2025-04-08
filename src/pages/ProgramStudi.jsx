@@ -134,7 +134,7 @@ const ProgramStudi = () => {
       paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6"
       paddingTop="lg:pt-20"
     >
-      <div className="p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20">
+      <div className="p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-16">
         <motion.div
           className="relative"
           initial={{ opacity: 0, y: 20 }}
@@ -449,7 +449,7 @@ const ProgramStudi = () => {
         </motion.div>
 
         {/* jalur */}
-        <div className="space-y-8 md:space-y-14 lg:space-y-20">
+        <div className="space-y-8 md:space-y-14 lg:space-y-16">
           <div className="w-full flex justify-center items-center">
             <MemoizedPendaftaranSection
               image={Section3}

@@ -17,8 +17,8 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
     }, [link]);
 
     return (
-        <div 
-            className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl space-y-3 cursor-pointer hover:scale-102 duration-500" 
+        <div
+            className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl space-y-3 cursor-pointer hover:scale-102 duration-500"
             onClick={onClick}
             style={{ willChange: 'transform' }}
         >
@@ -38,7 +38,8 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
                     hoverColor={'hover:bg-primary'}
                     textColor={'text-black'}
                     onClick={handleClick}
-                    hoverBgColor={'hover:border-3 hover:border-white/50'}
+                    border='border-2 border-text'
+                    hoverBgColor='hover:border-2 hover:border-text'
                 />
                 <Button
                     paddingMobile="py-2 px-4"

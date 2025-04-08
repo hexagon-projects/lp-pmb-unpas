@@ -50,7 +50,7 @@ body {
 }
 
 .intro_img {
-    clip-path: polygon(55% 100%, 60% 90%, 100% 90%, 100% 0%, 0% 0%, 0% 100%);
+    clip-path: polygon(0% 90%, 55% 90%, 55% 100%, 100% 99%, 100% 0%, 0% 0%);
 }
 
 .testi_container {
@@ -407,40 +407,41 @@ body {
 }
 
 .pulsating-button {
-    border: 4px solid;
+    border: 2px solid;
     position: relative;
     animation: border-pulse 2s infinite;
 }
 
 @keyframes border-pulse {
     0% {
-        border-color: rgba(254, 242, 81, 0.7); /* Opacity lebih tinggi */
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); /* Shadow lebih besar */
+        border-color: rgba(199, 57, 41, 0.7);
+        box-shadow: 0 0 0 0 rgba(199, 57, 41, 0.7);
     }
     50% {
-        border-color: rgba(254, 242, 81, 0.7); /* Opacity lebih tinggi */
-        box-shadow: 0 0 0 12px rgba(254, 242, 81, 0); /* Shadow lebih besar */
+        border-color: rgba(199, 57, 41, 0.7);
+        box-shadow: 0 0 0 12px rgba(199, 57, 41, 0);
     }
     100% {
-        border-color: rgba(254, 242, 81, 0.7); /* Opacity lebih tinggi */
-        box-shadow: 0 0 0 0 rgba(254, 242, 81, 0); /* Shadow lebih besar */
+        border-color: rgba(199, 57, 41, 0.7);
+        box-shadow: 0 0 0 0 rgba(199, 57, 41, 0);
     }
 }
 
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 0 0 rgba(199, 57, 41, 0.7);
     }
     50% {
         transform: scale(1);
-        box-shadow: 0 0 0 12px rgba(240, 240, 240, 0);
+        box-shadow: 0 0 0 12px rgba(199, 57, 41, 0);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(255, 230, 150, 0);
+        box-shadow: 0 0 0 0 rgba(199, 57, 41, 0);
     }
 }
+
 
 @media (max-width: 1445px) {
     .cta_box {
@@ -578,6 +579,9 @@ body {
     .cta_box {
         clip-path: polygon(0% 25%, 16% 25%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+    .intro_img {
+        clip-path: polygon(0% 85%, 55% 85%, 55% 100%, 100% 99%, 100% 0%, 0% 0%);
+    }
 }
 
 @media (max-width: 800px) {
@@ -708,7 +712,7 @@ body {
 
 @media (max-width: 395px) {
     .cta_box {
-        clip-path: polygon(0% 20%, 25% 20%, 25% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 25%, 25% 25%, 25% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     .bg_home {
         clip-path: polygon(70% 0%, 70% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);

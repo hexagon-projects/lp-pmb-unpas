@@ -46,7 +46,7 @@ const Testimoni = () => {
                     <img src={Section1} alt="" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
                 </div>
                 <div className="flex flex-col justify-center items-center text-center space-y-[16px]">
-                    <div className="w-fit p-2 rounded-full border border-black/20">
+                    <div className="w-fit p-2 rounded-full border-2 border-black/20">
                         <Text text={'Testimonial'} color="text-text" weight={'font-bold'} />
                     </div>
                     <Title sizeMobile='text-2xl md:text-3xl lg:text-5xl' title={'Kata Mereka Tentang Unpas'} />

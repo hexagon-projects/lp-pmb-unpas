@@ -83,7 +83,7 @@ const Artikel = () => {
             <Helmet>
                 <title>Artikel - Universitas Pasundan</title>
             </Helmet>
-            <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-20">
+            <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-16">
                 {latestBerita && (
                     <MotionWrapper
                         type="zoomIn"

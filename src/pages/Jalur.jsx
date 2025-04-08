@@ -96,14 +96,6 @@ const Jalur = () => {
                                 Universitas Pasundan.
                             </h2>
                             <div className="hidden md:flex">
-                                {/* <div className="w-fit flex flex-row md:flex-col justify-center md:justify-start items-center md:items-start">
-                        <h2 className="text-[96px] font-bold">{jalur.length}</h2>
-                        <div className="">
-                            <h3 className="text-[26px] font-semibold text-gray-800">Jalur Masuk</h3>
-                            <h2 className="text-[64px] font-bold text-text">
-                                Universitas Pasundan.
-                            </h2>
-                            <div className="hidden md:flex pt-4"> */}
                                 <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} />
                             </div>
                         </div>
@@ -137,7 +129,7 @@ const Jalur = () => {
                                 exit={{ opacity: 0 }}
                             >
                                 <motion.div
-                                    className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-lg space-y-3"
+                                    className="bg-white p-6 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] w-11/12 max-w-lg space-y-3"
                                     onClick={e => e.stopPropagation()}
                                     initial={{ scale: 0.5, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
@@ -147,10 +139,12 @@ const Jalur = () => {
                                     <div className="flex justify-between items-start gap-4">
                                         <h2 className="text-xl font-bold">{selectedJalur.name}</h2>
                                         <div className="w-fit">
-                                            <button className="p-2 rounded-full text-white bg-red-500" onClick={handleCloseModal}><X size={20} /></button>
+                                            <button className="p-2 rounded-full text-white bg-red-500 cursor-pointer" onClick={handleCloseModal}><X size={20} /></button>
                                         </div>
                                     </div>
+                                    <div className="overflow-auto max-h-50">
                                     <RichText content={selectedJalur.content} />
+                                    </div>
                                     <Text text={`Periode: ${selectedJalur.start_date} - ${selectedJalur.end_date}`} />
                                     <div className="flex justify-start mt-4 gap-4">
                                         <Button text="Daftar Sekarang" bgColor="bg-primary" textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />

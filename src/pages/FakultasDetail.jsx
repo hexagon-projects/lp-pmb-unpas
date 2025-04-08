@@ -123,7 +123,7 @@ const FakultasDetail = () => {
         )}
       </AnimatePresence>
 
-      <motion.div className="w-full p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <motion.div className="w-full p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-16" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
         <motion.div className="relative" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="w-full fakultas_dtl_container">
             <div
@@ -152,7 +152,7 @@ const FakultasDetail = () => {
             </div>
           </div>
           <div className="absolute bottom-0 left-0 z-20">
-            <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/50'} padding={'px-4 py-4'} onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'}/>
+            <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border='border-2 border-text' hoverBgColor={'hover:border-2 hover:border-text'} padding={'px-4 py-4'} onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'}/>
           </div>
         </motion.div>
 
@@ -168,13 +168,13 @@ const FakultasDetail = () => {
           <div className="w-full flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-y-4 md:gap-y-0 gap-x-18">
             <div className="w-full md:w-full space-y-3 md:space-y-4 flex flex-col justify-center items-left text-justify md:items-start md:text-left">
               <div className="text-center md:text-left">
-                <Title title={'Visi dan Misi'} color="text-[#3384FF]" />
+                <Title title={`${fakultas.title2}`} color="text-[#3384FF]" />
               </div>
               <div className="max-h-[300px] overflow-y-auto">
                 <RichText content={`${fakultas.description2}`} />
               </div>
               <div className="w-fit">
-                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} hoverBgColor={'hover:border-3 hover:border-white/50'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border='border-2 border-text' hoverBgColor={'hover:border-2 hover:border-text'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
               </div>
             </div>
             <div className="w-full md:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
@@ -190,43 +190,8 @@ const FakultasDetail = () => {
           </div>
         </motion.div>
 
-        {/* Video Section (jika ada duplikasi video) */}
-        {/* <motion.div className="w-full flex justify-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}>
-          <div className="w-full md:w-[80%] lg:w-[60%]">
-            <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer">
-              <img src={`https://img.youtube.com/vi/${fakultas.yt_id}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
-              <motion.div className="absolute inset-0 flex items-center justify-center rounded-lg md:rounded-2xl lg:rounded-4xl" whileTap={{ scale: 0.9 }}>
-                <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
-                  <FaPlay className="text-white p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
-                </div>
-              </motion.div>
-            </button>
-          </div>
-        </motion.div> */}
-
-        {/* Mengapa Pilih Fakultas Section */}
-        {/* <motion.div className="relative w-full lg:py-40 rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1 }}>
-          <div className="hidden lg:block absolute inset-0 border-1 border-gray-800/10 shadow-xl shadow-black/5 transform -skew-y-3 origin-top-left rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
-          <div className="relative flex flex-col md:flex-row justify-center items-center text-center space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-10">
-            <div className="w-full md:w-1/2 lg:w-1/3 space-y-3 md:space-y-4">
-              <div className="w-full space-y-2 text-left md:text-left">
-                <Title title={'Mengapa Pilih Fakultas'} />
-                <Title color="text-blue-500" title={fakultas.name.replace('Fakultas ', '')} />
-              </div>
-              <div className="w-full h-full">
-                <img src={Gedung} alt="Gedung Unpas" className="w-full h-full rounded-lg bg-cover md:rounded-2xl lg:rounded-4xl" />
-              </div>
-            </div>
-            <div className="md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {unggulan.map((item, index) => (
-                <HighlightCard key={index} title={item.title} text={item.description} />
-              ))}
-            </div>
-          </div>
-        </motion.div> */}
-
         <motion.div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.2 }}>
-          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
+          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border-2 rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
             <div className="flex justify-between md:justify-between items-center text-center relative z-2">
               <div className="flex items-center gap-4 text-left">
                 <div className="w-[60%] md:w-fit">
@@ -272,13 +237,12 @@ const FakultasDetail = () => {
             <ActivitySection title={'Agenda'} activities={agenda} />
           ) : (
             <div className="text-center">
-              <Text text={'Tidak ada Agenda'} />
             </div>
           )}
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2 }}>
-          <CTASection color={'bg-blue-500'} border={'border-white'}/>
+          <CTASection/>
         </motion.div>
       </motion.div>
     </UserLayout>

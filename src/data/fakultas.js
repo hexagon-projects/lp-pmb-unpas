@@ -35,7 +35,7 @@ export const FACULTIES = [
       name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
       slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
       programs: [
-        { name: 'S1 - Ilmu Administrasi Publik', slug: 'ilmu-administrasi-publik' },
+        { name: 'S1 - Administrasi Publik', slug: 'administrasi-publik' },
         { name: 'S1 - Ilmu Kesejahteraan Sosial', slug: 'ilmu-kesejahteraan-sosial' },
         { name: 'S1 - Ilmu Hubungan Internasional', slug: 'ilmu-hubungan-internasional' },
         { name: 'S1 - Ilmu Administrasi Bisnis', slug: 'ilmu-administrasi-bisnis' },
@@ -83,7 +83,7 @@ export const FACULTIES = [
       programs: [
         { name: 'S1 - Sastra Inggris', slug: 'sastra-inggris' },
         { name: 'S1 - Desain Komunikasi Visual', slug: 'desain-komunikasi-visual' },
-        { name: 'S1 - Fotografi dan Film', slug: 'fotografi-dan-film' },
+        { name: 'S1 - Fotografi', slug: 'fotografi' },
         { name: 'S1 - Seni Musik', slug: 'seni-musik' }
       ]
     },

@@ -15,9 +15,9 @@ const ReasonSection = ({ data = [] }) => {
     const dropdownItems = useMemo(() => (
         data.map((item) => (
             <div key={item.id} className="w-full lg:w-[30%]">
-                <div className={`bg-[#F0F0F0] border border-white w-full flex flex-col justify-between items-start shadow-black/5 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl overflow-hidden cursor-pointer ${openDropdown === item.id ? "" : ""}`}>
+                <div className={`bg-[#F0F0F0] border-2 border-white w-full flex flex-col justify-between items-start shadow-black/5 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl overflow-hidden cursor-pointer ${openDropdown === item.id ? "" : ""}`}>
                     <button
-                        className="w-full flex justify-between items-center px-4 py-2 md:py-5 text-left"
+                        className="w-full flex justify-between items-center px-4 py-2 md:py-5 text-left cursor-pointer"
                         onClick={() => toggleDropdown(item.id)}
                         aria-expanded={openDropdown === item.id}
                     >

@@ -5,7 +5,7 @@ import Title from "./Title";
 import IdentityService from "../fetching/identity";
 import Loading from "./Loading";
 
-const CTABox = ({ subtitle, title, textButton, subtitle2, border = 'border-text', onClick = 'https://registrasi.unpas.ac.id/register', color = 'bg-primary' }) => {
+const CTABox = ({ subtitle, title, textButton, subtitle2, border = 'border-footer', onClick = 'https://registrasi.unpas.ac.id/register', color = 'bg-primary' }) => {
     const [identity, setIdentity] = useState(null);
     const [loading, setLoading] = useState(true);
     
@@ -51,18 +51,18 @@ const CTABox = ({ subtitle, title, textButton, subtitle2, border = 'border-text'
                 <div className={`w-full px-4 py-10 rounded-xl md:rounded-2xl lg:rounded-4xl cta_box ${color}`}>
                     <div className="w-full text-center mt-10 md:mt-8 space-y-2 py-6 md:py-8">
                         <h3 className="text-gray-800 text-sm md:text-base lg:text-[26px] font-medium">{subtitle}</h3>
-                        <Title sizeMobile="text[32px]" title={title} />
+                        <Title title={title} />
                         <div className="w-full flex justify-center items-center gap-4">
                             <motion.button
                                 onClick={handleClick}
-                                className="rounded-xl md:rounded-xl lg:rounded-2xl border-3 border-transparent hover:border-3 hover:border-primary/40 cursor-pointer text-xs md:text-base mt-6 px-6 py-4 bg-gray-100 text-black shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] hover:bg-white transition"
+                                className="rounded-xl md:rounded-xl lg:rounded-2xl border-2 border-text hover:border-2 hover:border-text cursor-pointer text-xs md:text-base mt-6 px-6 py-4 bg-gray-100 text-black shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] hover:bg-white transition"
                                 whileTap={{ scale: 0.95 }}
                             >
                                 {textButton}
                             </motion.button>
                             <motion.button
                                 onClick={handleWhatsApp}
-                                className={`rounded-xl md:rounded-xl lg:rounded-2xl border-1 ${border} cursor-pointer text-xs md:text-base mt-6 px-6 py-4 text-black shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition`}
+                                className={`rounded-xl md:rounded-xl lg:rounded-2xl border-2 ${border} cursor-pointer text-xs md:text-base mt-6 px-6 py-4 text-black shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition`}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 Hubungi Admin
