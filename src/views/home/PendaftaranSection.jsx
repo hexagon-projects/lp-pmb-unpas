@@ -14,7 +14,7 @@ import CustomPagination from '../../components/CustomPagination';
 
 const DUMMY_IMAGES = Array(4).fill({ image: Section1 });
 
-const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }) => {
+const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [], color='text-gray-800' }) => {
     const navigate = useNavigate();
     const swiperRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
@@ -115,8 +115,8 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [] }
         <div className="w-full flex justify-center items-center bg-transparent">
             <div className="w-full md:w-full flex flex-col gap-4 md:gap-6 lg:gap-8 p-4 md:p-8 lg:p-10">
                 <div className="text-center md:space-y-2">
-                    {title && <Text sizeText="text-base md:text-lg lg:text-2xl" text={title} color="text-text" weight="" />}
-                    {subtitle && <Title title={subtitle} />}
+                    {title && <Text sizeText="text-base md:text-lg lg:text-2xl" text={title} color="" weight="" />}
+                    {subtitle && <Title title={subtitle} color={color}/>}
                 </div>
 
                 <div className="w-full flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-8">

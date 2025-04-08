@@ -5,14 +5,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
 
-const PrestasiSection = ({ prestasi }) => {
+const PrestasiSection = ({ prestasi, color="text-black" }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
     const swiperRef = useRef(null);
 
     return (
         <div className={'flex flex-col md:flex-col justify-center items-center gap-4'}>
             <div className="w-full md:w-full text-center lg:text-center space-y-3 md:space-y-4">
-                <Title title={'Prestasi'} />
+                <Title title={'Prestasi'} color={color}/>
+                <p className="text-sm md:text-base lg:text-base text-gray-500">
+                    Dari akademik hingga inovasi, Universitas Pasundan terus mencetak prestasi gemilang. 
+                </p>
             </div>
             <div className="w-full md:w-full">
                 <Swiper
@@ -39,7 +42,7 @@ const PrestasiSection = ({ prestasi }) => {
                                     }`}
                                     style={{ backgroundImage: `url(${imageURL}/prestasis/${item?.image})` }}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#D3C61D]/100 via-[#C5B91B40]/25 to-transparent flex flex-col justify-end p-6 rounded-xl md:rounded-2xl lg:rounded-4xl">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-[#C5B91B40]/25 to-transparent flex flex-col justify-end p-6 rounded-xl md:rounded-2xl lg:rounded-4xl">
                                         <div className="w-full text-white text-left space-y-2 z-10">
                                             <h3 className="text-sm md:text-base lg:text-base font-bold">{item?.title}</h3>
                                             <div className="flex gap-2">

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Title from '../Title'
 import RichText from '../RichText'
 
-const AktivitasMahasiswa = ({ data = [] }) => {
+const AktivitasMahasiswa = ({ data = [], color="text-black" }) => {
   const [activeCard, setActiveCard] = useState(data[0]?.id || null)
   const [windowWidth, setWindowWidth] = useState(0)
   const imageURL = import.meta.env.VITE_IMAGE_URL
@@ -39,7 +39,7 @@ const AktivitasMahasiswa = ({ data = [] }) => {
 
   if (!data || !Array.isArray(data)) {
     return <div className="text-center space-y-4 md:space-y-6 lg:space-y-8">
-      <Title title="Inovasi" />
+      <Title title="Inovasi" color={color}/>
       <p className="text-center text-gray-500">Tidak ada Aktivitas</p>
     </div>
   }
@@ -47,7 +47,7 @@ const AktivitasMahasiswa = ({ data = [] }) => {
   return (
     <div className="space-y-4 md:space-y-6 lg:space-y-8">
       <div className="text-center">
-        <Title title="Inovasi" />
+        <Title title="Inovasi" color={color}/>
       </div>
       <div className="flex justify-center flex-wrap gap-2 md:gap-4 px-2 md:px-0">
         {data.map((card) => (

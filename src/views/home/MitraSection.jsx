@@ -3,7 +3,7 @@ import MitraCarousel from '../../components/MitraCarousel'
 import Title from '../../components/Title'
 import Text from '../../components/Text'
 
-const MitraSection = ({ data }) => {
+const MitraSection = ({ data, color="text-black" }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedMitra, setSelectedMitra] = useState(null)
 
@@ -24,7 +24,7 @@ const MitraSection = ({ data }) => {
   return (
     <div className="flex flex-col items-center gap-4 md:gap-6 lg:gap-8">
       <div className="w-full flex flex-col justify-center items-center text-center space-y-3">
-        <Title title="Mitra Unpas" />
+        <Title title="Mitra Unpas" color={color}/>
         <div className="w-2/3 md:w-1/3 xl:w-1/4">
           <Text sizeMobile="text-sm md:text-xl lg:text-2xl" text={'Lebih dari 100+ mitra kerja sama antar perguruan tinggi.'} />
         </div>
