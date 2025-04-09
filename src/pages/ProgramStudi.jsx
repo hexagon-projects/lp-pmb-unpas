@@ -15,7 +15,7 @@ import PendaftaranSection from "../views/home/PendaftaranSection";
 import StatsSection from "../components/StatsSection";
 import PrestasiSection from "../components/prodi/PrestasiSection";
 import ArticleTransparentCard from "../components/ArticleTransparentCard";
-import TestimonialSlider from "../components/TestimonialSlider";
+import TestimonialSlider from "../components/TestimonialSlider2";
 import AktivitasMahasiswa from "../components/prodi/AktivitasMahasiswa";
 import FasilitasSlider from "../components/prodi/FasilitasSlider";
 import DosenCard from "../components/prodi/DosenCard";
@@ -86,10 +86,12 @@ const ProgramStudi = () => {
       const [partners, testimonials, berita, prestasi, gallery, jalur] =
         await Promise.all([
           PartnerService.getAllPartner(),
-          TestimoniService.getTestimonibyDepartement(prodi?.departement?.id),
+          TestimoniService.getTestimonibyDepartement({
+            id: prodi?.departement?.id,
+          }),
           BeritaService.getAllBerita(),
           PrestasiService.getPrestasiProdi(slug),
-          GalleryService.getAllInovasiSlug(slug),
+          GalleryService.getAllInovasiSlug({ slug: slug }),
           RegistrasiService.getAllRegistrasi(),
         ]);
       setData({
@@ -664,13 +666,13 @@ const ProgramStudi = () => {
         {/* Dosen Penelitian Section End */}
 
         {/* Inovasi Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.6 }}
         >
           <AktivitasMahasiswa data={latestActivity} color={fakultas.color} />
-        </motion.div>
+        </motion.div> */}
         {/* Inovasi Section End */}
 
         {/* Prestasi Section */}
@@ -698,7 +700,7 @@ const ProgramStudi = () => {
           transition={{ duration: 0.6, delay: 2 }}
           className="px-6 md:px-0"
         >
-          <div className="text-center">
+          <div className="text-center mb-5">
             <Title title="Fasilitas" color={fakultas.color} />
           </div>
           <FasilitasSlider title="Fasilitas" facilities={fasilitas} />
@@ -725,10 +727,16 @@ const ProgramStudi = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           {testimonials.length > 0 ? (
-            <TestimonialSlider
-              testimonials={testimonials}
-              color={fakultas.color}
-            />
+            <>
+              <div className="text-center mb-5 md:mb-20">
+                <Title title="Testimoni" color={fakultas.color} />
+              </div>
+              <TestimonialSlider
+                testimonials={testimonials}
+                color={fakultas.color}
+                data={testimonials}
+              />
+            </>
           ) : (
             <div className="text-center space-y-4 md:space-y-6 lg:space-y-8">
               <Title title="Testimoni" color={fakultas.color} />
@@ -755,39 +763,47 @@ const ProgramStudi = () => {
               <div className="overflow-x-auto snap-x py-2">
                 <div className="flex flex-nowrap gap-4 px-4 flex-col md:flex-row justify-center">
                   {latestBerita && latestBerita.length > 0 ? (
-                    <>
-                      {latestBerita.map((berita, index) => (
-                        <>
-                          <div key={index} className="w-full md:flex-shrink-0 rounded-lg p-3 bg-white flex md:flex-col gap-4 lg:w-[280px] md:w-[200px] h-full">
-                            <img
-                              src={`${imageURL}/posts/${berita.image}`}
-                              alt=""
-                              className="rounded-lg w-2/5 md:w-full md:h-40 object-cover"
+                    latestBerita.map((berita, index) => (
+                      <div
+                        key={index}
+                        className="w-full md:flex-shrink-0 rounded-lg p-3 bg-white flex md:flex-col gap-4 lg:w-[280px] md:w-[200px] h-full"
+                      >
+                        <img
+                          src={`${imageURL}/posts/${berita.image}`}
+                          alt=""
+                          className="rounded-lg w-2/5 md:w-full md:h-40 object-cover"
+                        />
+                        <div className="flex flex-col justify-between flex-1 gap-2">
+                          <div className="flex flex-col gap-2">
+                            <p className="md:text-base/5 text-left text-xs line-clamp-3">
+                              {berita.title}
+                            </p>
+                            <RichText
+                              lineclamp={
+                                "line-clamp-2 lg:line-clamp-4 md:text-sm text-xs"
+                              }
+                              textColor="text-gray-700"
+                              content={berita.description}
+                              sizeText="text-left"
+                              leading="leading-4 md:leading-4.5"
                             />
-                            <div className="flex flex-col justify-between flex-1 gap-2">
-                              <div className="flex flex-col gap-2">
-                                <p className="md:text-base/5 text-left text-xs line-clamp-3">{berita.title}</p>
-                                <RichText
-                                  lineclamp={"line-clamp-2 lg:line-clamp-4 md:text-sm text-xs"}
-                                  textColor="text-gray-700"
-                                  content={berita.description}
-                                  sizeText="text-left"
-                                  leading="leading-4 md:leading-4.5"
-                                />
-                              </div>
-                              <div className="flex justify-between mt-2">
-                                <p className="font-medium cursor-pointer text-xs md:text-sm text-left" onClick={() => navigate(`/artikel/${berita.slug}`)}>
-                                  Read More
-                                </p>
-                                <p className="text-gray-500 text-xs md:text-sm text-right">
-                                  {berita.pub_date}
-                                </p>
-                              </div>
-                            </div>
                           </div>
-                        </>
-                      ))}
-                    </>
+                          <div className="flex justify-between mt-2">
+                            <p
+                              className="font-medium cursor-pointer text-xs md:text-sm text-left"
+                              onClick={() =>
+                                navigate(`/artikel/${berita.slug}`)
+                              }
+                            >
+                              Read More
+                            </p>
+                            <p className="text-gray-500 text-xs md:text-sm text-right">
+                              {berita.pub_date}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))
                   ) : (
                     <div className="text-center py-6">
                       <Text

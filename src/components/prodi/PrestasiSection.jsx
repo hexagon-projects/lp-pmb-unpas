@@ -44,7 +44,7 @@ const PrestasiSection = ({ prestasi, color="text-black" }) => {
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-[#C5B91B40]/25 to-transparent flex flex-col justify-end p-6 rounded-xl md:rounded-2xl lg:rounded-4xl">
                                         <div className="w-full text-white text-left space-y-2 z-10">
-                                            <h3 className="text-sm md:text-base lg:text-base font-bold">{item?.title}</h3>
+                                            <h3 className="text-xs md:text-base lg:text-base font-bold">{item?.title}</h3>
                                             <div className="flex gap-2">
                                                 <p className="text-xs md:text-sm">{item?.start_date} {item?.start_time}</p>
                                                 <p className="text-xs md:text-sm">{item?.end_date} {item?.end_time}</p>
@@ -57,16 +57,16 @@ const PrestasiSection = ({ prestasi, color="text-black" }) => {
                     ))}
                 </Swiper>
 
-                <div className="flex justify-center gap-4 mt-4">
+                <div className="flex justify-center gap-0 mt-4">
                     <button
                         onClick={() => swiperRef.current?.slidePrev()}
-                        className="px-4 py-2 text-[#444444]"
+                        className="px-2 py-2 text-[#444444]"
                     >
                         <IoArrowBackCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
                     </button>
                     <button
                         onClick={() => swiperRef.current?.slideNext()}
-                        className="px-4 py-2 text-[#444444]"
+                        className="px-2 py-2 text-[#444444]"
                     >
                         <IoArrowForwardCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
                     </button>
