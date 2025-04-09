@@ -65,7 +65,6 @@ const TestimonialSlider = ({
   };
 
   useEffect(() => {
-    console.log(data);
     if (swiperInstance) {
       calculateVisibleSlides();
       swiperInstance.on("slidesPerViewChange", calculateVisibleSlides);
