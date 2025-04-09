@@ -101,7 +101,7 @@ const Fasilitas = () => {
       <Helmet>
         <title>Fasilitas - Universitas Pasundan</title>
       </Helmet>
-      <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-24">
+      <div className="relative p-5 md:px-10 lg:px-15 space-y-12 md:space-y-16 lg:space-y-24">
         <div className={"space-y-4 md:space-y-6 lg:space-y-10"}>
           {/* Bagian Gambar dengan Fade In */}
           <div className="w-full h-42 md:h-60 lg:h-[65vh] relative">

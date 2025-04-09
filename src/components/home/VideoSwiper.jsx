@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, memo, useRef } from "react";
+import { useState, useCallback, useMemo, memo, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { FaPlay } from "react-icons/fa";
@@ -9,8 +9,8 @@ import Title from "../Title";
 import SelengkapnyaButton from "../SelengkapnyaButton";
 
 const VideoSwiper = ({ data = [] }) => {
-    const [activeIndex, setActiveIndex] = useState(1);
-    const [realActiveIndex, setRealActiveIndex] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [realActiveIndex, setRealActiveIndex] = useState(0);
     const [playingVideo, setPlayingVideo] = useState(null);
     const imageURL = import.meta.env.VITE_IMAGE_URL;
     const swiperRef = useRef(null);
@@ -23,6 +23,14 @@ const VideoSwiper = ({ data = [] }) => {
             image: `${imageURL}/dukungans/${item.image}`
         }))
     ), [data, imageURL]);
+
+    useEffect(() => {
+        if (swiperRef.current && videos.length > 0) {
+            swiperRef.current.swiper.slideTo(0); 
+            setActiveIndex(0);
+            setRealActiveIndex(0);
+        }
+    }, [videos.length]);
 
     const handlePaginationClick = useCallback((index) => {
         if (swiperRef.current) {
@@ -139,6 +147,7 @@ const VideoSwiper = ({ data = [] }) => {
                 modules={[Autoplay]}
                 onSlideChange={handleSlideChange}
                 speed={600}
+                initialSlide={0} 
                 breakpoints={{
                     640: { spaceBetween: -120, slidesPerView: 1.2 },
                     1024: { spaceBetween: -150, slidesPerView: 1.5 },

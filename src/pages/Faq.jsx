@@ -121,8 +121,8 @@ const Faq = () => {
             <Helmet>
                 <title>FAQ - Universitas Pasundan</title>
             </Helmet>
-            <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-16">
-                <div className="relative h-[30vh] lg:h-[70vh] p-4 md:px-10 lg:px-12 rounded-xl md:rounded-2xl lg:rounded-4xl flex flex-col justify-center items-start bg-cover bg-no-repeat"
+            <div className="p-5 md:p-10 lg:p-15 space-y-8 md:space-y-12 lg:space-y-16">
+                <div className="relative h-[30vh] lg:h-[70vh] p-5 md:px-10 lg:px-15 rounded-xl md:rounded-2xl lg:rounded-4xl flex flex-col justify-center items-start bg-cover bg-no-repeat"
                     style={{ backgroundImage: `url(${Section1})` }}>
 
                     <div className="absolute inset-0 bg-black/30 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
@@ -133,12 +133,12 @@ const Faq = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-8">
                     <div className="w-full space-y-3 text-center md:text-left">
                         <Title title={`Jadwal Umum PMB`} />
                         <Text text={"Pertanyaan-pertanyaan umum seputar PMB"} />
                     </div>
-                    <div className="w-full flex flex-col gap-4">
+                    <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8">
                         <SearchInput
                             placeholder={'Cari FAQ Umum...'}
                             searchTerm={searchTermGeneral}
@@ -150,36 +150,34 @@ const Faq = () => {
                             paginatedGeneralFaqs.map((faq) => (
                                 <div key={faq.id} className="w-full shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
                                     <button
-                                        className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base"
+                                        className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base cursor-pointer"
                                         onClick={() => toggleGeneralDropdown(faq.id)}
                                     >
                                         {faq.title}
-                                        <span className={`transform transition-transform ${openGeneralId === faq.id ? "rotate-180" : "rotate-0"}`}>
+                                        <span className={`transform transition-transform duration-500 ${openGeneralId === faq.id ? "rotate-180" : "rotate-0"}`}>
                                             <IoIosArrowDown />
                                         </span>
                                     </button>
-                                    {openGeneralId === faq.id && (
+                                    <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openGeneralId === faq.id ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}>
                                         <div
                                             className="mt-2 text-xs md:text-sm lg:text-base text-gray-600"
                                             dangerouslySetInnerHTML={{ __html: faq.description }}
                                         />
-                                    )}
+                                    </div>
                                 </div>
                             ))
                         ) : (
                             <p className="text-center text-xs md:text-sm lg:text-base text-gray-500">Tidak ada FAQ ditemukan.</p>
                         )}
-
-                        {/* <Pagination currentPage={currentPage} totalPages={totalPagesGeneral} setCurrentPage={setCurrentPage} /> */}
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-8">
                     <div className="w-full space-y-3 text-center md:text-left">
                         <Title title={`Pembayaran`} />
                         <Text text={"Pertanyaan-pertanyaan mengenai pembayaran"} />
                     </div>
-                    <div className="w-full flex flex-col gap-4">
+                    <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8">
                         <SearchInput
                             placeholder={'Cari FAQ Billing...'}
                             searchTerm={searchTermBilling}
@@ -191,27 +189,25 @@ const Faq = () => {
                             paginatedBillingFaqs.map((faq) => (
                                 <div key={faq.id} className="w-full shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
                                     <button
-                                        className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base"
+                                        className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base cursor-pointer"
                                         onClick={() => toggleBillingDropdown(faq.id)}
                                     >
                                         {faq.title}
-                                        <span className={`transform transition-transform ${openBillingId === faq.id ? "rotate-180" : "rotate-0"}`}>
+                                        <span className={`transform transition-transform duration-500 ${openBillingId === faq.id ? "rotate-180" : "rotate-0"}`}>
                                             <IoIosArrowDown />
                                         </span>
                                     </button>
-                                    {openBillingId === faq.id && (
+                                    <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openBillingId === faq.id ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}>
                                         <div
                                             className="mt-2 text-xs md:text-sm lg:text-base text-gray-600"
                                             dangerouslySetInnerHTML={{ __html: faq.description }}
                                         />
-                                    )}
+                                    </div>
                                 </div>
                             ))
                         ) : (
                             <p className="text-center text-xs md:text-sm lg:text-base text-gray-500">Tidak ada FAQ ditemukan.</p>
                         )}
-
-                        {/* <Pagination currentPage={currentPage} totalPages={totalPagesBilling} setCurrentPage={setCurrentPage} /> */}
                     </div>
                 </div>
 

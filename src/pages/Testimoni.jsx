@@ -41,7 +41,7 @@ const Testimoni = () => {
             paddingTop={'lg:pt-30'}
             type={'fadeInUp'} duration={0.5}
         >
-            <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-[66px]">
+            <div className="relative p-5 md:px-10 lg:px-15 space-y-12 md:space-y-16 lg:space-y-[66px]">
                 <div className="w-full h-42 md:h-40 lg:h-[55vh]">
                     <img src={Section1} alt="" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
                 </div>

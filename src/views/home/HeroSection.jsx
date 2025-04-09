@@ -31,7 +31,8 @@ const HeroSection = ({ data = [] }) => {
     }, [handleResize]);
 
     const isMobile = windowSize.width < 768;
-    const isDesktopOrTablet = windowSize.width >= 768;
+    const isTablet = windowSize.width >= 768 && windowSize.width < 1024;
+    const isDesktop = windowSize.width >= 1024;
 
     const handleSlideChange = useCallback((swiper) => {
         setActiveIndex(swiper.activeIndex);
@@ -46,19 +47,29 @@ const HeroSection = ({ data = [] }) => {
     }, []);
 
     const renderSlide = useCallback((slide) => {
-        const slideHeight = isMobile ? `75vh` : '100%';
-        const selectedImage = isMobile ? slide.image2 : slide.image;
+        let slideHeight, selectedImage;
+        
+        if (isMobile) {
+            slideHeight = '75vh';
+            selectedImage = slide.image2;
+        } else if (isTablet) {
+            slideHeight = '86vh';
+            selectedImage = slide.image2;
+        } else {
+            slideHeight = '70vh';
+            selectedImage = slide.image;
+        }
 
         return (
             <SwiperSlide key={slide.id} className="relative">
-                <div className="w-full h-full" style={{ height: slideHeight }}>
+                <div className="w-full" style={{ height: slideHeight }}>
                     <div
-                        className="w-full h-full bg-cover rounded-b-4xl md:rounded-2xl lg:rounded-4xl "
+                        className="w-full h-full rounded-b-4xl md:rounded-2xl lg:rounded-4xl"
                         style={{
                             backgroundImage: `url(${imageURL}/sliders/${selectedImage})`,
-                            backgroundAttachment: isDesktopOrTablet ? 'fixed' : 'scroll',
+                            backgroundAttachment: isDesktop ? 'fixed' : 'scroll',
                             height: slideHeight,
-                            backgroundSize: isMobile ? 'cover' : 'cover',
+                            backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center'
                         }}
@@ -67,7 +78,7 @@ const HeroSection = ({ data = [] }) => {
                 </div>
             </SwiperSlide>
         );
-    }, [activeIndex, imageURL, isDesktopOrTablet, isMobile, windowSize.width]);
+    }, [isMobile, isTablet, isDesktop, imageURL]);
 
     const handlePaginationClick = useCallback((index) => {
         setActiveIndex(index);
@@ -75,13 +86,13 @@ const HeroSection = ({ data = [] }) => {
     }, []);
 
     return (
-        <div className="relative md:mx-6 lg:mx-6 lg:pt-6">
+        <div className="relative mx-0 md:mx-10 lg:mx-15 lg:pt-6">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 spaceBetween={0}
                 slidesPerView={1}
-                direction={isDesktopOrTablet ? "vertical" : "horizontal"}
-                navigation={isDesktopOrTablet ? {
+                direction={isMobile ? "horizontal" : "vertical"}
+                navigation={isDesktop ? {
                     prevEl: ".custom-swiper-prev",
                     nextEl: ".custom-swiper-next"
                 } : false}
@@ -91,7 +102,10 @@ const HeroSection = ({ data = [] }) => {
                     pauseOnMouseEnter: true
                 }}
                 className="w-full"
-                style={{ height: isMobile ? '75vh' : '75vh' }}
+                style={{ 
+                    height: isMobile ? '75vh' : 
+                           isTablet ? '86vh' : '70vh' 
+                }}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 effect="fade"
                 fadeEffect={{ crossFade: true }}
@@ -102,7 +116,7 @@ const HeroSection = ({ data = [] }) => {
                 {data.map(renderSlide)}
             </Swiper>
 
-            {isDesktopOrTablet && (
+            {isDesktop && (
                 <div className="absolute top-1/2 bottom-1/2 right-4 z-12 justify-center hidden md:flex">
                     <CustomPagination
                         display="flex flex-col gap-2 justify-center items-center p-2"
@@ -119,21 +133,25 @@ const HeroSection = ({ data = [] }) => {
                 </div>
             )}
 
-            <button
-                className="block md:hidden absolute top-1/2 left-4 z-10 cursor-pointer text-primary text-3xl lg:text-4xl"
-                onClick={goPrev}
-                aria-label="Previous slide"
-            >
-                <MdOutlineKeyboardArrowLeft />
-            </button>
+            {isMobile && (
+                <>
+                    <button
+                        className="block md:hidden absolute top-1/2 left-4 z-10 cursor-pointer text-primary text-3xl lg:text-4xl"
+                        onClick={goPrev}
+                        aria-label="Previous slide"
+                    >
+                        <MdOutlineKeyboardArrowLeft />
+                    </button>
 
-            <button
-                className="block md:hidden absolute top-1/2 right-4 z-10 cursor-pointer text-primary text-3xl lg:text-4xl"
-                onClick={goNext}
-                aria-label="Next slide"
-            >
-                <MdOutlineKeyboardArrowRight />
-            </button>
+                    <button
+                        className="block md:hidden absolute top-1/2 right-4 z-10 cursor-pointer text-primary text-3xl lg:text-4xl"
+                        onClick={goNext}
+                        aria-label="Next slide"
+                    >
+                        <MdOutlineKeyboardArrowRight />
+                    </button>
+                </>
+            )}
 
             <div className="absolute -bottom-30 left-0 right-0 z-10 md:-bottom-13 w-full justify-center items-center hidden md:flex">
                 <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 md:p-6 md:flex-row md:max-w-xl lg:max-w-fit rounded-xl md:rounded-2xl lg:rounded-4xl bg-[#EBEBEB] border-2 border-white">

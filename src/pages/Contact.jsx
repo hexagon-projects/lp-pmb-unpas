@@ -50,11 +50,11 @@ const Contact = () => {
       </Helmet>
       <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-16">
         <div
-          className="relative w-full h-[50vh] lg:h-[70vh] p-4 md:px-10 lg:px-12 rounded-xl md:rounded-2xl lg:rounded-4xl flex flex-col justify-center items-center bg-cover bg-no-repeat"
+          className="relative w-full h-[50vh] lg:h-[70vh] p-5 md:px-10 lg:px-15 rounded-xl md:rounded-2xl lg:rounded-4xl flex flex-col justify-center items-center bg-cover bg-no-repeat"
           style={{ backgroundImage: `url(${Mahasiswa})` }}
         >
           <div className="absolute inset-0 bg-black/30 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
-          {/* <div className="relative w-full h-[70vh] p-4 md:px-10 lg:px-12 rounded-lg md:rounded-2xl lg:rounded-4xl flex flex-col justify-center items-center bg-cover bg-no-repeat"
+          {/* <div className="relative w-full h-[70vh] p-5 md:px-10 lg:px-15 rounded-lg md:rounded-2xl lg:rounded-4xl flex flex-col justify-center items-center bg-cover bg-no-repeat"
                     style={{ backgroundImage: `url(${Mahasiswa})` }}>
 
                     <div className="absolute inset-0 bg-black/30 rounded-lg md:rounded-2xl lg:rounded-4xl"></div> */}
@@ -72,7 +72,7 @@ const Contact = () => {
               color="text-white"
             />
 
-            <div className="flex justify-center items-center gap-4">
+            <div className="flex justify-center items-center gap-4 md:gap-6 lg:gap-8">
               <Button
                 text={"Hubungi Kami"}
                 paddingMobile="px-4 py-4"
@@ -179,7 +179,7 @@ const Contact = () => {
         </div>
 
         <div type="zoomIn" delay={0.2}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {fakultas?.map((gedung, index) => (
               <GedungCard
                 key={index}

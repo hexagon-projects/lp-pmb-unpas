@@ -64,13 +64,13 @@ const Prestasi = () => {
                 )}
 
                 <div className="space-y-4 md:space-y-6 lg:space-y-12 pb-6">
-                    <div className="flex justify-between items-center w-full gap-4">
+                    <div className="flex justify-between items-center w-full gap-4 md:gap-6 lg:gap-8">
                         <Title sizeText="text-lg md:text-xl lg:text-3xl" fontWeight="font-semibold" title={'Prestasi'} />
                         <SearchInput placeholder="Cari prestasi..." searchTerm={searchTerm} setSearchTerm={setSearchTerm} widthMobile="w-1/2" />
                     </div>
 
-                    <div className="flex flex-col justify-center items-center gap-4">
-                        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div className="flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8">
+                        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
                             {currentPrestasi.length > 0 ? (
                                 currentPrestasi.map((prestasi) => (
                                     <PrestasiCard key={prestasi.id} image={prestasi.image} title={prestasi.title} name={prestasi.name}/>

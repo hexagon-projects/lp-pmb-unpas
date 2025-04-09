@@ -218,14 +218,14 @@ const Mahasiswa = () => {
           exit="exit"
           variants={pageVariants}
         >
-          <div className="w-full relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-24">
+          <div className="w-full relative p-5 md:px-10 lg:px-15 space-y-12 md:space-y-16 lg:space-y-24">
             <Motion.div
               variants={sectionVariants}
               initial="hidden"
               animate="visible"
               className={"space-y-4 md:space-y-6 lg:space-y-10"}
             >
-              <div className="flex h-50 md:h-60 lg:h-[60vh] justify-between items-center gap-4">
+              <div className="flex h-50 md:h-60 lg:h-[60vh] justify-between items-center gap-4 md:gap-6 lg:gap-8">
                 <div className="w-[30%] h-full">
                   {renderImageWithLoader(Section1, "Gedung Universitas Pasundan", isImage1Loaded, setIsImage1Loaded)}
                 </div>
@@ -278,7 +278,7 @@ const Mahasiswa = () => {
                 />
               </div>
               <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8">
-                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
                   {latestPrestasi?.map((prestasi) => (
                     <PrestasiCard
                       key={prestasi.id}

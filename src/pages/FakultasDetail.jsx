@@ -123,7 +123,7 @@ const FakultasDetail = () => {
         )}
       </AnimatePresence>
 
-      <motion.div className="w-full p-4 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-16" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <motion.div className="w-full p-5 md:p-10 lg:p-15 space-y-8 md:space-y-16 lg:space-y-16" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
         <motion.div className="relative" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="w-full fakultas_dtl_container">
             <div
@@ -168,7 +168,7 @@ const FakultasDetail = () => {
           <div className="w-full flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-y-4 md:gap-y-0 gap-x-18">
             <div className="w-full md:w-full space-y-3 md:space-y-4 flex flex-col justify-center items-left text-justify md:items-start md:text-left">
               <div className="text-center md:text-left">
-                <Title title={`${fakultas.title2}`} color="text-[#3384FF]" />
+                <Title title={`Tentang Kami`} color="text-[#3384FF]" />
               </div>
               <div className="max-h-[300px] overflow-y-auto">
                 <RichText content={`${fakultas.description2}`} />

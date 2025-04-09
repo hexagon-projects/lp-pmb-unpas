@@ -26,7 +26,7 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
                 {icon}
             </div>
             <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
-            <RichText content={text} />
+            <RichText content={text} lineclamp={'line-clamp-3 md:line-clamp-4'}/>
             <p className="text-xs md:text-sm lg:text-sm">
                 Periode {formatDate(startDate)} - {formatDate(endDate)}
             </p>

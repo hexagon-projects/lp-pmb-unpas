@@ -62,7 +62,7 @@ const Navbar = ({
     <div className="w-full flex justify-center relative z-[999]">
       <nav
         className={`
-          w-[90%] lg:w-[97%]
+          w-[90%] lg:w-[93%] xl:w-[94%]
           mt-3 xl:mt-4
           ${position} 
           z-50 
@@ -110,7 +110,7 @@ const Navbar = ({
                 relative 
                 p-4 
                 text-center 
-                text-xs lg:text-lg
+                text-xs lg:text-base
                 rounded-lg md:rounded-xl lg:rounded-2xl
                 transition-colors duration-500 ease-in-out
                 hover:bg-[#c4c4c4] hover:text-[#444444]

@@ -50,7 +50,7 @@ const Fakultas = () => {
       position="fixed"
       margin=""
       titleColor="text-black"
-      paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6"
+      paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-12"
       paddingTop="lg:pt-30"
     >
       <Helmet>
@@ -59,7 +59,7 @@ const Fakultas = () => {
         <link rel="preload" href={Logo} as="image" />
       </Helmet>
 
-      <div className="relative p-4 md:px-10 lg:px-12 space-y-8 md:space-y-12 lg:space-y-16">
+      <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-12 lg:space-y-16">
         <div className="relative">
           <div className="w-full fakultas_container">
             <div className="flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 bg-primary relative overflow-hidden fakultas_box lg:h-[55vh]">
@@ -105,7 +105,7 @@ const Fakultas = () => {
             <p>{error}</p>
           </div>
         ) : (
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {fakultas.map((item, index) => (
               <FakultasItem
                 key={item.id}

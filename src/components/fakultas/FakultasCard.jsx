@@ -14,7 +14,7 @@ const FakultasCard = ({ image, title, slug }) => {
 
   return (
     <div
-      className="relative w-full h-[30vh] md:h-[45vh] lg:h-[55vh] rounded-lg md:rounded-2xl overflow-hidden shadow-lg cursor-pointer group"
+      className="relative w-full h-[30vh] md:h-[45vh] lg:h-[45vh] rounded-lg md:rounded-2xl overflow-hidden shadow-lg cursor-pointer group"
       onClick={handleClick}
     >
       <div className="absolute inset-0 z-0">

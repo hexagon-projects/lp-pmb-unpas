@@ -91,8 +91,8 @@ const Fasilitas = () => {
         <title>Fasilitas - Universitas Pasundan</title>
       </Helmet>
 
-      <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-24">
-        <div className="space-y-4 md:space-y-6 lg:space-y-10">
+      <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-14 lg:space-y-16">
+        <div className="space-y-8 md:space-y-14 lg:space-y-16">
           <div className="w-full h-42 md:h-60 lg:h-[65vh] relative">
             <img
               src={Section1}
@@ -132,7 +132,7 @@ const Fasilitas = () => {
 
         <div className="w-full space-y-4 md:space-y-6 lg:space-y-10 lg:p-[50px]">
           <Title sizeMobile="text-xl" title={"Gedung Kampus"} />
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-6">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {gedungKampus?.map((gedung, index) => (
               <GedungCard
                 key={index}
@@ -147,11 +147,11 @@ const Fasilitas = () => {
 
         <div className="w-full h-full space-y-4 md:space-y-6 lg:space-y-10">
           <Title sizeMobile="text-xl" title={"Fasilitas Unggulan"} />
-          <div className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {[bento1, bento2, bento3].map((bento, bentoIndex) => (
               <div
                 key={bentoIndex}
-                className="w-full h-full grid grid-cols-1 gap-4"
+                className="w-full h-full grid grid-cols-1 gap-4 md:gap-6 lg:gap-8"
               >
                 {bento?.map((item, index) => (
                   <FasilitasCard

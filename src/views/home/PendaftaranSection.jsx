@@ -117,7 +117,7 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [], 
 
     return (
         <div className="w-full flex justify-center items-center bg-transparent">
-            <div className="w-full md:w-full flex flex-col gap-4 md:gap-6 lg:gap-8 p-4 md:p-8 lg:p-10">
+            <div className="w-full md:w-full flex flex-col gap-4 md:gap-6 lg:gap-8 p-5 md:p-10 lg:p-15">
                 <div className="text-center md:space-y-2">
                     {title && <Text sizeText="text-base md:text-lg lg:text-2xl" text={title} color={titleColor} weight="" />}
                     {subtitle && <Title title={subtitle} color={subtitleColor} />}

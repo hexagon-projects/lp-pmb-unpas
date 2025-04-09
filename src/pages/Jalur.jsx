@@ -63,7 +63,7 @@ const Jalur = () => {
             <Helmet>
                 <title>Jalur Pendaftaran - Universitas Pasundan</title>
             </Helmet>
-            <div className="relative p-4 md:px-10 lg:px-12 space-y-12 md:space-y-16 lg:space-y-24">
+            <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-14 lg:space-y-16">
                 <div className={'w-full flex flex-col md:flex-row-reverse justify-between md:justify-center items-center gap-4 md:gap-4 lg:gap-20'}>
                     <div className="relative w-full jalur_container">
                         <div className="w-full h-52 md:h-64 lg:h-full jalur_box">
@@ -105,13 +105,13 @@ const Jalur = () => {
                     </div>
                 </div>
 
-                <div type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6'}>
+                <div type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8'}>
                     {jalur.map((item, index) => (
                         <JalurCard
                             key={index}
                             icon={<TfiAnnouncement size={20} />}
                             title={item.name}
-                            text={item.description}
+                            text={item.content}
                             link={item.link}
                             startDate={item.start_date}
                             endDate={item.end_date}

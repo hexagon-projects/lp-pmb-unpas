@@ -41,7 +41,7 @@ const PrestasiSection = ({ organisasi, prestasi, imageURL }) => {
     const organisasi2 = organisasi.slice(15, 19)
 
     return (
-        <MotionWrapper className={'w-full flex flex-col gap-4 md:gap-6 lg:gap-10 px-4 md:px-10 lg:px-12'}>
+        <MotionWrapper className={'w-full flex flex-col gap-4 md:gap-6 lg:gap-10 px-5 md:px-10 lg:px-15'}>
             <div className="text-center">
                 <Title title={'Kegiatan dan Prestasi Mahasiswa'} />
             </div>
