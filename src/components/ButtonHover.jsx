@@ -8,7 +8,7 @@ const ButtonHover = ({onClick, text, icon}) => {
             font-size: 12px;
             font-family: inherit;
             font-weight: bold;
-            border: 2px solid #fafafa;
+            border: 2px solid #C73929;
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -30,12 +30,6 @@ const ButtonHover = ({onClick, text, icon}) => {
             
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
                         0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            filter: drop-shadow(0px 20px 40px rgba(254, 242, 81, 0.5));
-        }
-
-        button:hover {
-            border: 2px solid #C73929;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
         button::before {
