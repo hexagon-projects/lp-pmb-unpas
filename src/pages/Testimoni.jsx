@@ -42,12 +42,12 @@ const Testimoni = () => {
             type={'fadeInUp'} duration={0.5}
         >
             <div className="relative p-5 md:px-10 lg:px-15 space-y-12 md:space-y-16 lg:space-y-[66px]">
-                <div className="w-full h-42 md:h-40 lg:h-[55vh]">
+                <div className="w-full h-50 md:h-60 lg:h-[60vh]">
                     <img src={Section1} alt="" className="w-full h-full object-cover rounded-lg md:rounded-2xl lg:rounded-4xl" />
                 </div>
                 <div className="flex flex-col justify-center items-center text-center space-y-[16px]">
                     <div className="w-fit p-2 rounded-full border-2 border-black/20">
-                        <Text text={'Testimonial'} color="text-text" weight={'font-bold'} />
+                        <Text sizeText="text-base md:text-lg lg:text-xl" text={'Testimoni'} color="text-text" weight={'font-medium'} />
                     </div>
                     <Title sizeMobile='text-2xl md:text-3xl lg:text-5xl' title={'Kata Mereka Tentang Unpas'} />
                 </div>
@@ -60,6 +60,7 @@ const Testimoni = () => {
                             title={item.title}
                             image={item.image}
                             description={item.description}
+                            yt={item.yt_link}
                             imageURL={imageURL}
                         />
                     ))}
