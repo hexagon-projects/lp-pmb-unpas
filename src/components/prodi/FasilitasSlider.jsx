@@ -9,13 +9,19 @@ import Text from "../Text";
 
 const FasilitasSlider = ({ title, facilities }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
-    const [selectedFacility, setSelectedFacility] = useState(facilities.length > 0 ? facilities[0] : null);
+    const [selectedFacility, setSelectedFacility] = useState(facilities?.length > 0 ? facilities[0] : null);
     const swiperRef = useRef(null);
+
+    if (!facilities || facilities.length === 0) {
+        return (
+            <div className="w-full flex justify-center items-center relative">
+            </div>
+        );
+    }
 
     return (
         <div className="w-full flex justify-center items-center relative">
             <div className="w-full md:w-[90%] lg:w-[90%] flex flex-col justify-center text-center space-y-3 md:space-y-4 bg-[#F0F0F0] p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl lg:rounded-4xl">
-                {/* <Title title={title} fontWeight="lg:hidden"/> */}
                 {selectedFacility && (
                     <div className="flex flex-col lg:flex-row-reverse space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-8">
                         <div className="lg:w-1/2 text-black text-left md:text-left space-y-2 z-10">
@@ -81,7 +87,7 @@ const FasilitasSlider = ({ title, facilities }) => {
                                             src={`${imageURL}/facilities/${facility.image}`}
                                             alt={facility.title}
                                             className={`w-full h-24 md:h-24 lg:h-42 object-cover rounded-xl md:rounded-xl lg:rounded-2xl transition-transform ${
-                                                selectedFacility.title === facility.title 
+                                                selectedFacility?.title === facility.title 
                                                     ? 'ring-2 ring-primary scale-105' 
                                                     : 'hover:ring-1 hover:ring-gray-300'
                                             }`}
@@ -90,7 +96,7 @@ const FasilitasSlider = ({ title, facilities }) => {
                                         <Text 
                                             weight={'font-semibold'} 
                                             text={facility.title}
-                                            className={selectedFacility.title === facility.title ? 'text-red-600' : ''}
+                                            className={selectedFacility?.title === facility.title ? 'text-red-600' : ''}
                                         />
                                     </div>
                                 </SwiperSlide>

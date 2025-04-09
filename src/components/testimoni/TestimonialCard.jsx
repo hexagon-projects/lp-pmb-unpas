@@ -39,9 +39,9 @@ const TestimonialCard = ({
             </div>
             
             <RichText 
-                padding="pb-2 md:pb-3 lg:pb-4" 
+                padding="pb-2 md:pb-2 lg:pb-4" 
                 content={description} 
-                lineclamp="line-clamp-4 md:line-clamp-5 lg:line-clamp-6" 
+                lineclamp="line-clamp-4 md:line-clamp-3 lg:line-clamp-4" 
             />
             
             <div className="flex justify-between items-center">
