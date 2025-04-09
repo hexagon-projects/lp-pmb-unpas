@@ -1,36 +1,61 @@
-import { useEffect, useState } from 'react';
+// ======== IMPORT DEPENDENCIES & COMPONENTS ===========
+import { useEffect, useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { BsTwitterX } from 'react-icons/bs';
 import { FaFacebook, FaWhatsapp, FaCopy } from 'react-icons/fa6';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+
 
 import UserLayout from './layouts/UserLayout';
 import Title from '../components/Title';
 import Text from '../components/Text';
 import ArticleCard from '../components/artikel/ArticleCard';
-import RichText from '../components/RichText';
 import Loading from '../components/Loading';
-
-import BeritaService from '../fetching/berita';
 import CTASection from '../components/CTASection';
-import AgendaService from '../fetching/agenda';
+import Button from '../components/Button';
 
+// ======== SERVICES ============
+import BeritaService from '../fetching/berita';
+import AgendaService from '../fetching/agenda';
+import SideBannerService from '../fetching/sidebanner';
+import RegistrasiService from '../fetching/registration';
+import SelengkapnyaButton from '../components/SelengkapnyaButton';
+import ArticleSidebar from '../components/artikel/ArticleSidebar';
+
+// ======== COMPONENT START ============
 const ArtikelDetail = () => {
   const { slug } = useParams();
+  const imageURL = import.meta.env.VITE_IMAGE_URL;
+  const onClick = (slug) => {
+    window.location.href = `/artikel/${slug}`;
+  };
+  // ======== STATE ============
   const [artikel, setArtikel] = useState(null);
   const [berita, setBerita] = useState([]);
   const [loading, setLoading] = useState(true);
   const [agenda, setAgenda] = useState(null);
-  const imageURL = import.meta.env.VITE_IMAGE_URL;
+  const [jalur, setJalur] = useState([]);
+  const [sideBanner, setSideBanner] = useState([]);
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
 
+  // ======== USE EFFECT - FETCH DATA ============
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [artikelResponse, beritaResponse, agendaResponse] = await Promise.all([BeritaService.getBeritaBySlug(slug), BeritaService.getAllBerita(), AgendaService.getAllAgenda()]);
+        const [artikelRes, beritaRes, agendaRes, bannerRes, jalurRes] = await Promise.all([
+          BeritaService.getBeritaBySlug(slug),
+          BeritaService.getAllBerita(),
+          AgendaService.getAllAgenda(),
+          SideBannerService.getAllSideBanner(),
+          RegistrasiService.getAllRegistrasi()
+        ]);
 
-        setArtikel(artikelResponse);
-        setBerita(beritaResponse);
-        setAgenda(agendaResponse);
+        setArtikel(artikelRes);
+        setBerita(beritaRes);
+        setAgenda(agendaRes);
+        setSideBanner(bannerRes);
+        setJalur(jalurRes || []);
       } catch (error) {
         console.error(error);
       } finally {
@@ -43,6 +68,7 @@ const ArtikelDetail = () => {
 
   const articleUrl = window.location.href;
 
+  // ======== BAGIKAN ARTIKEL ============
   const shareOnTwitter = () => {
     const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(articleUrl)}&text=${encodeURIComponent(artikel.title)}`;
     window.open(url, '_blank');
@@ -63,11 +89,56 @@ const ArtikelDetail = () => {
     alert('Link artikel telah disalin!');
   };
 
+  const handleClick = (link) => {
+    if (link) window.open(link, '_blank');
+  };
+
+  // ======== MEMOIZED JALUR COMPONENT ============
+  const jalurItems = useMemo(() => (
+    jalur.map((item, index) => (
+      <motion.div
+        key={item.id || index}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: index * 0.1 }}
+        className="bg-[#F3F4F4] w-full p-4 md:p-6 lg:p-8 border border-white shadow-primary/10 shadow-xl rounded-xl md:rounded-2xl lg:rounded-4xl cursor-pointer flex gap-4 items-center"
+      >
+        <div className="w-full flex flex-col justify-between items-start gap-4">
+          <div className="w-full flex flex-col gap-2">
+            <Title sizeText="text-sm md:text-base lg:text-lg" title={item.name} fontWeight="font-semibold" />
+            <div className="space-y-1">
+              <Text sizeMobile="text-xs md:text-xs" text={`Jadwal Pendaftaran: ${item.start_date}`} />
+              <Text sizeMobile="text-xs md:text-xs" text={`Pendaftaran ditutup: ${item.end_date}`} />
+            </div>
+          </div>
+          <div className="w-full">
+            <Button
+              rounded="rounded-xl md:rounded-2xl"
+              text="Daftar"
+              bgColor="bg-primary"
+              onClick={() => handleClick(item.link)}
+              css={'w-full'}
+              flex=''
+            />
+          </div>
+        </div>
+      </motion.div>
+    ))
+  ), [jalur]);
+
+  // ======== LOADING & ERROR STATE ============
   if (loading) return <Loading />;
   if (!artikel) return <Text text="Artikel tidak ditemukan" className="text-center text-gray-500" />;
 
   return (
-    <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-30'}>
+    <UserLayout
+      bgLayoutColor="bg-[#F3F3F3]"
+      bgColor="bg-[#F3F3F3]"
+      position="fixed"
+      titleColor="text-black"
+      paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6"
+      paddingTop="lg:pt-30"
+    >
       <Helmet>
         <title>{artikel.title} - Universitas Pasundan</title>
         <meta name="description" content={artikel.content.substring(0, 150) + '...'} />
@@ -80,99 +151,92 @@ const ArtikelDetail = () => {
         <meta name="robots" content="index, follow" />
       </Helmet>
 
-      <div className="p-4 md:p-6 lg:p-12 space-y-8 md:space-y-12 lg:space-y-16">
-        <div className="w-full flex flex-col lg:flex-row justify-center items-start lg:space-x-12 ">
-          <div className="w-full lg:w-[70%] space-y-8  ">
-            <div className="w-full  flex flex-col justify-between items-start gap-4 md:gap-6 lg:gap-10">
-              <Title sizeMobile="text-lg" title={artikel.title} />
-            </div>
+      <div className="p-4 md:p-6 lg:p-8 space-y-4 md:space-y-6 lg:space-y-8">
+        <div className="flex flex-col lg:flex-row justify-center items-start lg:space-x-10">
+          {/* ==== KONTEN UTAMA ARTIKEL ==== */}
+          <div className="w-full lg:w-[70%] space-y-6">
+            <Title sizeMobile="text-lg" title={artikel.title} />
 
             {artikel.image && (
               <div className="w-full h-full lg:h-[70vh]">
-                <img src={`${imageURL}/posts/${artikel.image}`} alt={artikel.title} loading="lazy" className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl object-cover" />
+                <img
+                  src={`${imageURL}/posts/${artikel.image}`}
+                  alt={artikel.title}
+                  loading="lazy"
+                  className="w-full h-full rounded-xl md:rounded-2xl lg:rounded-4xl object-cover"
+                />
               </div>
             )}
 
-            <div
-              className="w-full"
-              // style={{
-              //   whiteSpace: 'pre-line', // Menjaga format spasi dan line breaks
-              //   wordBreak: 'break-word', // Memecah kata yang terlalu panjang agar tidak keluar dari kontainer
-              //   overflowWrap: 'break-word', // Menjamin kata-kata panjang yang tidak bisa dipotong akan dibungkus
-              //   lineHeight: '1.6', // Mengatur jarak antar baris teks untuk kenyamanan membaca
-              //   fontSize: '16px', // Ukuran font agar teks mudah dibaca
-              //   color: '#2D3748', // Warna teks default, bisa disesuaikan
-              //   // padding: '16px', // Memberikan padding sekitar teks
-              //   textAlign: 'justify',
-              // }}
-            >
-              <p dangerouslySetInnerHTML={{ __html: artikel.content }} />
+            <div className="w-full prose-sm max-w-none text-justify prose-li:marker:text-black prose-li:marker:font-semibold prose-li:list-decimal" style={{ fontSize: '14px', lineHeight: '1.6' }}>
+              <div dangerouslySetInnerHTML={{ __html: artikel.content }} />
             </div>
 
-            {/* Sosmed  */}
-
-            <div className="w-fit flex flex-col justify-between items-start gap-6 md:gap-10 lg:gap-10">
+            {/* ==== BAGIKAN & INFO TAMBAHAN ==== */}
+            <div className="flex flex-col gap-4 md:gap-6 lg:gap-8">
               <div className="space-y-2">
                 <Text text={artikel.pub_date} />
                 <Text text="Politik" />
               </div>
-              <div className="flex items-center gap-2 py-3">
+              <div className="flex items-center gap-2">
                 <Text text="Bagikan" />
-                <button onClick={shareOnTwitter} aria-label="Bagikan ke Twitter">
-                  <BsTwitterX className="cursor-pointer hover:text-blue-500" />
-                </button>
-                <button onClick={shareOnFacebook} aria-label="Bagikan ke Facebook">
-                  <FaFacebook className="cursor-pointer hover:text-blue-600" />
-                </button>
-                <button onClick={shareOnWhatsApp} aria-label="Bagikan ke WhatsApp">
-                  <FaWhatsapp className="cursor-pointer hover:text-green-500" />
-                </button>
-                <button onClick={copyToClipboard} aria-label="Salin link artikel">
-                  <FaCopy className="cursor-pointer hover:text-gray-500" />
-                </button>
+                <button onClick={shareOnTwitter}><BsTwitterX className="hover:text-blue-500" /></button>
+                <button onClick={shareOnFacebook}><FaFacebook className="hover:text-blue-600" /></button>
+                <button onClick={shareOnWhatsApp}><FaWhatsapp className="hover:text-green-500" /></button>
+                <button onClick={copyToClipboard}><FaCopy className="hover:text-gray-500" /></button>
               </div>
             </div>
           </div>
 
-          <div className="w-full lg:w-[25%] space-y-6 ">
-            <div className="w-full h-90 rounded-2xl " style={{ backgroundColor: '#D9D9D9' }}></div>
+          {/* ==== SIDEBAR ==== */}
+          <div className="w-full lg:w-[25%] space-y-4">
+            {/* Side Banner */}
+            <div className="py-4 md:py-6 lg:py-0 space-y-4">
+              {sideBanner.map((banner) => (
+                <a
+                  key={banner.id}
+                  href={banner.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  {banner.image ? (
+                    <img
+                      src={`${imageURL}/identities/${banner.image}`}
+                      alt="Side Banner"
+                      className="w-full h-auto rounded-2xl shadow-md hover:shadow-xl transition duration-300 ease-in-out"
+                    />
+                  ) : (
+                    <div className="bg-gray-200 w-full rounded-2xl text-center py-12 text-base sm:text-lg text-gray-600">
+                      Gambar tidak tersedia
+                    </div>
+                  )}
+                </a>
+              ))}
+            </div>
 
+            {/* Artikel Sidebar */}
             {berita.length > 0 && (
-              <div className="w-full space-y-3 md:space-y-6 lg:space-y-8">
-                <div className="flex justify-between">
-                  <Title sizeText="text-base md:text-xl lg:text-2xl" title="Artikel Terkini" />
-                </div>
-                <ArticleCard data={berita.slice(0, 2)} grid="grid grid-cols-1" />
-              </div>
+              <>
+                <Title sizeText="text-base md:text-xl lg:text-2xl" title="Artikel Terkini" />
+                <ArticleSidebar data={berita} excludeId={artikel.id} />
+              </>
             )}
-            <div className="flex justify-between">
-              <Title sizeText="text-base md:text-xl lg:text-2xl" title="Jalur PMB" />
-            </div>
-            <div className="w-full h-20 bg-gray-300 rounded-2xl z-10 relative"></div>
-            <div className="w-full h-20 bg-gray-300 rounded-2xl z-10 relative"></div>
-            <div className="w-full h-20 bg-gray-300 rounded-2xl z-10 relative"></div>
+
+            {/* Jalur PMB */}
+            <Title sizeText="text-base md:text-xl lg:text-2xl" title="Jalur PMB" />
+            <div className="space-y-6">{jalurItems.slice(0, 3)}</div>
+            <SelengkapnyaButton onClick={() => (window.location.href = "/jalur")} />
           </div>
         </div>
 
-        <div className="w-full space-y-6 ">
-          {berita.length > 0 && (
-            <div className="w-full space-y-3 md:space-y-6 lg:space-y-10">
-              <div className="flex justify-between">
-                <Title sizeText="text-base md:text-xl lg:text-2xl" title="Artikel Terkait" />
-              </div>
-              <ArticleCard data={berita.slice(0, 4)} />
-            </div>
-          )}
-
-          {/* {agenda && (
-            <div className="w-full space-y-3 md:space-y-6 lg:space-y-10">
-              <div className="flex justify-between">
-                <Title sizeMobile="text-base" title="Agenda Terkait" />
-              </div>
-              <ArticleCard data={agenda.slice(0, 4)} />
-            </div>
-          )} */}
-        </div>
+        {/* ==== ARTIKEL TERKAIT ==== */}
+        {berita.length > 0 && (
+          <div className="space-y-3 md:space-y-6 lg:space-y-8">
+            <Title sizeText="text-base md:text-xl lg:text-2xl" title="Artikel Terkait" />
+            <ArticleCard data={berita.slice(0, 5)} excludeId={artikel.id} />
+          </div>
+        )}
 
         <CTASection />
       </div>

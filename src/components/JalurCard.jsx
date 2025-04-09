@@ -18,7 +18,7 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
 
     return (
         <div
-            className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl space-y-3 cursor-pointer hover:scale-102 duration-500"
+            className="bg-gray-200 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl flex flex-col justify-between gap-4 cursor-pointer hover:scale-102 duration-500"
             onClick={onClick}
             style={{ willChange: 'transform' }}
         >

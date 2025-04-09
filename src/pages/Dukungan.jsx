@@ -142,7 +142,7 @@ const ScrollDownIndicator = memo(() => (
 
 const Dukungan = () => {
   const [dukungan, setDukungan] = useState([]);
-  const [visibleVideos, setVisibleVideos] = useState(12); 
+  const [visibleVideos, setVisibleVideos] = useState(12);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
 
@@ -197,12 +197,12 @@ const Dukungan = () => {
       </Helmet>
 
       <div className="relative p-4 md:p-6 lg:p-12 space-y-8 md:space-y-3 lg:space-y-24 mt-30">
-        <div className="space-y-8 md:space-y-18 lg:space-y-16 relative">
+        <div className="space-y-8 md:space-y-18 lg:space-y-20 relative">
           <div className="w-full h-full absolute inset-0x mt-15 md:h-[400px] md:mt-[150px] lg:h-[500px] xl:h-[600px] z-0">
             <HeroBackgroundSVG />
           </div>
           <div className="relative w-full flex flex-col justify-center items-center text-center space-y-3 md:space-y-4 z-1">
-            <Title title={'Bersama Membangun Generasi Unggul Dan Berbudaya!'}/>
+            <Title title={'Bersama Membangun Generasi Unggul Dan Berbudaya!'} />
             <div className="w-2/3 md:w-1/3 xl:w-1/4 text-center">
               <Text sizeText="text-base md:text-xl lg:text-xl" text={'Dukungan nyata dari akademisi, profesional, dan pemimpin bangsa!'} />
             </div>

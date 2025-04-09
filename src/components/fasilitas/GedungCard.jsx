@@ -11,7 +11,7 @@ const GedungCard = ({ title, text, mapUrl, image, imagedb, index }) => {
         >
             <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
             <p className="text-xs md:text-sm">{text}</p>
-            <div className="relative h-40 md:h-[40vh] rounded-lg md:rounded-2xl">
+            <div className="relative h-50 md:h-[40vh] rounded-lg md:rounded-2xl">
                 <img
                     src={displayImage}
                     alt={title}

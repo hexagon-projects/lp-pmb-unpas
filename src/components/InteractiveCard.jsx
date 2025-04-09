@@ -11,9 +11,9 @@ export default function InteractiveCard() {
   }, []);
 
   return (
-    <svg 
+    <svg
       className="w-full h-screen"
-      viewBox={`0 0 ${gridSize * cellSize} ${gridSize * cellSize}`} 
+      viewBox={`0 0 ${gridSize * cellSize} ${gridSize * cellSize}`}
       preserveAspectRatio="xMidYMid meet"
     >
       {visibleCells.map((index) => {
@@ -27,7 +27,7 @@ export default function InteractiveCard() {
             width={cellSize}
             height={cellSize}
             fill="transparent"
-            stroke="rgba(200, 200, 200, 0.2)"
+            stroke="rgba(200, 200, 200, 0)"
             className="transition-all hover:fill-primary/50"
           />
         );
