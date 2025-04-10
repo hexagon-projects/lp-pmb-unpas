@@ -52,7 +52,7 @@ const StatsBoxProdi = ({ icon, number, title, colorIcon = 'text-text' }) => {
     }, [isVisible, number]);
 
     return (
-        <div ref={ref} className="w-full lg:w-fit flex justify-start md:justify-center items-center gap-4 md:gap-6 lg:gap-6 border-2 border-[#fafafa] md:border-none rounded-lg md:rounded-xl lg:rounded-2xl">
+        <div ref={ref} className="w-full lg:w-fit flex justify-start md:justify-center items-center gap-1 md:gap-6 lg:gap-6 border-2 border-[#fafafa] md:border-none rounded-lg md:rounded-xl lg:rounded-2xl">
             <div className="w-[30%] md:w-fit">
                 <div
                     className={`w-fit p-3 md:bg-[#f0f0f0] md:border-2 md:border-[#fafafa] md:rounded-full ${!isHex ? colorIcon : ''} transition ${!isHex
@@ -65,7 +65,7 @@ const StatsBoxProdi = ({ icon, number, title, colorIcon = 'text-text' }) => {
                     }}
                 >{icon}</div>
             </div>
-            <div className="w-[30%] lg:w-fit flex flex-col">
+            <div className="w-[100%] lg:w-fit flex flex-col box-border">
                 <h3
                     className="text-md md:text-2xl lg:text-3xl font-bold"
                     style={{ color: isHex ? colorIcon : (colorIcon.startsWith('text-') ? colorIcon : `text-${colorIcon}`) }}

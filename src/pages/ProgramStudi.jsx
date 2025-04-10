@@ -413,7 +413,7 @@ const ProgramStudi = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full flex justify-center items-center mb-5">
             <Title
               title={`${fakultas.name} Dalam Angka`}
               color={fakultas.color}
