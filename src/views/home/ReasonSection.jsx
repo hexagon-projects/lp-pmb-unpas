@@ -1,0 +1,73 @@
+import { useState, useCallback, memo, useMemo } from "react";
+import { BiChevronDown } from "react-icons/bi";
+import { motion, AnimatePresence } from "framer-motion";
+import Title from "../../components/Title";
+import Text from "../../components/Text";
+import RichText from "../../components/RichText";
+import AnimatedTitle from "../../components/AnimatedTitle";
+
+const ReasonSection = ({ data = [] }) => {
+    const [openDropdown, setOpenDropdown] = useState(null);
+
+    const toggleDropdown = useCallback((id) => {
+        setOpenDropdown(prev => prev === id ? null : id);
+    }, []);
+
+    const dropdownItems = useMemo(() => (
+        data.map((item) => (
+            <div key={item.id} className="w-full lg:w-[30%]">
+                <div className={`bg-[#F0F0F0] border-2 border-white w-full flex flex-col justify-between items-start shadow-black/5 shadow-lg drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl overflow-hidden cursor-pointer ${openDropdown === item.id ? "" : ""}`}>
+                    <button
+                        className="w-full flex justify-between items-center px-4 py-2 md:py-5 text-left cursor-pointer"
+                        onClick={() => toggleDropdown(item.id)}
+                        aria-expanded={openDropdown === item.id}
+                    >
+                        <div className="w-[90%] h-10 flex items-center">
+                            <Text
+                                sizeText="text-xs md:text-sm lg:text-sm"
+                                weight="font-semibold"
+                                text={item.title}
+                                leading="text-left"
+                                color={`${openDropdown === item.id ? "text-text" : ""}`}
+                            />
+                        </div>
+                        <BiChevronDown
+                            size={24}
+                            className={`transition-transform duration-200 text-text ${openDropdown === item.id ? "rotate-0" : "-rotate-90"}`}
+                        />
+                    </button>
+
+                    <AnimatePresence>
+                        {openDropdown === item.id && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="w-full overflow-hidden"
+                            >
+                                <div className="px-4 pb-4 w-full text-left">
+                                    <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6`} dangerouslySetInnerHTML={{ __html: item.description }} />
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
+            </div>
+
+        ))
+    ), [data, openDropdown, toggleDropdown]);
+
+    return (
+        <div className="w-full flex flex-col justify-center items-center text-center p-4 md:pt-8 lg:pt-10 md:px-8 lg:px-10 space-y-4 md:space-y-6 lg:space-y-8">
+            <div className="md:w-[80%] xl:w-[65%]">
+                <AnimatedTitle text={`${data?.length} Alasan Memilih Universitas Pasundan (UNPAS)`} />
+            </div>
+            <div className="w-full flex flex-wrap justify-center items-start gap-3 md:gap-4">
+                {dropdownItems}
+            </div>
+        </div>
+    );
+};
+
+export default memo(ReasonSection);
