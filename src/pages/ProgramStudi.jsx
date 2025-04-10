@@ -530,6 +530,13 @@ const ProgramStudi = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
+              <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
+                <img
+                  src="/src/assets/icon/bookmark.svg"
+                  alt=""
+                  className="w-4 md:w-5"
+                />
+              </div>
               <div className="flex flex-col items-start space-y-0">
                 <Title title={fakultas.title3} color={fakultas.color} />
                 <RichText content={fakultas.description3} />
@@ -557,16 +564,16 @@ const ProgramStudi = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex">
-            <button className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
+          <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex rounded-xl md:rounded-2xl lg:rounded-4xl">
+            <div className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
               <img
                 src={`${imageURL}/programs/${fakultas.image4}`}
                 alt="Thumbnail Video"
                 loading="lazy"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
-            </button>
+            </div>
           </div>
           <div className="w-full md:w-fit space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
             <motion.div
@@ -574,6 +581,13 @@ const ProgramStudi = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
+              <div className="p-1 md:p-2 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
+                <img
+                  src="/src/assets/icon/check.svg"
+                  alt=""
+                  className="w-6 md:w-8"
+                />
+              </div>
               <div className="flex flex-col items-start space-y-0">
                 <Title title={fakultas.title4} color={fakultas.color} />
                 <RichText content={fakultas.description4} />
@@ -582,7 +596,6 @@ const ProgramStudi = () => {
           </div>
         </motion.div>
         {/* Prospek karir Section End */}
-
         {/* jalur */}
         <div className="space-y-8 md:space-y-14 lg:space-y-20">
           <div className="w-full flex justify-center items-center">

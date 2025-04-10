@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import Gedung from "../assets/gedung.jpeg";
 import {
   IoArrowBackCircleOutline,
   IoArrowForwardCircleOutline,
@@ -89,7 +90,7 @@ const TestimonialSlider = ({
         <div
           className="w-1/2 md:w-3/10 h-[250px] md:h-[300px] rounded-lg mx-auto relative grid content-end pb-2 px-3"
           style={{
-            backgroundImage: `url(${imageURL}/testimonies/${data[activeIndex].image})`,
+            backgroundImage: data[activeIndex].image ? `url(${imageURL}/testimonies/${data[activeIndex].image})` : `url(${Gedung})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -114,7 +115,7 @@ const TestimonialSlider = ({
             />
           </div>
           <motion.button
-            className={` flex gap-2 cursor-pointer items-center text-xs md:text-sm lg:text-sm font-bold shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition duration-500 bg-[#FEF251] hover:border-3 hover:border-white/50 rounded-lg md:rounded-xl lg:rounded-2xl border-3 border-transparent px-5 py-4 md:px-5 md:py-4 hover:shadow-black/5 w-fit`}
+            className={`flex gap-2 cursor-pointer items-center text-xs md:text-sm lg:text-sm font-bold shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] transition duration-500 bg-[#FEF251] hover:border-3 hover:border-white/50 rounded-lg md:rounded-xl lg:rounded-2xl border-3 border-transparent px-3 py-2 md:px-5 md:py-4 hover:shadow-black/5 w-fit`}
             onClick={() => {
               navigate(`/testimoni}`);
             }}
@@ -122,7 +123,8 @@ const TestimonialSlider = ({
           >
             Selengkapnya
             <motion.span>
-              <FaArrowRightLong size={"20px"} className="-rotate-45" />
+              <FaArrowRightLong size={"20px"} className="-rotate-45 hidden md:block" />
+              <FaArrowRightLong size={"15px"} className="-rotate-45 md:hidden" />
             </motion.span>
           </motion.button>
         </div>
