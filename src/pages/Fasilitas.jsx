@@ -12,6 +12,7 @@ import FasilitasCard from "../components/FasilitasCard";
 import FasilitasService from "../fetching/fasilitas";
 import { Helmet } from "react-helmet-async";
 import Button from "../components/Button";
+import AnimatedTitle from "../components/AnimatedTitle";
 
 const gedungKampus = [
   {
@@ -125,14 +126,16 @@ const Fasilitas = () => {
               text={"Daftar Sekarang"}
               bgColor={"bg-primary"}
               border={"w-full justify-center"}
-              onClick={()=>window.location.href = `https://registrasi.unpas.ac.id/register`}
+              onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`}
             />
           </div>
         </div>
 
         <div className="w-full space-y-4 md:space-y-6 lg:space-y-10 lg:p-[50px]">
-          <Title sizeMobile="text-xl" title={"Gedung Kampus"} />
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+          <div className="flex items-start">
+            <AnimatedTitle text={"Gedung Kampus"} />
+          </div>
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
             {gedungKampus?.map((gedung, index) => (
               <GedungCard
                 key={index}
@@ -146,7 +149,9 @@ const Fasilitas = () => {
         </div>
 
         <div className="w-full h-full space-y-4 md:space-y-6 lg:space-y-10">
-          <Title sizeMobile="text-xl" title={"Fasilitas Unggulan"} />
+          <div className="flex items-start">
+            <AnimatedTitle text={"Fasilitas Unggulan"} />
+          </div>
           <div className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {[bento1, bento2, bento3].map((bento, bentoIndex) => (
               <div

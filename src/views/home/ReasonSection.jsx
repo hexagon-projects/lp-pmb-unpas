@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Title from "../../components/Title";
 import Text from "../../components/Text";
 import RichText from "../../components/RichText";
+import AnimatedTitle from "../../components/AnimatedTitle";
 
 const ReasonSection = ({ data = [] }) => {
     const [openDropdown, setOpenDropdown] = useState(null);
@@ -60,7 +61,7 @@ const ReasonSection = ({ data = [] }) => {
     return (
         <div className="w-full flex flex-col justify-center items-center text-center p-4 md:pt-8 lg:pt-10 md:px-8 lg:px-10 space-y-4 md:space-y-6 lg:space-y-8">
             <div className="md:w-[80%] xl:w-[65%]">
-                <Title title={`${data?.length} Alasan Memilih Universitas Pasundan (UNPAS)`} />
+                <AnimatedTitle text={`${data?.length} Alasan Memilih Universitas Pasundan (UNPAS)`} />
             </div>
             <div className="w-full flex flex-wrap justify-center items-start gap-3 md:gap-4">
                 {dropdownItems}

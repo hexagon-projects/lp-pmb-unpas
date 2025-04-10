@@ -1,3 +1,4 @@
+import AnimatedTitle from "../../components/AnimatedTitle"
 import ArticleCard from "../../components/artikel/ArticleCard"
 import SelengkapnyaButton from "../../components/SelengkapnyaButton"
 import Title from "../../components/Title"
@@ -8,7 +9,7 @@ const ArtikelSection = ({ data }) => {
             <div className={'w-full flex flex-col gap-6 md:gap-6 lg:gap-8 px-5 md:px-10 lg:px-15'}>
                 <div className="flex justify-between items-center">
                     <div className="text-left md:text-left">
-                        <Title title={'Informasi dan Pengumuman'} />
+                        <AnimatedTitle text={'Informasi dan Pengumuman'} />
                     </div>
                     <SelengkapnyaButton onClick={() => window.location.href = '/artikel'} />
                 </div>

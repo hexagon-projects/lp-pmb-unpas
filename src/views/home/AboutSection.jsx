@@ -5,6 +5,7 @@ import Title from "../../components/Title";
 import { X } from "lucide-react";
 import { FaPlay } from "react-icons/fa";
 import MotionWrapper from "../../components/MotionWrapper";
+import AnimatedTitle from "../../components/AnimatedTitle";
 
 const AboutSection = ({ data = {} }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -89,15 +90,15 @@ const AboutSection = ({ data = {} }) => {
                 )}
 
                 <div className="space-y-2 md:space-y-4 text-justify md:text-left w-full lg:w-full">
-                    <MotionWrapper type="slideInLeft" duration={0.5} once className="w-full space-y-2 md:space-y-4">
-                        <Title title={data?.about?.title} />
+                    <div className="w-full space-y-2 md:space-y-4">
+                        <AnimatedTitle className="flex items-start" text={data?.about?.title}/>
                         <Title
                             sizeText="text-sm md:text-lg lg:text-[18px]"
                             title={data?.about?.subtitle}
                         />
                         <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6`} dangerouslySetInnerHTML={{ __html: data?.about?.description }}/>
                         <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6`} dangerouslySetInnerHTML={{ __html: data?.about?.content }}/>
-                    </MotionWrapper>
+                    </div>
                 </div>
             </div>
             <AnimatePresence>

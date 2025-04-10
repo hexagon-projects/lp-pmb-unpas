@@ -12,13 +12,13 @@ import { ArrowUpRight } from "lucide-react";
 import { IoArrowForwardCircleOutline, IoArrowBackCircleOutline } from "react-icons/io5";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Koma from '../../assets/koma.svg';
+import AnimatedTitle from "../../components/AnimatedTitle";
 
 const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
   const imageURL = import.meta.env.VITE_IMAGE_URL;
   const swiperRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Navigation handler with debounce to prevent rapid clicks
   const handleNavigation = (direction) => {
     if (isTransitioning || !swiperRef.current) return;
     
@@ -30,16 +30,15 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
       swiperRef.current.slideNext();
     }
     
-    // Reset the transitioning state after animation completes
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 1100); // Slightly longer than the transition speed
+    }, 1100);
   };
 
   return (
     <div className={`w-full flex flex-col ${displayDekstop} pt-4 md:pt-0 gap-4 md:gap-6 lg:gap-10`}>
       <div className="text-center">
-        <Title title={'Testimoni'} />
+        <AnimatedTitle text={'Testimoni'} />
       </div>
 
       <div className="w-full flex justify-center items-center relative">

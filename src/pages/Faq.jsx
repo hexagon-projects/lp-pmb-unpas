@@ -21,11 +21,11 @@ const Faq = () => {
     const [searchTermGeneral, setSearchTermGeneral] = useState("");
     const [searchTermBilling, setSearchTermBilling] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const [formData, setFormData] = useState({
-        email: "",
-        phone: "",
-        message: ""
-    });
+    // const [formData, setFormData] = useState({
+    //     email: "",
+    //     phone: "",
+    //     message: ""
+    // });
     const [openGeneralId, setOpenGeneralId] = useState(null);
     const [openBillingId, setOpenBillingId] = useState(null);
     const itemsPerPage = 3;
@@ -59,26 +59,26 @@ const Faq = () => {
         fetchIdentity();
     }, []);
 
-    const handleInputChange = (e) => {
-        const { id, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [id]: value
-        }));
-    };
+    // const handleInputChange = (e) => {
+    //     const { id, value } = e.target;
+    //     setFormData(prev => ({
+    //         ...prev,
+    //         [id]: value
+    //     }));
+    // };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!identity?.phone) {
-            alert("Nomor WhatsApp admin tidak tersedia.");
-            return;
-        }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (!identity?.phone) {
+    //         alert("Nomor WhatsApp admin tidak tersedia.");
+    //         return;
+    //     }
 
-        const { email, phone, message } = formData;
-        const whatsappMessage = `Halo Admin PMB Unpas,\n\nSaya ingin bertanya tentang:\n${message}\n\nKontak saya:\nEmail: ${email}\nTelepon: ${phone ? '+62' + phone : '-'}\n\nTerima kasih.`;
-        const encodedMessage = encodeURIComponent(whatsappMessage);
-        window.open(`https://wa.me/${identity.phone}?text=${encodedMessage}`, '_blank');
-    };
+    //     const { email, phone, message } = formData;
+    //     const whatsappMessage = `Halo Admin PMB Unpas,\n\nSaya ingin bertanya tentang:\n${message}\n\nKontak saya:\nEmail: ${email}\nTelepon: ${phone ? '+62' + phone : '-'}\n\nTerima kasih.`;
+    //     const encodedMessage = encodeURIComponent(whatsappMessage);
+    //     window.open(`https://wa.me/${identity.phone}?text=${encodedMessage}`, '_blank');
+    // };
 
     const filteredGeneralFaqs = faqs.filter(
         (faq) =>
@@ -211,7 +211,7 @@ const Faq = () => {
                     </div>
                 </div>
 
-                <div className="w-full flex justify-center items-center px-4 md:px-6 lg:px-8">
+                {/* <div className="w-full flex justify-center items-center px-4 md:px-6 lg:px-8">
                     <form onSubmit={handleSubmit} className={'w-full lg:w-[80%] bg-primary p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
                         <div className="space-y-2 flex justify-center">
                             <h2 className="text-[30px] font-bold">Masih Punya Pertanyaan?</h2>
@@ -268,7 +268,7 @@ const Faq = () => {
                             Kirim via WhatsApp
                         </button>
                     </form>
-                </div>
+                </div> */}
 
                 <CTASection />
             </div>

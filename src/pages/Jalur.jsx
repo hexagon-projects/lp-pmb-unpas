@@ -16,9 +16,33 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Jalur = () => {
     const [jalur, setJalur] = useState([])
-    // const [loading, setLoading] = useState(true)
     const [isOpen, setIsOpen] = useState(false)
     const [selectedJalur, setSelectedJalur] = useState(null);
+
+    const titleVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.16, 0.77, 0.47, 0.97]
+            }
+        }
+    };
+
+    const counterVariants = {
+        hidden: { opacity: 0, scale: 0.4 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                duration: 0.6,
+                delay: 0.3,
+                ease: "backOut"
+            }
+        }
+    };
 
     const handleOpenModal = (event, jalur) => {
         event.preventDefault();
@@ -53,13 +77,8 @@ const Jalur = () => {
         };
     }, []);
 
-    // if (loading) {
-    //     return <Loading />
-    // }
-
     return (
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}>
-            {/* <UserLayout bgLayoutColor="bg-gray-100" position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}> */}
             <Helmet>
                 <title>Jalur Pendaftaran - Universitas Pasundan</title>
             </Helmet>
@@ -89,19 +108,37 @@ const Jalur = () => {
                         </defs>
                     </svg>
                     <div className="w-fit flex flex-row md:flex-col justify-center md:justify-start items-center md:items-start gap-2 md:gap-4 lg:gap-6">
-                        <h2 className="text-4xl md:text-6xl lg:text-9xl font-bold">{jalur.length}</h2>
+                        <h2 
+                            className="text-4xl md:text-6xl lg:text-9xl font-bold"
+                            variants={counterVariants}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            {jalur.length}
+                        </h2>
                         <div className="space-y-1 md:space-y-2 lg:space-y-4">
-                            <h3 className="text-xs md:text-base lg:text-3xl font-semibold text-gray-800">Jalur Masuk</h3>
-                            <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-text">
+                            <motion.h3 
+                                className="text-xs md:text-base lg:text-3xl font-semibold text-gray-800"
+                                variants={titleVariants}
+                                initial="hidden"
+                                animate="visible"
+                                transition={{ delay: 0.3 }}
+                            >
+                                Jalur Masuk
+                            </motion.h3>
+                            <motion.h2 
+                                className="text-2xl md:text-4xl lg:text-6xl font-bold text-text"
+                                variants={titleVariants}
+                                initial="hidden"
+                                animate="visible"
+                                transition={{ delay: 0.4 }}
+                            >
                                 Universitas Pasundan.
-                            </h2>
-                            <div className="hidden md:flex">
-                                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} />
+                            </motion.h2>
+                            <div className="w-full hidden md:flex">
+                                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} border="border-2 border-text"/>
                             </div>
                         </div>
-                    </div>
-                    <div className="w-full flex md:hidden">
-                        <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border={'w-full justify-center'} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} />
                     </div>
                 </div>
 

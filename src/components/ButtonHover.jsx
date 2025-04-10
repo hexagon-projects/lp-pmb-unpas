@@ -17,7 +17,7 @@ const ButtonHover = ({onClick, text, icon}) => {
             gap: 0.5rem;
             align-items: center;
             justify-content: center;
-            padding: 2rem 2rem;
+            padding: 1.5rem 1.5rem;
             transition: all 0.5s ease;
             
             border-radius: 0.5rem;

@@ -4,7 +4,7 @@ const Button = ({
     text,
     textColor,
     bgColor = 'bg-white',
-    hoverBgColor='hover:border-2 hover:border-white/50',
+    hoverBgColor='hover:border-2 hover:border-transparent',
     onClick,
     rounded = 'rounded-lg md:rounded-xl lg:rounded-2xl',
     icon,
@@ -18,7 +18,7 @@ const Button = ({
 }) => {
     return (
         <motion.button
-            className={`${css} ${flex} gap-2 cursor-pointer items-center text-xs md:text-sm lg:text-sm ${paddingMobile} ${paddingTablet} font-bold ${border} ${bgColor} ${textColor} ${rounded} ${hoverBgColor} shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] ${hoverShadowColor} transition duration-500`}
+            className={`${css} ${flex} gap-2 cursor-pointer items-center text-xs md:text-sm lg:text-sm ${paddingMobile} ${paddingTablet} font-bold ${border} ${bgColor} ${textColor} ${rounded} ${hoverBgColor} shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] ${hoverShadowColor} transition-colors duration-500`}
             onClick={onClick}
             whileTap={{ scale: 0.95 }}
         >

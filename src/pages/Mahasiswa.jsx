@@ -19,6 +19,7 @@ import TestimoniService from "../fetching/testimoni";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import AnimatedTitle from "../components/AnimatedTitle";
 
 const Mahasiswa = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,9 +75,8 @@ const Mahasiswa = () => {
       <img
         src={src}
         alt={alt}
-        className={`w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl transition-opacity duration-500 ${
-          loadedState ? "opacity-100" : "opacity-0"
-        }`}
+        className={`w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl transition-opacity duration-500 ${loadedState ? "opacity-100" : "opacity-0"
+          }`}
         onLoad={() => setLoadedState(true)}
         loading="lazy"
       />
@@ -126,7 +126,9 @@ const Mahasiswa = () => {
       className={"w-full flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6 lg:gap-10 lg:px-[50px]"}
     >
       <div className="w-full lg:w-[30%] space-y-4 text-center lg:text-left">
-        <Title title={"Kisah Alumni"} />
+        <div className="flex items-start">
+          <AnimatedTitle text={"Kisah Alumni"} />
+        </div>
         <Text
           text={
             "Temukan perjalanan inspiratif para alumni yang telah menapaki jalur sukses di dunia Profesional"
@@ -158,9 +160,8 @@ const Mahasiswa = () => {
                     <img
                       src={`https://img.youtube.com/vi/${testi.yt_link}/maxresdefault.jpg`}
                       alt={testi.name}
-                      className={`w-full h-full object-cover transition-opacity duration-500 ${
-                        isThumbnailLoaded ? "opacity-100" : "opacity-0"
-                      }`}
+                      className={`w-full h-full object-cover transition-opacity duration-500 ${isThumbnailLoaded ? "opacity-100" : "opacity-0"
+                        }`}
                       onLoad={() => setIsThumbnailLoaded(true)}
                       loading="lazy"
                     />
@@ -245,7 +246,9 @@ const Mahasiswa = () => {
               transition={{ delay: 0.2 }}
               className={"w-full space-y-4 md:space-y-6 lg:space-y-10"}
             >
-              <Title title={"Aktivitas Mahasiswa"} />
+              <div className="flex items-start">
+                <AnimatedTitle text={"Aktivitas Mahasiswa"} />
+              </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 {ukm?.map((ukm) => (
                   <UKMCard
@@ -270,7 +273,9 @@ const Mahasiswa = () => {
               }
             >
               <div className="w-full space-y-4 text-center">
-                <Title title={"Prestasi"} />
+                <div className="flex items-start">
+                  <AnimatedTitle text={"Prestasi"} />
+                </div>
                 <Text
                   text={
                     "Simak kisah inspiratif mereka dan jadilah bagian dari generasi berprestasi berikutnya!"

@@ -5,6 +5,7 @@ import Text from "../../components/Text";
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 import MotionWrapper from "../../components/MotionWrapper";
+import AnimatedTitle from "../../components/AnimatedTitle";
 
 const PrestasiSection = ({ organisasi, prestasi, imageURL }) => {
     const [tableHeight, setTableHeight] = useState(0);
@@ -43,7 +44,7 @@ const PrestasiSection = ({ organisasi, prestasi, imageURL }) => {
     return (
         <MotionWrapper className={'w-full flex flex-col gap-4 md:gap-6 lg:gap-10 px-5 md:px-10 lg:px-15'}>
             <div className="text-center">
-                <Title title={'Kegiatan dan Prestasi Mahasiswa'} />
+                <AnimatedTitle text={'Kegiatan dan Prestasi Mahasiswa'}/>
             </div>
             <div className="w-full flex flex-col-reverse lg:flex-row-reverse md:justify-evenly items-center gap-4 md:gap-6 lg:gap-8">
                 <div className="w-full lg:max-w-1/2 overflow-x-auto p-2 md:p-4 rounded-xl md:rounded-2xl lg:rounded-4xl bg-[#f0f0f0] border-2 border-[#fafafa]" ref={tableRef}>
