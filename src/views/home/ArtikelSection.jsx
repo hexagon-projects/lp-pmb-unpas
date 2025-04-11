@@ -8,7 +8,7 @@ const ArtikelSection = ({ data }) => {
         <div className="w-full flex justify-center items-center px-0">
             <div className={'w-full flex flex-col gap-6 md:gap-6 lg:gap-8 px-5 md:px-10 lg:px-15'}>
                 <div className="flex justify-between items-center">
-                    <div className="text-left md:text-left">
+                    <div className="w-full flex items-start">
                         <AnimatedTitle text={'Informasi dan Pengumuman'} />
                     </div>
                     <SelengkapnyaButton onClick={() => window.location.href = '/artikel'} />

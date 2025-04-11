@@ -51,7 +51,7 @@ const StatsBox = ({ icon, number, title, colorIcon = 'text-text' }) => {
     }, [isVisible, number]);
 
     return (
-        <div ref={ref} className="w-full lg:w-fit flex justify-start md:justify-center items-center gap-4 md:gap-6 lg:gap-6">
+        <div ref={ref} className="w-full lg:w-fit flex justify-start md:justify-center items-center gap-6 md:gap-6 lg:gap-6">
             <div className="w-[30%] md:w-fit">
                 <div className={`w-fit p-3 bg-[#f0f0f0] border-2 border-[#fafafa] rounded-full ${colorIcon} transition shadow-xl shadow-text/5 md:shadow-text/20 shadow-[0px_20px_40px_rgba(254, 242, 81, 0.7)]`}>{icon}</div>
             </div>

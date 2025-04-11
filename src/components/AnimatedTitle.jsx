@@ -44,13 +44,13 @@ const AnimatedTitle = ({ text, className = "", color, sizeText, weight }) => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-wrap justify-center"
+          className="flex flex-wrap justify-start md:justify-center"
         >
           {words?.map((word, index) => (
             <motion.span
               key={index}
               variants={wordVariants}
-              className="inline-block mr-1"
+              className="inline-block mr-1 text-left"
             >
               <Title sizeText={sizeText} title={word} color={color} fontWeight={weight}/>
             </motion.span>
