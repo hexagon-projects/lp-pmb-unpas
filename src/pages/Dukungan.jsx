@@ -27,7 +27,7 @@ const VideoThumbnail = memo(({ video, openVideo }) => (
         <img
           src={video.image}
           alt={video.title}
-          className="w-full h-full object-cover shadow-lg rounded-xl md:rounded-2xl lg:rounded-4xl"
+          className="w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl drop-shadow-[0_6px_12px_rgba(107,114,128,0.15)]"
           loading="lazy"
           width="100%"
           height="100%"

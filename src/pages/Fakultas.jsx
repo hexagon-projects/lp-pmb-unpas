@@ -52,7 +52,6 @@ const Fakultas = () => {
       titleColor="text-black"
       paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-12"
       paddingTop="lg:pt-30"
-      type={'fadeInUp'} duration={1}
     >
       <Helmet>
         <title>Fakultas - Universitas Pasundan</title>

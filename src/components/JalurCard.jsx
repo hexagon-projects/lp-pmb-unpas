@@ -49,7 +49,7 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
                 />
                 <button
                     onClick={onClick}
-                    className="relative overflow-hidden group px-8 py-4 text-white text-right whitespace-nowrap rounded-lg md:rounded-xl lg:rounded-2xl border-white border-2 transition-all duration-500 hover:text-black"
+                    className="relative overflow-hidden group py-2 px-4 md:px-8 md:py-4 text-white text-right whitespace-nowrap rounded-lg md:rounded-xl lg:rounded-2xl border-white border-2 transition-all duration-500 hover:text-black"
                 >
                     <span className="relative z-10 cursor-pointer text-xs md:text-sm lg:text-sm font-bold">Selengkapnya</span>
                     <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-white z-0 "></span>

@@ -40,6 +40,8 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaPlay } from "react-icons/fa";
 import IdentityService from "../fetching/identity";
+import Check from "../assets/icon/check.svg"
+import Bookmark from "../assets/icon/bookmark.svg"
 import Logo from "../assets/logo.webp";
 
 const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
@@ -433,9 +435,9 @@ const ProgramStudi = () => {
             >
               <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
                 <img
-                  src="/src/assets/icon/bookmark.svg"
+                  src={Bookmark}
                   alt=""
-                  className="w-4 md:w-5"
+                  className="w-6 md:w-8"
                 />
               </div>
               <div className="flex flex-col items-start space-y-0">
@@ -484,7 +486,7 @@ const ProgramStudi = () => {
             >
               <div className="p-1 md:p-2 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
                 <img
-                  src="/src/assets/icon/check.svg"
+                  src={Check}
                   alt=""
                   className="w-6 md:w-8"
                 />

@@ -13,6 +13,7 @@ import FasilitasService from "../fetching/fasilitas";
 import { Helmet } from "react-helmet-async";
 import Button from "../components/Button";
 import AnimatedTitle from "../components/AnimatedTitle";
+import MotionWrapper from "../components/MotionWrapper";
 
 const gedungKampus = [
   {
@@ -79,13 +80,13 @@ const Fasilitas = () => {
   }, []);
 
   return (
-<UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
+<UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'}>
       <Helmet>
         <title>Fasilitas - Universitas Pasundan</title>
       </Helmet>
 
       <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-14 lg:space-y-16">
-        <div className="space-y-8 md:space-y-14 lg:space-y-16">
+        <MotionWrapper type={'fadeInUp'} duration={1} once className="space-y-8 md:space-y-14 lg:space-y-16">
           <div className="w-full h-42 md:h-60 lg:h-[65vh] relative">
             <img
               src={Section1}
@@ -121,7 +122,7 @@ const Fasilitas = () => {
               onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`}
             />
           </div>
-        </div>
+        </MotionWrapper>
 
         <div className="w-full space-y-4 md:space-y-6 lg:space-y-10 lg:p-[50px]">
           <div className="flex items-start">
