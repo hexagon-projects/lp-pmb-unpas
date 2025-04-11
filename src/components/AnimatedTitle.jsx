@@ -3,7 +3,7 @@ import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 import { useState } from "react";
 import Title from "./Title";
 
-const AnimatedTitle = ({ text, className = "", color, sizeText, weight }) => {
+const AnimatedTitle = ({ text, className = "", color, sizeText, weight, justify = 'justify-center' }) => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [sectionRef, isInView] = useIntersectionObserver({
     threshold: 0.1,
@@ -44,7 +44,7 @@ const AnimatedTitle = ({ text, className = "", color, sizeText, weight }) => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-wrap justify-start md:justify-center"
+          className={`flex flex-wrap ${justify}`}
         >
           {words?.map((word, index) => (
             <motion.span
