@@ -50,7 +50,7 @@ const HighlightCard = ({ title, text, image }) => {
             
             {/* tampak depan */}
             <div className="grid text-center gap-3">
-                <img src={`${imageURL}/unggulans/${image}`} alt={image} className="w-20 h-20 object-cover rounded-full m-auto" />
+                <img src={`${imageURL}/unggulans/${image}`} alt={image} className="w-20 h-20 object-cover m-auto" />
                 <ArticleTitle 
                     color={`transition ${
                         isActive ? 'text-white' : 'text-gray-900 group-hover:text-white'

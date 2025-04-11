@@ -143,7 +143,7 @@ const ProgramStudi = () => {
       margin=""
       titleColor="text-black"
       paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6"
-      paddingTop="lg:pt-20"
+      paddingTop="lg:pt-10"
     >
       <div className="p-0 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20">
         {/* Hero Section */}
@@ -155,7 +155,7 @@ const ProgramStudi = () => {
         >
           <div className="w-full">
             <div
-              className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[70vh] md:mt-10 rounded-b-3xl"
+              className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[70vh] lg:mt-10 rounded-b-3xl"
               style={{
                 backgroundImage: `url(${
                   fakultas.image1
@@ -166,9 +166,9 @@ const ProgramStudi = () => {
               }}
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/100 to-transparent"></div>
-              <div className="relative grid gap-5 p-5 py-36 h-[90vh]">
+              <div className="relative grid gap-5 p-5 py-36 h-[80vh]">
                 <div className="flex justify-center items-center">
-                  <div className="flex items-center md:hidden gap-3 md:gap-4 z-1 cursor-pointer absolute top-10 rounded-lg bg-white/60 p-2 md:p-4">
+                  <div className="flex items-center md:hidden gap-3 md:gap-4 z-1 cursor-pointer absolute top-10 rounded-lg p-2 md:p-4">
                     <img
                       src={Logo}
                       alt="Logo Universitas Pasundan"
@@ -610,29 +610,68 @@ const ProgramStudi = () => {
         </div>
 
         <motion.div
-          className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11"
+          className="w-full flex justify-center items-center p-0 md:px-6 md:py-9 lg:px-8 lg:py-11"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 2.8 }}
         >
-          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
-            <div className="flex justify-between md:justify-between items-center text-center relative z-2">
+          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rounded-none md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2 bg-gradient-to-r from-[#3384FF]/100 md:via-white md:via-60% to-transparent">
+            <div className="flex flex-col md:flex-row justify-between md:justify-between items-center text-center relative z-10 ">
               <div className="flex items-center gap-4 text-left">
-                <div className="w-[60%] md:w-fit">
+                <div className="w-[60%] md:w-fit hidden md:block">
                   <Title
-                    sizeText="text-sm md:text-2xl lg:text-[32px]"
+                    sizeText="text-sm md:text-xl lg:text-[32px] text-white"
                     fontWeight="font-semibold"
-                    title="Dapatkan Informasi Lengkap Seputar PMB"
+                    title="Dapatkan Informasi Lainnya"
                   />
+                  <div className="flex items-center gap-2 md:gap-4">
+                    <Title
+                      sizeText="text-sm md:text-xl lg:text-2xl text-white"
+                      fontWeight="font-base"
+                      title="Seputar PMB Unpas"
+                    />
+                    <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" color="white" />
+                  </div>
                 </div>
-                <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
+                <div className="flex md:hidden items-center gap-4 text-left">
+                  <Title
+                    sizeText="text-sm md:text-2xl lg:text-[32px] text-white"
+                    fontWeight="font-base"
+                    title="Dapatkan Informasi Lainya Seputar PMB Unpas"
+                  />
+                  <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 rotate-90" color="white" />
+                </div>
               </div>
-              <div>
+              <div className="flex md:gap-5 lg:gap-10 gap-5 mt-8 md:mt-0">
                 <Button
-                  css="pulsating-button"
+                  css="w-fit h-fit"
+                  paddingMobile="px-2 py-2"
+                  paddingTablet="md:px-2 md:py-2 lg:px-2 lg:py-3"
+                  rounded="rounded-lg"
                   text="Informasi Biaya"
-                  bgColor="bg-primary"
-                  padding="p-4"
+                  bgColor="outline outline-2 outline-[#034833] text-[#F3F4F4] md:bg-transparent bg-[#F0F0F080]"
+                  hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
+                  textColor="text-black font-semibold"
+                />
+                <Button
+                  css="w-fit h-fit"
+                  paddingMobile="px-2 py-2"
+                  paddingTablet="md:px-2 md:py-2 lg:px-2 lg:py-3"
+                  rounded="rounded-lg"
+                  text="Buku Panduan"
+                  bgColor="outline outline-2 outline-[#034833] text-[#F3F4F4] md:bg-transparent bg-[#F0F0F080]"
+                  hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
+                  textColor="text-black font-semibold"
+                />
+                <Button
+                  css="w-fit h-fit"
+                  paddingMobile="px-2 py-2"
+                  paddingTablet="md:px-2 md:py-2 lg:px-2 lg:py-3"
+                  rounded="rounded-lg"
+                  text="Hubungi Admin"
+                  bgColor="outline outline-2 outline-[#034833] text-[#F3F4F4] md:bg-transparent bg-[#F0F0F080]"
+                  hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
+                  textColor="text-black font-semibold"
                 />
               </div>
             </div>

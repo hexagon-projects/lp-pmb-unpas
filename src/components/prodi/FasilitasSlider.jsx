@@ -6,6 +6,7 @@ import { useState, useRef } from "react";
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Title from "../Title";
 import Text from "../Text";
+import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
 
 const FasilitasSlider = ({ title, facilities }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -38,7 +39,34 @@ const FasilitasSlider = ({ title, facilities }) => {
                         </div>
                     </div>
                 )}
-                <div className="w-full flex justify-center items-center bg-[#F3F4F4] p-4 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl relative">
+                <div className='block md:hidden'>
+                    <button
+                        onClick={() => {
+                            const currentIndex = facilities.findIndex(
+                            (facility) => facility === selectedFacility
+                            );
+                            const prevIndex =
+                            (currentIndex - 1 + facilities.length) % facilities.length;
+                            setSelectedFacility(facilities[prevIndex]);
+                        }}
+                        className="px-2 py-2 text-[#444444]"
+                    >
+                        <IoArrowBackCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
+                    </button>
+                    <button
+                        onClick={() => {
+                            const currentIndex = facilities.findIndex(
+                            (facility) => facility === selectedFacility
+                            );
+                            const nextIndex = (currentIndex + 1) % facilities.length;
+                            setSelectedFacility(facilities[nextIndex]);
+                        }}
+                        className="px-2 py-2 text-[#444444]"
+                    >
+                        <IoArrowForwardCircleOutline className="text-4xl md:text-5xl cursor-pointer" />
+                    </button>
+                </div>
+                <div className="w-full flex justify-center items-center bg-[#F3F4F4] p-4 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl relative hidden md:flex">
                     <button 
                         onClick={() => swiperRef.current?.slidePrev()}
                         className="absolute left-0 z-10 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors -translate-x-1/2"
