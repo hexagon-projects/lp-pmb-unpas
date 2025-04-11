@@ -13,6 +13,7 @@ import { IoArrowForwardCircleOutline, IoArrowBackCircleOutline } from "react-ico
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Koma from '../../assets/koma.svg';
 import AnimatedTitle from "../../components/AnimatedTitle";
+import ButtonHover from "../../components/ButtonHover";
 
 const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
   const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -21,15 +22,15 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
 
   const handleNavigation = (direction) => {
     if (isTransitioning || !swiperRef.current) return;
-    
+
     setIsTransitioning(true);
-    
+
     if (direction === 'prev') {
       swiperRef.current.slidePrev();
     } else {
       swiperRef.current.slideNext();
     }
-    
+
     setTimeout(() => {
       setIsTransitioning(false);
     }, 1100);
@@ -84,54 +85,46 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
               </SwiperSlide>
             ))}
           </Swiper>
-          
+
           <div className="hidden md:block">
-            <button 
+            <button
               className={`custom-swiper-prev absolute left-0 md:-left-10 top-1/2 z-50 -translate-y-1/2 p-2 cursor-pointer rounded-full transition-all hover:scale-110`}
               onClick={() => handleNavigation('prev')}
               aria-label="Previous testimonial"
             >
-              <IoIosArrowBack size={36} className="text-gray-700 hover:text-primary" />
+              <IoIosArrowBack size={36} className="text-gray-700 hover:text-text" />
             </button>
-            <button 
+            <button
               className={`custom-swiper-next absolute right-0 md:-right-10 top-1/2 z-50 -translate-y-1/2 p-2 cursor-pointer rounded-full transition-all hover:scale-110`}
               onClick={() => handleNavigation('next')}
               aria-label="Next testimonial"
             >
-              <IoIosArrowForward size={36} className="text-gray-700 hover:text-primary" />
+              <IoIosArrowForward size={36} className="text-gray-700 hover:text-text" />
             </button>
           </div>
 
           <div className="w-full flex justify-center items-center">
             <div className="w-[85%] md:w-full px-3 md:px-6 lg:px-9 relative z-10 md:-mt-10 lg:-mt-16">
-              <Button 
-                icon={<ArrowUpRight />} 
-                iconStatus="visible" 
-                css={'flex-row-reverse'} 
-                text={'Selengkapnya'} 
-                bgColor={'bg-primary'} 
-                textColor={'text-black'} 
-                onClick={() => window.location.href = '/testimoni'} 
-                paddingMobile="px-4 py-2" 
-                paddingTablet="md:px-4 md:py-2" 
-              />
+              <div className="w-fit">
+                <ButtonHover icon={<ArrowUpRight />} iconStatus="visible" text={'Selengkapnya'} flex="flex flex-row"/>
+              </div>
             </div>
           </div>
 
           <div className="w-full flex justify-center items-center md:hidden mt-2">
-            <button 
-              onClick={() => handleNavigation('prev')} 
+            <button
+              onClick={() => handleNavigation('prev')}
               className={`p-2 cursor-pointer rounded-full transition-all hover:scale-110`}
               aria-label="Previous testimonial"
             >
-              <IoArrowBackCircleOutline size={34} className="text-gray-700 hover:text-primary" />
+              <IoArrowBackCircleOutline size={34} className="text-gray-700 hover:text-text" />
             </button>
-            <button 
-              onClick={() => handleNavigation('next')} 
+            <button
+              onClick={() => handleNavigation('next')}
               className={`p-2 cursor-pointer rounded-full transition-all hover:scale-110 ml-2`}
               aria-label="Next testimonial"
             >
-              <IoArrowForwardCircleOutline size={34} className="text-gray-700 hover:text-primary" />
+              <IoArrowForwardCircleOutline size={34} className="text-gray-700 hover:text-text" />
             </button>
           </div>
         </div>

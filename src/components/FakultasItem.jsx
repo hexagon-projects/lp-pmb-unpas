@@ -1,10 +1,15 @@
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import FakultasCard from './fakultas/FakultasCard'
 
 const FakultasItem = ({ image, title, slug, index }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
+
   return (
-    <div>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} transition={{ duration: 1, }}>
       <FakultasCard image={image} title={title} slug={slug} />
-    </div>
+    </motion.div>
   )
 }
 

@@ -93,11 +93,11 @@ const Mitra = () => {
 
                 {isModalOpen && selectedPartner && (
                     <Modal onClose={closeModal}>
-                        <div className={`p-6 space-y-4 transition-opacity duration-300 ${isModalFading ? 'opacity-0' : 'opacity-100'}`}>
-                            <div className="w-full flex justify-end">
-                                <button className="w-fit flex items-end bg-red-500 text-white p-2 rounded-full cursor-pointer" onClick={closeModal}>
-                                    <X size={20} />
-                                </button>
+                        <div className={`p-4 space-y-4 transition-opacity duration-300 relative ${isModalFading ? 'opacity-0' : 'opacity-100'}`}>
+                            <button className="w-fit absolute -top-3 -right-3 bg-red-500 text-white p-2 rounded-full cursor-pointer" onClick={closeModal}>
+                                <X size={20} />
+                            </button>
+                            <div className="w-full flex justify-end relative">
                             </div>
                             <img
                                 src={`${imageURL}/partners/${selectedPartner.image}`}
@@ -107,7 +107,7 @@ const Mitra = () => {
                             <div className="space-y-3">
                                 <h2 className="text-xl font-bold">{selectedPartner.name}</h2>
                                 <RichText content={selectedPartner.description} />
-                                <RichText content={selectedPartner.program_desc}/>
+                                <RichText content={selectedPartner.program_desc} />
                             </div>
                         </div>
                     </Modal>

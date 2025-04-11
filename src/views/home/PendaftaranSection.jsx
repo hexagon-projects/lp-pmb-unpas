@@ -14,7 +14,16 @@ import AnimatedTitle from '../../components/AnimatedTitle';
 
 const DUMMY_IMAGES = Array(4).fill({ image: Section1 });
 
-const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [], titleColor = 'text-text', subtitleColor, borderPaginationColor, paginationColor, iconColor = '#C73929' }) => {
+const PendaftaranSection = ({ 
+  title = '', 
+  subtitle = '', 
+  jalurPendaftaran = [], 
+  titleColor = 'text-text', 
+  subtitleColor, 
+  borderPaginationColor, 
+  paginationColor, 
+  iconColor = '#C73929' 
+}) => {
     const navigate = useNavigate();
     const swiperRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
@@ -64,7 +73,13 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [], 
     const swiperSlides = useMemo(() => (
         DUMMY_IMAGES.map((item, index) => (
             <SwiperSlide key={index}>
-                <div className="rounded-xl md:rounded-2xl lg:rounded-4xl pb-5">
+                <motion.div
+                    className="rounded-xl md:rounded-2xl lg:rounded-4xl pb-5"
+                    animate={{
+                        scale: activeIndex === index ? 1 : 0.9,
+                        transition: { duration: 0.3 }
+                    }}
+                >
                     <img
                         loading="lazy"
                         src={item.image}
@@ -72,10 +87,10 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [], 
                         className="w-full h-[40vh] lg:h-[50vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
                         width="100%"
                     />
-                </div>
+                </motion.div>
             </SwiperSlide>
         ))
-    ), []);
+    ), [activeIndex]);
 
     const jalurItems = useMemo(() => (
         formattedJalur.map((jalur, index) => (
@@ -114,7 +129,7 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [], 
                 </div>
             </motion.div>
         ))
-    ), [formattedJalur, isMobile, handleClick]);
+    ), [formattedJalur, isMobile, handleClick, iconColor]);
 
     return (
         <div className="w-full flex justify-center items-center bg-transparent">
@@ -140,9 +155,18 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [], 
                             }}
                             modules={[Autoplay]}
                             breakpoints={{
-                                640: { spaceBetween: 20 },
-                                1024: { spaceBetween: 30 },
-                                1440: { spaceBetween: 40 }
+                                640: { 
+                                    spaceBetween: 20,
+                                    slidesPerView: 1.2
+                                },
+                                1024: { 
+                                    spaceBetween: 20,
+                                    slidesPerView: 1.3
+                                },
+                                1440: { 
+                                    spaceBetween: 20,
+                                    slidesPerView: 1.4
+                                }
                             }}
                         >
                             {swiperSlides}
@@ -170,6 +194,5 @@ const PendaftaranSection = ({ title = '', subtitle = '', jalurPendaftaran = [], 
         </div>
     );
 };
-
 
 export default memo(PendaftaranSection);

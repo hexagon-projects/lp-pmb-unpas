@@ -7,6 +7,7 @@ import Button from "../../components/Button";
 import CustomPagination from "../../components/CustomPagination";
 import { IoDocumentTextOutline, IoWalletOutline } from "react-icons/io5";
 import ButtonHover from "../../components/ButtonHover";
+import MotionWrapper from "../../components/MotionWrapper";
 
 const HeroSection = ({ data = [] }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -87,7 +88,7 @@ const HeroSection = ({ data = [] }) => {
     }, []);
 
     return (
-        <div className="relative mx-0 md:mx-10 lg:mx-15 lg:pt-6">
+        <MotionWrapper type={'fadeInUp'} duration={1} once className="relative mx-0 md:mx-10 lg:mx-15 lg:pt-6">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 spaceBetween={0}
@@ -178,7 +179,7 @@ const HeroSection = ({ data = [] }) => {
                     <ButtonHover icon={<MdOutlineBook size={24} className="text-text" />} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} text={'Buku Panduan'} />
                 </div>
             </div>
-        </div>
+        </MotionWrapper>
     );
 };
 

@@ -4,9 +4,10 @@ import Logo from '../assets/logo.webp'
 import Button from './Button'
 import { useEffect, useState } from 'react'
 import Union from '../assets/navbar.png'
+import { motion } from 'framer-motion';
 
 const Navbar = ({
-  position = 'absolute top-0 left-0',
+  position = 'fixed top-0 left-0',
   bgColor = 'bg-[#DCDCDC]',
   titleColor = 'text-gray-700',
   navbarColor = 'text-gray-700',
@@ -59,7 +60,7 @@ const Navbar = ({
   }, [location.pathname])
 
   return (
-    <div className="w-full flex justify-center relative z-[999]">
+    <div className="w-full h-fit flex justify-center relative z-50">
       <nav
         className={`
           w-[90%] lg:w-[93%] xl:w-[94%]
@@ -107,17 +108,35 @@ const Navbar = ({
               to={item.path}
               aria-label={item.name}
               className={`
-                relative 
-                p-4 
-                text-center 
-                text-xs lg:text-base
-                rounded-lg md:rounded-xl lg:rounded-2xl
-                transition-colors duration-500 ease-in-out
-                hover:bg-[#c4c4c4] hover:text-[#444444]
-                ${location.pathname === item.path ? 'bg-[#D0D0D0] text-[#444444] border-2 border-[#FAFAFA]/50' : ''}
-              `}
+              relative
+              p-4 
+              text-center 
+              text-xs lg:text-base
+              rounded-lg md:rounded-xl lg:rounded-2xl
+              transition-colors duration-500 ease-in-out
+              hover:font-semibold
+              ${location.pathname === item.path ? 'text-[#444444]' : ''}
+            `}
             >
               {item.name}
+              {location.pathname === item.path && (
+                <motion.div
+                  layoutId="activeNavItem"
+                  initial={{ scaleY: 0 }}
+                  animate={{ scaleY: 1 }}
+                  exit={{ scaleY: 0 }}
+                  className="absolute inset-0 h-full bg-[#D0D0D0] border-2 border-[#FAFAFA]/50 rounded-lg md:rounded-xl lg:rounded-2xl z-[-1]"
+                  style={{
+                    originY: "top", // Pastikan animasi berasal dari atas
+                    scaleY: 1.1, // Sedikit overshoot untuk efek spring
+                  }}
+                  transition={{
+                    type: "spring",
+                    bounce: 0.2,
+                    duration: 0.6
+                  }}
+                />
+              )}
             </Link>
           ))}
           <Button

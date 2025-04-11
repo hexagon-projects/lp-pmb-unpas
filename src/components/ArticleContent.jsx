@@ -1,21 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
+
 const ArticleContent = ({ title, image, description, slug }) => {
     const navigate = useNavigate();
     const articleRef = useRef(null);
     const [imageHeight, setImageHeight] = useState("auto");
-    
+
     useEffect(() => {
         const updateImageHeight = () => {
             if (articleRef.current) {
                 setImageHeight(`${articleRef.current.offsetHeight}px`);
             }
         };
-        
+
         updateImageHeight();
         window.addEventListener("resize", updateImageHeight);
-        
+
         return () => {
             window.removeEventListener("resize", updateImageHeight);
         };
@@ -27,7 +28,7 @@ const ArticleContent = ({ title, image, description, slug }) => {
 
     return (
         <main className="w-full flex flex-col md:flex-row gap-4 md:gap-10 p-4 bg-zinc-100 rounded-[32px]">
-            <figure 
+            <figure
                 className="overflow-hidden rounded-xl md:rounded-2xl w-full md:w-1/2"
                 style={{ height: imageHeight }}
             >
@@ -51,12 +52,12 @@ const ArticleContent = ({ title, image, description, slug }) => {
                                     {description.charAt(0)}
                                 </span>
                                 <p className="text-sm leading-6 text-neutral-700 w-full">
-                                    {description.slice(1, 70)}
+                                    {description.slice(1, 108)}
                                 </p>
                             </div>
 
                             <p className="mt-4 md:mt-6 text-sm leading-6 text-neutral-700 w-full">
-                                {description.slice(70, 300)}
+                                {description.slice(108, 300)}
                             </p>
                         </div>
 
@@ -68,15 +69,16 @@ const ArticleContent = ({ title, image, description, slug }) => {
 
                 <footer className="flex flex-wrap gap-5 md:gap-10 justify-between items-center mt-6 md:mt-8 w-full text-xs leading-none max-w-[510px]">
                     <div className="flex gap-3 items-center self-stretch my-auto text-black">
-                        <span className="self-stretch my-auto">Admin</span>
+                        <span className="self-stretch my-auto">Penulis</span>
                         <div className="shrink-0 self-stretch my-auto w-0 h-3 border border-solid border-black border-opacity-70" />
-                        <span className="self-stretch my-auto">9 mins read</span>
+                        <span className="self-stretch my-auto">4 mins read</span>
                     </div>
                     <button
                         onClick={handleReadMore}
-                        className="gap-2.5 self-stretch px-3 py-1 my-auto text-right text-black whitespace-nowrap rounded-lg border border-black border-solid"
+                        className="relative overflow-hidden group px-3 py-1 my-auto text-black text-right whitespace-nowrap rounded-lg border border-black border-solid transition-all duration-500 hover:text-black"
                     >
-                        Selengkapnya
+                        <span className="relative z-10 cursor-pointer">Selengkapnya</span>
+                        <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-yellow-200 z-0 rounded-lg md:rounded-xl lg:rounded-2xl"></span>
                     </button>
                 </footer>
             </article>

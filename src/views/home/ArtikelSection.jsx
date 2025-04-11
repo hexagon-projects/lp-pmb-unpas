@@ -1,7 +1,6 @@
 import AnimatedTitle from "../../components/AnimatedTitle"
 import ArticleCard from "../../components/artikel/ArticleCard"
 import SelengkapnyaButton from "../../components/SelengkapnyaButton"
-import Title from "../../components/Title"
 
 const ArtikelSection = ({ data }) => {
     return (

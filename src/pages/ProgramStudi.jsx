@@ -14,7 +14,9 @@ import Text from "../components/Text";
 import PendaftaranSection from "../views/home/PendaftaranSection";
 import StatsSection from "../components/prodi/StatsSection";
 import PrestasiSection from "../components/prodi/PrestasiSection";
+import ArticleTransparentCard from "../components/ArticleTransparentCard";
 import TestimonialSlider from "../components/TestimonialSlider";
+import AktivitasMahasiswa from "../components/prodi/AktivitasMahasiswa";
 import FasilitasSlider from "../components/prodi/FasilitasSlider";
 import DosenCard from "../components/prodi/DosenCard";
 import RichText from "../components/RichText";
@@ -30,12 +32,14 @@ import MitraSection from "../views/home/MitraSection";
 import { X } from "lucide-react";
 import HighlightCard from "../components/fakultas/HighlightCard2";
 import Pagination from "../components/Pagination";
+import LogoText from "../components/LogoText";
 import Button from "../components/Button";
 import CTASection from "../components/CTASection";
 import Gedung from "../assets/gedung.jpeg";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaPlay } from "react-icons/fa";
+import IdentityService from "../fetching/identity";
 import Logo from "../assets/logo.webp";
 
 const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
@@ -139,7 +143,7 @@ const ProgramStudi = () => {
       margin=""
       titleColor="text-black"
       paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6"
-      paddingTop="lg:pt-20"
+      paddingTop="lg:pt-10"
     >
       <div className="p-0 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20">
         {/* Hero Section */}
@@ -151,19 +155,20 @@ const ProgramStudi = () => {
         >
           <div className="w-full">
             <div
-              className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[70vh] md:mt-10 rounded-b-3xl"
+              className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[70vh] lg:mt-10 rounded-b-3xl"
               style={{
-                backgroundImage: `url(${fakultas.image1
-                  ? `${imageURL}/programs/${fakultas.image1}`
-                  : Gedung
-                  })`,
+                backgroundImage: `url(${
+                  fakultas.image1
+                    ? `${imageURL}/programs/${fakultas.image1}`
+                    : Gedung
+                })`,
                 backgroundPosition: "center",
               }}
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/100 to-transparent"></div>
-              <div className="relative grid gap-5 p-5 py-36 h-[90vh]">
+              <div className="relative grid gap-5 p-5 py-36 h-[80vh]">
                 <div className="flex justify-center items-center">
-                  <div className="flex items-center md:hidden gap-3 md:gap-4 z-1 cursor-pointer absolute top-10 rounded-lg bg-white/60 p-2 md:p-4">
+                  <div className="flex items-center md:hidden gap-3 md:gap-4 z-1 cursor-pointer absolute top-10 rounded-lg p-2 md:p-4">
                     <img
                       src={Logo}
                       alt="Logo Universitas Pasundan"
@@ -224,89 +229,6 @@ const ProgramStudi = () => {
                   />
                 </div>
               </div>
-              {/* <Title color="text-white" title={`Selamat Datang`} />
-                <Title
-                  color="text-white"
-                  title={`di Program Studi ${fakultas.name}`}
-                /> */}
-              {/* 
-              <svg
-                style={{ visibility: "hidden", position: "absolute" }}
-                width="0"
-                height="0"
-                xmlns="http://www.w3.org/2000/svg"
-                version="1.1"
-              >
-                <defs>
-                  <filter id="goo">
-                    <feGaussianBlur
-                      in="SourceGraphic"
-                      stdDeviation="10"
-                      result="blur"
-                    />
-                    <feColorMatrix
-                      in="blur"
-                      mode="matrix"
-                      values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                      result="goo"
-                    />
-                    <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-                  </filter>
-                </defs>
-              </svg>
-              <div className="relative z-10 w-full md:w-1/2 h-[40vh] flex flex-col justify-center items-start gap-4">
-                <Title color="text-white" title={`Selamat Datang`} />
-                <Title
-                  color="text-white"
-                  title={`di Program Studi ${fakultas.name}`}
-                />
-                <nav
-                  className="flex text-white text-sm"
-                  aria-label="Breadcrumb"
-                >
-                  <ol className="inline-flex items-center space-x-1 md:space-x-3 list-none">
-                    <li className="list-none">
-                      <a href="/" class="flex items-center text-white">
-                        <svg
-                          class="w-4 h-4 mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 12l2-2m0 0l7-7 7 7m-9 5v6m4-6v6m5-10l2 2"
-                          ></path>
-                        </svg>
-                        Beranda
-                      </a>
-                    </li>
-                    <li className="list-none">
-                      <span class="mx-2 text-white">/</span>
-                    </li>
-                    <li className="list-none">
-                      <a
-                        href={`/fakultas/${test.fakultas_slug}`}
-                        class="text-white"
-                      >
-                        {test.fakultas_name}
-                      </a>
-                    </li>
-                    <li className="list-none">
-                      <span class="mx-2 text-white">/</span>
-                    </li>
-                    <li class="text-white font-medium list-none">
-                      {fakultas.name}
-                    </li>
-                  </ol>
-                </nav>
-              </div>
-              <div className="absolute top-4 left-4 z-10">
-                <LogoText titleColor="text-white" />
-              </div> */}
             </div>
           </div>
           {/* <div className="absolute bottom-0 left-0 z-20">
@@ -413,7 +335,7 @@ const ProgramStudi = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="w-full flex justify-center items-center mb-5">
+          <div className="w-full flex justify-center items-center">
             <Title
               title={`${fakultas.name} Dalam Angka`}
               color={fakultas.color}
@@ -463,22 +385,6 @@ const ProgramStudi = () => {
         </motion.div>
         {/* Fakultas Unggulan Section End */}
 
-        {/* Tentang Kami Section */}
-        {/* <motion.div
-          className="w-full flex flex-col lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 2.8 }}
-        >
-          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
-            <div className="flex flex-col justify-center md:justify-center items-center text-center relative z-2 pt-5 px-3 pb-0">
-              <Title fontWeight="font-bold mx-auto" title={fakultas.title2} />
-              <RichText textColor="" content={fakultas.description2} />
-            </div>
-          </div>
-        </motion.div> */}
-        {/* Tentang Kami Section End */}
-
         {/* Mengapa Memilih Fakultas Section */}
         <motion.div className="relative w-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden space-y-4 md:space-y-6 lg:space-y-8 px-5 md:px-0">
           <div className="w-full flex justify-center items-center">
@@ -525,6 +431,13 @@ const ProgramStudi = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
+              <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
+                <img
+                  src="/src/assets/icon/bookmark.svg"
+                  alt=""
+                  className="w-4 md:w-5"
+                />
+              </div>
               <div className="flex flex-col items-start space-y-0">
                 <Title title={fakultas.title3} color={fakultas.color} />
                 <RichText content={fakultas.description3} />
@@ -552,16 +465,16 @@ const ProgramStudi = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex">
-            <button className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
+          <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex rounded-xl md:rounded-2xl lg:rounded-4xl">
+            <div className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
               <img
                 src={`${imageURL}/programs/${fakultas.image4}`}
                 alt="Thumbnail Video"
                 loading="lazy"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
-            </button>
+            </div>
           </div>
           <div className="w-full md:w-fit space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
             <motion.div
@@ -569,6 +482,13 @@ const ProgramStudi = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
+              <div className="p-1 md:p-2 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
+                <img
+                  src="/src/assets/icon/check.svg"
+                  alt=""
+                  className="w-6 md:w-8"
+                />
+              </div>
               <div className="flex flex-col items-start space-y-0">
                 <Title title={fakultas.title4} color={fakultas.color} />
                 <RichText content={fakultas.description4} />
@@ -577,7 +497,6 @@ const ProgramStudi = () => {
           </div>
         </motion.div>
         {/* Prospek karir Section End */}
-
         {/* jalur */}
         <div className="space-y-8 md:space-y-14 lg:space-y-20">
           <div className="w-full flex justify-center items-center">
@@ -597,29 +516,68 @@ const ProgramStudi = () => {
         </div>
 
         <motion.div
-          className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11"
+          className="w-full flex justify-center items-center p-0 md:px-6 md:py-9 lg:px-8 lg:py-11"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 2.8 }}
         >
-          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
-            <div className="flex justify-between md:justify-between items-center text-center relative z-2">
+          <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rounded-none md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2 bg-gradient-to-r from-[#3384FF]/100 md:via-white md:via-60% to-transparent">
+            <div className="flex flex-col md:flex-row justify-between md:justify-between items-center text-center relative z-10 ">
               <div className="flex items-center gap-4 text-left">
-                <div className="w-[60%] md:w-fit">
+                <div className="w-[60%] md:w-fit hidden md:block">
                   <Title
-                    sizeText="text-sm md:text-2xl lg:text-[32px]"
+                    sizeText="text-sm md:text-xl lg:text-[32px] text-white"
                     fontWeight="font-semibold"
-                    title="Dapatkan Informasi Lengkap Seputar PMB"
+                    title="Dapatkan Informasi Lainnya"
                   />
+                  <div className="flex items-center gap-2 md:gap-4">
+                    <Title
+                      sizeText="text-sm md:text-xl lg:text-2xl text-white"
+                      fontWeight="font-base"
+                      title="Seputar PMB Unpas"
+                    />
+                    <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" color="white" />
+                  </div>
                 </div>
-                <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
+                <div className="flex md:hidden items-center gap-4 text-left">
+                  <Title
+                    sizeText="text-sm md:text-2xl lg:text-[32px] text-white"
+                    fontWeight="font-base"
+                    title="Dapatkan Informasi Lainya Seputar PMB Unpas"
+                  />
+                  <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 rotate-90" color="white" />
+                </div>
               </div>
-              <div>
+              <div className="flex md:gap-5 lg:gap-10 gap-5 mt-8 md:mt-0">
                 <Button
-                  css="pulsating-button"
+                  css="w-fit h-fit"
+                  paddingMobile="px-2 py-2"
+                  paddingTablet="md:px-2 md:py-2 lg:px-2 lg:py-3"
+                  rounded="rounded-lg"
                   text="Informasi Biaya"
-                  bgColor="bg-primary"
-                  padding="p-4"
+                  bgColor="outline outline-2 outline-[#034833] text-[#F3F4F4] md:bg-transparent bg-[#F0F0F080]"
+                  hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
+                  textColor="text-black font-semibold"
+                />
+                <Button
+                  css="w-fit h-fit"
+                  paddingMobile="px-2 py-2"
+                  paddingTablet="md:px-2 md:py-2 lg:px-2 lg:py-3"
+                  rounded="rounded-lg"
+                  text="Buku Panduan"
+                  bgColor="outline outline-2 outline-[#034833] text-[#F3F4F4] md:bg-transparent bg-[#F0F0F080]"
+                  hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
+                  textColor="text-black font-semibold"
+                />
+                <Button
+                  css="w-fit h-fit"
+                  paddingMobile="px-2 py-2"
+                  paddingTablet="md:px-2 md:py-2 lg:px-2 lg:py-3"
+                  rounded="rounded-lg"
+                  text="Hubungi Admin"
+                  bgColor="outline outline-2 outline-[#034833] text-[#F3F4F4] md:bg-transparent bg-[#F0F0F080]"
+                  hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
+                  textColor="text-black font-semibold"
                 />
               </div>
             </div>
@@ -700,15 +658,10 @@ const ProgramStudi = () => {
           transition={{ duration: 0.6, delay: 2 }}
           className="px-6 md:px-0"
         >
-          {fasilitas && fasilitas.length > 0 ? (
-            <>
-              <div className="text-center mb-5">
-                <Title title="Fasilitas" color={fakultas.color} />
-              </div>
-              <FasilitasSlider title="Fasilitas" facilities={fasilitas} /></>
-          ) : (
-            <></>
-          )}
+          <div className="text-center mb-5">
+            <Title title="Fasilitas" color={fakultas.color} />
+          </div>
+          <FasilitasSlider title="Fasilitas" facilities={fasilitas} />
         </motion.div>
         {/* Fasilitas Section End */}
 
@@ -762,9 +715,6 @@ const ProgramStudi = () => {
               <Title title="Berita Terbaru" color={fakultas.color} />
             </div>
             <div className="relative w-full">
-              {/* <div className="absolute left-0 top-0 h-[95%] w-12 bg-gradient-to-r from-[#F3F4F4] to-transparent z-10 pointer-events-none hidden md:block" />
-
-              <div className="absolute right-0 top-0 h-[95%] w-12 bg-gradient-to-l from-[#F3F4F4] to-transparent z-10 pointer-events-none hidden md:block" /> */}
               <div className="overflow-x-auto snap-x py-2">
                 <div className="flex flex-nowrap gap-4 px-4 flex-col md:flex-row justify-center">
                   {latestBerita && latestBerita.length > 0 ? (
@@ -820,45 +770,6 @@ const ProgramStudi = () => {
                 </div>
               </div>
             </div>
-            {/* {latestBerita && latestBerita.length > 0 ? (
-              <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
-                <div className="md:w-1/2 lg:w-1/fit">
-                </div>
-                <div className="md:w-1/2 flex flex-col gap-4">
-                  <ArticleTransparentCard
-                    image={latestBerita[1]?.image}
-                    title={latestBerita[1]?.title}
-                    slug={latestBerita[1]?.slug}
-                    description={latestBerita[0]?.description}
-                  />
-                  <div className="w-full flex flex-col md:flex-row gap-4">
-                    <div className="md:w-1/2">
-                      <ArticleTransparentCard
-                        image={latestBerita[2]?.image}
-                        title={latestBerita[2]?.title}
-                        slug={latestBerita[2]?.slug}
-                        description={latestBerita[0]?.description}
-                      />
-                    </div>
-                    <div className="md:w-1/2">
-                      <ArticleTransparentCard
-                        image={latestBerita[3]?.image}
-                        title={latestBerita[3]?.title}
-                        slug={latestBerita[3]?.slug}
-                        description={latestBerita[0]?.description}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="text-center py-6">
-                <Text
-                  text="Tidak ada data berita yang tersedia."
-                  color="text-gray-500"
-                />
-              </div>
-            )} */}
           </div>
         </motion.div>
         {/* Berita Terbaru Section End */}
@@ -906,7 +817,7 @@ const ProgramStudi = () => {
                   title="YouTube Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="rounded-xl"
+                  className="rounded-xl md:rounded-2xl lg:rounded-4xl"
                 ></iframe>
               </motion.div>
             </motion.div>

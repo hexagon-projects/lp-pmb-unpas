@@ -2,6 +2,7 @@ import { memo, useCallback } from 'react';
 import Button from "./Button";
 import RichText from "./RichText";
 import LogoOutline from "../assets/logo-outline1.png";
+import ButtonHover from './ButtonHover';
 
 const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }) => {
     const formatDate = useCallback((dateString) => {
@@ -19,17 +20,19 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
 
     return (
         <div
-            className="bg-footer text-white shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl flex flex-col justify-between gap-4 cursor-pointer hover:scale-102 duration-500 relative"
+            className="h-full md:h-[50vh] lg:h-[50vh] xl:h-[40vh] bg-footer text-white shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl flex flex-col justify-between gap-4 cursor-pointer hover:scale-102 duration-500 relative"
             onClick={onClick}
             style={{ willChange: 'transform' }}
         >
-            <div className="w-fit bg-transparent p-4 text-text rounded-xl md:rounded-2xl shadow-text/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]">
+            <div className="w-fit bg-transparent py-4 text-text rounded-xl md:rounded-2xl shadow-text/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]">
                 {icon}
             </div>
-            <div className="absolute -top-0 left-1/2 md:left-3/5 w-full h-full opacity-50 object-cover">
+            <div className="absolute -top-0 left-1/2 md:left-3/5 w-full h-full opacity-25 object-cover">
                 <img src={LogoOutline} alt={"Logo Outline Unpas"} loading="lazy" className="h-full object-cover object-left" />
             </div>
-            <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
+            <div className=''>
+                <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
+            </div>
             <RichText content={text} lineclamp={'line-clamp-3 md:line-clamp-4'} textColor='text-white' weight='font-light' />
             <p className="text-xs md:text-sm lg:text-sm font-light">
                 Periode {formatDate(startDate)} - {formatDate(endDate)}
@@ -44,15 +47,13 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
                     border='border-2 border-text'
                     hoverBgColor='hover:border-2 hover:border-text'
                 />
-                <Button
-                    paddingMobile="py-2 px-4"
-                    text={'Selengkapnya'}
-                    bgColor={'bg-transparent'}
-                    textColor={'text-white hover:text-black'}
+                <button
                     onClick={onClick}
-                    border='border-2 border-white'
-                    hoverBgColor={'hover:border-2 hover:border-white hover:bg-white'}
-                />
+                    className="relative overflow-hidden group px-8 py-4 text-white text-right whitespace-nowrap rounded-lg md:rounded-xl lg:rounded-2xl border-white border-2 transition-all duration-500 hover:text-black"
+                >
+                    <span className="relative z-10 cursor-pointer text-xs md:text-sm lg:text-sm font-bold">Selengkapnya</span>
+                    <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-white z-0 "></span>
+                </button>
             </div>
         </div>
     );

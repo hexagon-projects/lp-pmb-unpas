@@ -38,7 +38,7 @@ const PrestasiSection = ({ prestasi, color="text-black" }) => {
                             {({ isActive }) => (
                                 <div
                                     className={`relative h-full bg-cover bg-center rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ${
-                                        isActive ? "scale-100" : "scale-[90%] opacity-80"
+                                        isActive ? "scale-100" : "scale-[80%] opacity-80"
                                     }`}
                                     style={{ backgroundImage: `url(${imageURL}/prestasis/${item?.image})` }}
                                 >

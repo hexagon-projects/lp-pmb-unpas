@@ -5,8 +5,6 @@
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme {
     --color-primary: #FEF251;
     --color-secondary: #D6FF39;
@@ -23,6 +21,15 @@ body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
+
+a {
+    transition: color 0.5s ease;
+  }
+  
+  .nav-item {
+    position: relative;
+    z-index: 1;
+  }
 
 .bg_home_container {
     filter: url("#goo") drop-shadow(0px -2px 0px transparent)
@@ -175,10 +182,10 @@ body {
         clip-path: inset(0 100% 0 0);
     }
     50% {
-        clip-path: inset(0 0 0 0); /* Border terlihat penuh */
+        clip-path: inset(0 0 0 0);
     }
     100% {
-        clip-path: inset(0 0 0 0); /* Tetap terlihat penuh */
+        clip-path: inset(0 0 0 0);
     }
 }
 
@@ -328,11 +335,9 @@ body {
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    /* z-index: -1; Letakkan di belakang */
     animation: rainbow-border 10s linear infinite;
 }
 
-/* Animasi untuk warna border */
 @keyframes rainbow-border {
     0% {
         background-position: 0% 50%;
@@ -345,7 +350,6 @@ body {
     }
 }
 
-/* Tambahkan animasi ring */
 .rainbow-border::after {
     content: "";
     position: absolute;
@@ -383,14 +387,6 @@ body {
     pointer-events: none;
 }
 
-
-/* .rainbow-border {
-    box-shadow: 0 10px 60px rgba(254, 242, 81, 0.1), 
-                0 10px 60px rgba(201, 56, 41, 0.1), 
-                0 10px 60px rgba(3, 72, 51, 0.1);
-} */
-
-/* Animasi ring */
 @keyframes ring-animation {
     0% {
         opacity: 0.1;

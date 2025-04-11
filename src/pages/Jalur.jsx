@@ -5,14 +5,15 @@ import { TfiAnnouncement } from "react-icons/tfi";
 import CTASection from "../components/CTASection";
 import { useEffect, useState } from "react";
 import RegistrasiService from "../fetching/registration";
-import Loading from "../components/Loading";
+import { motion, useMotionValue, useTransform, animate, AnimatePresence, useInView } from "framer-motion";
+import { useRef } from "react";
 import Button from "../components/Button";
 import LogoText from "../components/LogoText";
 import RichText from "../components/RichText";
 import Text from "../components/Text";
 import { X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
-import { motion, AnimatePresence } from "framer-motion";
+import JalurItem from "../components/JalurItem";
 
 const Jalur = () => {
     const [jalur, setJalur] = useState([])
@@ -27,19 +28,6 @@ const Jalur = () => {
             transition: {
                 duration: 0.8,
                 ease: [0.16, 0.77, 0.47, 0.97]
-            }
-        }
-    };
-
-    const counterVariants = {
-        hidden: { opacity: 0, scale: 0.4 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                duration: 0.6,
-                delay: 0.3,
-                ease: "backOut"
             }
         }
     };
@@ -77,8 +65,28 @@ const Jalur = () => {
         };
     }, []);
 
+    const AnimatedCounter = ({ value }) => {
+        const count = useMotionValue(0);
+        const rounded = useTransform(count, latest => Math.floor(latest));
+
+        useEffect(() => {
+            const controls = animate(count, value, {
+                duration: 1.5,
+                ease: [0.16, 0.77, 0.47, 0.97],
+            });
+            return controls.stop;
+        }, [value]);
+
+        return (
+            <motion.h2 className="text-4xl md:text-6xl lg:text-9xl font-bold">
+                {rounded}
+            </motion.h2>
+        );
+    };
+
+
     return (
-        <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}>
+        <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
             <Helmet>
                 <title>Jalur Pendaftaran - Universitas Pasundan</title>
             </Helmet>
@@ -108,16 +116,9 @@ const Jalur = () => {
                         </defs>
                     </svg>
                     <div className="w-fit flex flex-row md:flex-col justify-center md:justify-start items-center md:items-start gap-2 md:gap-4 lg:gap-6">
-                        <h2 
-                            className="text-4xl md:text-6xl lg:text-9xl font-bold"
-                            variants={counterVariants}
-                            initial="hidden"
-                            animate="visible"
-                        >
-                            {jalur.length}
-                        </h2>
+                        <AnimatedCounter value={jalur.length} />
                         <div className="space-y-1 md:space-y-2 lg:space-y-4">
-                            <motion.h3 
+                            <motion.h3
                                 className="text-xs md:text-base lg:text-3xl font-semibold text-gray-800"
                                 variants={titleVariants}
                                 initial="hidden"
@@ -126,7 +127,7 @@ const Jalur = () => {
                             >
                                 Jalur Masuk
                             </motion.h3>
-                            <motion.h2 
+                            <motion.h2
                                 className="text-2xl md:text-4xl lg:text-6xl font-bold text-text"
                                 variants={titleVariants}
                                 initial="hidden"
@@ -136,23 +137,19 @@ const Jalur = () => {
                                 Universitas Pasundan.
                             </motion.h2>
                             <div className="w-full hidden md:flex">
-                                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} border="border-2 border-text"/>
+                                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} border="border-2 border-text" />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div type="zoomOut" delay={0.2} className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6 lg:gap-8'}>
+                <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6 lg:gap-8'}>
                     {jalur.map((item, index) => (
-                        <JalurCard
+                        <JalurItem
                             key={index}
-                            icon={<TfiAnnouncement size={30} className="text-white"/>}
-                            title={item.name}
-                            text={item.content}
-                            link={item.link}
-                            startDate={item.start_date}
-                            endDate={item.end_date}
-                            onClick={(e) => handleOpenModal(e, item)}
+                            item={item}
+                            index={index}
+                            onClick={handleOpenModal}
                         />
                     ))}
 
@@ -180,11 +177,11 @@ const Jalur = () => {
                                         </div>
                                     </div>
                                     <div className="overflow-auto max-h-50 lg:max-h-60">
-                                    <RichText content={selectedJalur.content} />
+                                        <RichText content={selectedJalur.content} />
                                     </div>
                                     <Text text={`Periode: ${selectedJalur.start_date} - ${selectedJalur.end_date}`} />
                                     <div className="flex justify-start mt-4 gap-4">
-                                        <Button text="Daftar Sekarang" bgColor="bg-primary" border="border-2 border-text" hoverBgColor="hover:border-2 hover:border-text" textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")}/>
+                                        <Button text="Daftar Sekarang" bgColor="bg-primary" border="border-2 border-text" hoverBgColor="hover:border-2 hover:border-text" textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />
                                         <Button text="Buku Panduan" border="border-2 border-footer" hoverBgColor='hover:border-2 hover:border-footer hover:bg-white' textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />
                                     </div>
                                 </motion.div>

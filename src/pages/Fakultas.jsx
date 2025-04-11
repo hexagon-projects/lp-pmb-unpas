@@ -9,6 +9,7 @@ import FakultasSection from '../views/home/FakultasSection';
 import FakultasItem from '../components/FakultasItem';
 import { FACULTIES, FACULTIES1, FACULTIES2, FACULTIES3 } from '../data/fakultas';
 import Logo from '../assets/logo-outline.png';
+import MotionWrapper from '../components/MotionWrapper';
 
 const Fakultas = () => {
   const [fakultas, setFakultas] = useState([]);
@@ -36,7 +37,6 @@ const Fakultas = () => {
   }, []);
 
   useEffect(() => {
-    // Preload logo image
     const img = new Image();
     img.src = Logo;
 
@@ -52,6 +52,7 @@ const Fakultas = () => {
       titleColor="text-black"
       paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-12"
       paddingTop="lg:pt-30"
+      type={'fadeInUp'} duration={1}
     >
       <Helmet>
         <title>Fakultas - Universitas Pasundan</title>
@@ -61,7 +62,7 @@ const Fakultas = () => {
 
       <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-12 lg:space-y-16">
         <div className="relative">
-          <div className="w-full fakultas_container">
+          <MotionWrapper type={'fadeInUp'} duration={1} className="w-full fakultas_container">
             <div className="flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 bg-primary relative overflow-hidden fakultas_box lg:h-[55vh]">
               <div className="absolute -right-1/4 md:-right-30 lg:-right-4">
                 <img
@@ -83,8 +84,8 @@ const Fakultas = () => {
                 <LogoText titleColor="text-black" />
               </div>
             </div>
-          </div>
-          <div className="absolute bottom-0 left-0 z-10">
+          </MotionWrapper>
+          <MotionWrapper type={'fadeInUp'} duration={1} className="absolute bottom-0 left-0 z-10">
             <Button
               text="Daftar Sekarang"
               bgColor="bg-primary"
@@ -93,7 +94,7 @@ const Fakultas = () => {
               border='border-2 border-text'
               hoverBgColor='hover:border-2 hover:border-text'
             />
-          </div>
+          </MotionWrapper>
         </div>
 
         {isLoading ? (

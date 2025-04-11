@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const ButtonHover = ({onClick, text, icon, color, borderColor = '#C73929', bgColor = '#FEF251', iconStatus}) => {
+const ButtonHover = ({ onClick, text, icon, color, borderColor = '#C73929', bgColor = '#FEF251', iconStatus, flex = 'flex-row-reverse' }) => {
     const StyledWrapper = styled.div`
         button {
             width: 100%;
@@ -60,9 +61,9 @@ const ButtonHover = ({onClick, text, icon, color, borderColor = '#C73929', bgCol
 
     return (
         <StyledWrapper>
-            <button onClick={onClick} className='flex-row-reverse'>
+            <motion.button onClick={onClick} className={`${flex} text-xs md:text-sm lg:text-sm`} whileTap={{ scale: 0.95 }}>
                 {text} <span className={`${iconStatus}`}>{icon}</span>
-            </button>
+            </motion.button>
         </StyledWrapper>
     )
 }

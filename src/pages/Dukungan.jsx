@@ -54,12 +54,12 @@ const VideoGrid = ({ videos = [], visibleVideos }) => {
   const imageURL = import.meta.env.VITE_IMAGE_URL;
 
   const formattedVideos = useMemo(() =>
-      videos.map((item) => ({
-        id: item.id.toString(),
-        title: item.title,
-        url: `https://www.youtube-nocookie.com/embed/${item.id_yt}?autoplay=0`,
-        image: `${imageURL}/dukungans/${item.image}`
-      })),
+    videos.map((item) => ({
+      id: item.id.toString(),
+      title: item.title,
+      url: `https://www.youtube-nocookie.com/embed/${item.id_yt}?autoplay=0`,
+      image: `${imageURL}/dukungans/${item.image}`
+    })),
     [videos, imageURL]
   );
 
@@ -84,7 +84,7 @@ const VideoGrid = ({ videos = [], visibleVideos }) => {
         onClick={closeVideo}
       >
         <motion.div
-          className="relative w-[90%] md:w-[70%] lg:w-[50%] aspect-video border-2 border-white rounded-xl md:rounded-2xl lg:rounded-4xl"
+          className="relative w-[90%] md:w-[70%] lg:w-[50%] aspect-video border-2 border-white rounded-xl md:rounded-2xl lg:rounded-4xl  "
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0.9 }}
@@ -105,7 +105,7 @@ const VideoGrid = ({ videos = [], visibleVideos }) => {
             title="YouTube Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className="rounded-xl md:rounded-2xl"
+            className="rounded-xl md:rounded-2xl lg:rounded-4xl"
             loading="eager"
             sandbox="allow-scripts allow-same-origin allow-presentation"
           />
@@ -115,7 +115,7 @@ const VideoGrid = ({ videos = [], visibleVideos }) => {
   }, [playingVideo, closeVideo]);
 
   return (
-    <div className="w-full h-fit space-y-8 ">
+    <div className="w-full h-fit space-y-6 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0 md:gap-2 lg:gap-4 px-[16px] md:px-[32px] lg:px-[64px] ">
 
         {formattedVideos.slice(0, visibleVideos).map((video) => (
@@ -227,15 +227,17 @@ const Dukungan = () => {
           </div>
 
           {/* LOAD MORE BUTTON */}
-          <div className="flex justify-center z-10 ">
-            <ButtonLoadMore onClick={loadMore} disabled={loadingMore}>
-              {loadingMore ? "Loading..." : "Load More"}
-            </ButtonLoadMore>
-          </div>
+          {dukungan.length > visibleVideos.length && dukungan.length > 8 && (
+            <div className="flex justify-center z-10">
+              <ButtonLoadMore onClick={loadMore} disabled={loadingMore}>
+                {loadingMore ? "Loading..." : "Load More"}
+              </ButtonLoadMore>
+            </div>
+          )}
         </div>
 
         {/* CTA SECTION */}
-        <div className="relative z-10 pt-15">
+        <div className="relative z-0 pt-15">
           <CTASection />
         </div>
       </div >

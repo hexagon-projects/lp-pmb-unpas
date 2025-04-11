@@ -2,31 +2,31 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Loading = () => {
-    return (
-        <div className='w-full h-screen flex justify-center items-center'>
-            <StyledWrapper>
-                <div className="loader">
-                    <div className="circle">
-                        <div className="dot" />
-                        <div className="outline" />
-                    </div>
-                    <div className="circle">
-                        <div className="dot" />
-                        <div className="outline" />
-                    </div>
-                    <div className="circle">
-                        <div className="dot" />
-                        <div className="outline" />
-                    </div>
-                    <div className="circle">
-                        <div className="dot" />
-                        <div className="outline" />
-                    </div>
-                </div>
-            </StyledWrapper>
+  return (
+    <div className='w-full h-screen flex justify-center items-center '>
+      <StyledWrapper>
+        <div className="loader">
+          <div className="circle">
+            <div className="dot"></div>
+            <div className="outline"></div>
+          </div>
+          <div className="circle">
+            <div className="dot"></div>
+            <div className="outline"></div>
+          </div>
+          <div className="circle">
+            <div className="dot"></div>
+            <div className="outline"></div>
+          </div>
+          <div className="circle">
+            <div className="dot"></div>
+            <div className="outline"></div>
+          </div>
         </div>
-    );
-}
+      </StyledWrapper>
+    </div>
+  );
+};
 
 const StyledWrapper = styled.div`
   .loader {
@@ -34,105 +34,69 @@ const StyledWrapper = styled.div`
     justify-content: center;
     align-items: center;
     --color: #FEF251;
-    --animation: 2s ease-in-out infinite;
+    --animation: 1.6s ease-in-out infinite;
   }
 
-  .loader .circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .circle {
     position: relative;
     width: 20px;
     height: 20px;
-    border: solid 2px var(--color);
+    background-color: transparent;
     border-radius: 50%;
     margin: 0 10px;
-    background-color: transparent;
     animation: circle-keys var(--animation);
   }
 
-  .loader .circle .dot {
+  .dot {
     position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 16px;
     height: 16px;
     border-radius: 50%;
     background-color: var(--color);
     animation: dot-keys var(--animation);
+    z-index: 2;
   }
 
-  .loader .circle .outline {
+  .outline {
     position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    animation: outline-keys var(--animation);
+    outline-color: yellow;
+    z-index: 1;
   }
 
-  .circle:nth-child(2) {
-    animation-delay: 0.3s;
-  }
+  /* Faster animation delays */
+  .circle:nth-child(1) { animation-delay: 0s; }
+  .circle:nth-child(2) { animation-delay: 0.2s; }
+  .circle:nth-child(3) { animation-delay: 0.4s; }
+  .circle:nth-child(4) { animation-delay: 0.6s; }
 
-  .circle:nth-child(3) {
-    animation-delay: 0.6s;
-  }
+  .circle:nth-child(1) .dot { animation-delay: 0s; }
+  .circle:nth-child(2) .dot { animation-delay: 0.2s; }
+  .circle:nth-child(3) .dot { animation-delay: 0.4s; }
+  .circle:nth-child(4) .dot { animation-delay: 0.6s; }
 
-  .circle:nth-child(4) {
-    animation-delay: 0.9s;
-  }
-
-  .circle:nth-child(5) {
-    animation-delay: 1.2s;
-  }
-
-  .circle:nth-child(2) .dot {
-    animation-delay: 0.3s;
-  }
-
-  .circle:nth-child(3) .dot {
-    animation-delay: 0.6s;
-  }
-
-  .circle:nth-child(4) .dot {
-    animation-delay: 0.9s;
-  }
-
-  .circle:nth-child(5) .dot {
-    animation-delay: 1.2s;
-  }
-
-  .circle:nth-child(1) .outline {
-    animation-delay: 0.9s;
-  }
-
-  .circle:nth-child(2) .outline {
-    animation-delay: 1.2s;
-  }
-
-  .circle:nth-child(3) .outline {
-    animation-delay: 1.5s;
-  }
-
-  .circle:nth-child(4) .outline {
-    animation-delay: 1.8s;
-  }
-
-  .circle:nth-child(5) .outline {
-    animation-delay: 2.1s;
-  }
+  .circle:nth-child(1) .outline { animation-delay: 0.2s; }
+  .circle:nth-child(2) .outline { animation-delay: 0.4s; }
+  .circle:nth-child(3) .outline { animation-delay: 0.6s; }
+  .circle:nth-child(4) .outline { animation-delay: 0.8s; }
 
   @keyframes circle-keys {
     0% {
       transform: scale(1);
       opacity: 1;
     }
-
     50% {
-      transform: scale(1.5);
-      opacity: 0.5;
+      transform: scale(1.4);
+      opacity: 0.6;
     }
-
     100% {
       transform: scale(1);
       opacity: 1;
@@ -141,32 +105,28 @@ const StyledWrapper = styled.div`
 
   @keyframes dot-keys {
     0% {
-      transform: scale(1);
+      transform: translate(-50%, -50%) scale(1);
     }
-
     50% {
-      transform: scale(0);
+      transform: translate(-50%, -50%) scale(0);
     }
-
     100% {
-      transform: scale(1);
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 
   @keyframes outline-keys {
     0% {
-      transform: scale(0);
-      outline: solid 20px var(--color);
-      outline-offset: 0;
+      transform: translate(-50%, -50%) scale(0);
+      box-shadow: 0 0 0 0 var(--outline-color);
       opacity: 1;
     }
-
     100% {
-      transform: scale(1);
-      outline: solid 0 transparent;
-      outline-offset: 20px;
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 0 0 0 20px transparent;
       opacity: 0;
     }
-  }`;
+  }
+`;
 
 export default Loading;

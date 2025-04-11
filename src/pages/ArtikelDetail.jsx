@@ -234,7 +234,12 @@ const ArtikelDetail = () => {
         {berita.length > 0 && (
           <div className="space-y-3 md:space-y-6 lg:space-y-8">
             <Title sizeText="text-base md:text-xl lg:text-2xl" title="Artikel Terkait" />
-            <ArticleCard data={berita.slice(0, 5)} excludeId={artikel.id} />
+
+            <ArticleCard
+              data={berita
+                .filter((item) => item.slug !== artikel.slug) // Pastikan tidak menampilkan artikel yang sedang dibuka
+                .slice(0, 5)}
+            />
           </div>
         )}
 
