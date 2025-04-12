@@ -1,10 +1,14 @@
 import { ArrowUpRight } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import Text from "../Text";
+import { FaTiktok, FaYoutube, FaInstagram, FaFacebookF, FaShareAlt } from "react-icons/fa";
 import ArticleTitle from "../ArticleTitle";
+import { useState } from "react";
 const imageURL = import.meta.env.VITE_IMAGE_URL;
 
 const DosenCard = ({ name, title, image }) => {
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
         <div className="relative">
             <div 
@@ -19,13 +23,42 @@ const DosenCard = ({ name, title, image }) => {
                 </div>
             </div>
 
-            <motion.div
-                className="absolute bottom-3 right-3 z-50 rounded-xl bg-white"
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 200 }}
+            <div
+                className="absolute bottom-3 right-3 z-50 flex flex-col items-center gap-2"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
             >
-                <ArrowUpRight className="w-8 md:w-11 h-8 md:h-11 bg-white text-blue-500 p-1 rounded-xl" />
-            </motion.div>
+                {/* Social Icons on hover */}
+                <AnimatePresence>
+                    {isHovered && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 10 }}
+                            className="flex flex-col gap-2 mb-2"
+                        >
+                            {[FaTiktok, FaYoutube, FaInstagram, FaFacebookF].map((Icon, i) => (
+                                <motion.div
+                                    key={i}
+                                    whileHover={{ scale: 1.1 }}
+                                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow"
+                                >
+                                    <Icon className="text-[#001F5B] w-5 h-5" />
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+                {/* Original ArrowUpRight Icon */}
+                <motion.div
+                    className="rounded-xl bg-white"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                >
+                    <ArrowUpRight className="w-8 md:w-11 h-8 md:h-11 text-blue-500 p-1 rounded-xl rotate-45 hover:rotate-0" />
+                </motion.div>
+            </div>
         </div>
     );
 };

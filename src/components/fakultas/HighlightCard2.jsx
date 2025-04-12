@@ -1,17 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ArticleTitle from "../ArticleTitle";
 import RichText from "../RichText";
-const imageURL = import.meta.env.VITE_IMAGE_URL
+import Gedung from "../../assets/gedung.webp";
+
+const imageURL = import.meta.env.VITE_IMAGE_URL;
 
 const HighlightCard = ({ title, text, image }) => {
     const [isActive, setIsActive] = useState(false);
+    const [imgSrc, setImgSrc] = useState("");
+
+    useEffect(() => {
+        if (image) {
+            setImgSrc(`${imageURL}/unggulans/${image}`);
+        } else {
+            setImgSrc(Gedung);
+        }
+    }, [image]);
+
+    const handleImgError = () => {
+        setImgSrc(Gedung);
+    };
 
     return (
         <div 
-            className={`group flex flex-col justify-center items-center text-center p-4 md:p-6 cursor-pointer space-y-3 md:space-y-4 transition-all duration-500 ${isActive ? 'bg-blue-500' : 'hover:bg-blue-500' }`} onClick={() => setIsActive(!isActive)}>
-            
+            className={`group flex flex-col justify-center items-center text-center p-4 md:p-6 cursor-pointer space-y-3 md:space-y-4 transition-all duration-500 ${isActive ? 'bg-blue-500' : 'hover:bg-blue-500'}`}
+            onClick={() => setIsActive(!isActive)}
+        >
             <div className="grid text-center gap-3">
-                <img src={`${imageURL}/unggulans/${image}`} alt={image} className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 object-cover m-auto" />
+                <img 
+                    src={imgSrc} 
+                    alt={image || "gedung"} 
+                    onError={handleImgError}
+                    className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 object-cover m-auto" 
+                />
                 <ArticleTitle 
                     color={`transition ${
                         isActive ? 'text-white' : 'text-gray-900 group-hover:text-white'
@@ -22,12 +43,13 @@ const HighlightCard = ({ title, text, image }) => {
 
             <div className="space-y-3 md:space-y-4">
                 <RichText 
-                    lineclamp={'md:line-clamp-4'} sizeText={`text-xs md:text-sm transition ${ isActive ? 'text-white' : 'group-hover:text-white'}`} content={text}
+                    lineclamp={'md:line-clamp-4'} 
+                    sizeText={`text-xs md:text-sm transition ${isActive ? 'text-white' : 'group-hover:text-white'}`} 
+                    content={text}
                 />
             </div>
         </div>
     );
 };
-
 
 export default HighlightCard;

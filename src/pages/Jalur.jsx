@@ -91,7 +91,7 @@ const Jalur = () => {
                 <title>Jalur Pendaftaran - Universitas Pasundan</title>
             </Helmet>
             <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-14 lg:space-y-16">
-                <div className={'w-full flex flex-col md:flex-row-reverse justify-between md:justify-center items-center gap-4 md:gap-4 lg:gap-20'}>
+                <div className={'w-full lg:h-[80vh] flex flex-col md:flex-row-reverse justify-between md:justify-center items-center gap-4 md:gap-4 lg:gap-20'}>
                     <div className="relative w-full jalur_container">
                         <div className="w-full h-52 md:h-64 lg:h-full jalur_box">
                             <img

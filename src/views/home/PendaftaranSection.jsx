@@ -11,6 +11,7 @@ import SelengkapnyaButton from '../../components/SelengkapnyaButton';
 import Section1 from '../../assets/gedung.jpeg';
 import CustomPaginationProdi from '../../components/prodi/CustomPaginationProdi';
 import AnimatedTitle from '../../components/AnimatedTitle';
+import AnimatedSubtitle from '../../components/AnimatedSubtitle';
 
 const DUMMY_IMAGES = Array(4).fill({ image: Section1 });
 
@@ -135,7 +136,7 @@ const PendaftaranSection = ({
         <div className="w-full flex justify-center items-center bg-transparent">
             <div className="w-full md:w-full flex flex-col gap-4 md:gap-6 lg:gap-8 p-5 md:p-10 lg:p-15">
                 <div className="text-center md:space-y-2">
-                    {title && <Text sizeText="text-base md:text-lg lg:text-2xl" text={title} color={titleColor} weight="" />}
+                    {title && <AnimatedSubtitle sizeText="text-base md:text-lg lg:text-2xl" text={title} color={titleColor} weight="" />}
                     {subtitle && <AnimatedTitle text={subtitle} color={subtitleColor} />}
                 </div>
 
