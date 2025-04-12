@@ -736,8 +736,8 @@ const ProgramStudi = () => {
               <div className="text-center">
                 <Title title="Berita Terbaru" color={fakultas.color} />
               </div>
-              <div className="relative w-full">
-                <div className="overflow-x-auto snap-x py-2">
+              <div className="w-full">
+                <div className="text-left py-2 px-5 md:px-10 lg:px-15">
                   <ArticleCard data={latestBerita} />
                 </div>
               </div>
