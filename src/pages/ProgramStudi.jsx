@@ -28,7 +28,6 @@ import HighlightCard from "../components/fakultas/HighlightCard2";
 import Pagination from "../components/Pagination";
 import Button from "../components/Button";
 import CTASection from "../components/CTASection";
-import Gedung from "../assets/gedung.jpeg";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaPlay } from "react-icons/fa";
@@ -36,6 +35,7 @@ import Logo from "../assets/logo.webp";
 import TestimonialSection from "../views/home/TestimonialSection";
 import { PiBookBookmarkLight, PiSealCheckFill } from "react-icons/pi";
 import ArticleCard from "../components/artikel/ArticleCard";
+import Gedung from "../assets/gedung.webp"
 
 const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
 
@@ -251,11 +251,20 @@ const ProgramStudi = () => {
               className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group"
             >
               <img
-                src={`${imageURL}/programs/${fakultas.image2}`}
+                src={
+                  fakultas.image2
+                    ? `${imageURL}/programs/${fakultas.image2}`
+                    : Gedung
+                }
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = Gedung;
+                }}
                 loading="lazy"
                 alt="Thumbnail Video"
                 className="w-full h-full object-cover"
               />
+
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
               <motion.div
                 className="absolute inset-0 flex justify-center items-center rounded-xl md:rounded-2xl lg:rounded-4xl"
@@ -426,7 +435,7 @@ const ProgramStudi = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
-                <PiBookBookmarkLight style={{ color: `${fakultas.color}` }} size={34} />
+                <PiBookBookmarkLight style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
               </div>
               <div className="flex flex-col items-start space-y-0">
                 <Title title={fakultas.title3} color={fakultas.color} />
@@ -458,10 +467,18 @@ const ProgramStudi = () => {
           <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex rounded-xl md:rounded-2xl lg:rounded-4xl">
             <div className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
               <img
-                src={`${imageURL}/programs/${fakultas.image4}`}
-                alt="Thumbnail Video"
+                src={
+                  fakultas.image4
+                    ? `${imageURL}/programs/${fakultas.image4}`
+                    : Gedung
+                }
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = Gedung;
+                }}
                 loading="lazy"
-                className="w-full h-full object-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
+                alt="Thumbnail Video"
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
             </div>
@@ -473,7 +490,7 @@ const ProgramStudi = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <div className="p-1 md:p-2 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
-                <PiSealCheckFill style={{ color: `${fakultas.color}` }} size={34} />
+                <PiSealCheckFill style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
               </div>
               <div className="flex flex-col items-start space-y-0">
                 <Title title={fakultas.title4} color={fakultas.color} />
@@ -702,7 +719,7 @@ const ProgramStudi = () => {
             </div>
             <div className="relative w-full">
               <div className="overflow-x-auto snap-x py-2">
-                <ArticleCard data={latestBerita}/>
+                <ArticleCard data={latestBerita} />
               </div>
             </div>
           </div>
