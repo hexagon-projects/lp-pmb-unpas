@@ -20,7 +20,7 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
 
     return (
         <div
-            className="h-full md:h-[50vh] lg:h-[50vh] xl:h-[40vh] bg-footer text-white shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl flex flex-col justify-between gap-4 cursor-pointer hover:scale-102 duration-500 relative"
+            className="h-full md:h-fit bg-footer text-white shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl flex flex-col justify-between gap-4 cursor-pointer hover:scale-102 duration-500 relative"
             onClick={onClick}
             style={{ willChange: 'transform' }}
         >
@@ -30,7 +30,7 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
             <div className="absolute -top-0 left-1/2 md:left-3/5 w-full h-full opacity-25 object-cover">
                 <img src={LogoOutline} alt={"Logo Outline Unpas"} loading="lazy" className="h-full object-cover object-left" />
             </div>
-            <div className=''>
+            <div className='md:h-16 lg:h-14'>
                 <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
             </div>
             <RichText content={text} lineclamp={'line-clamp-3 md:line-clamp-4'} textColor='text-white' weight='font-light' />

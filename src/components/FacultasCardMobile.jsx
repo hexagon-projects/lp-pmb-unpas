@@ -48,7 +48,7 @@ const FakultasCardMobile = ({ faculty, index = 0, isVisible = true }) => {
       variants={cardVariants}
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}
-      className="rounded-xl bg-[#F3F4F4] border-2 border-[#FAFAFA80] p-4 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] mb-4"
+      className="rounded-xl bg-[#F3F4F4] border-2 border-[#FAFAFA80] p-2 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] mb-4"
     >
       <div className="text-gray-900 space-y-2" onClick={() => window.location.href = `/fakultas/${faculty.slug}`}>
         <Text
