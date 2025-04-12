@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Title from "../Title";
 import Text from "../Text";
@@ -13,10 +13,17 @@ const FasilitasSlider = ({ title, facilities }) => {
     const [selectedFacility, setSelectedFacility] = useState(facilities.length > 0 ? facilities[0] : null);
     const swiperRef = useRef(null);
 
+    // Handler untuk saat slide berubah
+    const handleSlideChange = () => {
+        if (swiperRef.current) {
+            const activeIndex = swiperRef.current.realIndex; // atau activeIndex tergantung versi Swiper
+            setSelectedFacility(facilities[activeIndex]);
+        }
+    };
+
     return (
         <div className="w-full flex justify-center items-center relative">
             <div className="w-full md:w-[90%] lg:w-[90%] flex flex-col justify-center text-center space-y-3 md:space-y-4 bg-[#F0F0F0] p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl lg:rounded-4xl">
-                {/* <Title title={title} fontWeight="lg:hidden"/> */}
                 {selectedFacility && (
                     <div className="flex flex-col lg:flex-row-reverse space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-8">
                         <div className="lg:w-1/2 text-black text-left md:text-left space-y-2 z-10">
@@ -68,7 +75,10 @@ const FasilitasSlider = ({ title, facilities }) => {
                 </div>
                 <div className="w-full flex justify-center items-center bg-[#F3F4F4] p-4 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl relative hidden md:flex">
                     <button 
-                        onClick={() => swiperRef.current?.slidePrev()}
+                        onClick={() => {
+                            swiperRef.current?.slidePrev();
+                            // Tidak perlu setSelectedFacility di sini karena sudah dihandle oleh onSlideChange
+                        }}
                         className="absolute left-0 z-10 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors -translate-x-1/2"
                     >
                         <FiChevronLeft className="text-2xl text-gray-700" />
@@ -79,7 +89,10 @@ const FasilitasSlider = ({ title, facilities }) => {
                             modules={[Navigation]}
                             spaceBetween={20}
                             slidesPerView={4}
+                            loop={true}
                             onSwiper={(swiper) => swiperRef.current = swiper}
+                            onSlideChange={handleSlideChange}
+                            onRealIndexChange={handleSlideChange}
                             breakpoints={{
                                 320: {
                                     slidesPerView: 2,
@@ -109,7 +122,7 @@ const FasilitasSlider = ({ title, facilities }) => {
                                             src={`${imageURL}/facilities/${facility.image}`}
                                             alt={facility.title}
                                             className={`w-full h-24 md:h-24 lg:h-42 object-cover rounded-xl md:rounded-xl lg:rounded-2xl transition-transform ${
-                                                selectedFacility.title === facility.title 
+                                                selectedFacility?.title === facility?.title 
                                                     ? 'ring-2 ring-primary scale-105' 
                                                     : 'hover:ring-1 hover:ring-gray-300'
                                             }`}
@@ -118,7 +131,7 @@ const FasilitasSlider = ({ title, facilities }) => {
                                         <Text 
                                             weight={'font-semibold'} 
                                             text={facility.title}
-                                            className={selectedFacility.title === facility.title ? 'text-red-600' : ''}
+                                            className={selectedFacility?.title === facility?.title ? 'text-red-600' : ''}
                                         />
                                     </div>
                                 </SwiperSlide>
@@ -127,8 +140,10 @@ const FasilitasSlider = ({ title, facilities }) => {
                     </div>
 
                     <button 
-                        onClick={() => swiperRef.current?.slideNext()}
-                        className="absolute right-0 z-10 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors translate-x-1/2"
+                        onClick={() => {
+                            swiperRef.current?.slideNext();
+                        }}
+                        className="absolute right-0 z-10 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors translate-x-1/2 cursor-pointer"
                     >
                         <FiChevronRight className="text-2xl text-gray-700" />
                     </button>

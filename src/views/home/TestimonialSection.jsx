@@ -15,7 +15,7 @@ import Koma from '../../assets/koma.svg';
 import AnimatedTitle from "../../components/AnimatedTitle";
 import ButtonHover from "../../components/ButtonHover";
 
-const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
+const TestimonialSection = ({ data, displayDekstop = 'md:flex-row', visibilityTitle = 'block' }) => {
   const imageURL = import.meta.env.VITE_IMAGE_URL;
   const swiperRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -38,7 +38,7 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row' }) => {
 
   return (
     <div className={`w-full flex flex-col ${displayDekstop} pt-4 md:pt-0 gap-4 md:gap-6 lg:gap-10`}>
-      <div className="text-center">
+      <div className={`text-center ${visibilityTitle}`}>
         <AnimatedTitle text={'Testimoni'} />
       </div>
 

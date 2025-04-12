@@ -2,9 +2,6 @@ import React, {
   useEffect,
   useState,
   useCallback,
-  useMemo,
-  lazy,
-  Suspense,
 } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import UserLayout from "./layouts/UserLayout";
@@ -14,9 +11,6 @@ import Text from "../components/Text";
 import PendaftaranSection from "../views/home/PendaftaranSection";
 import StatsSection from "../components/prodi/StatsSection";
 import PrestasiSection from "../components/prodi/PrestasiSection";
-import ArticleTransparentCard from "../components/ArticleTransparentCard";
-import TestimonialSlider from "../components/TestimonialSlider";
-import AktivitasMahasiswa from "../components/prodi/AktivitasMahasiswa";
 import FasilitasSlider from "../components/prodi/FasilitasSlider";
 import DosenCard from "../components/prodi/DosenCard";
 import RichText from "../components/RichText";
@@ -32,17 +26,16 @@ import MitraSection from "../views/home/MitraSection";
 import { X } from "lucide-react";
 import HighlightCard from "../components/fakultas/HighlightCard2";
 import Pagination from "../components/Pagination";
-import LogoText from "../components/LogoText";
 import Button from "../components/Button";
 import CTASection from "../components/CTASection";
 import Gedung from "../assets/gedung.jpeg";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaPlay } from "react-icons/fa";
-import IdentityService from "../fetching/identity";
-import Check from "../assets/icon/check.svg"
-import Bookmark from "../assets/icon/bookmark.svg"
 import Logo from "../assets/logo.webp";
+import TestimonialSection from "../views/home/TestimonialSection";
+import { PiBookBookmarkLight, PiSealCheckFill } from "react-icons/pi";
+import ArticleCard from "../components/artikel/ArticleCard";
 
 const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
 
@@ -159,11 +152,10 @@ const ProgramStudi = () => {
             <div
               className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[70vh] lg:mt-10 rounded-b-3xl"
               style={{
-                backgroundImage: `url(${
-                  fakultas.image1
-                    ? `${imageURL}/programs/${fakultas.image1}`
-                    : Gedung
-                })`,
+                backgroundImage: `url(${fakultas.image1
+                  ? `${imageURL}/programs/${fakultas.image1}`
+                  : Gedung
+                  })`,
                 backgroundPosition: "center",
               }}
             >
@@ -434,11 +426,7 @@ const ProgramStudi = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
-                <img
-                  src={Bookmark}
-                  alt=""
-                  className="w-6 md:w-8"
-                />
+                <PiBookBookmarkLight style={{ color: `${fakultas.color}` }} size={34} />
               </div>
               <div className="flex flex-col items-start space-y-0">
                 <Title title={fakultas.title3} color={fakultas.color} />
@@ -485,11 +473,7 @@ const ProgramStudi = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <div className="p-1 md:p-2 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
-                <img
-                  src={Check}
-                  alt=""
-                  className="w-6 md:w-8"
-                />
+                <PiSealCheckFill style={{ color: `${fakultas.color}` }} size={34} />
               </div>
               <div className="flex flex-col items-start space-y-0">
                 <Title title={fakultas.title4} color={fakultas.color} />
@@ -499,6 +483,7 @@ const ProgramStudi = () => {
           </div>
         </motion.div>
         {/* Prospek karir Section End */}
+
         {/* jalur */}
         <div className="space-y-8 md:space-y-14 lg:space-y-20">
           <div className="w-full flex justify-center items-center">
@@ -594,34 +579,31 @@ const ProgramStudi = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.4 }}
         >
-          <div className="text-center">
-            <Title title="Dosen & Penelitian" color={fakultas.color} />
-          </div>
           {ourteam && ourteam.length > 0 ? (
-            <div className="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10">
-              {currentItems.map((member, index) => (
-                <div key={index}>
-                  <DosenCard
-                    name={member.name}
-                    title={member.title}
-                    image={member.image}
-                  />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-6">
-              <Text
-                text="Tidak ada data dosen yang tersedia."
-                color="text-gray-500"
+            <>
+              <div className="text-center">
+                <Title title="Dosen & Penelitian" color={fakultas.color} />
+              </div>
+              <div className="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10">
+                {currentItems.map((member, index) => (
+                  <div key={index}>
+                    <DosenCard
+                      name={member.name}
+                      title={member.title}
+                      image={member.image}
+                    />
+                  </div>
+                ))}
+              </div>
+              <Pagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
               />
-            </div>
+            </>
+          ) : (
+            <></>
           )}
-          <Pagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
         </motion.div>
         {/* Dosen Penelitian Section End */}
 
@@ -645,10 +627,7 @@ const ProgramStudi = () => {
           {prestasi.data && prestasi.data.length > 0 ? (
             <PrestasiSection prestasi={prestasi.data} color={fakultas.color} />
           ) : (
-            <div className="text-center space-y-4 md:space-y-6 lg:space-y-8">
-              <Title title="Prestasi" color={fakultas.color} />
-              <p className="text-center text-gray-500">Tidak ada Prestasi</p>
-            </div>
+            <></>
           )}
         </motion.div>
         {/* Prestasi Section End */}
@@ -660,10 +639,16 @@ const ProgramStudi = () => {
           transition={{ duration: 0.6, delay: 2 }}
           className="px-6 md:px-0"
         >
-          <div className="text-center mb-5">
-            <Title title="Fasilitas" color={fakultas.color} />
-          </div>
-          <FasilitasSlider title="Fasilitas" facilities={fasilitas} />
+          {fasilitas.length > 0 ? (
+            <>
+              <div className="text-center mb-5">
+                <Title title="Fasilitas" color={fakultas.color} />
+              </div>
+              <FasilitasSlider title="Fasilitas" facilities={fasilitas} />
+            </>
+          ) : (
+            <></>
+          )}
         </motion.div>
         {/* Fasilitas Section End */}
 
@@ -688,20 +673,19 @@ const ProgramStudi = () => {
         >
           {testimonials.length > 0 ? (
             <>
-              <div className="text-center mb-5 md:mb-20">
+              <div className="w-full text-center ">
                 <Title title="Testimoni" color={fakultas.color} />
               </div>
-              <TestimonialSlider
-                testimonials={testimonials}
-                color={fakultas.color}
-                data={testimonials}
-              />
+              <div className="w-full">
+                <TestimonialSection
+                  data={testimonials}
+                  displayDekstop="md:flex-col"
+                  visibilityTitle="hidden"
+                />
+              </div>
             </>
           ) : (
-            <div className="text-center space-y-4 md:space-y-6 lg:space-y-8">
-              <Title title="Testimoni" color={fakultas.color} />
-              <p className="text-center text-gray-500">Tidak ada testimoni</p>
-            </div>
+            <></>
           )}
         </motion.div>
         {/* Testimoni Section End */}
@@ -718,58 +702,7 @@ const ProgramStudi = () => {
             </div>
             <div className="relative w-full">
               <div className="overflow-x-auto snap-x py-2">
-                <div className="flex flex-nowrap gap-4 px-4 flex-col md:flex-row justify-center">
-                  {latestBerita && latestBerita.length > 0 ? (
-                    latestBerita.map((berita, index) => (
-                      <div
-                        key={index}
-                        className="w-full md:flex-shrink-0 rounded-lg p-3 bg-white flex md:flex-col gap-4 lg:w-[280px] md:w-[200px] h-full"
-                      >
-                        <img
-                          src={`${imageURL}/posts/${berita.image}`}
-                          alt=""
-                          className="rounded-lg w-2/5 md:w-full md:h-40 object-cover"
-                        />
-                        <div className="flex flex-col justify-between flex-1 gap-2">
-                          <div className="flex flex-col gap-2">
-                            <p className="md:text-base/5 text-left text-xs line-clamp-3">
-                              {berita.title}
-                            </p>
-                            <RichText
-                              lineclamp={
-                                "line-clamp-2 lg:line-clamp-4 md:text-sm text-xs"
-                              }
-                              textColor="text-gray-700"
-                              content={berita.description}
-                              sizeText="text-left"
-                              leading="leading-4 md:leading-4.5"
-                            />
-                          </div>
-                          <div className="flex justify-between mt-2">
-                            <p
-                              className="font-medium cursor-pointer text-xs md:text-sm text-left"
-                              onClick={() =>
-                                navigate(`/artikel/${berita.slug}`)
-                              }
-                            >
-                              Read More
-                            </p>
-                            <p className="text-gray-500 text-xs md:text-sm text-right">
-                              {berita.pub_date}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="text-center py-6">
-                      <Text
-                        text="Tidak ada data berita yang tersedia."
-                        color="text-gray-500"
-                      />
-                    </div>
-                  )}
-                </div>
+                <ArticleCard data={latestBerita}/>
               </div>
             </div>
           </div>
