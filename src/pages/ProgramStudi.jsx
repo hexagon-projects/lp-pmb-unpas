@@ -41,6 +41,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FaPlay } from "react-icons/fa";
 import IdentityService from "../fetching/identity";
 import Logo from "../assets/logo.webp";
+import ButtonHover from "../components/ButtonHover";
 
 const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
 
@@ -155,7 +156,7 @@ const ProgramStudi = () => {
         >
           <div className="w-full">
             <div
-              className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[70vh] lg:mt-10 rounded-b-3xl"
+              className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[78vh] lg:mt-10 rounded-b-3xl"
               style={{
                 backgroundImage: `url(${
                   fakultas.image1
@@ -643,36 +644,9 @@ const ProgramStudi = () => {
                 </div>
               </div>
               <div className="flex md:gap-5 lg:gap-10 gap-5 mt-8 md:mt-0">
-                <Button
-                  css="w-fit h-fit"
-                  paddingMobile="px-2 py-2"
-                  paddingTablet="md:px-2 md:py-2 lg:px-2 lg:py-3"
-                  rounded="rounded-lg"
-                  text="Informasi Biaya"
-                  bgColor="outline outline-2 outline-[#034833] text-[#F3F4F4] md:bg-transparent bg-[#F0F0F080]"
-                  hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
-                  textColor="text-black font-semibold"
-                />
-                <Button
-                  css="w-fit h-fit"
-                  paddingMobile="px-2 py-2"
-                  paddingTablet="md:px-2 md:py-2 lg:px-2 lg:py-3"
-                  rounded="rounded-lg"
-                  text="Buku Panduan"
-                  bgColor="outline outline-2 outline-[#034833] text-[#F3F4F4] md:bg-transparent bg-[#F0F0F080]"
-                  hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
-                  textColor="text-black font-semibold"
-                />
-                <Button
-                  css="w-fit h-fit"
-                  paddingMobile="px-2 py-2"
-                  paddingTablet="md:px-2 md:py-2 lg:px-2 lg:py-3"
-                  rounded="rounded-lg"
-                  text="Hubungi Admin"
-                  bgColor="outline outline-2 outline-[#034833] text-[#F3F4F4] md:bg-transparent bg-[#F0F0F080]"
-                  hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
-                  textColor="text-black font-semibold"
-                />
+                <ButtonHover text={'Informasi Biaya'} />
+                <ButtonHover text={'Buku Panduan'} />
+                <ButtonHover text={'Hubungi Admin'} />
               </div>
             </div>
           </div>
