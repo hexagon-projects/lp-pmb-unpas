@@ -292,7 +292,11 @@ const ProgramStudi = () => {
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <div className="flex flex-col items-start space-y-0 md:space-y-2 lg:space-y-2">
-                  <Title title={fakultas.title1} color={fakultas.color} />
+                  <h2
+                    className="text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold"
+                    style={{ color: fakultas.color }}
+                    dangerouslySetInnerHTML={{ __html: fakultas.title1 }}
+                  ></h2>
                   <RichText content={fakultas.description1} />
                   <div className="flex gap-3">
                     <motion.div
@@ -409,7 +413,7 @@ const ProgramStudi = () => {
           {/* Fakultas Unggulan Section End */}
 
           {/* Mengapa Memilih Fakultas Section */}
-          <motion.div className="relative w-full rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden space-y-4 md:space-y-6 lg:space-y-8 px-5 md:px-0">
+          <motion.div className="relative w-full overflow-hidden space-y-4 md:space-y-6 lg:space-y-8 px-5 md:px-0">
             <div className="w-full flex justify-center items-center">
               <div className="w-full md:w-1/3 lg:w-1/3 xl:w-full flex flex-col justify-center items-center text-center flex-wrap">
                 <Title
@@ -435,6 +439,7 @@ const ProgramStudi = () => {
                   title={item.title}
                   text={item.description}
                   image={item.image}
+                  hoverColor={fakultas.color}
                 />
               ))}
             </div>
