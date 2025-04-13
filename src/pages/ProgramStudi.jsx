@@ -285,7 +285,7 @@ const ProgramStudi = () => {
               </button>
             </div>
 
-            <div className="w-full md:w-fit space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+            <div className="w-full md:w-full space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -385,7 +385,11 @@ const ProgramStudi = () => {
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <div className="flex flex-col items-start space-y-0 md:space-y-2">
-                  <Title title={fakultas.title2} color={fakultas.color} />
+                  <h2
+                    className="text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold"
+                    style={{ color: fakultas.color }}
+                    dangerouslySetInnerHTML={{ __html: fakultas.title2 }}
+                  ></h2>
                   <RichText content={fakultas.description2} />
                 </div>
               </motion.div>
@@ -558,8 +562,13 @@ const ProgramStudi = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 2.8 }}
           >
-            <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rounded-none md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2 bg-gradient-to-r from-[#3384FF]/100 md:via-white md:via-60% to-transparent">
-              <div className="flex flex-col md:flex-row justify-between md:justify-between items-center text-center relative z-10 ">
+            <div
+              className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rounded-none md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2"
+              style={{
+                background: `linear-gradient(to right, ${fakultas.color} 0%, white 90%, transparent 100%)`
+              }}
+            >
+              <div className="flex flex-col md:flex-row justify-between md:justify-between items-center text-center relative z-10">
                 <div className="flex items-center gap-4 text-left">
                   <div className="w-[60%] md:w-fit hidden md:block">
                     <Title
@@ -585,27 +594,27 @@ const ProgramStudi = () => {
                     <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 rotate-90" color="white" />
                   </div>
                 </div>
-                <div className="flex md:gap-5 lg:gap-10 gap-5 mt-8 md:mt-0">
+                <div className="flex  md:gap-5 lg:gap-10 gap-5 mt-8 md:mt-0 ">
                   <button
-                    onClick={''}
+                    onClick={() => { }}
                     className="cursor-pointer relative overflow-hidden group py-2 px-4 md:px-8 md:py-4 text-black text-right whitespace-nowrap rounded-lg md:rounded-xl border-footer border-2 transition-all duration-500 hover:text-white"
                   >
                     <span className="relative z-10 cursor-pointer text-xs md:text-sm lg:text-sm font-bold">Informasi Biaya</span>
-                    <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-footer z-0 "></span>
+                    <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-footer z-0"></span>
                   </button>
                   <button
-                    onClick={''}
-                    className="cursor-pointer relative overflow-hidden group py-2 px-4 md:px-8 md:py-4 text-black text-right whitespace-nowrap rounded-lg md:rounded-xl border-footer border-2 transition-all duration-500 hover:text-white"
+                    onClick={() => { }}
+                    className="cursor-pointer relative hidden md:block overflow-hidden group py-2 px-4 md:px-8 md:py-4 text-black text-right whitespace-nowrap rounded-lg md:rounded-xl border-footer border-2 transition-all duration-500 hover:text-white"
                   >
                     <span className="relative z-10 cursor-pointer text-xs md:text-sm lg:text-sm font-bold">Buku Panduan</span>
-                    <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-footer z-0 "></span>
+                    <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-footer z-0"></span>
                   </button>
                   <button
-                    onClick={''}
+                    onClick={() => { }}
                     className="cursor-pointer relative overflow-hidden group py-2 px-4 md:px-8 md:py-4 text-black text-right whitespace-nowrap rounded-lg md:rounded-xl border-footer border-2 transition-all duration-500 hover:text-white"
                   >
                     <span className="relative z-10 cursor-pointer text-xs md:text-sm lg:text-sm font-bold">Hubungi Admin</span>
-                    <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-footer z-0 "></span>
+                    <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-footer z-0"></span>
                   </button>
                 </div>
               </div>
