@@ -40,7 +40,7 @@ import Gedung from "../assets/gedung.webp"
 import ButtonHover from "../components/ButtonHover";
 import { Helmet } from "react-helmet-async";
 import AnimatedRichTitle from "../components/prodi/AnimatedRichTitle";
-import AnimatedSubtitle from "../components/AnimatedSubtitle";
+import AnimatedRichSubtitle from "../components/prodi/AnimatedRichSubtitle";
 
 const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
 
@@ -290,7 +290,7 @@ const ProgramStudi = () => {
             <div className="w-full md:w-1/2 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <div>
                 <div className="flex flex-col items-start space-y-0 md:space-y-2 lg:space-y-2">
-                  <AnimatedSubtitle color={fakultas.color} text={fakultas.title1} />
+                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} />
                   <RichText content={fakultas.description1} />
                   <div className="flex gap-3">
                     <motion.div>
@@ -364,7 +364,7 @@ const ProgramStudi = () => {
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <div className="flex flex-col items-start space-y-0 md:space-y-2">
-                  <AnimatedSubtitle color={fakultas.color} text={fakultas.title2} />
+                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title2} />
                   <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }}/>
                   {/* <RichText content={fakultas.description2} /> */}
                 </div>
@@ -439,7 +439,7 @@ const ProgramStudi = () => {
                   <PiBookBookmarkLight style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
                 <div className="flex flex-col items-start space-y-0">
-                  <AnimatedSubtitle color={fakultas.color} text={fakultas.title3} />
+                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title3} />
                   <RichText content={fakultas.description3} />
                 </div>
               </motion.div>
@@ -502,7 +502,7 @@ const ProgramStudi = () => {
                   <PiSealCheck style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
                 <div className="flex flex-col items-start space-y-0">
-                  <AnimatedSubtitle color={fakultas.color} text={fakultas.title4} />
+                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title4} />
                   <RichText content={fakultas.description4} />
                 </div>
               </motion.div>
