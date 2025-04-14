@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import Text from "../Text";
-import Title from "../Title";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
+import AnimatedTitle from "../AnimatedTitle";
 
 const PrestasiSection = ({ prestasi, color="text-black" }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -12,7 +12,7 @@ const PrestasiSection = ({ prestasi, color="text-black" }) => {
     return (
         <div className={'w-full flex flex-col md:flex-col justify-center items-center gap-4'}>
             <div className="w-full md:w-full text-center lg:text-center space-y-3 md:space-y-4">
-                <Title title={'Prestasi'} color={color}/>
+                <AnimatedTitle text={'Prestasi'} color={color}/>
                 <p className="text-sm md:text-base lg:text-base text-gray-500">
                     Dari akademik hingga inovasi, Universitas Pasundan terus mencetak prestasi gemilang. 
                 </p>
