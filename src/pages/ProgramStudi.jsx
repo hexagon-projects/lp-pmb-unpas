@@ -51,16 +51,6 @@ const ProgramStudi = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4);
 
-  const title1Ref = useRef(null);
-  const title2Ref = useRef(null);
-  const title3Ref = useRef(null);
-  const title4Ref = useRef(null);
-
-  const isTitle1InView = useInView(title1Ref, { once: true, margin: "-100px" });
-  const isTitle2InView = useInView(title2Ref, { once: true, margin: "-100px" });
-  const isTitle3InView = useInView(title3Ref, { once: true, margin: "-100px" });
-  const isTitle4InView = useInView(title4Ref, { once: true, margin: "-100px" });
-
   useEffect(() => {
     const updateItemsPerPage = () => {
       if (window.innerWidth >= 1024) {
