@@ -163,14 +163,14 @@ const ProgramStudi = () => {
         <div className="p-0 md:py-6 lg:py-12 space-y-14 md:space-y-16 lg:space-y-20">
           {/* Hero Section */}
           <motion.div
-            className="relative "
+            className="relative p-0 md:px-6 lg:px-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="w-full">
               <div
-                className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[75vh] rounded-b-3xl"
+                className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[75vh] lg:mt-12 rounded-b-3xl"
                 style={{
                   backgroundImage: `url(${fakultas.image1
                     ? `${imageURL}/programs/${fakultas.image1}`
