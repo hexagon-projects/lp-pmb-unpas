@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Halaman Utama -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Rute Statis -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/jalur</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/artikel</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/fakultas</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/fasilitas</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/faq</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/kontak</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/prestasi</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/mitra</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/testimoni</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/dukungan</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/mahasiswa-dan-alumni</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Detail Fakultas -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/fakultas/fakultas-keguruan-dan-ilmu-pendidikan</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/fakultas/fakultas-teknik</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/fakultas/fakultas-hukum</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/fakultas/fakultas-ilmu-sosial-dan-ilmu-politik</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/fakultas/program-pasca-sarjana</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/fakultas/fakultas-kedokteran</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/fakultas/fakultas-ekonomi-dan-bisnis</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/fakultas/fakultas-ilmu-seni-dan-sastra</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/fakultas/program-pasca-sarjana</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Program Studi -->
+  <!-- Fakultas Keguruan dan Ilmu Pendidikan -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/pendidikan-pancasila-kewarganegaraan</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/pendidikan-ekonomi-akuntansi</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/pendidikan-bahasa-dan-sastra-indonesia</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/pendidikan-matematika</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/pendidikan-biologi</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/pendidikan-guru-sekolah-dasar</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Fakultas Teknik -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/teknik-informatika</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/teknik-mesin</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/teknik-industri</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/teknik-lingkungan</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/teknologi-pangan</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/perencanaan-wilayah-dan-kota</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Fakultas Hukum -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/ilmu-hukum</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Fakultas Ilmu Sosial dan Ilmu Politik -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/administrasi-publik</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/ilmu-kesejahteraan-sosial</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/ilmu-hubungan-internasional</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/ilmu-administrasi-bisnis</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/ilmu-komunikasi</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Program Pasca Sarjana -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-administrasi-kebijakan-publik</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-manajemen</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-teknik-industri</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-ilmu-hukum</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-teknologi-pangan</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-pendidikan-matematika</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-teknik-mesin</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-akutansi</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-ilmu-komunikasi</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-pendidikan-bahasa-indonesia</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/magister-kenotariatan</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Fakultas Kedokteran -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/pendidikan-dokter</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/profesi-dokter</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Fakultas Ekonomi dan Bisnis -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/akuntansi</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/manajemen</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/ekonomi-pembangunan</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Fakultas Ilmu Seni dan Sastra -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/sastra-inggris</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/desain-komunikasi-visual</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/fotografi</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/seni-musik</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Program Doktor -->
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/doktor-ilmu-manajemen</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/doktor-ilmu-sosial</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://pmb.unpas.ac.id/program-studi/doktor-ilmu-hukum</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>

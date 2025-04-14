@@ -86,7 +86,7 @@ const FakultasDetail = () => {
   }
 
   return (
-    <UserLayout bgLayoutColor="bg-[#F3f4f4]" position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-20'}>
+    <UserLayout bgLayoutColor="bg-[#F3f4f4]" position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-30'}>
       <Helmet>
         <title>{fakultas.name || 'Loading...'} - Universitas Pasundan</title>
         <meta name="description" content="Fakultas Teknik Universitas Pasundan menawarkan program studi unggulan seperti Teknik Informatika, Teknik Mesin, dan Teknik Industri. Daftar sekarang!" />
@@ -127,7 +127,7 @@ const FakultasDetail = () => {
         <motion.div className="relative" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="w-full fakultas_dtl_container">
             <div
-              className={`w-full flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 md:px-8 lg:px-12 relative overflow-hidden fakultas_dtl_box lg:h-[55vh]`}
+              className={`w-full flex flex-col justify-center bg-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 md:px-8 lg:px-12 relative overflow-hidden fakultas_dtl_box lg:h-[55vh]`}
               style={{ backgroundImage: `url(${fakultas.image1 ? `${imageURL}/fakultas/${fakultas.image1}` : Gedung})` }}
             >
               <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-[#D3C61D]/100 via-[#C5B91B40]/25 to-transparentt"></div>

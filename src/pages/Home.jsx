@@ -106,7 +106,7 @@ const Home = () => {
       position={'fixed'}
       bgLayoutColor="bg-[#F3f4f4]"
       paddingDekstop={'md:p-6 lg:p-6'}
-      paddingTop={'lg:pt-[100px]'}
+      paddingTop={'lg:pt-30'}
       bgColor={'bg-[#F3F3F3]'}
     >
       <Helmet>

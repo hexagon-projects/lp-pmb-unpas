@@ -34,7 +34,7 @@ const Contact = () => {
       margin={""}
       titleColor={"text-black"}
       paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"}
-      paddingTop={"lg:pt-20"}
+      paddingTop={"lg:pt-30"}
       type={"fadeInUp"}
       duration={0.5}
     >
