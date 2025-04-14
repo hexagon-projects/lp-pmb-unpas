@@ -40,6 +40,7 @@ import Gedung from "../assets/gedung.webp"
 import ButtonHover from "../components/ButtonHover";
 import { Helmet } from "react-helmet-async";
 import AnimatedRichTitle from "../components/prodi/AnimatedRichTitle";
+import AnimatedSubtitle from "../components/AnimatedSubtitle";
 
 const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
 
@@ -286,28 +287,13 @@ const ProgramStudi = () => {
               </button>
             </div>
 
-            <div className="w-full md:w-full space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
+            <div className="w-full md:w-1/2 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+              <div>
                 <div className="flex flex-col items-start space-y-0 md:space-y-2 lg:space-y-2">
-                  <motion.h2
-                    className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold`}
-                    style={{ color: fakultas.color }}
-                    dangerouslySetInnerHTML={{ __html: fakultas.title1 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 1.0 }}
-                  ></motion.h2>
+                  <AnimatedSubtitle color={fakultas.color} text={fakultas.title1} />
                   <RichText content={fakultas.description1} />
                   <div className="flex gap-3">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 1 }}
-                    >
+                    <motion.div>
                       <Button
                         css="w-fit h-fit outline-[#C93829] outline outline-2"
                         paddingMobile="px-4 py-2"
@@ -321,11 +307,7 @@ const ProgramStudi = () => {
                       />
                     </motion.div>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 1 }}
-                    >
+                    <motion.div>
                       <Button
                         css="w-fit h-fit"
                         paddingMobile="px-4 py-2"
@@ -336,7 +318,7 @@ const ProgramStudi = () => {
                     </motion.div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
           {/* Video Section End */}
@@ -375,22 +357,16 @@ const ProgramStudi = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <div className="w-full md:w-fit space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+            <div className="w-full md:w-1/2 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <div className="flex flex-col items-start space-y-0 md:space-y-2">
-                  <motion.h2
-                    className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold`}
-                    style={{ color: fakultas.color }}
-                    dangerouslySetInnerHTML={{ __html: fakultas.title2 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 1.0 }}
-                  ></motion.h2>
-                  <RichText content={fakultas.description2} />
+                  <AnimatedSubtitle color={fakultas.color} text={fakultas.title2} />
+                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }}/>
+                  {/* <RichText content={fakultas.description2} /> */}
                 </div>
               </motion.div>
             </div>
@@ -453,7 +429,7 @@ const ProgramStudi = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <div className="w-full md:w-fit space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+            <div className="w-full md:w-1/2 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -463,14 +439,7 @@ const ProgramStudi = () => {
                   <PiBookBookmarkLight style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
                 <div className="flex flex-col items-start space-y-0">
-                  <motion.h2
-                    className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold`}
-                    style={{ color: fakultas.color }}
-                    dangerouslySetInnerHTML={{ __html: fakultas.title3 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 1.0 }}
-                  ></motion.h2>
+                  <AnimatedSubtitle color={fakultas.color} text={fakultas.title3} />
                   <RichText content={fakultas.description3} />
                 </div>
               </motion.div>
@@ -523,7 +492,7 @@ const ProgramStudi = () => {
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
               </div>
             </div>
-            <div className="w-full md:w-fit space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+            <div className="w-full md:w-1/2 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -533,14 +502,7 @@ const ProgramStudi = () => {
                   <PiSealCheck style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
                 <div className="flex flex-col items-start space-y-0">
-                  <motion.h2
-                    className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold`}
-                    style={{ color: fakultas.color }}
-                    dangerouslySetInnerHTML={{ __html: fakultas.title4 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 1.0 }}
-                  ></motion.h2>
+                  <AnimatedSubtitle color={fakultas.color} text={fakultas.title4} />
                   <RichText content={fakultas.description4} />
                 </div>
               </motion.div>

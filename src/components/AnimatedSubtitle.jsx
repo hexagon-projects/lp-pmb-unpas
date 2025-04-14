@@ -14,24 +14,13 @@ const AnimatedSubtitle = ({ text, className = "", color, sizeText, weight, justi
     setHasAnimated(true);
   }
 
-  const words = text?.split(" ");
-
   const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const wordVariants = {
-    hidden: { opacity: 0, x: 10 },
+    hidden: { opacity: 0, x: 20 },
     visible: { 
       opacity: 1, 
-      x: 0, 
+      x: 0,
       transition: { 
-        duration: 1.0, 
+        duration: 0.8, 
         ease: "easeOut" 
       } 
     },
@@ -46,15 +35,7 @@ const AnimatedSubtitle = ({ text, className = "", color, sizeText, weight, justi
           animate="visible"
           className={`flex flex-wrap ${justify}`}
         >
-          {words?.map((word, index) => (
-            <motion.span
-              key={index}
-              variants={wordVariants}
-              className="inline-block mr-1 text-left"
-            >
-              <Title sizeText={sizeText} title={word} color={color} fontWeight={weight}/>
-            </motion.span>
-          ))}
+          <Title sizeText={sizeText} title={text} color={color} fontWeight={weight}/>
         </motion.div>
       )}
     </div>
