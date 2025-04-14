@@ -89,6 +89,33 @@ const Jalur = () => {
         <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
             <Helmet>
                 <title>Jalur Pendaftaran - Universitas Pasundan</title>
+                <meta name="description" content="Informasi lengkap semua jalur pendaftaran mahasiswa baru Universitas Pasundan. Temukan jalur yang sesuai dengan kemampuan Anda dan daftar sekarang!" />
+                <meta name="keywords" content="pendaftaran unpas, jalur masuk unpas, universitas pasundan, SNBP unpas, SNBT unpas, mandiri unpas, PMDK unpas" />
+                <meta property="og:title" content="Jalur Pendaftaran - Universitas Pasundan" />
+                <meta property="og:description" content="Temukan semua jalur pendaftaran mahasiswa baru Universitas Pasundan dan daftar sekarang!" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://pmb.unpas.ac.id/jalur" />
+                <meta property="og:image" content={Section1} />
+                <meta property="og:site_name" content="Universitas Pasundan" />
+                <link rel="canonical" href="https://pmb.unpas.ac.id/jalur" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        "name": "Jalur Pendaftaran - Universitas Pasundan",
+                        "description": "Informasi lengkap semua jalur pendaftaran mahasiswa baru Universitas Pasundan",
+                        "url": "https://pmb.unpas.ac.id/jalur",
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Universitas Pasundan",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://pmb.unpas.ac.id/logo.webp"
+                            }
+                        }
+                    })}
+                </script>
             </Helmet>
             <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-14 lg:space-y-16">
                 <div className={'w-full lg:h-[80vh] flex flex-col md:flex-row-reverse justify-between md:justify-center items-center gap-4 md:gap-4 lg:gap-20'}>

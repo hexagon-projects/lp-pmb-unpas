@@ -55,7 +55,7 @@ const Home = () => {
     keywords: "Universitas Pasundan, Unpas, Kampus Bandung, Program Studi, Pendaftaran Mahasiswa, Fakultas Unpas",
     ogTitle: "Universitas Pasundan - Kampus Unggulan di Bandung",
     ogDescription: "Universitas Pasundan (Unpas) adalah kampus unggulan di Bandung yang menawarkan program studi lengkap, fasilitas modern, dan kerjasama dengan industri.",
-    ogImage: "https://pmb.unpas.ac.id/logo.webp",
+    ogImage: "https://pmb.unpas.ac.id/assets/logo.webp",
     ogUrl: "https://pmb.unpas.ac.id"
   }), []);
 

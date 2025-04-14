@@ -196,9 +196,60 @@ const Mahasiswa = () => {
   );
 
   return (
-<UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
+    <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
       <Helmet>
-        <title>Mahasiswa & Alumni - Universitas Pasundan</title>
+        <title>Kehidupan Mahasiswa & Alumni - Universitas Pasundan</title>
+        <meta name="description" content="Temukan aktivitas mahasiswa, prestasi, dan kisah inspiratif alumni Universitas Pasundan yang sukses di berbagai bidang profesional." />
+        <meta name="keywords" content="mahasiswa unpas, alumni unpas, organisasi mahasiswa unpas, prestasi mahasiswa unpas, testimoni alumni unpas" />
+        <meta property="og:title" content="Kehidupan Mahasiswa & Alumni - Universitas Pasundan" />
+        <meta property="og:description" content="Lihat aktivitas dan prestasi mahasiswa serta kisah sukses alumni Universitas Pasundan" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pmb.unpas.ac.id/mahasiswa-dan-alumni" />
+        <meta property="og:image" content={Section2} />
+        <meta property="og:site_name" content="Universitas Pasundan" />
+        <link rel="canonical" href="https://pmb.unpas.ac.id/mahasiswa-dan-alumni" />
+
+        {/* Schema Markup */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Kehidupan Mahasiswa & Alumni - Universitas Pasundan",
+            "description": "Informasi tentang aktivitas mahasiswa dan kisah alumni Universitas Pasundan",
+            "url": "https://pmb.unpas.ac.id/mahasiswa-dan-alumni",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Universitas Pasundan",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://pmb.unpas.ac.id/logo.webp"
+              }
+            },
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@type": "Organization",
+                    "name": "Unit Kegiatan Mahasiswa",
+                    "description": "Berbagai UKM dan organisasi mahasiswa di UNPAS"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@type": "VideoObject",
+                    "name": "Kisah Alumni",
+                    "description": "Testimoni dan kisah sukses alumni UNPAS"
+                  }
+                }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
 
       <AnimatePresence mode="wait">
@@ -272,7 +323,7 @@ const Mahasiswa = () => {
               }
             >
               <div className="w-full space-y-4 text-center">
-                  <AnimatedTitle text={"Prestasi"} />
+                <AnimatedTitle text={"Prestasi"} />
                 {/* <div className="flex items-start md:items">
                 </div> */}
                 <Text

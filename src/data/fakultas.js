@@ -5,7 +5,6 @@ export const FACULTIES = [
       programs: [
         { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
         { name: 'S1 - Pendidikan Ekonomi Akuntansi', slug: 'pendidikan-ekonomi-akuntansi' },
-        // { name: 'S1 - Pendidikan Bahasa', slug: 'pendidikan-bahasa' },
         { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-dan-sastra-indonesia' },
         { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
         { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
@@ -96,18 +95,6 @@ export const FACULTIES = [
         { name: 'S3 - Doktor Ilmu Hukum', slug: 'doktor-ilmu-hukum' }
       ]
     },
-    // {
-    //   name: 'Fakultas Pendidikan',
-    //   slug: 'fakultas-pendidikan',
-    //   programs: [
-    //     { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
-    //     { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
-    //     { name: 'S1 - Pendidikan Pancasila dan Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
-    //     { name: 'S1 - Pendidikan Guru Sekolah Dasar', slug: 'pendidikan-guru-sekolah-dasar' },
-    //     { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-sastra-indonesia' },
-    //     { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' }
-    //   ]
-    // },
   ];
   
   export const FACULTIES1 = FACULTIES.slice(0, 3);

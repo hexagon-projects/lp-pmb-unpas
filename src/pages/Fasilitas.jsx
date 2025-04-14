@@ -80,9 +80,50 @@ const Fasilitas = () => {
   }, []);
 
   return (
-<UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'}>
+    <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'}>
       <Helmet>
-        <title>Fasilitas - Universitas Pasundan</title>
+        <title>Fasilitas Kampus - Universitas Pasundan</title>
+        <meta name="description" content="Temukan fasilitas unggulan dan gedung kampus Universitas Pasundan yang mendukung proses belajar mengajar dengan teknologi modern dan nyaman." />
+        <meta name="keywords" content="fasilitas unpas, kampus unpas, universitas pasundan, perpustakaan unpas, laboratorium unpas, gedung kuliah unpas" />
+        <meta property="og:title" content="Fasilitas Kampus - Universitas Pasundan" />
+        <meta property="og:description" content="Lihat fasilitas modern dan lengkap yang tersedia di berbagai kampus Universitas Pasundan" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pmb.unpas.ac.id/fasilitas" />
+        <meta property="og:image" content={Section1} />
+        <meta property="og:site_name" content="Universitas Pasundan" />
+        <link rel="canonical" href="https://pmb.unpas.ac.id/fasilitas" />
+
+        {/* Schema Markup */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Fasilitas Kampus - Universitas Pasundan",
+            "description": "Informasi lengkap fasilitas kampus Universitas Pasundan",
+            "url": "https://pmb.unpas.ac.id/fasilitas",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Universitas Pasundan",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://pmb.unpas.ac.id/logo.webp"
+              }
+            },
+            "hasPart": [
+              {
+                "@type": "CollegeOrUniversity",
+                "name": "Universitas Pasundan",
+                "image": gedungKampus.map(g => g.image),
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Bandung",
+                  "addressRegion": "Jawa Barat",
+                  "addressCountry": "Indonesia"
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-14 lg:space-y-16">

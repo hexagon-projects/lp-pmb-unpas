@@ -19,7 +19,7 @@ const StatsSection = ({ title1 = 'Program Studi', prodi, mahasiswa, lulusan, pre
           md:border-none 
           w-[90%] md:w-[90%] 
           grid grid-cols-2 
-          lg:w-[90%] xl:w-2/3 
+          lg:w-[90%] xl:w-[80%] 
           lg:flex lg:flex-row lg:flex-wrap lg:justify-between lg:items-center 
           h-fit 
           gap-4 md:gap-6 lg:gap-8 

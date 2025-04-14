@@ -10,7 +10,7 @@ const PrestasiSection = ({ prestasi, color="text-black" }) => {
     const swiperRef = useRef(null);
 
     return (
-        <div className={'flex flex-col md:flex-col justify-center items-center gap-4'}>
+        <div className={'w-full flex flex-col md:flex-col justify-center items-center gap-4'}>
             <div className="w-full md:w-full text-center lg:text-center space-y-3 md:space-y-4">
                 <Title title={'Prestasi'} color={color}/>
                 <p className="text-sm md:text-base lg:text-base text-gray-500">
@@ -26,19 +26,19 @@ const PrestasiSection = ({ prestasi, color="text-black" }) => {
                     autoplay={{ delay: 3000 }}
                     loop
                     centeredSlides={true}
-                    className="relative h-[40vh] overflow-hidden"
+                    className="relative w-full h-[40vh] overflow-hidden"
                     onSwiper={(swiper) => (swiperRef.current = swiper)}
                     breakpoints={{
                         768: { slidesPerView: 2.6 },
-                        1024: { slidesPerView: 3.6 },
+                        1024: { slidesPerView: 3.3 },
                     }}
                 >
                     {prestasi.map((item, index) => (
                         <SwiperSlide key={index} className="transition-all duration-500">
                             {({ isActive }) => (
                                 <div
-                                    className={`relative h-full bg-cover bg-center rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ${
-                                        isActive ? "scale-100" : "scale-[80%] opacity-80"
+                                    className={`relative w-full h-full bg-cover bg-center rounded-xl md:rounded-2xl lg:rounded-4xl transition-all duration-500 ${
+                                        isActive ? "scale-100" : "scale-[90%] opacity-80"
                                     }`}
                                     style={{ backgroundImage: `url(${imageURL}/prestasis/${item?.image})` }}
                                 >

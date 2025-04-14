@@ -2,6 +2,7 @@ import React, {
   useEffect,
   useState,
   useCallback,
+  useRef,
 } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import UserLayout from "./layouts/UserLayout";
@@ -29,15 +30,16 @@ import Pagination from "../components/Pagination";
 import Button from "../components/Button";
 import CTASection from "../components/CTASection";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { FaPlay } from "react-icons/fa";
 import Logo from "../assets/logo.webp";
 import TestimonialSection from "../views/home/TestimonialSection";
-import { PiBookBookmarkLight, PiSealCheckFill } from "react-icons/pi";
+import { PiBookBookmarkLight, PiSealCheck, PiSealCheckFill } from "react-icons/pi";
 import ArticleCard from "../components/artikel/ArticleCard";
 import Gedung from "../assets/gedung.webp"
 import ButtonHover from "../components/ButtonHover";
 import { Helmet } from "react-helmet-async";
+import AnimatedRichTitle from "../components/prodi/AnimatedRichTitle";
 
 const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
 
@@ -48,7 +50,16 @@ const ProgramStudi = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4);
-  const navigate = useNavigate();
+
+  const title1Ref = useRef(null);
+  const title2Ref = useRef(null);
+  const title3Ref = useRef(null);
+  const title4Ref = useRef(null);
+
+  const isTitle1InView = useInView(title1Ref, { once: true, margin: "-100px" });
+  const isTitle2InView = useInView(title2Ref, { once: true, margin: "-100px" });
+  const isTitle3InView = useInView(title3Ref, { once: true, margin: "-100px" });
+  const isTitle4InView = useInView(title4Ref, { once: true, margin: "-100px" });
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -158,10 +169,10 @@ const ProgramStudi = () => {
         paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6"
         paddingTop="lg:pt-10"
       >
-        <div className="p-0 md:p-6 lg:p-12 space-y-14 md:space-y-16 lg:space-y-20">
+        <div className="p-0 md:py-6 lg:py-12 space-y-14 md:space-y-16 lg:space-y-20">
           {/* Hero Section */}
           <motion.div
-            className="relative"
+            className="relative p-0 md:px-6 lg:px-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -227,7 +238,7 @@ const ProgramStudi = () => {
                       paddingMobile="px-4 py-3"
                       text="Daftar Sekarang"
                       bgColor="bg-primary"
-                      hoverBgColor="hover:border-3 hover:border-white/50"
+                      hoverBgColor="hover:border-2"
                       onClick={() =>
                         (window.location.href = `https://registrasi.unpas.ac.id/register`)
                       }
@@ -237,7 +248,7 @@ const ProgramStudi = () => {
                       paddingMobile="px-4 py-3"
                       text="Hubungi Kami"
                       bgColor="outline outline-2 outline-[#034833] text-[#F3F4F4] bg-transparent"
-                      hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
+                      hoverBgColor="hover:border-2 hover:bg-[#034833] hover:text-white"
                     />
                   </div>
                 </div>
@@ -248,7 +259,7 @@ const ProgramStudi = () => {
 
           {/* Video Section */}
           <motion.div
-            className="w-full flex lg:flex-row justify-around items-center gap-6 md:gap-6 lg:gap-8 px-6 md:px-0 flex-col-reverse"
+            className="w-full flex lg:flex-row justify-around items-center p-6 md:px-6 lg:px-12 gap-6 md:gap-6 lg:gap-8 flex-col-reverse"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -292,11 +303,14 @@ const ProgramStudi = () => {
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <div className="flex flex-col items-start space-y-0 md:space-y-2 lg:space-y-2">
-                  <h2
-                    className="text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold"
+                  <motion.h2
+                    className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold`}
                     style={{ color: fakultas.color }}
                     dangerouslySetInnerHTML={{ __html: fakultas.title1 }}
-                  ></h2>
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                  ></motion.h2>
                   <RichText content={fakultas.description1} />
                   <div className="flex gap-3">
                     <motion.div
@@ -309,7 +323,7 @@ const ProgramStudi = () => {
                         paddingMobile="px-4 py-2"
                         text="Daftar Sekarang"
                         bgColor="bg-primary"
-                        hoverBgColor="hover:border-3 hover:border-white/50"
+                        hoverBgColor="hover:border-2"
                         onClick={() =>
                           fakultas?.link_program &&
                           (window.location.href = fakultas.link_program)
@@ -327,17 +341,10 @@ const ProgramStudi = () => {
                         paddingMobile="px-4 py-2"
                         text="Hubungi Kami"
                         bgColor="outline outline-2 outline-[#034833] text-gray-900 bg-transparent"
-                        hoverBgColor="hover:border-3 hover:border-white/50 hover:bg-[#034833] hover:text-white"
+                        hoverBgColor="hover:border-2 hover:bg-[#034833] hover:text-white"
                       />
                     </motion.div>
                   </div>
-                  {/* <div className="flex gap-5 bg-gray-300 p-3 rounded-xl items-center shadow-2xs">
-                  <img src={`${imageURL}/ourteams/${dekan.image}`} alt={dekan.image} className='rounded-full w-16 h-16' />
-                  <div className="flex flex-col gap-1">
-                    <h1 className="font-sora text-lg font-bold text-gray-900">{dekan.name}</h1>
-                    <span className='font-sora text-sm text-gray-900'>{dekan.title}</span>
-                  </div>
-                </div> */}
                 </div>
               </motion.div>
             </div>
@@ -352,9 +359,9 @@ const ProgramStudi = () => {
           >
             {fakultas.periode && fakultas.age && fakultas.weekly && fakultas.class_size && (
               <>
-                <div className="w-full flex justify-center items-center">
-                  <Title
-                    title={`${fakultas.name} Dalam Angka`}
+                <div className="w-full flex justify-center items-center mb-4">
+                  <AnimatedRichTitle
+                    text={`${fakultas.name} Dalam Angka`}
                     color={fakultas.color}
                   />
                 </div>
@@ -373,7 +380,7 @@ const ProgramStudi = () => {
 
           {/* Fakultas Unggulan Section */}
           <motion.div
-            className="w-full flex lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8 px-6 md:px-0 flex-col-reverse"
+            className="w-full flex lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8 px-6 md:px-6 lg:px-12 flex-col-reverse"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -385,11 +392,14 @@ const ProgramStudi = () => {
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <div className="flex flex-col items-start space-y-0 md:space-y-2">
-                  <h2
-                    className="text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold"
+                  <motion.h2
+                    className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold`}
                     style={{ color: fakultas.color }}
                     dangerouslySetInnerHTML={{ __html: fakultas.title2 }}
-                  ></h2>
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                  ></motion.h2>
                   <RichText content={fakultas.description2} />
                 </div>
               </motion.div>
@@ -417,20 +427,16 @@ const ProgramStudi = () => {
           {/* Fakultas Unggulan Section End */}
 
           {/* Mengapa Memilih Fakultas Section */}
-          <motion.div className="relative w-full overflow-hidden space-y-4 md:space-y-6 lg:space-y-8 px-5 md:px-0">
+          <motion.div className="p-5 md:px-6 lg:px-12 relative w-full overflow-hidden space-y-4 md:space-y-6 lg:space-y-8">
             <div className="w-full flex justify-center items-center">
               <div className="w-full md:w-1/3 lg:w-1/3 xl:w-full flex flex-col justify-center items-center text-center flex-wrap">
-                <Title
-                  sizeText="text-base md:text-lg lg:text-3xl"
-                  title={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace(
-                    "Fakultas ",
-                    ""
-                  )}`}
-                  color={fakultas.color}
-                />
-                <Title
-                  sizeText="text-base md:text-lg lg:text-3xl"
-                  title={`Universitas Pasundan`}
+                <AnimatedRichTitle text={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace(
+                  "Fakultas ",
+                  ""
+                )}`}
+                  color={fakultas.color} />
+                <AnimatedRichTitle
+                  text={`Universitas Pasundan`}
                   color={fakultas.color}
                 />
               </div>
@@ -452,7 +458,7 @@ const ProgramStudi = () => {
 
           {/* Apa yang kamu pelajari Section */}
           <motion.div
-            className="w-full flex lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8 px-6 md:px-0 flex-col-reverse"
+            className="w-full flex lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8 px-6 md:px-6 lg:px-12 flex-col-reverse"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -467,7 +473,14 @@ const ProgramStudi = () => {
                   <PiBookBookmarkLight style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
                 <div className="flex flex-col items-start space-y-0">
-                  <Title title={fakultas.title3} color={fakultas.color} />
+                  <motion.h2
+                    className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold`}
+                    style={{ color: fakultas.color }}
+                    dangerouslySetInnerHTML={{ __html: fakultas.title3 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                  ></motion.h2>
                   <RichText content={fakultas.description3} />
                 </div>
               </motion.div>
@@ -496,7 +509,7 @@ const ProgramStudi = () => {
 
           {/* Prospek karir Section */}
           <motion.div
-            className="w-full flex flex-col lg:flex-row items-center gap-4 md:gap-6 lg:gap-20 px-6 md:px-0"
+            className="w-full flex flex-col lg:flex-row items-center gap-4 md:gap-6 lg:gap-20 px-6 md:px-6 lg:px-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -526,11 +539,18 @@ const ProgramStudi = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <div className="p-1 md:p-2 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
-                  <PiSealCheckFill style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
+                <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
+                  <PiSealCheck style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
                 <div className="flex flex-col items-start space-y-0">
-                  <Title title={fakultas.title4} color={fakultas.color} />
+                  <motion.h2
+                    className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold`}
+                    style={{ color: fakultas.color }}
+                    dangerouslySetInnerHTML={{ __html: fakultas.title4 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                  ></motion.h2>
                   <RichText content={fakultas.description4} />
                 </div>
               </motion.div>
@@ -539,7 +559,7 @@ const ProgramStudi = () => {
           {/* Prospek karir Section End */}
 
           {/* jalur */}
-          <div className="space-y-8 md:space-y-14 lg:space-y-20">
+          <div className="space-y-8 md:space-y-14 lg:space-y-20 px-6 md:px-6 lg:px-12">
             <div className="w-full flex justify-center items-center">
               <MemoizedPendaftaranSection
                 image={Section3}
@@ -568,7 +588,7 @@ const ProgramStudi = () => {
                 background: `linear-gradient(to right, ${fakultas.color} 0%, white 90%, transparent 100%)`
               }}
             >
-              <div className="flex flex-col md:flex-row justify-between md:justify-between items-center text-center relative z-10">
+              <div className="flex flex-col md:flex-row md:justify-between gap-4 md:gap-0 items-center text-center relative z-10">
                 <div className="flex items-center gap-4 text-left">
                   <div className="w-[60%] md:w-fit hidden md:block">
                     <Title
@@ -594,7 +614,7 @@ const ProgramStudi = () => {
                     <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 rotate-90" color="white" />
                   </div>
                 </div>
-                <div className="flex  md:gap-5 lg:gap-10 gap-5 mt-8 md:mt-0 ">
+                <div className="flex md:gap-5 lg:gap-10 gap-5 md:mt-0 ">
                   <button
                     onClick={() => { }}
                     className="cursor-pointer relative overflow-hidden group py-2 px-4 md:px-8 md:py-4 text-black text-right whitespace-nowrap rounded-lg md:rounded-xl border-footer border-2 transition-all duration-500 hover:text-white"
@@ -624,7 +644,7 @@ const ProgramStudi = () => {
 
           {/* Dosen Penelitian Section */}
           <motion.div
-            className="space-y-4 md:space-y-6 lg:space-y-8 px-6 md:px-0"
+            className="space-y-4 md:space-y-6 lg:space-y-8 px-6 md:px-6 lg:px-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.4 }}
@@ -632,7 +652,7 @@ const ProgramStudi = () => {
             {ourteam && ourteam.length > 0 ? (
               <>
                 <div className="text-center">
-                  <Title title="Dosen & Penelitian" color={fakultas.color} />
+                  <AnimatedRichTitle text="Dosen & Penelitian" color={fakultas.color} />
                 </div>
                 <div className="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10">
                   {currentItems.map((member, index) => (
@@ -641,6 +661,7 @@ const ProgramStudi = () => {
                         name={member.name}
                         title={member.title}
                         image={member.image}
+                        color={fakultas.color}
                       />
                     </div>
                   ))}
@@ -669,7 +690,7 @@ const ProgramStudi = () => {
 
           {/* Prestasi Section */}
           <motion.div
-            className="space-y-4 md:space-y-6 lg:space-y-8"
+            className="w-full space-y-4 md:space-y-6 lg:space-y-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.8 }}
@@ -692,9 +713,9 @@ const ProgramStudi = () => {
             {fasilitas.length > 0 ? (
               <>
                 <div className="text-center mb-5">
-                  <Title title="Fasilitas" color={fakultas.color} />
+                  <AnimatedRichTitle text="Fasilitas" color={fakultas.color} />
                 </div>
-                <FasilitasSlider title="Fasilitas" facilities={fasilitas} />
+                <FasilitasSlider title="Fasilitas" facilities={fasilitas} color={fakultas.color} />
               </>
             ) : (
               <></>
@@ -724,7 +745,7 @@ const ProgramStudi = () => {
             {testimonials.length > 0 ? (
               <>
                 <div className="w-full text-center ">
-                  <Title title="Testimoni" color={fakultas.color} />
+                  <AnimatedRichTitle text="Testimoni" color={fakultas.color} />
                 </div>
                 <div className="w-full">
                   <TestimonialSection
@@ -748,7 +769,7 @@ const ProgramStudi = () => {
           >
             <div className="text-center md:text-left space-y-4 md:space-y-6 lg:space-y-8 px-0">
               <div className="text-center">
-                <Title title="Berita Terbaru" color={fakultas.color} />
+                <AnimatedRichTitle text="Berita Terbaru" color={fakultas.color} />
               </div>
               <div className="w-full">
                 <div className="text-left py-2 px-5 md:px-10 lg:px-15">

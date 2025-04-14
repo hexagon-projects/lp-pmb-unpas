@@ -56,12 +56,14 @@ const StatsBoxProdi = ({ icon, number, title, colorIcon = 'text-text' }) => {
             <div className="w-[30%] md:w-fit">
                 <div
                     className={`w-fit p-3 md:bg-[#f0f0f0] md:border-2 md:border-[#fafafa] md:rounded-full ${!isHex ? colorIcon : ''} transition ${!isHex
-                            ? 'md:shadow-text/20'
-                            : 'md:[box-shadow:0px_15px_30px_-10px_var(--shadow-color)]'
+                            ? 'md:shadow-text/10' // Changed from 20 to 10 for lower opacity
+                            : 'md:[box-shadow:0px_15px_30px_-10px_rgba(var(--shadow-rgb),0.5)]' // Added opacity control
                         }`}
                     style={{
                         color: isHex ? colorIcon : undefined,
-                        ...(isHex && { '--shadow-color': colorIcon }),
+                        ...(isHex && { 
+                            '--shadow-rgb': hexToRgb(colorIcon).join(',') // Convert hex to RGB for opacity control
+                        }),
                     }}
                 >{icon}</div>
             </div>
@@ -81,5 +83,18 @@ const StatsBoxProdi = ({ icon, number, title, colorIcon = 'text-text' }) => {
         </div>
     );
 };
+
+// Helper function to convert hex to RGB
+function hexToRgb(hex) {
+    // Remove # if present
+    hex = hex.replace('#', '');
+    
+    // Parse r, g, b values
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+
+    return [r, g, b];
+}
 
 export default StatsBoxProdi;

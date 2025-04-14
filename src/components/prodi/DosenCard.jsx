@@ -1,19 +1,21 @@
 import { ArrowUpRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Text from "../Text";
-import { FaTiktok, FaYoutube, FaInstagram, FaFacebookF, FaShareAlt } from "react-icons/fa";
+import { FaTiktok, FaYoutube, FaInstagram, FaFacebookF } from "react-icons/fa";
 import ArticleTitle from "../ArticleTitle";
 import { useState } from "react";
 const imageURL = import.meta.env.VITE_IMAGE_URL;
 
-const DosenCard = ({ name, title, image }) => {
+const DosenCard = ({ name, title, image, color }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div className="relative">
-            <div 
-            className="w-full h-72 md:h-96 lg:h-[44vh] bg-cover bg-center bg-no-repeat rounded-xl overflow-hidden"
-            style={{ backgroundImage: `url(${imageURL}/ourteams/${image})` }}
+        <div className="relative group"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}>
+            <div
+                className="w-full h-72 md:h-96 lg:h-[44vh] bg-cover bg-center bg-no-repeat rounded-xl overflow-hidden"
+                style={{ backgroundImage: `url(${imageURL}/ourteams/${image})` }}
             >
                 <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/100 via-[#C5B91B40]/25 to-transparent rounded-b-xl"></div>
 
@@ -43,7 +45,7 @@ const DosenCard = ({ name, title, image }) => {
                                     whileHover={{ scale: 1.1 }}
                                     className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow"
                                 >
-                                    <Icon className="text-[#001F5B] w-5 h-5" />
+                                    <Icon className="w-5 h-5" style={{ color: color }} />
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -56,12 +58,11 @@ const DosenCard = ({ name, title, image }) => {
                     whileHover={{ scale: 1.2 }}
                     transition={{ type: "spring", stiffness: 200 }}
                 >
-                    <ArrowUpRight className="w-8 md:w-11 h-8 md:h-11 text-blue-500 p-1 rounded-xl rotate-45 hover:rotate-0" />
+                    <ArrowUpRight className="w-8 md:w-11 h-8 md:h-11 p-1 rounded-xl rotate-45 group-hover:rotate-0 transition duration-500" style={{ color: color }} />
                 </motion.div>
             </div>
         </div>
     );
 };
 
-
-export default DosenCard
+export default DosenCard;
