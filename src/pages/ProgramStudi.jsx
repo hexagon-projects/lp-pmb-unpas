@@ -136,6 +136,13 @@ const ProgramStudi = () => {
 
   return (
     <>
+      <style>
+        {`
+          p {
+            margin: 0;
+          }
+        `}
+      </style>
       <Helmet>
         <title>{`Program Studi ${fakultas.name} - Universitas Pasundan`}</title>
         <meta name="description" content={`Informasi lengkap tentang Program Studi ${fakultas.name} Universitas Pasundan termasuk profil, keunggulan, fasilitas, dan prospek karir.`} />
@@ -160,17 +167,17 @@ const ProgramStudi = () => {
         paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6"
         paddingTop="lg:pt-10"
       >
-        <div className="p-0 md:py-6 lg:py-12 space-y-14 md:space-y-16 lg:space-y-20">
+        <div className="p-0 lg:py-12 space-y-14 md:space-y-16 lg:space-y-20">
           {/* Hero Section */}
           <motion.div
-            className="relative p-0 md:px-6 lg:px-12"
+            className="relative p-0 lg:px-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="w-full">
               <div
-                className="md:flex flex-col justify-center bg-cover bg-no-repeat md:rounded-2xl lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[75vh] lg:mt-12 rounded-b-3xl"
+                className="md:flex flex-col justify-center bg-cover bg-no-repeat lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[75vh] lg:mt-12 rounded-b-3xl"
                 style={{
                   backgroundImage: `url(${fakultas.image1
                     ? `${imageURL}/programs/${fakultas.image1}`
@@ -289,36 +296,34 @@ const ProgramStudi = () => {
               </button>
             </div>
 
-            <div className="w-full md:w-1/2 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
-              <div>
-                <div className="flex flex-col items-center md:items-start space-y-0 md:space-y-2 lg:space-y-2">
-                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} />
-                  <RichText content={fakultas.description1} />
-                  <div className="flex gap-3">
-                    <motion.div>
-                      <Button
-                        css="w-fit h-fit outline-[#C93829] outline outline-2"
-                        paddingMobile="px-4 py-2"
-                        text="Daftar Sekarang"
-                        bgColor="bg-primary"
-                        hoverBgColor="hover:border-2"
-                        onClick={() =>
-                          fakultas?.link_program &&
-                          (window.location.href = fakultas.link_program)
-                        }
-                      />
-                    </motion.div>
+            <div className="w-full space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+              <div className="flex flex-col items-center md:items-start space-y-0 md:space-y-2 lg:space-y-2 md:w-full">
+                <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} className="md:mx-auto lg:mx-0"/>
+                <RichText content={fakultas.description1} />
+                <div className="flex gap-3 md:mx-auto lg:mx-0">
+                  <motion.div>
+                    <Button
+                      css="w-fit h-fit outline-[#C93829] outline outline-2"
+                      paddingMobile="px-4 py-2"
+                      text="Daftar Sekarang"
+                      bgColor="bg-primary"
+                      hoverBgColor="hover:border-2"
+                      onClick={() =>
+                        fakultas?.link_program &&
+                        (window.location.href = fakultas.link_program)
+                      }
+                    />
+                  </motion.div>
 
-                    <motion.div>
-                      <Button
-                        css="w-fit h-fit"
-                        paddingMobile="px-4 py-2"
-                        text="Hubungi Kami"
-                        bgColor="outline outline-2 outline-[#034833] text-gray-900 bg-transparent"
-                        hoverBgColor="hover:border-2 hover:bg-[#034833] hover:text-white"
-                      />
-                    </motion.div>
-                  </div>
+                  <motion.div>
+                    <Button
+                      css="w-fit h-fit"
+                      paddingMobile="px-4 py-2"
+                      text="Hubungi Kami"
+                      bgColor="outline outline-2 outline-[#034833] text-gray-900 bg-transparent"
+                      hoverBgColor="hover:border-2 hover:bg-[#034833] hover:text-white"
+                    />
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -360,14 +365,14 @@ const ProgramStudi = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <div className="w-full md:w-1/2 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+            <div className="w-full lg:w-1/2 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <div className="flex flex-col items-start space-y-2 md:space-y-2">
-                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title2} />
+                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title2} className="mx-auto lg:mx-0"/>
                   <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center md:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }} />
                   {/* <RichText content={fakultas.description2} /> */}
                 </div>
@@ -398,7 +403,7 @@ const ProgramStudi = () => {
           {/* Mengapa Memilih Fakultas Section */}
           <motion.div className=" p-5 md:px-6 lg:px-12 relative w-full overflow-hidden space-y-4 md:space-y-6 lg:space-y-8">
             <div className="w-full flex justify-center items-center">
-              <div className="w-full md:hidden md:w-1/3 lg:w-1/3 xl:w-full flex justify-center items-center text-center flex-wrap">
+              <div className="w-full lg:hidden md:w-full lg:w-1/3 xl:w-full flex justify-center items-center text-center flex-wrap">
                 <AnimatedRichTitle text={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace(
                   "Fakultas ",
                   ""
@@ -406,7 +411,7 @@ const ProgramStudi = () => {
                   color={fakultas.color} />
               </div>
 
-              <div className="hidden md:flex w-full md:w-1/3 lg:w-1/3 xl:w-full flex-col justify-center items-center text-center flex-wrap">
+              <div className="hidden lg:flex w-full md:w-1/3 lg:w-1/3 xl:w-full flex-col justify-center items-center text-center flex-wrap">
                 <AnimatedRichTitle text={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace(
                   "Fakultas ",
                   ""
@@ -440,7 +445,7 @@ const ProgramStudi = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <div className="w-full md:w-1/2 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+            <div className="w-full md:w-full space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -503,7 +508,7 @@ const ProgramStudi = () => {
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
               </div>
             </div>
-            <div className="w-full md:w-1/2 space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+            <div className="w-full md:w-full space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -551,9 +556,9 @@ const ProgramStudi = () => {
                 background: `linear-gradient(to right, ${fakultas.color} 0%, white 90%, transparent 100%)`
               }}
             >
-              <div className="flex flex-col md:flex-row md:justify-between gap-4 md:gap-0 items-center text-center relative z-10">
+              <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0 items-center text-center relative z-10">
                 <div className="flex items-center gap-4 text-left">
-                  <div className="w-[60%] md:w-fit hidden md:block">
+                  <div className="w-[60%] md:w-fit hidden lg:block">
                     <Title
                       sizeText="text-sm md:text-xl lg:text-[32px] text-white"
                       fontWeight="font-semibold"
@@ -568,7 +573,7 @@ const ProgramStudi = () => {
                       <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" color="white" />
                     </div>
                   </div>
-                  <div className="flex md:hidden items-center gap-4 text-left">
+                  <div className="flex lg:hidden items-center gap-4 text-left">
                     <Title
                       sizeText="text-sm md:text-2xl lg:text-[32px] text-white"
                       fontWeight="font-base"
@@ -625,6 +630,7 @@ const ProgramStudi = () => {
                         title={member.title}
                         image={member.image}
                         color={fakultas.color}
+                        data={member}
                       />
                     </div>
                   ))}

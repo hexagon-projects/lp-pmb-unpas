@@ -6,7 +6,7 @@ import ArticleTitle from "../ArticleTitle";
 import { useState } from "react";
 const imageURL = import.meta.env.VITE_IMAGE_URL;
 
-const DosenCard = ({ name, title, image, color }) => {
+const DosenCard = ({ name, title, image, color, data }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -39,15 +39,42 @@ const DosenCard = ({ name, title, image, color }) => {
                             exit={{ opacity: 0, y: 10 }}
                             className="flex flex-col gap-2 mb-2"
                         >
-                            {[FaTiktok, FaYoutube, FaInstagram, FaFacebookF].map((Icon, i) => (
+                            {data.tt && (
                                 <motion.div
-                                    key={i}
                                     whileHover={{ scale: 1.1 }}
-                                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow"
+                                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow cursor-pointer"
+                                    onClick={() => window.open(data.tt, "_blank")}
                                 >
-                                    <Icon className="w-5 h-5" style={{ color: color }} />
+                                    <FaTiktok className="w-5 h-5" style={{ color: color }} />
                                 </motion.div>
-                            ))}
+                            )}
+                            {data.yt && (
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow cursor-pointer"
+                                    onClick={() => window.open(data.yt, "_blank")}
+                                >
+                                    <FaYoutube className="w-5 h-5" style={{ color: color }} />
+                                </motion.div>
+                            )}
+                            {data.ig && (
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow cursor-pointer"
+                                    onClick={() => window.open(data.ig, "_blank")}
+                                >
+                                    <FaInstagram className="w-5 h-5" style={{ color: color }} />
+                                </motion.div>
+                            )}
+                            {data.fb && (
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow cursor-pointer"
+                                    onClick={() => window.open(data.fb, "_blank")}
+                                >
+                                    <FaFacebookF className="w-5 h-5" style={{ color: color }} />
+                                </motion.div>
+                            )}
                         </motion.div>
                     )}
                 </AnimatePresence>
