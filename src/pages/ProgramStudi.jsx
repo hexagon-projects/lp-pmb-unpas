@@ -455,9 +455,9 @@ const ProgramStudi = () => {
                 <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
                   <PiBookBookmarkLight style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
-                <div className="flex flex-col items-center md:items-start space-y-2 lg:space-y-4">
+                <div className="flex flex-col items-start md:items-start space-y-2 lg:space-y-4">
                   <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title3} />
-                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center md:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description3 }} />
+                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-left md:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description3 }} />
                   {/* <RichText content={fakultas.description3} /> */}
                 </div>
               </motion.div>
@@ -519,9 +519,9 @@ const ProgramStudi = () => {
                 <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
                   <PiSealCheck style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
-                <div className="flex flex-col items-start space-y-2 lg:space-y-4">
-                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title4} />
-                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center md:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description4 }} />
+                <div className="flex flex-col items-start md:items-start space-y-2 lg:space-y-4">
+                  <AnimatedRichSubtitle alignText="text-left" color={fakultas.color} text={fakultas.title4} />
+                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-left md:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description4 }} />
                   {/* <RichText content={fakultas.description4} /> */}
                 </div>
               </motion.div>
@@ -530,7 +530,7 @@ const ProgramStudi = () => {
           {/* Prospek karir Section End */}
 
           {/* jalur */}
-          <div className="space-y-8 md:space-y-14 lg:space-y-20 px-6 md:px-6 lg:px-12">
+          <div className="space-y-8 md:space-y-14 lg:space-y-20 px-0 md:px-6 lg:px-12">
             <div className="w-full flex justify-center items-center">
               <MemoizedPendaftaranSection
                 image={Section3}
@@ -668,7 +668,7 @@ const ProgramStudi = () => {
             transition={{ duration: 0.6, delay: 1.8 }}
           >
             {prestasi.data && prestasi.data.length > 0 ? (
-              <PrestasiSection prestasi={prestasi.data} color={fakultas.color} />
+              <PrestasiSection prestasi={prestasi.data} color={fakultas.color} paddingMobile={'px-6 md:px-0'}/>
             ) : (
               <></>
             )}

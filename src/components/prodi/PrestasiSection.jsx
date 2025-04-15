@@ -5,13 +5,13 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
 import AnimatedTitle from "../AnimatedTitle";
 
-const PrestasiSection = ({ prestasi, color="text-black" }) => {
+const PrestasiSection = ({ prestasi, color="text-black", paddingMobile }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
     const swiperRef = useRef(null);
 
     return (
         <div className={'w-full flex flex-col md:flex-col justify-center items-center gap-4'}>
-            <div className="w-full md:w-full text-center lg:text-center space-y-3 md:space-y-4">
+            <div className={`w-full md:w-full text-center lg:text-center space-y-3 md:space-y-4 ${paddingMobile}`}>
                 <AnimatedTitle text={'Prestasi'} color={color}/>
                 <p className="text-sm md:text-base lg:text-base text-gray-500">
                     Dari akademik hingga inovasi, Universitas Pasundan terus mencetak prestasi gemilang. 

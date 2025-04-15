@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 import { useState } from "react";
 
-const AnimatedRichSubtitle = ({ text, className = "", color, sizeText, weight, justify = 'justify-center' }) => {
+const AnimatedRichSubtitle = ({ text, className = "", color, sizeText, weight, justify = 'justify-center', alignText = 'text-center' }) => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [sectionRef, isInView] = useIntersectionObserver({
     threshold: 0.1,
@@ -35,7 +35,7 @@ const AnimatedRichSubtitle = ({ text, className = "", color, sizeText, weight, j
           className={`flex flex-wrap ${justify}`}
         >
           <h2
-            className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold text-center md:text-left`}
+            className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold ${alignText} md:text-left`}
             style={{ color: color }}
             dangerouslySetInnerHTML={{ __html: text }}
           ></h2>
