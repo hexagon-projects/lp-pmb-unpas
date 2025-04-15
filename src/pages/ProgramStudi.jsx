@@ -187,7 +187,7 @@ const ProgramStudi = () => {
                 }}
               >
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/100 to-transparent"></div>
-                <div className="relative flex flex-col justify-center items-center gap-4 p-5 py-16 h-[60vh] ">
+                <div className="relative flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-12 p-5 py-16 h-[60vh] ">
                   <div className="flex justify-center items-center ">
                     <div className="flex items-center md:hidden gap-3 md:gap-4 z-1 cursor-pointer absolute top-4 rounded-lg p-2 md:p-4">
                       <img
@@ -223,14 +223,14 @@ const ProgramStudi = () => {
                     </h1>
                   </div>
 
-                  <div className="">
+                  {/* <div className="">
                     <RichText
                       content={fakultas.description1}
                       textColor="text-white"
                       sizeText="text-xs md:text-sm lg:text-lg text-center"
                       leading="leading-5 lg:leading-6"
                     />
-                  </div>
+                  </div> */}
 
                   <div className="flex gap-3 justify-center ">
                     <Button
@@ -297,10 +297,11 @@ const ProgramStudi = () => {
             </div>
 
             <div className="w-full space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
-              <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-4 lg:space-y-4 md:w-full">
+              <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-4 lg:space-y-6 md:w-full">
                 <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} className="md:mx-auto lg:mx-0"/>
-                <RichText content={fakultas.description1} />
-                <div className="flex gap-3 md:mx-auto lg:mx-0">
+                <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center lg:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description1}} />
+                {/* <RichText content={fakultas.description1} /> */}
+                <div className="flex gap-3 md:mx-auto lg:mx-0 mt-4 lg:mt-6">
                   <motion.div>
                     <Button
                       css="w-fit h-fit outline-[#C93829] outline outline-2"
