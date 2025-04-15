@@ -61,7 +61,7 @@ const VideoSwiper = ({ data = [] }) => {
                     <img
                         src={video.image}
                         alt={video.title}
-                        className="w-full h-[200px] md:h-[40vh] lg:h-[60vh] object-cover shadow-xl rounded-xl md:rounded-2xl lg:rounded-4xl"
+                        className="w-full h-[200px] md:h-[40vh] lg:h-[60vh] object-cover shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-xl md:rounded-2xl lg:rounded-4xl"
                         loading="lazy"
                         width="100%"
                         height="100%"
@@ -108,7 +108,7 @@ const VideoSwiper = ({ data = [] }) => {
                     title="YouTube Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className="rounded-xl md:rounded-2xl"
+                    className="rounded-xl md:rounded-2xl lg:rounded-4xl"
                     loading="eager"
                 />
             </motion.div>

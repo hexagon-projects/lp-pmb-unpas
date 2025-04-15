@@ -86,7 +86,7 @@ const Jalur = () => {
 
 
     return (
-        <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
+        <UserLayout bgLayoutColor="bg-[#F3F4F4]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
             <Helmet>
                 <title>Jalur Pendaftaran - Universitas Pasundan</title>
                 <meta name="description" content="Informasi lengkap semua jalur pendaftaran mahasiswa baru Universitas Pasundan. Temukan jalur yang sesuai dengan kemampuan Anda dan daftar sekarang!" />
@@ -179,7 +179,7 @@ const Jalur = () => {
                 </div>
 
                 <div className="w-full flex justify-center items-center">
-                    <div className={'w-full lg:w-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6 lg:gap-8'}>
+                    <div className={'w-full lg:w-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8'}>
                         {jalur.map((item, index) => (
                             <JalurItem
                                 key={index}

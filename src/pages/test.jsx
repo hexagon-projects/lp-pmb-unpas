@@ -95,7 +95,7 @@ const Fasilitas = () => {
       paddingTop={"lg:pt-30"}
       type={'fadeInUp'}
       duration={0.5}
-      bgLayoutColor="bg-[#F3F3F3]"
+      bgLayoutColor="bg-[#F3F4F4]"
       bgColor={'bg-[#F3F3F3]'}
     >
       <Helmet>

@@ -20,6 +20,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import AnimatedTitle from "../components/AnimatedTitle";
+import Button from "../components/Button";
 
 const Mahasiswa = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -196,7 +197,7 @@ const Mahasiswa = () => {
   );
 
   return (
-    <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
+    <UserLayout bgLayoutColor="bg-[#F3F4F4]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={1}>
       <Helmet>
         <title>Kehidupan Mahasiswa & Alumni - Universitas Pasundan</title>
         <meta name="description" content="Temukan aktivitas mahasiswa, prestasi, dan kisah inspiratif alumni Universitas Pasundan yang sukses di berbagai bidang profesional." />
@@ -286,6 +287,14 @@ const Mahasiswa = () => {
                     Komunitas dinamis yang <b>terhubung</b> dengan dukungan selama studi dan jaringan berkelanjutan pasca kelulusan untuk kesuksesan bersama.
                   </p>
                 </div>
+              </div>
+              <div className="w-full flex md:hidden">
+                <Button
+                  text={"Daftar Sekarang"}
+                  bgColor={"bg-primary"}
+                  border={"w-full justify-center border-2 border-text"}
+                  onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`}
+                />
               </div>
             </Motion.div>
 

@@ -28,7 +28,7 @@ const Contact = () => {
 
   return (
     <UserLayout
-      bgLayoutColor="bg-[#F3F3F3]"
+      bgLayoutColor="bg-[#F3F4F4]"
       bgColor={"bg-[#F3F3F3]"}
       position={"fixed"}
       margin={""}
@@ -82,10 +82,9 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col md:flex-col-reverse gap-8 md:gap-12 lg:gap-16">
-
           <div className="w-full flex justify-center items-center">
             <div className="w-full md:max-w-4xl lg:max-w-6xl flex flex-col md:flex-row gap-6 md:gap-8 bg-gradient-to-r from-primary to-[#BCAF3F] rounded-xl md:rounded-2xl lg:rounded-4xl p-4 md:p-8">
-              <div className="w-full md:w-1/2 flex flex-col justify-center space-y-6 text-black p-6">
+              <div className="w-full md:w-1/2 flex flex-col justify-center space-y-6 text-black p-0 lg:p-6">
                 <div className="space-y-4">
                   <h2 className="text-xl md:text-2xl lg:text-[40px] font-bold">Informasi Kontak</h2>
                   <p className="text-sm opacity-90">

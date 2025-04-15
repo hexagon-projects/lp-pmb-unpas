@@ -70,7 +70,7 @@ const Mitra = () => {
                 <div className="w-full flex flex-col gap-12 md:gap-16 lg:gap-18">
                     <div className="w-full flex flex-col justify-center items-center space-y-4 text-center">
                         <AnimatedTitle sizeText={'text-xl md:text-2xl lg:text-5xl'} text={'Mitra Kerjasama'} />
-                        <div className="w-1/2">
+                        <div className="w-full lg:w-1/2">
                             <Text sizeText="text-sm md:text-base lg:text-xl" text={'Kuliah di UNPAS, Pilihan Tepat dengan 100+ Mitra Kerjasama untuk Masa Depan Gemilang!'} />
                         </div>
                     </div>

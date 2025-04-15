@@ -24,7 +24,7 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
             onClick={onClick}
             style={{ willChange: 'transform' }}
         >
-            <div className="w-fit bg-transparent py-4 text-text rounded-xl md:rounded-2xl shadow-text/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]">
+            <div className="w-fit bg-transparent text-text rounded-xl md:rounded-2xl shadow-text/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]">
                 {icon}
             </div>
             <div className="absolute -top-0 left-1/2 md:left-3/5 w-full h-full opacity-25 object-cover">

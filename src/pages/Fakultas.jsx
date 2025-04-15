@@ -45,7 +45,7 @@ const Fakultas = () => {
 
   return (
     <UserLayout
-      bgLayoutColor="bg-[#F3F3F3]"
+      bgLayoutColor="bg-[#F3F4F4]"
       bgColor="bg-[#F3F3F3]"
       position="fixed"
       margin=""
@@ -59,7 +59,7 @@ const Fakultas = () => {
         <link rel="preload" href={Logo} as="image" />
       </Helmet>
 
-      <div className="relative space-y-8 md:space-y-12 lg:space-y-16 lg:pt-5">
+      <div className="relative space-y-8 md:space-y-12 lg:space-y-16 pt-5">
         <div className="relative px-5 md:px-10 lg:px-15">
           <MotionWrapper type={'fadeInUp'} duration={1} className="w-full fakultas_container">
             <div className="flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 bg-primary relative overflow-hidden fakultas_box lg:h-[55vh]">

@@ -132,7 +132,7 @@ const ArtikelDetail = () => {
 
   return (
     <UserLayout
-      bgLayoutColor="bg-[#F3F3F3]"
+      bgLayoutColor="bg-[#F3F4F4]"
       bgColor="bg-[#F3F3F3]"
       position="fixed"
       titleColor="text-black"
