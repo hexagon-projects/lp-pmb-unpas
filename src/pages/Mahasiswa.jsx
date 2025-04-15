@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import UserLayout from "./layouts/UserLayout";
-import Section1 from "../assets/gedung.jpeg";
+import Section1 from "../assets/gedung.webp";
 import Section2 from "../assets/mhsw.webp";
 import Title from "../components/Title";
 import Text from "../components/Text";
