@@ -168,7 +168,7 @@ const ArtikelDetail = () => {
               </div>
             )}
 
-            <div className="w-full prose-sm max-w-none text-justify prose-li:marker:text-black prose-li:marker:font-semibold prose-li:list-decimal" style={{ fontSize: '14px', lineHeight: '1.6' }}>
+            <div className="w-full prose-sm max-w-none text-justify prose-li:marker:text-black prose-li:marker:font-semibold prose-li:list-decimal [&_a]:text-blue-600 [&_a]:underline [&_a]:font-medium [&_a:hover]:text-blue-800" style={{ fontSize: '14px', lineHeight: '1.6' }}>
               <div dangerouslySetInnerHTML={{ __html: artikel.content }} />
             </div>
 
@@ -237,7 +237,7 @@ const ArtikelDetail = () => {
 
             <ArticleCard
               data={berita
-                .filter((item) => item.slug !== artikel.slug) // Pastikan tidak menampilkan artikel yang sedang dibuka
+                .filter((item) => item.slug !== artikel.slug)
                 .slice(0, 5)}
             />
           </div>

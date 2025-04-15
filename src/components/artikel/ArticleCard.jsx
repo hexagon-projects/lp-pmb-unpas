@@ -48,7 +48,7 @@ const ArticleCard = ({ data, border, grid = 'grid grid-cols-1 md:grid-cols-2 lg:
                     transition={{ duration: 0.3 }}
                 >
                     <div className="h-fit md:h-full flex md:flex-col items-start gap-4">
-                        <div className="md:p-4 w-[40%] h-full md:w-full">
+                        <div className="md:p-4 w-[40%] h-full md:w-full lg:h-[20vh]">
                             <img
                                 src={`${imageURL}/posts/${item?.image}`}
                                 alt={item?.title}

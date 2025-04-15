@@ -12,12 +12,15 @@ import { useNavigate } from "react-router-dom";
 import CTASection from "../components/CTASection";
 import { Helmet } from "react-helmet-async";
 import ArticleContent from "../components/ArticleContent";
+import { DatePicker, Select } from "antd";
+import dayjs from "dayjs";
 
 const Artikel = () => {
     const [berita, setBerita] = useState([]);
     const [agenda, setAgenda] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
+    const [dateFilter, setDateFilter] = useState(""); // New state for date filter
     const itemsPerPage = 12;
     const navigate = useNavigate();
     const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -52,14 +55,19 @@ const Artikel = () => {
 
     const latestBerita = berita[0] || null;
 
-    // Hapus artikel terbaru dari daftar jika ada
     const filteredBerita = berita
-        .filter(({ title, description, slug }) =>
-            [title, description].some((text) =>
+        .filter(({ title, description, slug, pub_date }) => {
+            // Filter by search term
+            const matchesSearch = [title, description].some((text) =>
                 text.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-        )
-        .filter((item) => item.slug !== latestBerita?.slug); // Filter artikel yang sama
+            );
+
+            // Filter by date if dateFilter is set
+            const matchesDate = dateFilter ? pub_date === dateFilter : true;
+
+            return matchesSearch && matchesDate;
+        })
+        .filter((item) => item.slug !== latestBerita?.slug);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -72,6 +80,13 @@ const Artikel = () => {
 
     const stripHtmlTags = (text) => {
         return text.replace(/<\/?[^>]+(>|$)/g, "");
+    };
+
+    // Get unique dates from articles for the date filter dropdown
+    const uniqueDates = [...new Set(berita.map(article => article.pub_date))].sort().reverse();
+
+    const handleDateChange = (date, dateString) => {
+        setDateFilter(dateString);
     };
 
     return (
@@ -133,13 +148,25 @@ const Artikel = () => {
                 {/* === Daftar Artikel === */}
                 <div className="w-full space-y-3 md:space-y-4">
                     <div className="w-full flex justify-between items-center">
-                        <Title sizeMobile="w-full text-base" title="Artikel Terkait" />
-                        <SearchInput
-                            placeholder="Cari Artikel"
-                            searchTerm={searchTerm}
-                            setSearchTerm={setSearchTerm}
-                            widthMobile="w-1/2"
-                        />
+                        <Title sizeMobile="w-full text-base" title="Artikel" />
+                        <div className="flex gap-4 w-fit">
+                            <DatePicker
+                                onChange={handleDateChange}
+                                placeholder="Filter Tanggal"
+                                style={{ width: 200 }}
+                                format="YYYY-MM-DD"
+                                allowClear
+                            />
+                            <div className="">
+                            <SearchInput
+                                placeholder="Cari Artikel"
+                                searchTerm={searchTerm}
+                                setSearchTerm={setSearchTerm}
+                                widthMobile="w-full"
+                                widthDekstop="w-full"
+                            />
+                            </div>
+                        </div>
                     </div>
 
                     {currentItems.length > 0 ? (

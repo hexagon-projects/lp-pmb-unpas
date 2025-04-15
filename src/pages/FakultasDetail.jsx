@@ -123,7 +123,7 @@ const FakultasDetail = () => {
         )}
       </AnimatePresence>
 
-      <motion.div className="w-full px-5 md:px-10 lg:px-15 space-y-8 md:space-y-16 lg:space-y-16" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <motion.div className="w-full px-5 md:px-10 lg:px-15 space-y-8 md:space-y-16 lg:space-y-16 pt-5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
         <motion.div className="relative" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="w-full fakultas_dtl_container">
             <div
