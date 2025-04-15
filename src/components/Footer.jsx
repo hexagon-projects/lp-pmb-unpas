@@ -38,8 +38,8 @@ const Footer = () => {
 
     return (
         <footer className="bg-[#034833] text-white p-4 md:p-6 lg:p-8 m-2 md:m-6 lg:m-6 rounded-xl md:rounded-2xl lg:rounded-4xl relative overflow-hidden">
-            <div className="absolute -top-0 left-25 md:left-[75%] w-full h-full opacity-50 object-cover">
-                <img src={LogoOutline} alt={"Logo Outline Unpas"} loading="lazy" className="h-[60vh] object-cover object-left" />
+            <div className="absolute -top-0 left-25 md:left-[70%] w-full h-full opacity-50 object-cover">
+                <img src={LogoOutline} alt={"Logo Outline Unpas"} loading="lazy" className="h-[60vh] lg:h-[65vh] object-cover object-left" />
             </div>
             <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4 md:gap-6 lg:gap-8 bg-cover bg-no-repeat overflow-hidden">
                 <div className="w-full md:w-fit space-y-4 text-white mb-4 md:mb-0">

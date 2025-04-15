@@ -260,7 +260,7 @@ const Mahasiswa = () => {
           exit="exit"
           variants={pageVariants}
         >
-          <div className="relative p-5 md:px-10 lg:px-15 space-y-12 md:space-y-16 lg:space-y-24">
+          <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-10 lg:space-y-12">
             <Motion.div
               variants={sectionVariants}
               initial="hidden"
@@ -296,7 +296,7 @@ const Mahasiswa = () => {
               transition={{ delay: 0.2 }}
               className={"w-full space-y-4 md:space-y-6 lg:space-y-10"}
             >
-              <div className="flex items-start">
+              <div className="flex flex-col items-start md:items-center">
                 <AnimatedTitle text={"Aktivitas Mahasiswa"} />
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
@@ -319,7 +319,7 @@ const Mahasiswa = () => {
               animate="visible"
               transition={{ delay: 0.6 }}
               className={
-                "w-full flex flex-col justify-center items-center space-y-4 md:space-y-6 lg:space-y-10 lg:px-[77px]"
+                "w-full flex flex-col justify-center items-center space-y-4 md:space-y-6 lg:space-y-10"
               }
             >
               <div className="w-full space-y-4 text-center">

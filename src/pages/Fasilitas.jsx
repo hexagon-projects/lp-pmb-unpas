@@ -126,8 +126,8 @@ const Fasilitas = () => {
         </script>
       </Helmet>
 
-      <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-14 lg:space-y-16">
-        <MotionWrapper type={'fadeInUp'} duration={1} once className="space-y-8 md:space-y-14 lg:space-y-16">
+      <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-10 lg:space-y-12">
+        <MotionWrapper type={'fadeInUp'} duration={1} once className="space-y-8 md:space-y-10 lg:space-y-12">
           <div className="w-full h-42 md:h-60 lg:h-[65vh] relative">
             <img
               src={Section1}
@@ -165,7 +165,7 @@ const Fasilitas = () => {
           </div>
         </MotionWrapper>
 
-        <div className="w-full space-y-4 md:space-y-6 lg:space-y-10 lg:p-[50px]">
+        <div className="w-full space-y-4 md:space-y-6 lg:space-y-10 lg:px-[50px]">
           <div className="flex items-start">
             <AnimatedTitle text={"Gedung Kampus"} />
           </div>
@@ -182,9 +182,9 @@ const Fasilitas = () => {
           </div>
         </div>
 
-        <div className="w-full h-full space-y-4 md:space-y-6 lg:space-y-10">
-          <div className="flex items-start">
-            <AnimatedTitle text={"Fasilitas Unggulan"} />
+        <div className="w-full h-full space-y-4 md:space-y-6 lg:space-y-10 lg:pt-8">
+          <div className="w-full flex flex-col items-start md:items-center">
+            <AnimatedTitle alignText="text-left md:text-center" justify="justify-center" text={"Fasilitas Unggulan"} />
           </div>
           <div className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {[bento1, bento2, bento3].map((bento, bentoIndex) => (

@@ -5,7 +5,7 @@ const PrestasiCard = ({ title, image, name }) => {
 
     return (
         <div className="relative w-full">
-            <div className="w-full lg:h-fit flex justify-center md:justify-between items-stretch gap-[16px] bg-white p-4 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] 
+            <div className="w-full lg:h-fit flex justify-center md:justify-between items-stretch gap-[16px] bg-[#f0f0f0] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] 
                 transition-transform duration-500 ease-in-out hover:scale-102">
                 <div className={`w-[40%] h-[16vh] md:h-[20vh] lg:h-[20vh] md:w-[40%] lg:w-[30%] flex items-center`}>
                     <img src={`${imageURL}/prestasis/${image}`} alt={title} 

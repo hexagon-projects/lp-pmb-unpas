@@ -6,7 +6,7 @@ const MitraCard = ({ title, image, widthImg = 'w-1/2 md:w-[35%]', widthText = 'w
 
     return (
         <div className="relative w-full h-full cursor-pointer" onClick={onClick}>
-            <div className="w-full h-full flex justify-between place-items-stretch gap-4 bg-white p-4 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] 
+            <div className="w-full h-full flex justify-between place-items-stretch gap-4 bg-[#f0f0f0] p-4 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] 
                 transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
                 <div className={`${widthImg} flex items-center`}>
                     <img src={`${imageURL}/partners/${image}`} alt={title}

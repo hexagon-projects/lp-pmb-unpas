@@ -3,7 +3,7 @@ import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 import { useState } from "react";
 import Title from "./Title";
 
-const AnimatedTitle = ({ text, className = "", color, sizeText, weight, justify = 'justify-center' }) => {
+const AnimatedTitle = ({ text, className = "", color, sizeText, weight, justify = 'justify-center', alignText = 'text-left' }) => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [sectionRef, isInView] = useIntersectionObserver({
     threshold: 0.1,
@@ -50,7 +50,7 @@ const AnimatedTitle = ({ text, className = "", color, sizeText, weight, justify 
             <motion.span
               key={index}
               variants={wordVariants}
-              className="inline-block mr-1 text-left"
+              className={`inline-block mr-1 ${alignText}`}
             >
               <Title sizeText={sizeText} title={word} color={color} fontWeight={weight}/>
             </motion.span>

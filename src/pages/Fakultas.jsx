@@ -19,7 +19,7 @@ const Fakultas = () => {
   const fetchData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
-    
+
     try {
       const timestamp = Date.now();
       const fakultasData = await FakultasService.getAllFakultas(`?timestamp=${timestamp}`);
@@ -59,8 +59,8 @@ const Fakultas = () => {
         <link rel="preload" href={Logo} as="image" />
       </Helmet>
 
-      <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-12 lg:space-y-16">
-        <div className="relative">
+      <div className="relative space-y-8 md:space-y-12 lg:space-y-16 lg:pt-5">
+        <div className="relative px-5 md:px-10 lg:px-15">
           <MotionWrapper type={'fadeInUp'} duration={1} className="w-full fakultas_container">
             <div className="flex flex-col justify-center bg-cover bg-no-repeat rounded-lg md:rounded-2xl lg:rounded-4xl py-8 px-4 bg-primary relative overflow-hidden fakultas_box lg:h-[55vh]">
               <div className="absolute -right-1/4 md:-right-30 lg:-right-4">
@@ -84,7 +84,7 @@ const Fakultas = () => {
               </div>
             </div>
           </MotionWrapper>
-          <MotionWrapper type={'fadeInUp'} duration={1} className="absolute bottom-0 left-0 z-10">
+          <MotionWrapper type={'fadeInUp'} duration={1} className="absolute bottom-0 left-0 z-10 px-5 md:px-10 lg:px-15">
             <Button
               text="Daftar Sekarang"
               bgColor="bg-primary"
@@ -105,7 +105,7 @@ const Fakultas = () => {
             <p>{error}</p>
           </div>
         ) : (
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-5 md:px-10 lg:px-15">
             {fakultas.map((item, index) => (
               <FakultasItem
                 key={item.id}
@@ -119,12 +119,14 @@ const Fakultas = () => {
           </div>
         )}
 
-        <FakultasSection
-          faculties={FACULTIES}
-          faculties1={FACULTIES1}
-          faculties2={FACULTIES2}
-          faculties3={FACULTIES3}
-        />
+        <div className="md:bg-[#717171]/5 px-4 md:px-6 lg:px-8 md:border-2 md:border-[#ebebeb]">
+          <FakultasSection
+            faculties={FACULTIES}
+            faculties1={FACULTIES1}
+            faculties2={FACULTIES2}
+            faculties3={FACULTIES3}
+          />
+        </div>
 
         <CTASection />
       </div>

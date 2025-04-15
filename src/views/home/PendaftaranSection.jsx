@@ -134,7 +134,7 @@ const PendaftaranSection = ({
 
     return (
         <div className="w-full flex justify-center items-center bg-transparent">
-            <div className="w-full md:w-full flex flex-col gap-4 md:gap-6 lg:gap-8 p-5 md:p-10 lg:p-15">
+            <div className="w-full md:w-full flex flex-col gap-4 md:gap-6 lg:gap-8 p-5 md:p-10 lg:py-14">
                 <div className="text-center md:space-y-2">
                     {title && <AnimatedSubtitle sizeText="text-base md:text-lg lg:text-2xl" text={title} color={titleColor} weight="" />}
                     {subtitle && <AnimatedTitle text={subtitle} color={subtitleColor} />}

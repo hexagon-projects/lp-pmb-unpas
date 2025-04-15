@@ -55,7 +55,7 @@ const Mitra = () => {
     const totalPages = Math.ceil(partners.length / partnersPerPage);
 
     return (
-        <UserLayout bgLayoutColor="bg-[#F3F3F3]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}>
+        <UserLayout bgLayoutColor="bg-[#F3F4F4]" bgColor={'bg-[#F3F3F3]'} position={"fixed"} margin={""} titleColor={"text-black"} paddingDekstop={"md:py-3 md:px-3 lg:py-6 lg:px-6"} paddingTop={'lg:pt-30'} type={'fadeInUp'} duration={0.5}>
             <div className="relative p-5 md:px-10 lg:px-15 space-y-12 md:space-y-16 lg:space-y-18">
                 <div className="w-full mitra_container">
                     <div className="w-full h-50 md:h-60 lg:h-[60vh] mitra_box">
@@ -67,10 +67,12 @@ const Mitra = () => {
                     </div>
                 </div>
 
-                <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8">
-                    <div className="space-y-4 text-center">
-                        <AnimatedTitle text={'Mitra'} />
-                        <Text text={'Kuliah di UNPAS, Pilihan Tepat dengan 100+ Mitra Kerjasama untuk Masa Depan Gemilang!'} />
+                <div className="w-full flex flex-col gap-12 md:gap-16 lg:gap-18">
+                    <div className="w-full flex flex-col justify-center items-center space-y-4 text-center">
+                        <AnimatedTitle sizeText={'text-xl md:text-2xl lg:text-5xl'} text={'Mitra Kerjasama'} />
+                        <div className="w-1/2">
+                            <Text sizeText="text-sm md:text-base lg:text-xl" text={'Kuliah di UNPAS, Pilihan Tepat dengan 100+ Mitra Kerjasama untuk Masa Depan Gemilang!'} />
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">

@@ -148,7 +148,7 @@ const Faq = () => {
 
                         {paginatedGeneralFaqs.length > 0 ? (
                             paginatedGeneralFaqs.map((faq) => (
-                                <div key={faq.id} className="w-full shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
+                                <div key={faq.id} className="w-full shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4 cursor-pointer" onClick={() => toggleGeneralDropdown(faq.id)}>
                                     <button
                                         className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base cursor-pointer"
                                         onClick={() => toggleGeneralDropdown(faq.id)}
@@ -187,7 +187,7 @@ const Faq = () => {
 
                         {paginatedBillingFaqs.length > 0 ? (
                             paginatedBillingFaqs.map((faq) => (
-                                <div key={faq.id} className="w-full shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4">
+                                <div key={faq.id} className="w-full shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-lg p-4 cursor-pointer" onClick={() => toggleBillingDropdown(faq.id)}>
                                     <button
                                         className="w-full flex justify-between items-center text-left font-semibold text-xs md:text-sm lg:text-base cursor-pointer"
                                         onClick={() => toggleBillingDropdown(faq.id)}
@@ -210,65 +210,6 @@ const Faq = () => {
                         )}
                     </div>
                 </div>
-
-                {/* <div className="w-full flex justify-center items-center px-4 md:px-6 lg:px-8">
-                    <form onSubmit={handleSubmit} className={'w-full lg:w-[80%] bg-primary p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] text-black space-y-3 md:space-y-4'}>
-                        <div className="space-y-2 flex justify-center">
-                            <h2 className="text-[30px] font-bold">Masih Punya Pertanyaan?</h2>
-                        </div>
-
-                        <div>
-                            <label htmlFor="email" className="block text-xs md:text-sm lg:text-base font-medium">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                className="w-full text-xs md:text-sm lg:text-base p-4 bg-white rounded-lg mt-1"
-                                placeholder="Enter your email"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="phone" className="block text-xs md:text-sm lg:text-base font-medium">Nomor Telepon</label>
-                            <div className="flex items-center">
-                                <span className="p-4 text-xs md:text-sm lg:text-base bg-gray-200 rounded-l-md">+62</span>
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    className="w-full text-xs md:text-sm lg:text-base p-4 bg-white rounded-r-md"
-                                    placeholder="Enter your phone number"
-                                    value={formData.phone}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <div>
-                            <label htmlFor="message" className="block text-xs md:text-sm lg:text-base font-medium">Pertanyaan Anda</label>
-                            <textarea
-                                id="message"
-                                className="w-full text-xs md:text-sm lg:text-base p-4 bg-white rounded-lg mt-1"
-                                placeholder="Tulis pertanyaan Anda di sini"
-                                rows="4"
-                                value={formData.message}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </div>
-
-                        <p className="mt-2 text-xs md:text-sm lg:text-base font-semibold">Jam Operasional 08:00 WIB - 16:00 WIB</p>
-
-                        <button
-                            type="submit"
-                            className="w-full md:w-auto px-6 py-3 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg hover:border-3 hover:border-white/50 transition"
-                        >
-                            Kirim via WhatsApp
-                        </button>
-                    </form>
-                </div> */}
 
                 <CTASection />
             </div>

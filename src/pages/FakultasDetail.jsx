@@ -123,7 +123,7 @@ const FakultasDetail = () => {
         )}
       </AnimatePresence>
 
-      <motion.div className="w-full p-5 md:p-10 lg:p-15 space-y-8 md:space-y-16 lg:space-y-16" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <motion.div className="w-full px-5 md:px-10 lg:px-15 space-y-8 md:space-y-16 lg:space-y-16" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
         <motion.div className="relative" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="w-full fakultas_dtl_container">
             <div
@@ -152,44 +152,51 @@ const FakultasDetail = () => {
             </div>
           </div>
           <div className="absolute bottom-0 left-0 z-20">
-            <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border='border-2 border-text' hoverBgColor={'hover:border-2 hover:border-text'} padding={'px-4 py-4'} onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'}/>
+            <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border='border-2 border-text' hoverBgColor={'hover:border-2 hover:border-text'} padding={'px-4 py-4'} onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'} />
           </div>
         </motion.div>
 
-        <motion.div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
-          {prodi.map((item, index) => (
-            <div key={index}>
-              <TeknikBox image={`${imageURL}/programs/${item.image1}`} title={item.program_name} slug={item.slug} />
-            </div>
-          ))}
-        </motion.div>
-
-        <motion.div className="w-full flex justify-center items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
-          <div className="w-full flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-y-4 md:gap-y-0 gap-x-18">
-            <div className="w-full md:w-full space-y-3 md:space-y-4 flex flex-col justify-center items-left text-justify md:items-start md:text-left ">
-              <div className="text-center md:text-left">
-                <Title title={`Tentang Kami`} color="text-[#3384FF]" />
-              </div>
-              <div className="max-h-[300px] overflow-y-auto">
-              <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }}/>
-                {/* <RichText content={`${fakultas.description2}`} /> */}
-              </div>
-              <div className="w-fit">
-                <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border='border-2 border-text' hoverBgColor={'hover:border-2 hover:border-text'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
-              </div>
-            </div>
-            <div className="w-full md:w-1/2 xl:w-full h-96 md:h-[40vh] lg:h-[40vh] flex justify-center">
-              <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer">
-                <img src={`https://img.youtube.com/vi/${fakultas.yt_id}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
-                <motion.div className="absolute inset-0 flex items-center justify-center rounded-lg md:rounded-2xl lg:rounded-4xl" whileTap={{ scale: 0.9 }}>
-                  <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
-                    <FaPlay className="text-white p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
-                  </div>
-                </motion.div>
-              </button>
-            </div>
+        <div className='flex flex-col-reverse md:flex-col gap-8 md:gap-16 lg:gap-16'>
+          <div className='space-y-3 md:space-y-4 lg:space-y-10'>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="text-center">
+              <Title title={`Program Studi`} color="text-[#3384FF]" />
+            </motion.div>
+            <motion.div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
+              {prodi.map((item, index) => (
+                <div key={index}>
+                  <TeknikBox image={`${imageURL}/programs/${item.image1}`} title={item.program_name} slug={item.slug} />
+                </div>
+              ))}
+            </motion.div>
           </div>
-        </motion.div>
+
+          <motion.div className="w-full flex justify-center items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
+            <div className="w-full flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-y-4 md:gap-y-0 gap-x-18">
+              <div className="w-full md:w-full space-y-3 md:space-y-4 lg:space-y-6 flex flex-col justify-center items-left text-justify md:items-start md:text-left ">
+                <div className="text-center md:text-left">
+                  <Title title={`Tentang Kami`} color="text-[#3384FF]" />
+                </div>
+                <div className="max-h-[300px] overflow-y-auto">
+                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }} />
+                  {/* <RichText content={`${fakultas.description2}`} /> */}
+                </div>
+                <div className="w-fit">
+                  <Button text={'Daftar Sekarang'} bgColor={'bg-primary'} border='border-2 border-text' hoverBgColor={'hover:border-2 hover:border-text'} onClick={() => fakultas?.link_program && (window.location.href = fakultas.link_program)} />
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 xl:w-full h-96 md:h-[40vh] lg:h-[40vh] flex justify-center">
+                <button onClick={() => setIsOpen(true)} className="relative w-full aspect-video rounded-lg md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer">
+                  <img src={`https://img.youtube.com/vi/${fakultas.yt_id}/hqdefault.jpg`} alt="Thumbnail Video" className="w-full h-full object-cover" />
+                  <motion.div className="absolute inset-0 flex items-center justify-center rounded-lg md:rounded-2xl lg:rounded-4xl" whileTap={{ scale: 0.9 }}>
+                    <div className="p-2 group-hover:scale-120 bg-gradient-to-b rounded-full bg-gray-600 via-gray-700 to-gray-800">
+                      <FaPlay className="text-white p-4 w-14 h-14 transition-transform duration-200 ease-in-out group-hover:scale-120" />
+                    </div>
+                  </motion.div>
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
         <motion.div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.2 }}>
           <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2">
@@ -201,7 +208,7 @@ const FakultasDetail = () => {
                 <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
               </div>
               <div className="">
-                <Button css={'pulsating-button'} text={'Daftar Sekarang'} bgColor="bg-primary" padding="p-4" onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'}/>
+                <Button css={'pulsating-button'} text={'Daftar Sekarang'} bgColor="bg-primary" padding="p-4" onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'} />
               </div>
             </div>
           </div>
@@ -212,7 +219,7 @@ const FakultasDetail = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.6 }}>
-          <div className="text-center md:text-left space-y-3 md:space-y-4">
+          <div className="text-center md:text-center space-y-3 md:space-y-4 lg:space-y-6">
             <Title title={'Berita Terbaru'} />
             <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
               <div className="md:w-1/2 lg:w-full">
@@ -243,7 +250,7 @@ const FakultasDetail = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 2 }}>
-          <CTASection/>
+          <CTASection />
         </motion.div>
       </motion.div>
     </UserLayout>

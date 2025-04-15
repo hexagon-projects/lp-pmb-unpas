@@ -7,6 +7,7 @@ import TestimoniService from "../fetching/testimoni";
 import Pagination from "../components/Pagination";
 import TestimonialCard from "../components/testimoni/TestimonialCard";
 import AnimatedTitle from "../components/AnimatedTitle";
+import CTASection from "../components/CTASection";
 
 const Testimoni = () => {
     const [testimonial, setTestimonial] = useState([]);
@@ -72,6 +73,8 @@ const Testimoni = () => {
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}
                 />
+
+                <CTASection />
             </div>
         </UserLayout>
     );

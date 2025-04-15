@@ -118,9 +118,9 @@ const Jalur = () => {
                 </script>
             </Helmet>
             <div className="relative p-5 md:px-10 lg:px-15 space-y-8 md:space-y-14 lg:space-y-16">
-                <div className={'w-full lg:h-[80vh] flex flex-col md:flex-row-reverse justify-between md:justify-center items-center gap-4 md:gap-4 lg:gap-20'}>
+                <div className={'w-full lg:h-[75vh] flex flex-col md:flex-row-reverse justify-between md:justify-center items-center gap-4 md:gap-4 lg:gap-20'}>
                     <div className="relative w-full jalur_container">
-                        <div className="w-full h-52 md:h-64 lg:h-full jalur_box">
+                        <div className="w-full h-52 md:h-64 lg:h-[75vh] jalur_box">
                             <img
                                 src={Section1}
                                 alt="Gedung Unpas"
@@ -178,51 +178,53 @@ const Jalur = () => {
                     </div>
                 </div>
 
-                <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6 lg:gap-8'}>
-                    {jalur.map((item, index) => (
-                        <JalurItem
-                            key={index}
-                            item={item}
-                            index={index}
-                            onClick={handleOpenModal}
-                        />
-                    ))}
+                <div className="w-full flex justify-center items-center">
+                    <div className={'w-full lg:w-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6 lg:gap-8'}>
+                        {jalur.map((item, index) => (
+                            <JalurItem
+                                key={index}
+                                item={item}
+                                index={index}
+                                onClick={handleOpenModal}
+                            />
+                        ))}
 
-                    <AnimatePresence>
-                        {isOpen && selectedJalur && (
-                            <motion.div
-                                className="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
-                                onClick={handleCloseModal}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                            >
+                        <AnimatePresence>
+                            {isOpen && selectedJalur && (
                                 <motion.div
-                                    className="bg-[#f0f0f0] p-6 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] w-11/12 max-w-lg space-y-3"
-                                    onClick={e => e.stopPropagation()}
-                                    initial={{ scale: 0.5, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    exit={{ scale: 0.5, opacity: 0 }}
-                                    transition={{ type: "spring", duration: 0.5 }}
+                                    className="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
+                                    onClick={handleCloseModal}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
                                 >
-                                    <div className="flex justify-between items-start gap-4 relative">
-                                        <h2 className="text-xl font-bold">{selectedJalur.name}</h2>
-                                        <div className="w-fit absolute -top-8 -right-8 ">
-                                            <button className="p-2 rounded-full text-white bg-red-500 cursor-pointer" onClick={handleCloseModal}><X size={24} /></button>
+                                    <motion.div
+                                        className="bg-[#f0f0f0] p-6 rounded-xl md:rounded-2xl lg:rounded-4xl shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] w-11/12 max-w-lg space-y-3"
+                                        onClick={e => e.stopPropagation()}
+                                        initial={{ scale: 0.5, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        exit={{ scale: 0.5, opacity: 0 }}
+                                        transition={{ type: "spring", duration: 0.5 }}
+                                    >
+                                        <div className="flex justify-between items-start gap-4 relative">
+                                            <h2 className="text-xl font-bold">{selectedJalur.name}</h2>
+                                            <div className="w-fit absolute -top-8 -right-8 ">
+                                                <button className="p-2 rounded-full text-white bg-red-500 cursor-pointer" onClick={handleCloseModal}><X size={24} /></button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="overflow-auto max-h-50 lg:max-h-60">
-                                        <RichText content={selectedJalur.content} />
-                                    </div>
-                                    <Text text={`Periode: ${selectedJalur.start_date} - ${selectedJalur.end_date}`} />
-                                    <div className="flex justify-start mt-4 gap-4">
-                                        <Button text="Daftar Sekarang" bgColor="bg-primary" border="border-2 border-text" hoverBgColor="hover:border-2 hover:border-text" textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />
-                                        <Button text="Buku Panduan" border="border-2 border-footer" hoverBgColor='hover:border-2 hover:border-footer hover:bg-white' textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />
-                                    </div>
+                                        <div className="overflow-auto max-h-50 lg:max-h-60">
+                                            <RichText content={selectedJalur.content} />
+                                        </div>
+                                        <Text text={`Periode: ${selectedJalur.start_date} - ${selectedJalur.end_date}`} />
+                                        <div className="flex justify-start mt-4 gap-4">
+                                            <Button text="Daftar Sekarang" bgColor="bg-primary" border="border-2 border-text" hoverBgColor="hover:border-2 hover:border-text" textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />
+                                            <Button text="Buku Panduan" border="border-2 border-footer" hoverBgColor='hover:border-2 hover:border-footer hover:bg-white' textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />
+                                        </div>
+                                    </motion.div>
                                 </motion.div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                            )}
+                        </AnimatePresence>
+                    </div>
                 </div>
 
                 <CTASection />
