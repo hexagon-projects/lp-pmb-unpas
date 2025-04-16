@@ -168,7 +168,15 @@ const ArtikelDetail = () => {
               </div>
             )}
 
-            <div className="w-full prose-sm max-w-none text-justify prose-li:marker:text-black prose-li:marker:font-semibold prose-li:list-decimal [&_a]:text-blue-600 [&_a]:underline [&_a]:font-medium [&_a:hover]:text-blue-800" style={{ fontSize: '14px', lineHeight: '1.6' }}>
+            <div
+              className="w-full prose-sm max-w-none text-justify 
+                [&_a]:text-blue-600 [&_a]:underline [&_a]:font-medium [&_a:hover]:text-blue-800
+                [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2     
+                [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2  
+                [&_li]:my-1                                 
+              "
+              style={{ fontSize: '14px', lineHeight: '1.6' }}
+            >
               <div dangerouslySetInnerHTML={{ __html: artikel.content }} />
             </div>
 

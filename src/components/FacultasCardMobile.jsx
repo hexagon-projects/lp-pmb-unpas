@@ -67,11 +67,15 @@ const FakultasCardMobile = ({ faculty, index = 0, isVisible = true }) => {
               key={`${program.slug}-${idx}`}
               variants={programVariants}
               className="text-[10px] md:text-sm bg-[#F0F0F0] border-2 border-[#FAFAFA80] rounded-lg px-2 py-2 hover:bg-primary cursor-pointer"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale:0.95 }}
               transition={{ type: "spring", stiffness: 300, damping: 10 }}
               initial="hidden"
               animate={isVisible ? "visible" : "hidden"}
-              onClick={() => window.location.href = `/program-studi/${program.slug}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                window.location.href = `/program-studi/${program.slug}`;
+              }}
             >
               {program.name}
             </motion.span>

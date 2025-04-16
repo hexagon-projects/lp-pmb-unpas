@@ -3,8 +3,8 @@ export const FACULTIES = [
       name: 'Fakultas Keguruan dan Ilmu Pendidikan',
       slug: 'fakultas-keguruan-dan-ilmu-pendidikan',
       programs: [
-        { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-kewarganegaraan' },
-        { name: 'S1 - Pendidikan Ekonomi Akuntansi', slug: 'pendidikan-ekonomi-akuntansi' },
+        { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-dan-kewarganegaraan' },
+        { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' },
         { name: 'S1 - Pendidikan Bahasa dan Sastra Indonesia', slug: 'pendidikan-bahasa-dan-sastra-indonesia' },
         { name: 'S1 - Pendidikan Matematika', slug: 'pendidikan-matematika' },
         { name: 'S1 - Pendidikan Biologi', slug: 'pendidikan-biologi' },
@@ -20,7 +20,7 @@ export const FACULTIES = [
         { name: 'S1 - Teknik Industri', slug: 'teknik-industri' },
         { name: 'S1 - Teknik Lingkungan', slug: 'teknik-lingkungan' },
         { name: 'S1 - Teknologi Pangan', slug: 'teknologi-pangan' },
-        { name: 'S1 - Perencanaan Wilayah dan Kota', slug: 'perencanaan-wilayah-dan-kota' }
+        { name: 'S1 - Perencanaan Wilayah dan Kota', slug: 'perencanaan-wilayah-dan-kota-pwk' }
       ]
     },
     {
@@ -48,23 +48,22 @@ export const FACULTIES = [
         { name: 'S2 - Magister Administrasi & Kebijakan Publik', slug: 'magister-administrasi-kebijakan-publik' },
         { name: 'S2 - Magister Manajemen', slug: 'magister-manajemen' },
         { name: 'S2 - Magister Teknik Industri', slug: 'magister-teknik-industri' },
-        { name: 'S2 - Magister Ilmu Hukum', slug: 'magister-ilmu-hukum' },
+        { name: 'S2 - Magister Ilmu Hukum', slug: 'magister-ilmu-hukum-s2' },
         { name: 'S2 - Magister Teknologi Pangan', slug: 'magister-teknologi-pangan' },
         { name: 'S2 - Magister Pendidikan Matematika', slug: 'magister-pendidikan-matematika' },
         { name: 'S2 - Magister Teknik Mesin', slug: 'magister-teknik-mesin' },
-        { name: 'S2 - Magister Akutansi', slug: 'magister-akutansi' },
         { name: 'S2 - Magister Ilmu Komunikasi', slug: 'magister-ilmu-komunikasi' },
-        { name: 'S2 - Magister Pendidikan Bahasa Indonesia', slug: 'magister-pendidikan-bahasa-indonesia' },
+        { name: 'S2 - Magister Pendidikan Bahasa & Sastra Indonesia', slug: 'magister-pendidikan-bahasa-dan-sastra-indonesia' },
         { name: 'S2 - Magister Kenotariatan', slug: 'magister-kenotariatan' },
-        { name: 'S2 - Magister Akutansi', slug: 'magister-akutansi' },
+        { name: 'S2 - Magister Akuntansi', slug: 'magister-akuntansi' },
       ]
     },
     {
       name: 'Fakultas Kedokteran',
       slug: 'fakultas-kedokteran',
       programs: [
-        { name: 'S1 - Pendidikan Dokter', slug: 'pendidikan-dokter' },
-        { name: 'Profesi - Profesi Dokter', slug: 'profesi-dokter' }
+        { name: 'S1 - Kedokteran', slug: 'kedokteran' },
+        // { name: 'Profesi - Profesi Dokter', slug: 'profesi-dokter' }
       ]
     },
     {

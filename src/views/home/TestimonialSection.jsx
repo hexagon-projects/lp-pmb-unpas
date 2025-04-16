@@ -53,7 +53,7 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row', visibilityTi
             effect="fade"
             fadeEffect={{ crossFade: true }}
             speed={1000}
-            loop={data?.length > 3}
+            loop={data?.length > 1}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChangeTransitionStart={() => setIsTransitioning(true)}
             onSlideChangeTransitionEnd={() => setIsTransitioning(false)}

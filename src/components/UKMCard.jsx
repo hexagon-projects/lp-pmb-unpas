@@ -49,7 +49,7 @@ const UKMCard = ({ title, text, image, index }) => {
           src={`${imageURL}/organisasi/${image}`}
           alt={`Gambar ${title}`}
           effect="blur"
-          className="w-full h-full object-cover rounded-lg md:rounded-xl lg:rounded-2xl"
+          className="w-full h-full object-cover object-top rounded-lg md:rounded-xl lg:rounded-2xl"
           wrapperClassName="w-full h-full"
           threshold={200}
         />

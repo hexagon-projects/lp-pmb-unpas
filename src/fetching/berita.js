@@ -3,7 +3,7 @@ import axios from '../lib/axios';
 const BeritaService = {
     getAllBerita: async () => {
         try {
-            const response = await axios.get('/post');
+            const response = await axios.get('/postall');
             return response.data;
         } catch (error) {
             console.error('Error fetching post:', error);

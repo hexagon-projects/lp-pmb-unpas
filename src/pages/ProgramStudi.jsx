@@ -298,8 +298,8 @@ const ProgramStudi = () => {
 
             <div className="w-full space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-4 lg:space-y-6 md:w-full">
-                <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} className="md:mx-auto lg:mx-0 md:w-1/2" tabletAlign="md:text-center"/>
-                <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center lg:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description1}} />
+                <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} tabletAlign="md:text-center lg:text-left" />
+                <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center lg:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description1 }} />
                 {/* <RichText content={fakultas.description1} /> */}
                 <div className="flex gap-3 md:mx-auto lg:mx-0 mt-4 lg:mt-6">
                   <motion.div>
@@ -373,7 +373,7 @@ const ProgramStudi = () => {
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <div className="flex flex-col items-start space-y-2 md:space-y-2 lg:space-y-4">
-                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title2} className="mx-auto lg:mx-0"/>
+                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title2} className="mx-auto lg:mx-0" />
                   <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center lg:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }} />
                   {/* <RichText content={fakultas.description2} /> */}
                 </div>
@@ -402,46 +402,45 @@ const ProgramStudi = () => {
           {/* Fakultas Unggulan Section End */}
 
           {/* Mengapa Memilih Fakultas Section */}
-          <motion.div className=" p-5 md:px-6 lg:px-12 relative w-full overflow-hidden space-y-4 md:space-y-6 lg:space-y-8">
-            <div className="w-full flex justify-center items-center">
-              <div className="w-full lg:hidden md:w-1/2 lg:w-1/3 xl:w-full flex justify-center items-center text-center flex-wrap">
-                <AnimatedRichTitle text={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace(
-                  "Fakultas ",
-                  ""
-                )} Universitas Pasundan`}
-                  color={fakultas.color} />
+          {unggulan.length > 0 && (
+            <motion.div className="p-5 md:px-6 lg:px-12 relative w-full overflow-hidden space-y-4 md:space-y-6 lg:space-y-8">
+              <div className="w-full flex justify-center items-center">
+                <div className="w-full lg:hidden md:w-2/3 lg:w-1/3 xl:w-full flex justify-center items-center text-center flex-wrap">
+                  <AnimatedRichTitle
+                    text={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace("Fakultas ", "")} Universitas Pasundan`}
+                    color={fakultas.color}
+                  />
+                </div>
+
+                <div className="hidden lg:flex w-full md:w-1/3 lg:w-1/2 xl:w-1/2 flex-col justify-center items-center text-center flex-wrap">
+                  <AnimatedRichTitle
+                    text={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace("Fakultas ", "")} Universitas Pasundan`}
+                    color={fakultas.color}
+                  />
+                </div>
               </div>
 
-              <div className="hidden lg:flex w-full md:w-1/3 lg:w-1/3 xl:w-full flex-col justify-center items-center text-center flex-wrap">
-                <AnimatedRichTitle text={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace(
-                  "Fakultas ",
-                  ""
-                )}`}
-                  color={fakultas.color} />
-                <AnimatedRichTitle
-                  text={`Universitas Pasundan`}
-                  color={fakultas.color}
-                />
+              <Text text={""} />
+
+              <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-x divide-y divide-[#E4E4E7]">
+                {unggulan.map((item, index) => (
+                  <HighlightCard
+                    key={index}
+                    title={item.title}
+                    text={item.description}
+                    image={item.image}
+                    hoverColor={fakultas.color}
+                  />
+                ))}
               </div>
-            </div>
-            <Text text={""} />
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-x divide-y divide-[#E4E4E7]">
-              {unggulan.map((item, index) => (
-                <HighlightCard
-                  key={index}
-                  title={item.title}
-                  text={item.description}
-                  image={item.image}
-                  hoverColor={fakultas.color}
-                />
-              ))}
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
+
           {/* Mengapa Memilih Fakultas Section End */}
 
           {/* Apa yang kamu pelajari Section */}
           <motion.div
-            className=" w-full flex lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8 px-6 md:px-6 lg:px-12 flex-col-reverse"
+            className=" w-full flex lg:flex-row-reverse justify-around items-center gap-4 md:gap-6 lg:gap-8 px-6 md:px-6 lg:px-12 flex-col-reverse"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -456,7 +455,7 @@ const ProgramStudi = () => {
                   <PiBookBookmarkLight style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
                 <div className="flex flex-col items-start md:items-start space-y-2 lg:space-y-4">
-                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title3} />
+                  <AnimatedRichSubtitle alignText="text-left" color={fakultas.color} text={fakultas.title3} />
                   <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-left md:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description3 }} />
                   {/* <RichText content={fakultas.description3} /> */}
                 </div>
@@ -486,7 +485,7 @@ const ProgramStudi = () => {
 
           {/* Prospek karir Section */}
           <motion.div
-            className="w-full flex flex-col lg:flex-row items-center gap-4 md:gap-6 lg:gap-20 px-6 md:px-6 lg:px-12"
+            className="w-full flex flex-col lg:flex-row-reverse items-center gap-4 md:gap-6 lg:gap-20 px-6 md:px-6 lg:px-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -668,7 +667,7 @@ const ProgramStudi = () => {
             transition={{ duration: 0.6, delay: 1.8 }}
           >
             {prestasi.data && prestasi.data.length > 0 ? (
-              <PrestasiSection prestasi={prestasi.data} color={fakultas.color} paddingMobile={'px-6 md:px-0'}/>
+              <PrestasiSection prestasi={prestasi.data} color={fakultas.color} paddingMobile={'px-6 md:px-0'} />
             ) : (
               <></>
             )}

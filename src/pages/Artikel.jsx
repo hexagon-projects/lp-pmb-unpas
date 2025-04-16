@@ -82,7 +82,6 @@ const Artikel = () => {
         return text.replace(/<\/?[^>]+(>|$)/g, "");
     };
 
-    // Get unique dates from articles for the date filter dropdown
     const uniqueDates = [...new Set(berita.map(article => article.pub_date))].sort().reverse();
 
     const handleDateChange = (date, dateString) => {

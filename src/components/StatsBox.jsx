@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import Text from "./Text";
 
-const StatsBox = ({ icon, number, title, colorIcon = 'text-text' }) => {
+const StatsBox = ({ icon, number, title, colorIcon = 'text-text', widthDekstop = 'lg:w-fit' }) => {
     const [count, setCount] = useState(0);
     const ref = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -55,7 +55,7 @@ const StatsBox = ({ icon, number, title, colorIcon = 'text-text' }) => {
             <div className="w-[30%] md:w-fit">
                 <div className={`w-fit p-3 bg-[#f0f0f0] border-2 border-[#fafafa] rounded-full ${colorIcon} transition shadow-xl shadow-text/5 md:shadow-text/20 shadow-[0px_20px_40px_rgba(254, 242, 81, 0.7)]`}>{icon}</div>
             </div>
-            <div className="w-[30%] lg:w-fit flex flex-col">
+            <div className={`w-[30%] ${widthDekstop} flex flex-col`}>
                 <h3 className="text-md md:text-2xl lg:text-3xl font-bold text-black">
                     <span>{count}</span>+
                 </h3>
