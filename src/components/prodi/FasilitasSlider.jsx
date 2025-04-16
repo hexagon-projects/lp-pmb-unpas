@@ -7,6 +7,7 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Title from "../Title";
 import Text from "../Text";
 import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
+import { motion, AnimatePresence } from 'framer-motion'
 
 const FasilitasSlider = ({ title, facilities, color }) => {
     const imageURL = import.meta.env.VITE_IMAGE_URL;
@@ -24,28 +25,37 @@ const FasilitasSlider = ({ title, facilities, color }) => {
     return (
         <div className="w-full flex justify-center items-center relative">
             <div className="w-full md:w-[90%] lg:w-[90%] flex flex-col justify-center text-center space-y-3 md:space-y-4 bg-[#F0F0F0] p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl lg:rounded-4xl">
-                {selectedFacility && (
-                    <div className="flex flex-col lg:flex-row-reverse space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-8">
-                        <div className="lg:w-1/2 text-black text-left md:text-left space-y-2 z-10">
-                            <h3 className="text-xl font-bold text-[#303030D4]">
-                                {selectedFacility.title}
-                            </h3>
-                            <Text text={'Fasilitas pendukung kami dirancang untuk memberikan kenyamanan, kemudahan, dan efisiensi dalam setiap aktivitas Mahasiswa'} />
-                        </div>
-                        <div className="lg:w-1/2 relative h-96 lg:h-[50vh] rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden">
-                            <div
-                                className="h-full bg-cover bg-center"
-                                style={{ backgroundImage: `url(${imageURL}/facilities/${selectedFacility.image})` }}
-                            >
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-[#C5B91B40]/25 to-transparent flex flex-col justify-end p-6 rounded-xl md:rounded-2xl lg:rounded-4xl">
-                                    <h3 className="text-sm md:text-base lg:text-base font-bold text-white z-10 text-left">
-                                        {selectedFacility.title}
-                                    </h3>
+                <AnimatePresence mode="wait">
+                    {selectedFacility && (
+                        <motion.div
+                            key={selectedFacility.title}
+                            initial={{ opacity: 0, y: 0 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="flex flex-col lg:flex-row-reverse space-y-3 md:space-y-4 gap-4 md:gap-6 lg:gap-8"
+                        >
+                            <div className="lg:w-1/2 text-black text-left md:text-left space-y-2 z-10">
+                                <h3 className="text-xl font-bold text-[#303030D4]">
+                                    {selectedFacility.title}
+                                </h3>
+                                <Text text={'Fasilitas pendukung kami dirancang untuk memberikan kenyamanan, kemudahan, dan efisiensi dalam setiap aktivitas Mahasiswa'} />
+                            </div>
+                            <div className="lg:w-1/2 relative h-96 lg:h-[50vh] rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden">
+                                <div
+                                    className="h-full bg-cover bg-center"
+                                    style={{ backgroundImage: `url(${imageURL}/facilities/${selectedFacility.image})` }}
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-[#C5B91B40]/25 to-transparent flex flex-col justify-end p-6 rounded-xl md:rounded-2xl lg:rounded-4xl">
+                                        <h3 className="text-sm md:text-base lg:text-base font-bold text-white z-10 text-left">
+                                            {selectedFacility.title}
+                                        </h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                )}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
                 <div className='block md:hidden'>
                     <button
                         onClick={() => {

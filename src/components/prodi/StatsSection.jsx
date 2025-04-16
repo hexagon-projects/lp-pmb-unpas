@@ -37,10 +37,18 @@ const StatsSection = ({ title1 = 'Program Studi', prodi, mahasiswa, lulusan, pre
             : {}
         }
       >
+        <div className="lg:w-1/5">
         <StatsBoxProdi colorIcon={colorIcon} icon={<PiStudentDuotone className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />} number={mahasiswa} title={'Mahasiswa'} />
+        </div>
+        <div className="lg:w-1/5">
         <StatsBoxProdi colorIcon={colorIcon} icon={<RiGraduationCapLine className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />} number={lulusan} title={'Lulusan'} />
+        </div>
+        <div className="lg:w-1/5">
         <StatsBoxProdi colorIcon={colorIcon} icon={<BiBuilding className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />} number={prodi} title={title1} />
+        </div>
+        <div className="lg:w-1/5">
         <StatsBoxProdi colorIcon={colorIcon} icon={<IoTrophyOutline className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />} number={prestasi} title={'Prestasi'} />
+        </div>
       </div>
     </div>
   );

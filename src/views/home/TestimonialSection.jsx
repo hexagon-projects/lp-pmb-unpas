@@ -14,8 +14,10 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Koma from '../../assets/koma.svg';
 import AnimatedTitle from "../../components/AnimatedTitle";
 import ButtonHover from "../../components/ButtonHover";
+import { useNavigate } from "react-router-dom";
 
 const TestimonialSection = ({ data, displayDekstop = 'md:flex-row', visibilityTitle = 'block' }) => {
+  const navigate = useNavigate();
   const imageURL = import.meta.env.VITE_IMAGE_URL;
   const swiperRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -106,7 +108,7 @@ const TestimonialSection = ({ data, displayDekstop = 'md:flex-row', visibilityTi
           <div className="w-full flex justify-center items-center">
             <div className="w-[85%] md:w-full px-3 md:px-6 lg:px-9 relative z-10 md:-mt-10 lg:-mt-16">
               <div className="w-fit">
-                <ButtonHover icon={<ArrowUpRight />} iconStatus="visible" text={'Selengkapnya'} flex="flex flex-row"/>
+                <ButtonHover icon={<ArrowUpRight />} iconStatus="visible" text={'Selengkapnya'} flex="flex flex-row" onClick={() => navigate('/testimoni')}/>
               </div>
             </div>
           </div>

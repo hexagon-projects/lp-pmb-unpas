@@ -298,7 +298,7 @@ const ProgramStudi = () => {
 
             <div className="w-full space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-4 lg:space-y-6 md:w-full">
-                <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} className="md:mx-auto lg:mx-0"/>
+                <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} className="md:mx-auto lg:mx-0 md:w-1/2" tabletAlign="md:text-center"/>
                 <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center lg:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description1}} />
                 {/* <RichText content={fakultas.description1} /> */}
                 <div className="flex gap-3 md:mx-auto lg:mx-0 mt-4 lg:mt-6">
@@ -404,7 +404,7 @@ const ProgramStudi = () => {
           {/* Mengapa Memilih Fakultas Section */}
           <motion.div className=" p-5 md:px-6 lg:px-12 relative w-full overflow-hidden space-y-4 md:space-y-6 lg:space-y-8">
             <div className="w-full flex justify-center items-center">
-              <div className="w-full lg:hidden md:w-full lg:w-1/3 xl:w-full flex justify-center items-center text-center flex-wrap">
+              <div className="w-full lg:hidden md:w-1/2 lg:w-1/3 xl:w-full flex justify-center items-center text-center flex-wrap">
                 <AnimatedRichTitle text={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace(
                   "Fakultas ",
                   ""
@@ -556,7 +556,7 @@ const ProgramStudi = () => {
             <div
               className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rounded-none md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2"
               style={{
-                background: `linear-gradient(to right, ${fakultas.color} 0%, white 90%, transparent 100%)`
+                background: `linear-gradient(to right, ${fakultas.color} 0%, ${fakultas.color}33 90%)`
               }}
             >
               <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0 items-center text-center relative z-10">

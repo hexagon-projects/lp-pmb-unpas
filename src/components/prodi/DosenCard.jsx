@@ -80,13 +80,13 @@ const DosenCard = ({ name, title, image, color, data }) => {
                 </AnimatePresence>
 
                 {/* Original ArrowUpRight Icon */}
-                <motion.div
+                {/* <motion.div
                     className="rounded-xl bg-white"
                     whileHover={{ scale: 1.2 }}
                     transition={{ type: "spring", stiffness: 200 }}
                 >
                     <ArrowUpRight className="w-8 md:w-11 h-8 md:h-11 p-1 rounded-xl rotate-45 group-hover:rotate-0 transition duration-500" style={{ color: color }} />
-                </motion.div>
+                </motion.div> */}
             </div>
         </div>
     );
