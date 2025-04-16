@@ -218,7 +218,7 @@ const Jalur = () => {
                                         <Text text={`Periode: ${selectedJalur.start_date} - ${selectedJalur.end_date}`} />
                                         <div className="flex justify-start mt-4 gap-4">
                                             <Button text="Daftar Sekarang" bgColor="bg-primary" border="border-2 border-text" hoverBgColor="hover:border-2 hover:border-text" textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />
-                                            <Button text="Buku Panduan" border="border-2 border-footer" hoverBgColor='hover:border-2 hover:border-footer hover:bg-white' textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} />
+                                            {/* <Button text="Buku Panduan" border="border-2 border-footer" hoverBgColor='hover:border-2 hover:border-footer hover:bg-white' textColor="text-black" onClick={() => window.open(selectedJalur.link, "_blank")} /> */}
                                         </div>
                                     </motion.div>
                                 </motion.div>
