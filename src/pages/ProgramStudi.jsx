@@ -553,7 +553,7 @@ const ProgramStudi = () => {
             </div>
           </div>
 
-          <motion.div
+          {/* <motion.div
             className="w-full flex justify-center items-center p-0 md:px-6 md:py-9 lg:px-8 lg:py-11"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -616,7 +616,7 @@ const ProgramStudi = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
           {/* jalur end */}
 
           {/* Dosen Penelitian Section */}
