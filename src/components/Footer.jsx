@@ -46,20 +46,20 @@ const Footer = () => {
                     <img src={Logo} alt="Logo Universitas Pasundan" className="w-14 h-14 md:w-16 md:h-16" loading="lazy" />
                     <Title title={'Terhubung Dengan Kami'} color="text-white" sizeText="text-lg md:text-2xl" />
                     <div className="flex justify-start gap-3">
-                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />}>
-                            <FaSquareXTwitter className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" />}>
+                            <FaSquareXTwitter className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" onClick={() => window.location.href = 'https://x.com/univ_pasundan'}/>
                         </Suspense>
-                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />}>
-                            <RiInstagramFill className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" />}>
+                            <RiInstagramFill className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" onClick={() => window.location.href = 'https://www.instagram.com/pmbunpas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='}/>
                         </Suspense>
-                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />}>
-                            <FaFacebookSquare className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" />}>
+                            <FaFacebookSquare className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" onClick={() => window.location.href = 'https://www.facebook.com/universitaspasundan'}/>
                         </Suspense>
-                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />}>
-                            <AiFillTikTok className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" />}>
+                            <AiFillTikTok className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" onClick={() => window.location.href = 'https://www.tiktok.com/@univ_pasundan'}/>
                         </Suspense>
-                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />}>
-                            <FaYoutube className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" onClick={() => window.location.href = 'https://www.youtube.com/@UniversitasPasundanOfficial'}/>}>
+                            <FaYoutube className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" />
                         </Suspense>
                     </div>
                 </div>
