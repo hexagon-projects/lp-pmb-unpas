@@ -6,7 +6,6 @@ import LogoOutline from "../assets/logo-outline1.png";
 import Loading from "./Loading";
 import FakultasService from "../fetching/fakultas";
 
-// Dynamic imports for icons
 const FaYoutube = lazy(() => import("react-icons/fa").then(module => ({ default: module.FaYoutube })));
 const FaFacebookSquare = lazy(() => import("react-icons/fa").then(module => ({ default: module.FaFacebookSquare })));
 const FaSquareXTwitter = lazy(() => import("react-icons/fa6").then(module => ({ default: module.FaSquareXTwitter })));
@@ -42,25 +41,25 @@ const Footer = () => {
                 <img src={LogoOutline} alt={"Logo Outline Unpas"} loading="lazy" className="h-[60vh] lg:h-[65vh] object-cover object-left" />
             </div>
             <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4 md:gap-6 lg:gap-8 bg-cover bg-no-repeat overflow-hidden">
-                <div className="w-full md:w-fit space-y-4 text-white mb-4 md:mb-0">
+                <div className="w-full md:w-fit space-y-4 mb-4 md:mb-0">
                     <img src={Logo} alt="Logo Universitas Pasundan" className="w-14 h-14 md:w-16 md:h-16" loading="lazy" />
                     <Title title={'Terhubung Dengan Kami'} color="text-white" sizeText="text-lg md:text-2xl" />
                     <div className="flex justify-start gap-3">
-                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" />}>
-                            <FaSquareXTwitter className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" onClick={() => window.location.href = 'https://x.com/univ_pasundan'}/>
-                        </Suspense>
-                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" />}>
-                            <RiInstagramFill className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" onClick={() => window.location.href = 'https://www.instagram.com/pmbunpas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='}/>
-                        </Suspense>
-                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" />}>
-                            <FaFacebookSquare className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" onClick={() => window.location.href = 'https://www.facebook.com/universitaspasundan'}/>
-                        </Suspense>
-                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" />}>
-                            <AiFillTikTok className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" onClick={() => window.location.href = 'https://www.tiktok.com/@univ_pasundan'}/>
-                        </Suspense>
-                        <Suspense fallback={<div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" onClick={() => window.location.href = 'https://www.youtube.com/@UniversitasPasundanOfficial'}/>}>
-                            <FaYoutube className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer" />
-                        </Suspense>
+                        <div onClick={() => window.location.href = 'https://x.com/univ_pasundan'}>
+                            <FaSquareXTwitter className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
+                        </div>
+                        <div onClick={() => window.location.href = 'https://www.instagram.com/pmbunpas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='}>
+                            <RiInstagramFill className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
+                        </div>
+                        <div onClick={() => window.location.href = 'https://www.facebook.com/universitaspasundan'}>
+                            <FaFacebookSquare className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
+                        </div>
+                        <div onClick={() => window.location.href = 'https://www.tiktok.com/@univ_pasundan'}>
+                            <AiFillTikTok className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
+                        </div>
+                        <div onClick={() => window.location.href = 'https://www.youtube.com/@UniversitasPasundanOfficial'}>
+                            <FaYoutube className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
+                        </div>
                     </div>
                 </div>
 
@@ -105,11 +104,6 @@ const Footer = () => {
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Kampus II</a>
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Jl. Tamansari No.6-8</a>
                         </div>
-
-                        {/* <div className="flex flex-col justify-center items-start gap-2">
-                            <a href="" className="text-xs hover:font-bold cursor-pointer">Kampus III</a>
-                            <a href="" className="text-xs hover:font-bold cursor-pointer">Jl. Wartawan IV No.22</a>
-                        </div> */}
 
                         <div className="flex flex-col justify-center items-start gap-2">
                             <a href="" className="text-xs hover:font-bold cursor-pointer">Kampus IV</a>
