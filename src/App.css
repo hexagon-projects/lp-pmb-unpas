@@ -158,6 +158,32 @@ a {
     animation: arrow-move 1.5s ease-in-out infinite;
 }
 
+.article-card {
+    position: relative;
+    border-radius: 16px; 
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.article-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(45deg, rgb(224, 135, 135), rgb(232, 186, 102), rgb(240, 240, 100), rgb(125, 227, 125));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.article-card:hover::before {
+    opacity: 1;
+    animation: border-animation 3s ease-in-out;
+}
 
 @keyframes border-animation {
     0% {
@@ -187,33 +213,6 @@ a {
     100% {
         clip-path: inset(0 0 0 0);
     }
-}
-
-.article-card {
-    position: relative;
-    border-radius: 16px; 
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-}
-
-.article-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    padding: 1px;
-    background: linear-gradient(45deg, rgb(224, 135, 135), rgb(232, 186, 102), rgb(240, 240, 100), rgb(125, 227, 125));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.article-card:hover::before {
-    opacity: 1;
-    animation: border-animation 3s ease-in-out forwards;
 }
 
 @keyframes rainbow-border {

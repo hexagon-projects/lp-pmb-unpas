@@ -31,12 +31,27 @@ const FloatingWhatsApp = () => {
     fetchIdentity();
   }, []);
 
-  const phoneNumber = `0${identity[0]?.phone}`;
+  const phoneNumber = `${identity[0]?.phone}`;
 
   const openWhatsApp = () => {
-    const message = chat || "Hello, I need more information!";
-    const url = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(url, "_blank");
+    const message = encodeURIComponent(chat || "Hello, I need more information!");
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    
+    let url;
+    if (isIOS) {
+      url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+    } else {
+      url = `https://wa.me/${phoneNumber}?text=${message}`;
+    }
+    
+    if (isIOS) {
+      window.location.href = url;
+      setTimeout(() => {
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+      }, 500);
+    } else {
+      window.open(url, '_blank');
+    }
   };
 
   return (

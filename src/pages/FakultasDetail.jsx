@@ -28,6 +28,7 @@ import AgendaService from '../fetching/agenda'
 import Gedung from '../assets/gedung.jpeg'
 import MitraSection from '../views/home/MitraSection'
 import { motion, AnimatePresence } from 'framer-motion'
+import AnimatedRichSubtitle from '../components/prodi/AnimatedRichSubtitle'
 
 const FakultasDetail = () => {
   const { slug } = useParams()
@@ -158,9 +159,7 @@ const FakultasDetail = () => {
 
         <div className='flex flex-col-reverse md:flex-col gap-8 md:gap-16 lg:gap-16'>
           <div className='space-y-3 md:space-y-4 lg:space-y-10'>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="text-center">
-              <Title title={`Program Studi`} color="text-[#3384FF]" />
-            </motion.div>
+            <AnimatedRichSubtitle color={fakultas.color} text={'Program Studi'} tabletAlign="md:text-center lg:text-left" />
             <motion.div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
               {prodi.map((item, index) => (
                 <div key={index}>
@@ -172,10 +171,11 @@ const FakultasDetail = () => {
 
           <motion.div className="w-full flex justify-center items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
             <div className="w-full flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-y-4 md:gap-y-0 gap-x-18">
-              <div className="w-full md:w-full space-y-3 md:space-y-4 lg:space-y-6 flex flex-col justify-center items-left text-justify md:items-start md:text-left ">
-                <div className="text-center md:text-left">
+              <div className="w-full md:w-full space-y-3 md:space-y-4 lg:space-y-6 flex flex-col justify-center items-left text-justify md:items-start md:text-left">
+                <AnimatedRichSubtitle color={fakultas.color} text={'Tentang Kami'} tabletAlign="md:text-center lg:text-left" />
+                {/* <div className="text-center md:text-left">
                   <Title title={`Tentang Kami`} color="text-[#3384FF]" />
-                </div>
+                </div> */}
                 <div className="max-h-[300px] overflow-y-auto">
                   <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }} />
                   {/* <RichText content={`${fakultas.description2}`} /> */}
@@ -203,9 +203,9 @@ const FakultasDetail = () => {
             <div className="flex justify-between md:justify-between items-center text-center relative z-2">
               <div className="flex items-center gap-4 text-left">
                 <div className="w-[60%] md:w-fit">
-                  <Title sizeText="text-sm md:text-2xl lg:text-[32px]" fontWeight="font-semibold" title={'Yuk Daftar Di Unpas Sekarang!'} />
+                  <h2 className="text-sm md:text-2xl lg:text-[32px] text-gray-900 font-semibold" style={{ color: `${fakultas.color}` }}>Yuk Daftar Di Unpas Sekarang!</h2>
                 </div>
-                <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
+                <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" style={{ color: `${fakultas.color}` }} />
               </div>
               <div className="">
                 <Button css={'pulsating-button'} text={'Daftar Sekarang'} bgColor="bg-primary" padding="p-4" onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'} />
@@ -215,12 +215,12 @@ const FakultasDetail = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.4 }}>
-          <MitraSection data={partner} />
+          <MitraSection data={partner} color={fakultas.color} />
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.6 }}>
           <div className="text-center md:text-center space-y-3 md:space-y-4 lg:space-y-6">
-            <Title title={'Berita Terbaru'} />
+            <AnimatedRichSubtitle color={fakultas.color} text={'Berita Terbaru'} tabletAlign="md:text-center lg:text-left" />
             <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
               <div className="md:w-1/2 lg:w-full">
                 <ArticleTransparentCard image={latestBerita[0]?.image} title={latestBerita[0]?.title} slug={latestBerita[0]?.slug} description={latestBerita[0]?.description} />

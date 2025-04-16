@@ -299,7 +299,7 @@ const ProgramStudi = () => {
             <div className="w-full space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
               <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-4 lg:space-y-6 md:w-full">
                 <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} tabletAlign="md:text-center lg:text-left" />
-                <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center lg:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description1 }} />
+                <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center lg:text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description1 }} />
                 {/* <RichText content={fakultas.description1} /> */}
                 <div className="flex gap-3 md:mx-auto lg:mx-0 mt-4 lg:mt-6">
                   <motion.div>
@@ -310,9 +310,12 @@ const ProgramStudi = () => {
                       bgColor="bg-primary"
                       hoverBgColor="hover:border-2"
                       onClick={() =>
-                        fakultas?.link_program &&
-                        (window.location.href = fakultas.link_program)
+                        (window.location.href = `https://registrasi.unpas.ac.id/register`)
                       }
+                      // onClick={() =>
+                      //   fakultas?.link_program &&
+                      //   (window.location.href = fakultas.link_program)
+                      // }
                     />
                   </motion.div>
 
@@ -374,7 +377,7 @@ const ProgramStudi = () => {
               >
                 <div className="flex flex-col items-start space-y-2 md:space-y-2 lg:space-y-4">
                   <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title2} className="mx-auto lg:mx-0" />
-                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center lg:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }} />
+                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-center lg:text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }} />
                   {/* <RichText content={fakultas.description2} /> */}
                 </div>
               </motion.div>
@@ -407,14 +410,18 @@ const ProgramStudi = () => {
               <div className="w-full flex justify-center items-center">
                 <div className="w-full lg:hidden md:w-2/3 lg:w-1/3 xl:w-full flex justify-center items-center text-center flex-wrap">
                   <AnimatedRichTitle
-                    text={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace("Fakultas ", "")} Universitas Pasundan`}
+                    text={`Kenapa Harus Memilih Program Studi ${fakultas?.name?.replace("Fakultas ", "")} Universitas Pasundan`}
                     color={fakultas.color}
                   />
                 </div>
 
-                <div className="hidden lg:flex w-full md:w-1/3 lg:w-1/2 xl:w-1/2 flex-col justify-center items-center text-center flex-wrap">
+                <div className="hidden lg:flex w-full md:w-full lg:w-full xl:w-full flex-col justify-center items-center text-center flex-wrap">
                   <AnimatedRichTitle
-                    text={`Mengapa Harus Memilih Program Studi ${fakultas?.name?.replace("Fakultas ", "")} Universitas Pasundan`}
+                    text={`Kenapa Harus Memilih Program Studi`}
+                    color={fakultas.color}
+                  />
+                  <AnimatedRichTitle
+                    text={`${fakultas?.name?.replace("Fakultas ", "")} Universitas Pasundan`}
                     color={fakultas.color}
                   />
                 </div>
@@ -456,7 +463,7 @@ const ProgramStudi = () => {
                 </div>
                 <div className="flex flex-col items-start md:items-start space-y-2 lg:space-y-4">
                   <AnimatedRichSubtitle alignText="text-left" color={fakultas.color} text={fakultas.title3} />
-                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-left md:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description3 }} />
+                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-left md:text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description3 }} />
                   {/* <RichText content={fakultas.description3} /> */}
                 </div>
               </motion.div>
@@ -520,7 +527,7 @@ const ProgramStudi = () => {
                 </div>
                 <div className="flex flex-col items-start md:items-start space-y-2 lg:space-y-4">
                   <AnimatedRichSubtitle alignText="text-left" color={fakultas.color} text={fakultas.title4} />
-                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-left md:text-left`} dangerouslySetInnerHTML={{ __html: fakultas.description4 }} />
+                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 text-left md:text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description4 }} />
                   {/* <RichText content={fakultas.description4} /> */}
                 </div>
               </motion.div>

@@ -224,12 +224,12 @@ const ArtikelDetail = () => {
             </div>
 
             {/* Artikel Sidebar */}
-            {berita.length > 0 && (
+            {/* {berita.length > 0 && (
               <>
                 <Title sizeText="text-base md:text-xl lg:text-2xl" title="Artikel Terkini" />
                 <ArticleSidebar data={berita} excludeId={artikel.id} />
               </>
-            )}
+            )} */}
 
             {/* Jalur PMB */}
             <Title sizeText="text-base md:text-xl lg:text-2xl" title="Jalur PMB" />
