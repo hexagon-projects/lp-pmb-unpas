@@ -9,9 +9,17 @@ import GedungCard from "../components/fasilitas/GedungCard";
 import CTASection from "../components/CTASection";
 import { Helmet } from "react-helmet-async";
 import Mahasiswa from "../assets/mhsw2.webp";
+import IdentityService from "../fetching/identity";
 
 const Contact = () => {
   const [fakultas, setFakultas] = useState([]);
+  const [identity, setIdentity] = useState([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    description: ""
+  });
 
   const fetchFakultas = async () => {
     try {
@@ -22,9 +30,44 @@ const Contact = () => {
     }
   };
 
+  const fetchIdentity = async () => {
+    try {
+      const response = await IdentityService.getAllIdentities()
+      setIdentity(response)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   useEffect(() => {
     fetchFakultas();
+    fetchIdentity();
   }, []);
+
+  const phoneNumber = `${identity[0]?.phone}`;
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleWhatsAppRedirect = (message = "") => {
+    if (!phoneNumber) return;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    const message = `Halo, saya ${formData.name}.\n\nSaya ingin berkonsultasi mengenai:\n${formData.description}\n\nKontak saya:\nTelepon: ${formData.phone}\nEmail: ${formData.email}`;
+
+    handleWhatsAppRedirect(message);
+  };
 
   return (
     <UserLayout
@@ -68,6 +111,7 @@ const Contact = () => {
                 hoverBgColor={"hover:bg-primary/70"}
                 textColor={"text-black"}
                 border="border-2 border-text"
+                onClick={() => handleWhatsAppRedirect("Halo, saya ingin menghubungi Universitas Pasundan")}
               />
               <Button
                 text={"Permintaan Konsultan"}
@@ -76,6 +120,7 @@ const Contact = () => {
                 hoverBgColor={"hover:bg-black/70"}
                 textColor={"text-white"}
                 border="border-2 border-footer"
+                onClick={() => handleWhatsAppRedirect("Halo, saya ingin melakukan konsultasi dengan Universitas Pasundan")}
               />
             </div>
           </div>
@@ -95,11 +140,11 @@ const Contact = () => {
                 <div className="space-y-3">
                   <div className="text-sm md:text-base flex items-center gap-2">
                     <span><MdOutlineEmail /></span>
-                    <p>@unpas.ac.id</p>
+                    <p>infopmb@unpas.ac.id</p>
                   </div>
                   <div className="text-sm md:text-base flex items-center gap-2">
                     <span>📞</span>
-                    <p>+62811960193</p>
+                    <p>{phoneNumber || "+62811960193"}</p>
                   </div>
                 </div>
               </div>
@@ -112,14 +157,18 @@ const Contact = () => {
                   </h3>
                 </div>
 
-                <form className="space-y-2">
+                <form onSubmit={handleFormSubmit} className="space-y-2">
                   <div className="space-y-1">
                     <label className="block text-sm font-medium text-gray-700">
                       Nama*
                     </label>
                     <input
                       type="text"
-                      className="w-full p-1 md:p-2 border-b-2 border-black focus:outline-none focus:border-primary"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full p-1 md:p-2 border-b-2 border-black focus:outline-none focus:border-black"
                     />
                   </div>
 
@@ -129,7 +178,11 @@ const Contact = () => {
                     </label>
                     <input
                       type="tel"
-                      className="w-full p-1 md:p-2 border-b-2 border-black focus:outline-none focus:border-primary"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full p-1 md:p-2 border-b-2 border-black focus:outline-none focus:border-black"
                     />
                   </div>
 
@@ -139,7 +192,10 @@ const Contact = () => {
                     </label>
                     <input
                       type="email"
-                      className="w-full p-1 md:p-2 border-b-2 border-black focus:outline-none focus:border-primary"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full p-1 md:p-2 border-b-2 border-black focus:outline-none focus:border-black"
                     />
                   </div>
 
@@ -147,12 +203,17 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-gray-700">
                       Deskripsi minat
                     </label>
-                    <textarea className="w-full p-1 md:p-2 border-b-2 border-black focus:outline-none focus:border-primary  " />
+                    <textarea
+                      name="description"
+                      value={formData.description}
+                      onChange={handleInputChange}
+                      className="w-full p-1 md:p-2 border-b-2 border-black focus:outline-none focus:border-black"
+                    />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-black hover:bg-black/80 text-white font-medium py-3 px-6 rounded-lg md:rounded-xl lg:rounded-2xl transition-colors"
+                    className="w-full bg-black hover:bg-black/80 text-white font-medium py-3 px-6 rounded-lg md:rounded-xl lg:rounded-2xl transition-colors cursor-pointer"
                   >
                     Kirim
                   </button>

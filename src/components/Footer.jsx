@@ -64,7 +64,7 @@ const Footer = () => {
                 </div>
 
                 <div className="w-full flex justify-between md:justify-around items-start gap-10">
-                    <div className="space-y-4">
+                    <div className="flex flex-col gap-4">
                         <Text sizeMobile="text-sm" text={'Navigasi'} weight={'font-semibold'} color="text-white" />
                         <div className="flex flex-col gap-4 items-start">
                             <a href="/" className="text-xs hover:font-medium cursor-pointer">Beranda</a>

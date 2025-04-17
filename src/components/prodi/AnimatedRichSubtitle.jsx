@@ -36,7 +36,10 @@ const AnimatedRichSubtitle = ({ text, className = "", color, sizeText, weight, j
         >
           <h2
             className={`text-xl md:text-2xl lg:text-4xl text-gray-900 font-bold ${alignText} ${tabletAlign}`}
-            style={{ color: color }}
+            style={{ 
+              color: color,
+              textTransform: 'capitalize'
+            }}
             dangerouslySetInnerHTML={{ __html: text }}
           ></h2>
         </motion.div>

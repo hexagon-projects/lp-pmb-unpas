@@ -41,6 +41,7 @@ import ButtonHover from "../components/ButtonHover";
 import { Helmet } from "react-helmet-async";
 import AnimatedRichTitle from "../components/prodi/AnimatedRichTitle";
 import AnimatedRichSubtitle from "../components/prodi/AnimatedRichSubtitle";
+import IdentityService from "../fetching/identity";
 
 const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
 
@@ -75,6 +76,7 @@ const ProgramStudi = () => {
     prodi: null,
     gallery: [],
     jalur: [],
+    identity: []
   });
 
   const fetchData = useCallback(async () => {
@@ -82,7 +84,7 @@ const ProgramStudi = () => {
     try {
       const prodi = await ProdiService.getProdiBySlug(slug);
 
-      const [partners, testimonials, berita, prestasi, gallery, jalur] =
+      const [partners, testimonials, berita, prestasi, gallery, jalur, identity] =
         await Promise.all([
           PartnerService.getAllPartner(),
           TestimoniService.getTestimonibyDepartement({
@@ -92,6 +94,7 @@ const ProgramStudi = () => {
           PrestasiService.getPrestasiProdi(slug),
           GalleryService.getAllInovasiSlug({ slug: slug }),
           RegistrasiService.getAllRegistrasi(),
+          IdentityService.getAllIdentities()
         ]);
       setData({
         partner: partners,
@@ -101,6 +104,7 @@ const ProgramStudi = () => {
         prodi,
         gallery,
         jalur,
+        identity
       });
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -113,7 +117,7 @@ const ProgramStudi = () => {
     fetchData();
   }, [fetchData]);
 
-  const { partner, testimonials, berita, prestasi, prodi, gallery, jalur } =
+  const { partner, testimonials, berita, prestasi, prodi, gallery, jalur, identity } =
     data;
   const latestBerita = berita.slice(0, 4);
   const latestActivity = gallery;
@@ -129,10 +133,18 @@ const ProgramStudi = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = ourteam.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(ourteam.length / itemsPerPage);
+  const phoneNumber = `${identity[0]?.phone}`;
 
   if (loading) {
     return <Loading />;
   }
+
+  const handleWhatsAppRedirect = (message = "") => {
+    if (!phoneNumber) return;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+  };
 
   return (
     <>
@@ -158,19 +170,11 @@ const ProgramStudi = () => {
         <meta name="twitter:image" content={fakultas.image1 ? `${imageURL}/programs/${fakultas.image1}` : Logo} />
       </Helmet>
 
-      <UserLayout
-        bgLayoutColor="bg-[#F3F4F4]"
-        bgColor="bg-[#F3F3F3]"
-        position="fixed"
-        margin=""
-        titleColor="text-black"
-        paddingDekstop="md:py-3 md:px-3 lg:py-6 lg:px-6"
-        paddingTop="lg:pt-10"
-      >
-        <div className="p-0 lg:py-12 space-y-14 md:space-y-16 lg:space-y-20">
+      <UserLayout bgLayoutColor="bg-[#F3f4f4]" position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-10'}>
+        <div className=" lg:py-12 space-y-14 md:space-y-16 lg:space-y-20">
           {/* Hero Section */}
           <motion.div
-            className="relative p-0 lg:px-12"
+            className="relative  lg:px-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -249,6 +253,7 @@ const ProgramStudi = () => {
                       text="Hubungi Admin"
                       bgColor="outline outline-2 outline-footer text-[#F3F4F4]"
                       hoverBgColor="hover:border-2 hover:bg-[#034833] hover:text-white"
+                      onClick={() => handleWhatsAppRedirect("Halo, saya ingin menghubungi Universitas Pasundan")}
                     />
                   </div>
                 </div>
@@ -312,10 +317,10 @@ const ProgramStudi = () => {
                       onClick={() =>
                         (window.location.href = `https://registrasi.unpas.ac.id/register`)
                       }
-                      // onClick={() =>
-                      //   fakultas?.link_program &&
-                      //   (window.location.href = fakultas.link_program)
-                      // }
+                    // onClick={() =>
+                    //   fakultas?.link_program &&
+                    //   (window.location.href = fakultas.link_program)
+                    // }
                     />
                   </motion.div>
 
@@ -326,6 +331,7 @@ const ProgramStudi = () => {
                       text="Hubungi Kami"
                       bgColor="outline outline-2 outline-[#034833] text-gray-900 bg-transparent"
                       hoverBgColor="hover:border-2 hover:bg-[#034833] hover:text-white"
+                      onClick={() => handleWhatsAppRedirect("Halo, saya ingin menghubungi Universitas Pasundan")}
                     />
                   </motion.div>
                 </div>
@@ -554,7 +560,7 @@ const ProgramStudi = () => {
           </div>
 
           {/* <motion.div
-            className="w-full flex justify-center items-center p-0 md:px-6 md:py-9 lg:px-8 lg:py-11"
+            className="w-full flex justify-center items-center  md:px-6 md:py-9 lg:px-8 lg:py-11"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 2.8 }}
@@ -565,7 +571,7 @@ const ProgramStudi = () => {
                 background: `linear-gradient(to right, ${fakultas.color} 0%, ${fakultas.color}33 90%)`
               }}
             >
-              <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0 items-center text-center relative z-10">
+              <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:ga items-center text-center relative z-10">
                 <div className="flex items-center gap-4 text-left">
                   <div className="w-[60%] md:w-fit hidden lg:block">
                     <Title
