@@ -26,7 +26,7 @@ const HighlightCard = ({ title, text, image, hoverColor }) => {
 
     return (
         <div 
-            className={`iconCntr group flex flex-col justify-center items-center text-center p-4 md:p-6 cursor-pointer space-y-3 md:space-y-4 transition-all duration-500 ${isActive ? 'bg-blue-500' : ''}`}
+            className={`iconCntr group flex flex-col justify-center items-center text-center p-4 md:p-6 cursor-pointer space-y-3 md:space-y-4 transition-all duration-500 ${isActive ? '' : ''}`}
             style={{
                 '--hover-color-rgb': rgbColor,
                 '--hover-color': hoverColor
@@ -41,7 +41,7 @@ const HighlightCard = ({ title, text, image, hoverColor }) => {
                 />
                 <ArticleTitle 
                     color={`transition ${
-                        isActive ? 'text-white' : 'text-gray-900 group-hover:text-gray-900'
+                        isActive ? '' : 'text-gray-900 group-hover:text-gray-900'
                     }`} 
                     title={title} 
                 />
@@ -50,7 +50,7 @@ const HighlightCard = ({ title, text, image, hoverColor }) => {
             <div className="space-y-3 md:space-y-4">
                 <RichText 
                     lineclamp={'md:line-clamp-4'} 
-                    sizeText={`text-xs md:text-sm transition ${ isActive ? 'text-white' : 'group-hover:text-gray-900'}`} 
+                    sizeText={`text-xs md:text-sm transition ${ isActive ? '' : 'group-hover:text-gray-900'}`} 
                     content={text}
                 />
             </div>

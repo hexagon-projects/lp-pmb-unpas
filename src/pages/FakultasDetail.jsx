@@ -157,7 +157,7 @@ const FakultasDetail = () => {
           </div>
         </motion.div>
 
-        <div className='flex flex-col-reverse md:flex-col gap-8 md:gap-16 lg:gap-16'>
+        <div className='flex flex-col md:flex-col gap-8 md:gap-16 lg:gap-16'>
           <div className='space-y-3 md:space-y-4 lg:space-y-10'>
             <AnimatedRichSubtitle color={fakultas.color} text={'Program Studi'} tabletAlign="md:text-center lg:text-left" />
             <motion.div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
