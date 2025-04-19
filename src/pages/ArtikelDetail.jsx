@@ -70,17 +70,17 @@ const ArtikelDetail = () => {
 
   // ======== BAGIKAN ARTIKEL ============
   const shareOnTwitter = () => {
-    const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(articleUrl)}&text=${encodeURIComponent(artikel.title)}`;
+    const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(articleUrl)}&text=${encodeURIComponent(artikel.title)}&hashtags=Unpas`;
     window.open(url, '_blank');
   };
 
   const shareOnFacebook = () => {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}&picture=${encodeURIComponent(`${imageURL}/posts/${artikel.image}`)}&title=${encodeURIComponent(artikel.title)}&description=${encodeURIComponent(artikel.content.substring(0, 150) + '...')}`;
     window.open(url, '_blank');
   };
 
   const shareOnWhatsApp = () => {
-    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(artikel.title + ' ' + articleUrl)}`;
+    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(articleUrl)}`;
     window.open(url, '_blank');
   };
 
@@ -143,10 +143,23 @@ const ArtikelDetail = () => {
         <title>{artikel.title} - Universitas Pasundan</title>
         <meta name="description" content={artikel.content.substring(0, 150) + '...'} />
         <meta name="keywords" content={`Universitas Pasundan, ${artikel.title}, Berita Unpas, Artikel Unpas`} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={articleUrl} />
         <meta property="og:title" content={artikel.title} />
         <meta property="og:description" content={artikel.content.substring(0, 150) + '...'} />
-        <meta property="og:image" content={`${imageURL}/posts/${artikel.image}`} />
-        <meta property="og:url" content={articleUrl} />
+        <meta property="og:image" content={`https://cms.unpas.ac.id/storage/posts/${artikel.image}`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="PMB Universitas Pasundan" />
+        <meta property="og:locale" content="id_ID" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={articleUrl} />
+        <meta property="twitter:title" content={artikel.title} />
+        <meta property="twitter:description" content={artikel.content.substring(0, 150) + '...'} />
+        <meta property="twitter:image" content={`https://cms.unpas.ac.id/storage/posts/${artikel.image}`} />
+
         <link rel="canonical" href={articleUrl} />
         <meta name="robots" content="index, follow" />
       </Helmet>
@@ -169,7 +182,7 @@ const ArtikelDetail = () => {
             )}
 
             <div
-              className="w-full prose-sm max-w-none text-justify 
+              className="w-full prose-sm max-w-none 
                 [&_a]:text-blue-600 [&_a]:underline [&_a]:font-medium [&_a:hover]:text-blue-800
                 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2     
                 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2  
@@ -186,12 +199,23 @@ const ArtikelDetail = () => {
                 <Text text={artikel.pub_date} />
                 <Text text="Politik" />
               </div>
-              <div className="flex items-center gap-2">
-                <Text text="Bagikan" />
-                <button onClick={shareOnTwitter}><BsTwitterX className="hover:text-blue-500" /></button>
-                <button onClick={shareOnFacebook}><FaFacebook className="hover:text-blue-600" /></button>
-                <button onClick={shareOnWhatsApp}><FaWhatsapp className="hover:text-green-500" /></button>
-                <button onClick={copyToClipboard}><FaCopy className="hover:text-gray-500" /></button>
+
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-2">
+                  <Text text="Bagikan" />
+                  <button onClick={shareOnTwitter} className="hover:scale-110 transition-transform">
+                    <BsTwitterX className="hover:text-blue-500" />
+                  </button>
+                  <button onClick={shareOnFacebook} className="hover:scale-110 transition-transform">
+                    <FaFacebook className="hover:text-blue-600" />
+                  </button>
+                  <button onClick={shareOnWhatsApp} className="hover:scale-110 transition-transform">
+                    <FaWhatsapp className="hover:text-green-500" />
+                  </button>
+                  <button onClick={copyToClipboard} className="hover:scale-110 transition-transform">
+                    <FaCopy className="hover:text-gray-500" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>

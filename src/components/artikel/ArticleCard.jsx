@@ -59,7 +59,7 @@ const ArticleCard = ({ data, border, grid = 'grid grid-cols-1 md:grid-cols-2 lg:
                             <div className="space-y-1">
                                 <h3 className="font-semibold text-sm md:text-base lg:text-base line-clamp-2">{item?.title}</h3>
                                 <div className={`${visibilty}`}>
-                                    <RichText lineclamp="line-clamp-2 md:line-clamp-4" sizeText="text-xs md:text-sm" content={item?.description} />
+                                    <p className={`text-xs md:text-sm lg:text-sm text-gray-800 overflow-hidden leading-6 line-clamp-2 md:line-clamp-4`} dangerouslySetInnerHTML={{ __html: item?.description }}/>
                                 </div>
                             </div>
                             <div className="md:hidden md:px-4 flex justify-between items-center">

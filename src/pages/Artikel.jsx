@@ -146,7 +146,7 @@ const Artikel = () => {
 
                 {/* === Daftar Artikel === */}
                 <div className="w-full space-y-3 md:space-y-4">
-                    <div className="w-full flex justify-between items-center">
+                    <div className="w-full flex flex-col gap-4 md:flex-row justify-start md:justify-between md:items-center">
                         <Title sizeMobile="w-full text-base" title="Artikel" />
                         <div className="flex gap-4 w-fit">
                             <DatePicker

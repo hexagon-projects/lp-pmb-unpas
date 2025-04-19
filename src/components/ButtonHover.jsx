@@ -19,15 +19,17 @@ const ButtonHover = ({ onClick, text, icon, color, borderColor = '#C73929', bgCo
             gap: 0.5rem;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem 1.5rem;
+            padding: 0.75rem 0.75rem 0.75rem 1rem;
             transition: all 0.5s ease;
-            
+
             border-radius: 0.5rem;
             @media (min-width: 768px) {
                 border-radius: 0.75rem;
+                padding: 1.5rem 1.5rem;
             }
             @media (min-width: 1024px) {
                 border-radius: 1rem;
+                padding: 1.5rem 1.5rem;
             }
             
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
