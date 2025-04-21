@@ -2,8 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import { MdOutlineKeyboardArrowRight, MdOutlineKeyboardArrowLeft, MdOutlineBook } from "react-icons/md";
 import { useRef, useState, useEffect, useCallback, memo } from "react";
-import Logo from "../../assets/logo.webp";
-import Button from "../../components/Button";
+import Biaya from '../../assets/biaya.jpg'
 import CustomPagination from "../../components/CustomPagination";
 import { IoDocumentTextOutline, IoWalletOutline } from "react-icons/io5";
 import ButtonHover from "../../components/ButtonHover";
@@ -46,6 +45,15 @@ const HeroSection = ({ data = [] }) => {
 
     const goNext = useCallback(() => {
         swiperRef.current?.slideNext();
+    }, []);
+
+    const handleDownloadBiaya = useCallback(() => {
+        const link = document.createElement('a');
+        link.href = Biaya;
+        link.download = 'Brosur Biaya Unpas.jpg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }, []);
 
     const renderSlide = useCallback((slide) => {
@@ -172,11 +180,11 @@ const HeroSection = ({ data = [] }) => {
                 </>
             )}
 
-            <div className="absolute -bottom-30 left-0 right-0 z-10 md:-bottom-13 w-full justify-center items-center hidden ">
+            <div className="absolute -bottom-30 left-0 right-0 z-10 md:-bottom-13 w-full justify-center items-center hidden md:flex">
                 <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 md:p-6 md:flex-row md:max-w-xl lg:max-w-fit rounded-xl md:rounded-2xl lg:rounded-4xl bg-[#EBEBEB] border-2 border-white">
                     <ButtonHover icon={<IoDocumentTextOutline size={24} className="text-text" />} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} text={'Daftar Sekarang'} />
-                    <ButtonHover icon={<IoWalletOutline size={24} className="text-text" />} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} text={'Biaya'} />
-                    <ButtonHover icon={<MdOutlineBook size={24} className="text-text" />} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} text={'Buku Panduan'} />
+                    <ButtonHover icon={<IoWalletOutline size={24} className="text-text" />} onClick={handleDownloadBiaya} text={'Biaya'} />
+                    <ButtonHover icon={<MdOutlineBook size={24} className="text-text" />} onClick={() => window.location.href = `https://www.instagram.com/p/DIoC6zRySms/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==`} text={'Panduan Pendaftaran'} />
                 </div>
             </div>
         </MotionWrapper>
