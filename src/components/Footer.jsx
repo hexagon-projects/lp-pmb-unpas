@@ -46,19 +46,19 @@ const Footer = () => {
                     <Title title={'Terhubung Dengan Kami'} color="text-white" sizeText="text-lg md:text-2xl" />
                     <div className="flex justify-start gap-3">
                         <div onClick={() => window.location.href = 'https://x.com/univ_pasundan'}>
-                            <FaSquareXTwitter className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
+                            <FaSquareXTwitter className="w-6 h-6 md:w-8 md:h-8 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
                         </div>
                         <div onClick={() => window.location.href = 'https://www.instagram.com/pmbunpas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='}>
-                            <RiInstagramFill className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
+                            <RiInstagramFill className="w-6 h-6 md:w-8 md:h-8 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
                         </div>
                         <div onClick={() => window.location.href = 'https://www.facebook.com/universitaspasundan'}>
-                            <FaFacebookSquare className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
+                            <FaFacebookSquare className="w-6 h-6 md:w-8 md:h-8 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
                         </div>
                         <div onClick={() => window.location.href = 'https://www.tiktok.com/@univ_pasundan'}>
-                            <AiFillTikTok className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
+                            <AiFillTikTok className="w-6 h-6 md:w-8 md:h-8 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
                         </div>
                         <div onClick={() => window.location.href = 'https://www.youtube.com/@UniversitasPasundanOfficial'}>
-                            <FaYoutube className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
+                            <FaYoutube className="w-6 h-6 md:w-8 md:h-8 cursor-pointer text-white hover:text-primary transition-colors duration-300" />
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ const Footer = () => {
                             <a href="/fakultas" className="text-xs hover:font-medium cursor-pointer">Fakultas & Prodi</a>
                             <a href="/jalur" className="text-xs hover:font-medium cursor-pointer">Jalur & Jadwal</a>
                             <a href="/fasilitas" className="text-xs hover:font-medium cursor-pointer">Fasilitas</a>
-                            <a href="/mahasiswa-dan-alumni" className="text-xs hover:font-medium cursor-pointer">Mahasiswa & Alumni</a>
+                            <a href="/mahasiswa-dan-alumni" className="text-xs  min-w-[150px]    hover:font-medium cursor-pointer">Mahasiswa & Alumni</a>
                             <a href="/prestasi" className="text-xs hover:font-medium cursor-pointer">Prestasi</a>
                             <a href="/dukungan" className="text-xs hover:font-medium cursor-pointer">Dukungan</a>
                             <a href="/artikel" className="text-xs hover:font-medium cursor-pointer">Artikel</a>
@@ -84,9 +84,9 @@ const Footer = () => {
 
                     <div className="space-y-4 hidden lg:block">
                         <Text sizeMobile="text-sm" text={'Fakultas'} weight={'font-semibold'} color="text-white" />
-                        <div className="flex flex-col gap-4 items-start">
+                        <div className="flex flex-col gap-4 items-start  ">
                             {fakultas.map((item) => (
-                                <a key={item.id} href={`/fakultas/${item.slug}`} className="text-xs hover:font-medium">
+                                <a key={item.id} href={`/fakultas/${item.slug}`} className="text-xs hover:font-medium max-w-[200px] cursor-pointer">
                                     {item.name}
                                 </a>
                             ))}
@@ -124,7 +124,7 @@ const Footer = () => {
                     text={`© ${new Date().getFullYear()} Unpas Copyright and rights reserved`}
                 />
             </div>
-        </footer>
+        </footer >
     );
 };
 

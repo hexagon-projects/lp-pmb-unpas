@@ -24,12 +24,12 @@ body {
 
 a {
     transition: color 0.5s ease;
-  }
-  
-  .nav-item {
+}
+
+.nav-item {
     position: relative;
     z-index: 1;
-  }
+}
 
 .bg_home_container {
     filter: url("#goo") drop-shadow(0px -2px 0px transparent)
@@ -39,7 +39,7 @@ a {
     filter: url("#goo") drop-shadow(0px -2px 0px transparent)
 }
 
-.logo_box{
+.logo_box {
     clip-path: polygon(85% 0%, 90% 16%, 89% 76%, 100% 100%, 0% 100%, 0% 0%);
     border: 1px solid white;
 }
@@ -108,7 +108,7 @@ a {
     filter: url("#goo") drop-shadow(0px -2px 0px transparent)
 }
 
-.prodi_box{
+.prodi_box {
     clip-path: polygon(0% 80%, 15% 80%, 20% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
 }
 
@@ -130,8 +130,8 @@ a {
 
 .dosen-card {
     border-radius: 20px;
-    clip-path: polygon( 6.232% 0.432%,6.232% 0.432%,5.354% 0.704%,4.526% 1.042%,3.753% 1.442%,3.04% 1.9%,2.393% 2.412%,1.816% 2.972%,1.313% 3.577%,0.891% 4.222%,0.554% 4.903%,0.307% 5.616%,0.307% 5.616%,0.239% 6.246%,0.181% 7.641%,0.134% 9.838%,0.097% 12.874%,0.069% 16.786%,0.051% 21.61%,0.041% 27.382%,0.04% 34.141%,0.047% 41.922%,0.061% 50.762%,0.153% 94.684%,0.798% 95.788%,0.798% 95.788%,1.084% 96.238%,1.407% 96.669%,1.767% 97.08%,2.16% 97.47%,2.587% 97.837%,3.045% 98.181%,3.533% 98.499%,4.048% 98.792%,4.59% 99.056%,5.157% 99.292%,6.907% 99.964%,36.839% 100.036%,36.839% 100.036%,42.57% 100.047%,47.735% 100.051%,52.337% 100.047%,56.376% 100.038%,59.856% 100.021%,62.778% 99.998%,65.143% 99.969%,66.954% 99.933%,68.212% 99.891%,68.92% 99.844%,68.92% 99.844%,69.701% 99.73%,70.49% 99.578%,71.275% 99.393%,72.046% 99.177%,72.792% 98.935%,73.502% 98.671%,74.165% 98.388%,74.771% 98.091%,75.308% 97.783%,75.766% 97.468%,75.766% 97.468%,76.191% 97.116%,76.585% 96.745%,76.954% 96.346%,77.304% 95.911%,77.642% 95.431%,77.974% 94.897%,78.305% 94.299%,78.642% 93.631%,78.991% 92.882%,79.358% 92.044%,79.358% 92.044%,80.059% 90.471%,80.718% 89.157%,81.376% 88.068%,82.075% 87.173%,82.857% 86.436%,83.765% 85.826%,84.84% 85.308%,86.124% 84.85%,87.66% 84.418%,89.489% 83.979%,89.489% 83.979%,91.465% 83.502%,93.172% 83.009%,94.632% 82.485%,95.867% 81.916%,96.899% 81.285%,97.749% 80.579%,98.439% 79.78%,98.992% 78.875%,99.429% 77.848%,99.773% 76.683%,99.773% 76.683%,99.841% 76.095%,99.899% 74.924%,99.946% 73.137%,99.983% 70.696%,100.011% 67.566%,100.029% 63.71%,100.039% 59.094%,100.04% 53.681%,100.033% 47.436%,100.018% 40.322%,99.926% 5.4%,99.282% 4.296%,99.282% 4.296%,98.996% 3.846%,98.673% 3.415%,98.313% 3.004%,97.919% 2.614%,97.493% 2.247%,97.035% 1.903%,96.547% 1.585%,96.032% 1.292%,95.489% 1.028%,94.922% 0.792%,93.172% 0.12%,50.5% 0.072%,50.5% 0.072%,39.499% 0.059%,30.551% 0.052%,23.433% 0.051%,17.925% 0.06%,13.803% 0.081%,10.847% 0.115%,8.833% 0.165%,7.541% 0.233%,6.748% 0.321%,6.232% 0.432% );
-}  
+    clip-path: polygon(6.232% 0.432%, 6.232% 0.432%, 5.354% 0.704%, 4.526% 1.042%, 3.753% 1.442%, 3.04% 1.9%, 2.393% 2.412%, 1.816% 2.972%, 1.313% 3.577%, 0.891% 4.222%, 0.554% 4.903%, 0.307% 5.616%, 0.307% 5.616%, 0.239% 6.246%, 0.181% 7.641%, 0.134% 9.838%, 0.097% 12.874%, 0.069% 16.786%, 0.051% 21.61%, 0.041% 27.382%, 0.04% 34.141%, 0.047% 41.922%, 0.061% 50.762%, 0.153% 94.684%, 0.798% 95.788%, 0.798% 95.788%, 1.084% 96.238%, 1.407% 96.669%, 1.767% 97.08%, 2.16% 97.47%, 2.587% 97.837%, 3.045% 98.181%, 3.533% 98.499%, 4.048% 98.792%, 4.59% 99.056%, 5.157% 99.292%, 6.907% 99.964%, 36.839% 100.036%, 36.839% 100.036%, 42.57% 100.047%, 47.735% 100.051%, 52.337% 100.047%, 56.376% 100.038%, 59.856% 100.021%, 62.778% 99.998%, 65.143% 99.969%, 66.954% 99.933%, 68.212% 99.891%, 68.92% 99.844%, 68.92% 99.844%, 69.701% 99.73%, 70.49% 99.578%, 71.275% 99.393%, 72.046% 99.177%, 72.792% 98.935%, 73.502% 98.671%, 74.165% 98.388%, 74.771% 98.091%, 75.308% 97.783%, 75.766% 97.468%, 75.766% 97.468%, 76.191% 97.116%, 76.585% 96.745%, 76.954% 96.346%, 77.304% 95.911%, 77.642% 95.431%, 77.974% 94.897%, 78.305% 94.299%, 78.642% 93.631%, 78.991% 92.882%, 79.358% 92.044%, 79.358% 92.044%, 80.059% 90.471%, 80.718% 89.157%, 81.376% 88.068%, 82.075% 87.173%, 82.857% 86.436%, 83.765% 85.826%, 84.84% 85.308%, 86.124% 84.85%, 87.66% 84.418%, 89.489% 83.979%, 89.489% 83.979%, 91.465% 83.502%, 93.172% 83.009%, 94.632% 82.485%, 95.867% 81.916%, 96.899% 81.285%, 97.749% 80.579%, 98.439% 79.78%, 98.992% 78.875%, 99.429% 77.848%, 99.773% 76.683%, 99.773% 76.683%, 99.841% 76.095%, 99.899% 74.924%, 99.946% 73.137%, 99.983% 70.696%, 100.011% 67.566%, 100.029% 63.71%, 100.039% 59.094%, 100.04% 53.681%, 100.033% 47.436%, 100.018% 40.322%, 99.926% 5.4%, 99.282% 4.296%, 99.282% 4.296%, 98.996% 3.846%, 98.673% 3.415%, 98.313% 3.004%, 97.919% 2.614%, 97.493% 2.247%, 97.035% 1.903%, 96.547% 1.585%, 96.032% 1.292%, 95.489% 1.028%, 94.922% 0.792%, 93.172% 0.12%, 50.5% 0.072%, 50.5% 0.072%, 39.499% 0.059%, 30.551% 0.052%, 23.433% 0.051%, 17.925% 0.06%, 13.803% 0.081%, 10.847% 0.115%, 8.833% 0.165%, 7.541% 0.233%, 6.748% 0.321%, 6.232% 0.432%);
+}
 
 .agenda_box::-webkit-scrollbar {
     display: none;
@@ -146,9 +146,11 @@ a {
     0% {
         transform: translateX(0);
     }
+
     50% {
         transform: translateX(10px);
     }
+
     100% {
         transform: translateX(0);
     }
@@ -160,58 +162,622 @@ a {
 
 .article-card {
     position: relative;
-    border-radius: 16px; 
+    border-radius: 16px;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    background: white;
+    z-index: 1;
 }
 
+/* Gradient Background */
 .article-card::before {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 16px;
-    padding: 1px;
-    background: linear-gradient(45deg, rgb(224, 135, 135), rgb(232, 186, 102), rgb(240, 240, 100), rgb(125, 227, 125));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    z-index: 10;
+
+    background: conic-gradient(from -90deg at 50% 50%,
+            rgb(224, 135, 135),
+            rgb(232, 186, 102),
+            rgb(240, 240, 100),
+            rgb(125, 227, 125),
+            rgb(224, 135, 135));
+    opacity: 0;
+    transition: opacity 0.3s;
+    /* Membuat efek border 2px */
+    -webkit-mask:
+        linear-gradient(#fff, #fff) content-box,
+        linear-gradient(#fff, #fff);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    padding: 2px;
+    /* Ketebalan border */
+    border-radius: 16px;
 }
 
 .article-card:hover::before {
     opacity: 1;
-    animation: border-animation 3s ease-in-out;
+    animation: ultra-smooth-clockwise-fill 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes border-animation {
+@keyframes ultra-smooth-clockwise-fill {
+
+    /* Stage 1: 12-3 (0°-90°) - 15 frames */
     0% {
-        clip-path: inset(0 100% 100% 0);
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                transparent 1deg);
     }
+
+    1.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 6deg,
+                transparent 7deg);
+    }
+
+    3.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 12deg,
+                transparent 13deg);
+    }
+
+    5% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 18deg,
+                transparent 19deg);
+    }
+
+    6.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 24deg,
+                transparent 25deg);
+    }
+
+    8.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 30deg,
+                transparent 31deg);
+    }
+
+    10% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 36deg,
+                transparent 37deg);
+    }
+
+    11.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 42deg,
+                transparent 43deg);
+    }
+
+    13.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 48deg,
+                transparent 49deg);
+    }
+
+    15% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 54deg,
+                transparent 55deg);
+    }
+
+    16.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 60deg,
+                transparent 61deg);
+    }
+
+    18.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 66deg,
+                transparent 67deg);
+    }
+
+    20% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 72deg,
+                transparent 73deg);
+    }
+
+    21.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 78deg,
+                transparent 79deg);
+    }
+
+    23.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 84deg,
+                transparent 85deg);
+    }
+
     25% {
-        clip-path: inset(0 0 100% 0);
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                transparent 91deg);
     }
-    50% {
-        clip-path: inset(0 0 0 0);
-    }
-    75% {
-        clip-path: inset(100% 0 0 0);
-    }
-    100% {
-        clip-path: inset(0 100% 100% 0);
-    }
-}
 
-@keyframes border-animation {
-    0% {
-        clip-path: inset(0 100% 0 0);
+    /* Stage 2: 3-6 (90°-180°) - 15 frames */
+    26.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 96deg,
+                transparent 97deg);
     }
+
+    28.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 102deg,
+                transparent 103deg);
+    }
+
+    30% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 108deg,
+                transparent 109deg);
+    }
+
+    31.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 114deg,
+                transparent 115deg);
+    }
+
+    33.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 120deg,
+                transparent 121deg);
+    }
+
+    35% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 126deg,
+                transparent 127deg);
+    }
+
+    36.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 132deg,
+                transparent 133deg);
+    }
+
+    38.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 138deg,
+                transparent 139deg);
+    }
+
+    40% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 144deg,
+                transparent 145deg);
+    }
+
+    41.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 150deg,
+                transparent 151deg);
+    }
+
+    43.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 156deg,
+                transparent 157deg);
+    }
+
+    45% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 162deg,
+                transparent 163deg);
+    }
+
+    46.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 168deg,
+                transparent 169deg);
+    }
+
+    48.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 174deg,
+                transparent 175deg);
+    }
+
     50% {
-        clip-path: inset(0 0 0 0);
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                transparent 181deg);
     }
+
+    /* Stage 3: 6-9 (180°-270°) - 15 frames */
+    51.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 186deg,
+                transparent 187deg);
+    }
+
+    53.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 192deg,
+                transparent 193deg);
+    }
+
+    55% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 198deg,
+                transparent 199deg);
+    }
+
+    56.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 204deg,
+                transparent 205deg);
+    }
+
+    58.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 210deg,
+                transparent 211deg);
+    }
+
+    60% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 216deg,
+                transparent 217deg);
+    }
+
+    61.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 222deg,
+                transparent 223deg);
+    }
+
+    63.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 228deg,
+                transparent 229deg);
+    }
+
+    65% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 234deg,
+                transparent 235deg);
+    }
+
+    66.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 240deg,
+                transparent 241deg);
+    }
+
+    68.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 246deg,
+                transparent 247deg);
+    }
+
+    70% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 252deg,
+                transparent 253deg);
+    }
+
+    71.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 258deg,
+                transparent 259deg);
+    }
+
+    73.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 264deg,
+                transparent 265deg);
+    }
+
+    75% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                transparent 271deg);
+    }
+
+    /* Stage 4: 9-12 (270°-360°) - 15 frames */
+    76.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 276deg,
+                transparent 277deg);
+    }
+
+    78.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 282deg,
+                transparent 283deg);
+    }
+
+    80% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 288deg,
+                transparent 289deg);
+    }
+
+    81.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 294deg,
+                transparent 295deg);
+    }
+
+    83.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 300deg,
+                transparent 301deg);
+    }
+
+    85% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 306deg,
+                transparent 307deg);
+    }
+
+    86.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 312deg,
+                transparent 313deg);
+    }
+
+    88.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 318deg,
+                transparent 319deg);
+    }
+
+    90% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 324deg,
+                transparent 325deg);
+    }
+
+    91.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 330deg,
+                transparent 331deg);
+    }
+
+    93.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 336deg,
+                transparent 337deg);
+    }
+
+    95% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 342deg,
+                transparent 343deg);
+    }
+
+    96.67% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 348deg,
+                transparent 349deg);
+    }
+
+    98.33% {
+        background: conic-gradient(from -90deg at 50% 50%,
+                transparent 0deg,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 354deg,
+                transparent 355deg);
+    }
+
     100% {
-        clip-path: inset(0 0 0 0);
+        background: conic-gradient(from -90deg at 50% 50%,
+                rgb(224, 135, 135) 0deg,
+                rgb(232, 186, 102) 90deg,
+                rgb(240, 240, 100) 180deg,
+                rgb(125, 227, 125) 270deg,
+                rgb(224, 135, 135) 360deg);
     }
 }
 
@@ -219,9 +785,11 @@ a {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -229,17 +797,18 @@ a {
 
 .nav-item {
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
+}
 
-  .nav-item.active {
+.nav-item.active {
     background-color: #034833;
     color: white;
-  }
-  
-  @keyframes marquee-left {
+}
+
+@keyframes marquee-left {
     0% {
         transform: translateX(0%);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -249,6 +818,7 @@ a {
     0% {
         transform: translateX(-50%);
     }
+
     100% {
         transform: translateX(0%);
     }
@@ -278,42 +848,34 @@ a {
 .jalur-swiper-blur-mask {
     position: relative;
     overflow: hidden;
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 5%,
-        black 95%,
-        transparent 100%
-    );
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 5%,
-        black 95%,
-        transparent 100%
-    );
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%);
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%);
 }
 
 .mitra-carousel-blur-mask {
     position: relative;
     overflow: hidden;
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 2%,
-        black 98%,
-        transparent 100%
-    );
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 2%,
-        black 98%,
-        transparent 100%
-    );
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 2%,
+            black 98%,
+            transparent 100%);
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 2%,
+            black 98%,
+            transparent 100%);
 }
 
-.iframe_hero{
+.iframe_hero {
     transform: scale(1.4);
 }
 
@@ -341,9 +903,11 @@ a {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -352,13 +916,12 @@ a {
 .rainbow-border::after {
     content: "";
     position: absolute;
-    bottom : 0;
+    bottom: 0;
     border-radius: inherit;
-    background: linear-gradient(to top, 
-        rgba(254, 242, 81, 0.8), 
-        rgba(201, 56, 41, 0.8),
-        rgba(3, 72, 51, 0.8)
-    );
+    background: linear-gradient(to top,
+            rgba(254, 242, 81, 0.8),
+            rgba(201, 56, 41, 0.8),
+            rgba(3, 72, 51, 0.8));
     filter: blur(15px);
     opacity: 0;
     z-index: -1;
@@ -371,10 +934,12 @@ a {
         opacity: 0;
         transform: scaleY(0.7);
     }
+
     50% {
         opacity: 0.5;
         transform: scaleY(1);
     }
+
     100% {
         opacity: 0;
         transform: scaleY(0.7);
@@ -391,10 +956,12 @@ a {
         opacity: 0.1;
         transform: scale(1);
     }
+
     50% {
         opacity: 0.3;
         transform: scale(1.03);
     }
+
     100% {
         opacity: 0;
         transform: scale(1.06);
@@ -412,10 +979,12 @@ a {
         border-color: rgba(199, 57, 41, 0.7);
         box-shadow: 0 0 0 0 rgba(199, 57, 41, 0.7);
     }
+
     50% {
         border-color: rgba(199, 57, 41, 0.7);
         box-shadow: 0 0 0 12px rgba(199, 57, 41, 0);
     }
+
     100% {
         border-color: rgba(199, 57, 41, 0.7);
         box-shadow: 0 0 0 0 rgba(199, 57, 41, 0);
@@ -427,10 +996,12 @@ a {
         transform: scale(1);
         box-shadow: 0 0 0 0 rgba(199, 57, 41, 0.7);
     }
+
     50% {
         transform: scale(1);
         box-shadow: 0 0 0 12px rgba(199, 57, 41, 0);
     }
+
     100% {
         transform: scale(1);
         box-shadow: 0 0 0 0 rgba(199, 57, 41, 0);
@@ -440,30 +1011,36 @@ a {
 
 .jalur-scroll-container::-webkit-scrollbar {
     display: none;
-  }
-  .jalur-scroll-container {
+}
+
+.jalur-scroll-container {
     -ms-overflow-style: none;
     scrollbar-width: none;
-  }
+}
 
 
 @media (max-width: 1445px) {
     .cta_box {
         clip-path: polygon(0% 26%, 12% 26%, 12% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .bg_home {
         clip-path: polygon(0% 0%, 25% 0%, 30% 10%, 100% 10%, 100% 100%, 0% 100%);
     }
+
     .testi_box {
         clip-path: polygon(75% 0%, 75% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 82%, 16% 82%, 16% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 83%, 16% 83%, 16% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 15% 80%, 20% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }
@@ -472,15 +1049,19 @@ a {
     .fakultas_box {
         clip-path: polygon(0% 82%, 16% 82%, 16% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .testi_box {
         clip-path: polygon(83% 0%, 83% 35%, 100% 35%, 100% 100%, 0% 100%, 0% 0%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 83%, 18% 83%, 18% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 15% 80%, 20% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .cta_box {
         clip-path: polygon(0% 26%, 12% 26%, 12% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
@@ -490,30 +1071,37 @@ a {
     .fakultas_dtl_box {
         clip-path: polygon(0% 83%, 20% 83%, 20% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .testi_box {
         clip-path: polygon(80% 0%, 80% 35%, 100% 35%, 100% 100%, 0% 100%, 0% 0%);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 20% 80%, 25% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .cta_box {
         clip-path: polygon(0% 26%, 12% 26%, 12% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 82%, 18% 82%, 18% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }
 
 @media (max-width: 1250px) {
-    .prodi_box{
+    .prodi_box {
         clip-path: polygon(0% 80%, 20% 80%, 25% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .cta_box {
         clip-path: polygon(0% 25%, 14% 25%, 14% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 83%, 20% 83%, 20% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 82%, 22% 82%, 22% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
@@ -523,19 +1111,24 @@ a {
     .cta_box {
         clip-path: polygon(0% 25%, 14% 25%, 14% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .bg_home {
         clip-path: polygon(0% 0%, 35% 0%, 40% 10%, 100% 10%, 100% 100%, 0% 100%);
     }
+
     .testi_box {
         clip-path: polygon(77% 0%, 77% 37%, 100% 37%, 100% 100%, 0% 100%, 0% 0%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 72%, 27% 72%, 27% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 22% 76%, 22% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 25% 80%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }
@@ -544,22 +1137,28 @@ a {
     .cta_box {
         clip-path: polygon(0% 28%, 14% 28%, 14% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .bg_home {
         clip-path: polygon(36% 0%, 36% 10%, 0% 10%, 0% 100%, 100% 100%, 100% 0%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 72%, 24% 72%, 24% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 24% 76%, 24% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .testi_box {
         clip-path: polygon(75% 0%, 75% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
-    .iframe_hero{
+
+    .iframe_hero {
         transform: scale(2.4);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 25% 80%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }
@@ -568,24 +1167,31 @@ a {
     .testi_box {
         clip-path: polygon(73% 0%, 73% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 26% 76%, 26% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .iframe_hero{
+
+    .iframe_hero {
         transform: scale(2.4);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 72%, 27% 72%, 27% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 25% 80%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .cta_box {
         clip-path: polygon(0% 25%, 16% 25%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .intro_img {
         clip-path: polygon(0% 85%, 55% 85%, 55% 100%, 100% 99%, 100% 0%, 0% 0%);
     }
+
     .jalur_box {
         clip-path: polygon(0% 85%, 40% 85%, 40% 100%, 100% 100%, 100% 0%, 0% 0%);
     }
@@ -595,22 +1201,28 @@ a {
     .cta_box {
         clip-path: polygon(0% 27%, 18% 27%, 18% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .bg_home {
         clip-path: polygon(38% 0%, 38% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);
     }
+
     .testi_box {
         clip-path: polygon(70% 0%, 70% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 72%, 27% 72%, 27% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 28% 76%, 28% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .iframe_hero{
+
+    .iframe_hero {
         transform: scale(2.6);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 25% 80%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }
@@ -619,18 +1231,23 @@ a {
     .fakultas_box {
         clip-path: polygon(0% 72%, 32% 72%, 32% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .testi_box {
         clip-path: polygon(83% 0%, 83% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 30% 76%, 30% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .iframe_hero{
+
+    .iframe_hero {
         transform: scale(3.2);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 30% 80%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .cta_box {
         clip-path: polygon(0% 25%, 16% 25%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
@@ -640,19 +1257,24 @@ a {
     .cta_box {
         clip-path: polygon(0% 25%, 16% 25%, 16% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .bg_home {
         clip-path: polygon(50% 0%, 50% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);
     }
+
     .testi_box {
         clip-path: polygon(80% 0%, 80% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 72%, 37% 72%, 37% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 38% 76%, 38% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 30% 80%, 35% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }
@@ -661,36 +1283,45 @@ a {
     .fakultas_box {
         clip-path: polygon(0% 72%, 37% 72%, 37% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 77%, 38% 77%, 48% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .testi_box {
         clip-path: polygon(74% 0%, 74% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 40% 80%, 45% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .cta_box {
         clip-path: polygon(0% 25%, 20% 25%, 20% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 42% 76%, 42% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .jalur_box {
         clip-path: polygon(0% 85%, 45% 85%, 40% 100%, 100% 100%, 100% 0%, 0% 0%);
     }
 }
 
 @media (max-width: 500px) {
-    .prodi_box{
+    .prodi_box {
         clip-path: polygon(0% 80%, 45% 80%, 50% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .cta_box {
         clip-path: polygon(0% 25%, 22% 25%, 22% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 72%, 42% 72%, 42% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 44% 76%, 44% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
@@ -700,22 +1331,28 @@ a {
     .cta_box {
         clip-path: polygon(0% 23%, 23% 23%, 23% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .bg_home {
         clip-path: polygon(60% 0%, 60% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);
     }
+
     .testi_box {
         clip-path: polygon(73% 0%, 73% 27%, 100% 27%, 100% 100%, 0% 100%, 0% 0%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 72%, 47% 72%, 47% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 48% 76%, 48% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 50% 80%, 55% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .iframe_hero{
+
+    .iframe_hero {
         transform: scale(1.2);
     }
 }
@@ -724,22 +1361,28 @@ a {
     .cta_box {
         clip-path: polygon(0% 25%, 25% 25%, 25% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .bg_home {
         clip-path: polygon(70% 0%, 70% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);
     }
+
     .testi_box {
         clip-path: polygon(70% 0%, 70% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 70%, 52% 70%, 52% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 52% 76%, 52% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 55% 80%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .iframe_hero{
+
+    .iframe_hero {
         transform: scale(1.2);
     }
 }
@@ -748,19 +1391,24 @@ a {
     .cta_box {
         clip-path: polygon(0% 22%, 25% 22%, 25% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .bg_home {
         clip-path: polygon(80% 0%, 80% 12%, 0% 12%, 0% 100%, 100% 100%, 100% 0%);
     }
+
     .testi_box {
         clip-path: polygon(72% 0%, 72% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 70%, 52% 70%, 52% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 55% 76%, 55% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 55% 80%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }
@@ -769,22 +1417,28 @@ a {
     .cta_box {
         clip-path: polygon(0% 22%, 27% 22%, 27% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+
     .fakultas_box {
         clip-path: polygon(0% 70%, 62% 70%, 62% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .fakultas_dtl_box {
         clip-path: polygon(0% 76%, 60% 76%, 60% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
+
     .mitra_box {
         clip-path: polygon(67% 100%, 67% 91%, 100% 91%, 100% 0%, 0% 0%, 0% 100%);
     }
+
     .testi_box {
         clip-path: polygon(66% 0%, 66% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 0%);
     }
-    .iframe_hero{
+
+    .iframe_hero {
         transform: scale(1.2);
     }
-    .prodi_box{
+
+    .prodi_box {
         clip-path: polygon(0% 80%, 65% 80%, 70% 100%, 100% 99%, 100% 0%, 0% 0%, 0% 84%);
     }
 }

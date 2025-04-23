@@ -8,22 +8,30 @@ import Text from '../../components/Text';
 import Title from '../../components/Title';
 import Button from '../../components/Button';
 import SelengkapnyaButton from '../../components/SelengkapnyaButton';
-import Section1 from '../../assets/gedung.jpeg';
 import CustomPaginationProdi from '../../components/prodi/CustomPaginationProdi';
 import AnimatedTitle from '../../components/AnimatedTitle';
 import AnimatedSubtitle from '../../components/AnimatedSubtitle';
+import Poster1 from '../../assets/poster/poster1.jpg';
+import Poster2 from '../../assets/poster/poster2.jpg';
+import Poster3 from '../../assets/poster/poster3.jpg';
+import Poster4 from '../../assets/poster/poster4.jpg';
 
-const DUMMY_IMAGES = Array(4).fill({ image: Section1 });
+const DUMMY_IMAGES = [
+    { image: Poster1 },
+    { image: Poster2 },
+    { image: Poster3 },
+    { image: Poster4 }
+];
 
-const PendaftaranSection = ({ 
-  title = '', 
-  subtitle = '', 
-  jalurPendaftaran = [], 
-  titleColor = 'text-text', 
-  subtitleColor, 
-  borderPaginationColor, 
-  paginationColor, 
-  iconColor = '#C73929' 
+const PendaftaranSection = ({
+    title = '',
+    subtitle = '',
+    jalurPendaftaran = [],
+    titleColor = 'text-text',
+    subtitleColor,
+    borderPaginationColor,
+    paginationColor,
+    iconColor = '#C73929'
 }) => {
     const navigate = useNavigate();
     const swiperRef = useRef(null);
@@ -85,7 +93,7 @@ const PendaftaranSection = ({
                         loading="lazy"
                         src={item.image}
                         alt="Gedung Universitas"
-                        className="w-full h-[40vh] lg:h-[50vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
+                        className="w-full h-[50vh] lg:h-[60vh] object-cover rounded-xl md:rounded-2xl lg:rounded-4xl"
                         width="100%"
                     />
                 </motion.div>
@@ -156,15 +164,15 @@ const PendaftaranSection = ({
                             }}
                             modules={[Autoplay]}
                             breakpoints={{
-                                640: { 
+                                640: {
                                     spaceBetween: 20,
                                     slidesPerView: 1.2
                                 },
-                                1024: { 
+                                1024: {
                                     spaceBetween: 20,
                                     slidesPerView: 1.3
                                 },
-                                1440: { 
+                                1440: {
                                     spaceBetween: 20,
                                     slidesPerView: 1.4
                                 }
@@ -188,7 +196,7 @@ const PendaftaranSection = ({
                         <div className='space-y-4 h-50 lg:h-[50vh] overflow-y-scroll jalur-scroll-container'>
                             {jalurItems}
                         </div>
-                        <SelengkapnyaButton onClick={handleClickJalur} color={iconColor}/>
+                        <SelengkapnyaButton onClick={handleClickJalur} color={iconColor} />
                     </div>
                 </div>
             </div>

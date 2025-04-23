@@ -27,11 +27,12 @@ const ArticleTransparentCard = ({ image, title, slug, description }) => {
                 // style={{ backgroundColor: "black" }}
             ></motion.div>
 
-            <div className="relative z-10 text-white flex flex-col items-start transition-all duration-500 ease-in-out group-hover:gap-2 gap-0">
-                <ArticleTitle color="text-white break-words" title={title} />
+            <div className="w-full relative z-10 text-white flex flex-col justify-start items-start transition-all duration-500 ease-in-out group-hover:gap-2 gap-0">
+                {/* <ArticleTitle color="text-white break-words" title={title} /> */}
+                <h2 className={`text-white break-words text-left font-bold text-sm md:text-base lg:text-lg lg:line-clamp-4`}>{title}</h2>
 
                 <motion.div
-                    className="max-h-0 overflow-hidden opacity-0 translate-y-2 space-y-3 md:space-y-4 group-hover:max-h-[6rem] group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-in-out"
+                    className="text-left max-h-0 overflow-hidden opacity-0 translate-y-2 space-y-3 md:space-y-4 group-hover:max-h-[6rem] group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-in-out"
                 >
                     <RichText lineclamp={'line-clamp-1 lg:line-clamp-2'} textColor="text-white" content={description} />
 
