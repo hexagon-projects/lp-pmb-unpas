@@ -51,7 +51,10 @@ const TestimonialCard = ({
                             ? 'bg-footer text-white hover:bg-footer/90 cursor-pointer' 
                             : 'bg-gray-300 text-gray-800 cursor-not-allowed'
                     }`}
-                    onClick={toggleModal}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        toggleModal();
+                    }}
                     disabled={!yt}
                     aria-label={yt ? "Play testimonial video" : "No video available"}
                 >
