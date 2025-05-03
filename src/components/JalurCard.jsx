@@ -30,7 +30,7 @@ const JalurCard = memo(({ icon, title, text, link, startDate, endDate, onClick }
             <div className="absolute -top-0 left-1/2 md:left-3/5 w-full h-full opacity-25 object-cover">
                 <img src={LogoOutline} alt={"Logo Outline Unpas"} loading="lazy" className="h-full object-cover object-left" />
             </div>
-            <div className='md:h-16 lg:h-14'>
+            <div className='md:h-16 lg:h-20 xl:h-14'>
                 <h2 className="text-sm md:text-base lg:text-lg font-bold">{title}</h2>
             </div>
             <RichText content={text} lineclamp={'line-clamp-3 md:line-clamp-4'} textColor='text-white' weight='font-light' />

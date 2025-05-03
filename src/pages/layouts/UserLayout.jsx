@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import FloatingWhatsApp from "../../components/FloatingWhatsApp";
 import MotionWrapper from "../../components/MotionWrapper";
+import FloatingBiaya from "../../components/FloatingBiaya";
 
 const UserLayout = ({ bgLayoutColor = 'bg-white', children, position, titleColor, bgColor, shadow, paddingDekstop, paddingTop, type, duration }) => {
 
@@ -17,6 +18,7 @@ const UserLayout = ({ bgLayoutColor = 'bg-white', children, position, titleColor
             <Footer />
 
             <FloatingWhatsApp />
+            <FloatingBiaya />
         </div>
     );
 };
