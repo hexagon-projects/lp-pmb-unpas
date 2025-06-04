@@ -22,6 +22,10 @@ import Testimoni from './pages/Testimoni'
 import Dukungan from './pages/Dukungan'
 import JalurDetail from './pages/JalurDetail'
 import Utbk from './pages/jalur/Utbk'
+import Pmdk from './pages/jalur/Pmdk'
+import Usm from './pages/jalur/Usm'
+import Utbk2 from './pages/jalur/Utbk2'
+import GTM from './GTM'
 
 function App() {
   const { trackingId } = useGoogleAnalytics();
@@ -29,6 +33,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        <GTM />
         {trackingId && <GAListener />}
         <MetaPixelListener />
         <AnimatedRoutes />
@@ -175,6 +180,30 @@ const AnimatedRoutes = () => {
         element={
           <PageWrapper>
             <Utbk />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/jalur/khusus-utbk"
+        element={
+          <PageWrapper>
+            <Utbk2 />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/jalur/pmdk"
+        element={
+          <PageWrapper>
+            <Pmdk />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/jalur/usm"
+        element={
+          <PageWrapper>
+            <Usm />
           </PageWrapper>
         }
       />

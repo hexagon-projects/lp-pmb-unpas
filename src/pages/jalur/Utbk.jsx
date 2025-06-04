@@ -140,8 +140,7 @@ const Utbk = () => {
     }, [slug]);
 
     useEffect(() => {
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 23);
+        const targetDate = new Date('June 26, 2025 00:00:00');
 
         const interval = setInterval(() => {
             const now = new Date();
@@ -249,9 +248,6 @@ const Utbk = () => {
                                 textColor="black"
                                 textHoverColor="white"
                             />
-                            {/* <div className="flex justify-center font-medium text-xs sm:text-sm items-center rounded-lg sm:rounded-xl py-2 bg-white border-2 border-[#034833] cursor-pointer" onClick={handleWhatsApp}>
-                                Konsultasi CS
-                            </div> */}
                         </div>
                     </div>
                 </div>

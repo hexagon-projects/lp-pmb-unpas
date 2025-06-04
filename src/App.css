@@ -877,9 +877,9 @@ a {
 .rainbow-container {
     position: relative;
     border-radius: 16px;
-    padding: 1px;
-  }
-  
+    padding: 1px;
+}
+
 /* Layer 1: Shadow belakang yang glow */
 .rainbow-container::before {
     content: '';
@@ -895,17 +895,17 @@ a {
     transform: translateY(4px) scale(0.98);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     animation: rainbow-move 3s linear infinite;
-  }
-  
-  /* Layer 2: Kontainer isi konten */
-  .rainbow-border {
+}
+
+/* Layer 2: Kontainer isi konten */
+.rainbow-border {
     position: relative;
     border-radius: inherit;
     background: #f3f4f4;
-  }
-  
-  /* Layer 3: Border pelangi */
-  .rainbow-border::before {
+}
+
+/* Layer 3: Border pelangi */
+.rainbow-border::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -920,17 +920,18 @@ a {
     mask-composite: exclude;
     z-index: 0;
     overflow: hidden;
-  }
-  
-  /* Animasi pelangi bergerak ke kanan */
-  @keyframes rainbow-move {
+}
+
+/* Animasi pelangi bergerak ke kanan */
+@keyframes rainbow-move {
     0% {
-      background-position: 200% 50%;
+        background-position: 200% 50%;
     }
+
     100% {
-      background-position: 50% 0%;
+        background-position: 50% 0%;
     }
-  }
+}
 
 @keyframes blur-animation {
     0% {
@@ -1016,8 +1017,18 @@ a {
     scrollbar-width: none;
 }
 
+.siapa-box {
+    clip-path: polygon(100% 0%, 100% 14%, 93% 14%, 93% 36%, 100% 36%, 100% 94%, 81% 94%, 81% 100%, 0% 100%, 0% 0%);
+}
+
+@media (min-width: 768px) {
+    .nilai-box {
+        clip-path: polygon(0% 2%, 5% 2%, 5% 0%, 96% 0%, 96% 9%, 100% 9%, 100% 89%, 94% 89%, 94% 100%, 9% 100%, 9% 95%, 0% 95%);
+    }
+}
 
 @media (max-width: 1445px) {
+
     .cta_box {
         clip-path: polygon(0% 26%, 12% 26%, 12% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
