@@ -9,46 +9,17 @@ import PrestasiService from "../fetching/prestasi";
 import DukunganService from "../fetching/dukungan";
 import OrganisasiService from "../fetching/organisasi";
 
-export const fetchAllData = async () => {
-    try {
-        const [
-            slider,
-            about,
-            partner,
-            testimonials,
-            unggulan,
-            jalur,
-            artikel,
-            prestasi,
-            dukungan,
-            organisasi
-        ] = await Promise.all([
-            SliderService.getAllSlider(),
-            AboutService.getAllAbouts(),
-            PartnerService.getAllPartner(),
-            TestimoniService.getTestimoniHome(),
-            UnggulanService.getAllUnggulan(),
-            RegistrasiService.getAllRegistrasi(),
-            BeritaService.getAllBerita(),
-            PrestasiService.getAllPrestasi(),
-            DukunganService.getAllDukungan(),
-            OrganisasiService.getAllOrganisasi()
-        ]);
-
-        return {
-            slider,
-            about,
-            partner,
-            testimonials,
-            unggulan,
-            jalur,
-            artikel: artikel.slice(0, 4),
-            prestasi: prestasi.slice(0, 6),
-            dukungan,
-            organisasi
-        };
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        throw error;
-    }
+export const fetchAllData = () => {
+  return {
+    slider: SliderService.getAllSlider(),
+    about: AboutService.getAllAbouts(),
+    partner: PartnerService.getAllPartner(),
+    testimonials: TestimoniService.getTestimoniHome(),
+    unggulan: UnggulanService.getAllUnggulan(),
+    jalur: RegistrasiService.getAllRegistrasi(),
+    artikel: BeritaService.getAllBerita().then(artikel => artikel.slice(0, 4)),
+    prestasi: PrestasiService.getAllPrestasi().then(prestasi => prestasi.slice(0, 6)),
+    dukungan: DukunganService.getAllDukungan(),
+    organisasi: OrganisasiService.getAllOrganisasi()
+  };
 };

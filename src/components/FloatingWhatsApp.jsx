@@ -3,10 +3,10 @@ const FaWhatsapp = lazy(() => import("react-icons/fa").then((mod) => ({ default:
 import ChatService from "../fetching/chat";
 import IdentityService from "../fetching/identity";
 
-const FloatingWhatsApp = () => {
+const FloatingWhatsApp = ({ bottomMobile = 'bottom-26' }) => {
   const [chat, setChat] = useState('');
   const [identity, setIdentity] = useState([])
-  
+
   const fetchIdentity = async () => {
     try {
       const response = await IdentityService.getAllIdentities()
@@ -25,7 +25,7 @@ const FloatingWhatsApp = () => {
       console.error('Error fetching chat:', error);
     }
   };
-  
+
   useEffect(() => {
     fetchChat();
     fetchIdentity();
@@ -36,14 +36,14 @@ const FloatingWhatsApp = () => {
   const openWhatsApp = () => {
     const message = encodeURIComponent(chat || "Hello, I need more information!");
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    
+
     let url;
     if (isIOS) {
       url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
     } else {
       url = `https://wa.me/${phoneNumber}?text=${message}`;
     }
-    
+
     if (isIOS) {
       window.location.href = url;
       setTimeout(() => {
@@ -56,7 +56,7 @@ const FloatingWhatsApp = () => {
 
   return (
     <div
-      className="fixed bottom-30 lg:bottom-6 right-6 z-999999 bg-green-500 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-green-600 transition"
+      className={`fixed ${bottomMobile} lg:bottom-6 right-6 z-999999 bg-green-500 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-green-600 transition`}
       onClick={openWhatsApp}
     >
       <FaWhatsapp size={32} />

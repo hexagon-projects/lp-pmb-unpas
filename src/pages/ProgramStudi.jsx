@@ -47,11 +47,21 @@ const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
 
 const ProgramStudi = () => {
   const { slug } = useParams();
-  const [loading, setLoading] = useState(true);
   const imageURL = import.meta.env.VITE_IMAGE_URL;
   const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4);
+
+  // Separate states for each data
+  const [prodi, setProdi] = useState(null);
+  const [partner, setPartner] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
+  const [berita, setBerita] = useState([]);
+  const [prestasi, setPrestasi] = useState({data: []});
+  const [gallery, setGallery] = useState([]);
+  const [jalur, setJalur] = useState([]);
+  const [identity, setIdentity] = useState([]);
+  const [loadingCritical, setLoadingCritical] = useState(true);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -68,24 +78,41 @@ const ProgramStudi = () => {
     };
   }, []);
 
-  const [data, setData] = useState({
-    partner: [],
-    testimonials: [],
-    berita: [],
-    prestasi: [],
-    prodi: null,
-    gallery: [],
-    jalur: [],
-    identity: []
-  });
+  // Fetch critical data first
+  useEffect(() => {
+    const fetchCriticalData = async () => {
+      if (!slug) return;
+      try {
+        const [prodiData, identityData] = await Promise.all([
+          ProdiService.getProdiBySlug(slug),
+          IdentityService.getAllIdentities()
+        ]);
+        setProdi(prodiData);
+        setIdentity(identityData);
+      } catch (error) {
+        console.error("Error fetching critical data:", error);
+      } finally {
+        setLoadingCritical(false);
+      }
+    };
 
-  const fetchData = useCallback(async () => {
-    if (!slug) return;
-    try {
-      const prodi = await ProdiService.getProdiBySlug(slug);
+    fetchCriticalData();
+  }, [slug]);
 
-      const [partners, testimonials, berita, prestasi, gallery, jalur, identity] =
-        await Promise.all([
+  // Fetch secondary data after critical data is ready
+  useEffect(() => {
+    if (!prodi) return;
+
+    const fetchSecondaryData = async () => {
+      try {
+        const [
+          partners, 
+          testimonialsData, 
+          beritaData, 
+          prestasiData, 
+          galleryData, 
+          jalurData
+        ] = await Promise.all([
           PartnerService.getAllPartner(),
           TestimoniService.getTestimonibyDepartement({
             id: prodi?.departement?.id,
@@ -93,32 +120,24 @@ const ProgramStudi = () => {
           BeritaService.getAllBerita(),
           PrestasiService.getPrestasiProdi(slug),
           GalleryService.getAllInovasiSlug({ slug: slug }),
-          RegistrasiService.getAllRegistrasi(),
-          IdentityService.getAllIdentities()
+          RegistrasiService.getAllRegistrasi()
         ]);
-      setData({
-        partner: partners,
-        testimonials: testimonials.slice(0, 5),
-        berita,
-        prestasi,
-        prodi,
-        gallery,
-        jalur,
-        identity
-      });
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    } finally {
-      setLoading(false);
-    }
-  }, [slug]);
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+        setPartner(partners);
+        setTestimonials(testimonialsData.slice(0, 5));
+        setBerita(beritaData);
+        setPrestasi(prestasiData);
+        setGallery(galleryData);
+        setJalur(jalurData);
+      } catch (error) {
+        console.error("Error fetching secondary data:", error);
+      }
+    };
 
-  const { partner, testimonials, berita, prestasi, prodi, gallery, jalur, identity } =
-    data;
+    fetchSecondaryData();
+  }, [prodi, slug]);
+
+  // Derived data
   const latestBerita = berita.slice(0, 4);
   const latestActivity = gallery;
   const newJalur = jalur;
@@ -135,16 +154,17 @@ const ProgramStudi = () => {
   const totalPages = Math.ceil(ourteam.length / itemsPerPage);
   const phoneNumber = `${identity[0]?.phone}`;
 
-  if (loading) {
-    return <Loading />;
-  }
-
   const handleWhatsAppRedirect = (message = "") => {
     if (!phoneNumber) return;
 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
   };
+
+  // Show loading only for critical data
+  if (loadingCritical) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -171,244 +191,225 @@ const ProgramStudi = () => {
       </Helmet>
 
       <UserLayout bgLayoutColor="bg-[#F3f4f4]" position={'fixed'} margin={''} titleColor={'text-black'} paddingDekstop={'md:py-3 md:px-3 lg:py-6 lg:px-6'} paddingTop={'lg:pt-10'}>
-        <div className=" lg:py-12 space-y-14 md:space-y-16 lg:space-y-20">
+        <div className="lg:py-12 space-y-14 md:space-y-16 lg:space-y-20">
           {/* Hero Section */}
-          <motion.div
-            className="relative  lg:px-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="w-full">
-              <div
-                className="md:flex flex-col justify-center bg-cover bg-no-repeat lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[75vh] lg:mt-12 rounded-b-3xl"
-                style={{
-                  backgroundImage: `url(${fakultas.image1
-                    ? `${imageURL}/programs/${fakultas.image1}`
-                    : Gedung
-                    })`,
-                  backgroundPosition: "center",
-                }}
-              >
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/100 to-transparent"></div>
-                <div className="relative flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-12 p-5 py-16 h-[60vh] ">
-                  <div className="flex justify-center items-center ">
-                    <div className="flex items-center md:hidden gap-3 md:gap-4 z-1 cursor-pointer absolute top-4 rounded-lg p-2 md:p-4">
-                      <img
-                        src={Logo}
-                        alt="Logo Universitas Pasundan"
-                        className=" md:w-12 md:h-12 object-cover"
-                        loading="lazy"
-                        width="30"
-                        height="30"
-                      />
-                      <div className="w-[85%]">
-                        <p className={`text-[10px]/3 `}>
-                          Penerimaan Mahasiswa Baru
-                        </p>
-                        <p
-                          className={`text-[10px]/3 md:text-base lg:text-lg font-medium`}
-                        >
-                          Universitas Pasundan
-                        </p>
+          {prodi && (
+            <motion.div
+              className="relative lg:px-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="w-full">
+                <div
+                  className="md:flex flex-col justify-center bg-cover bg-no-repeat lg:rounded-4xl p-4 md:p-6 lg:p-20 relative overflow-hidden space-y-3 h-fit lg:h-[75vh] lg:mt-12 rounded-b-3xl"
+                  style={{
+                    backgroundImage: `url(${fakultas.image1
+                      ? `${imageURL}/programs/${fakultas.image1}`
+                      : Gedung
+                      })`,
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/100 to-transparent"></div>
+                  <div className="relative flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-12 p-5 py-16 h-[60vh] ">
+                    <div className="flex justify-center items-center ">
+                      <div className="flex items-center md:hidden gap-3 md:gap-4 z-1 cursor-pointer absolute top-4 rounded-lg p-2 md:p-4">
+                        <img
+                          src={Logo}
+                          alt="Logo Universitas Pasundan"
+                          className="md:w-12 md:h-12 object-cover"
+                          loading="lazy"
+                          width="30"
+                          height="30"
+                        />
+                        <div className="w-[85%]">
+                          <p className={`text-[10px]/3`}>
+                            Penerimaan Mahasiswa Baru
+                          </p>
+                          <p className={`text-[10px]/3 md:text-base lg:text-lg font-medium`}>
+                            Universitas Pasundan
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="">
-                    <h1 className="text-xl md:text-3xl lg:text-4xl md:font-bold font-medium text-white text-center">
-                      Selamat Datang di
-                    </h1>
-                    <h1 className="text-xl md:text-3xl lg:text-4xl md:font-bold text-white text-center">
-                      Program Studi{" "}
-                      <span style={{ color: fakultas.color }} className="font-bold">
-                        {fakultas.name}
-                      </span>
-                    </h1>
-                  </div>
+                    <div className="">
+                      <h1 className="text-xl md:text-3xl lg:text-4xl md:font-bold font-medium text-white text-center">
+                        Selamat Datang di
+                      </h1>
+                      <h1 className="text-xl md:text-3xl lg:text-4xl md:font-bold text-white text-center">
+                        Program Studi{" "}
+                        <span style={{ color: fakultas.color }} className="font-bold">
+                          {fakultas.name}
+                        </span>
+                      </h1>
+                    </div>
 
-                  {/* <div className="">
-                    <RichText
-                      content={fakultas.description1}
-                      textColor="text-white"
-                      sizeText="text-xs md:text-sm lg:text-lg text-center"
-                      leading="leading-5 lg:leading-6"
-                    />
-                  </div> */}
-
-                  <div className="flex gap-3 justify-center ">
-                    <Button
-                      css="w-fit h-fit outline-[#C93829] outline outline-2"
-                      paddingMobile="px-4 py-3"
-                      text="Daftar Sekarang"
-                      bgColor="bg-primary"
-                      hoverBgColor="hover:outline-2 hover:outline-text"
-                      onClick={() =>
-                        (window.location.href = `https://registrasi.unpas.ac.id/register`)
-                      }
-                    />
-                    <Button
-                      css="w-fit h-fit"
-                      paddingMobile="px-4 py-3"
-                      text="Hubungi Admin"
-                      bgColor="outline outline-2 outline-footer text-[#F3F4F4]"
-                      hoverBgColor="hover:border-2 hover:bg-[#034833] hover:text-white"
-                      onClick={() => handleWhatsAppRedirect("Halo, saya ingin menghubungi Universitas Pasundan")}
-                    />
+                    <div className="flex gap-3 justify-center">
+                      <Button
+                        css="w-fit h-fit outline-[#C93829] outline outline-2"
+                        paddingMobile="px-4 py-3"
+                        text="Daftar Sekarang"
+                        bgColor="bg-primary"
+                        hoverBgColor="hover:outline-2 hover:outline-text"
+                        onClick={() =>
+                          (window.location.href = `https://registrasi.unpas.ac.id/register`)
+                        }
+                      />
+                      <Button
+                        css="w-fit h-fit"
+                        paddingMobile="px-4 py-3"
+                        text="Hubungi Admin"
+                        bgColor="outline outline-2 outline-footer text-[#F3F4F4]"
+                        hoverBgColor="hover:border-2 hover:bg-[#034833] hover:text-white"
+                        onClick={() => handleWhatsAppRedirect("Halo, saya ingin menghubungi Universitas Pasundan")}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-          {/* Hero Section End */}
+            </motion.div>
+          )}
 
           {/* Video Section */}
-          <motion.div
-            className="w-full flex lg:flex-row justify-around items-center px-6 md:px-6 lg:px-12 gap-6 md:gap-6 lg:gap-8 flex-col-reverse "
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
-              <button
-                onClick={() => setIsOpen(true)}
-                className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group"
-              >
-                <img
-                  src={
-                    fakultas.image2
-                      ? `${imageURL}/programs/${fakultas.image2}`
-                      : Gedung
-                  }
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = Gedung;
-                  }}
-                  loading="lazy"
-                  alt="Thumbnail Video"
-                  className="w-full h-full object-cover"
-                />
-
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
-                <motion.div
-                  className="absolute inset-0 flex justify-center items-center rounded-xl md:rounded-2xl lg:rounded-4xl"
-                  whileTap={{ scale: 0.9 }}
+          {prodi && (
+            <motion.div
+              className="w-full flex lg:flex-row justify-around items-center px-6 md:px-6 lg:px-12 gap-6 md:gap-6 lg:gap-8 flex-col-reverse"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
+                <button
+                  onClick={() => setIsOpen(true)}
+                  className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group"
                 >
-                  <div className="p-2 group-hover:scale-110 bg-gray-700 rounded-full">
-                    <FaPlay className="text-white p-4 w-14 h-14" />
+                  <img
+                    src={
+                      fakultas.image2
+                        ? `${imageURL}/programs/${fakultas.image2}`
+                        : Gedung
+                    }
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = Gedung;
+                    }}
+                    loading="lazy"
+                    alt="Thumbnail Video"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+                  <motion.div
+                    className="absolute inset-0 flex justify-center items-center rounded-xl md:rounded-2xl lg:rounded-4xl"
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <div className="p-2 group-hover:scale-110 bg-gray-700 rounded-full">
+                      <FaPlay className="text-white p-4 w-14 h-14" />
+                    </div>
+                  </motion.div>
+                </button>
+              </div>
+
+              <div className="w-full space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+                <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-4 lg:space-y-6 md:w-full">
+                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} tabletAlign="md:text-center lg:text-left" />
+                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 leading-6 text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description1 }} />
+                  <div className="flex gap-3 md:mx-auto lg:mx-0 mt-4 lg:mt-6">
+                    <motion.div>
+                      <Button
+                        css="w-fit h-fit outline-[#C93829] outline outline-2"
+                        paddingMobile="px-4 py-2"
+                        text="Daftar Sekarang"
+                        bgColor="bg-primary"
+                        hoverBgColor="hover:border-2"
+                        onClick={() =>
+                          (window.location.href = `https://registrasi.unpas.ac.id/register`)
+                        }
+                      />
+                    </motion.div>
+                    <motion.div>
+                      <Button
+                        css="w-fit h-fit"
+                        paddingMobile="px-4 py-2"
+                        text="Hubungi Kami"
+                        bgColor="outline outline-2 outline-[#034833] text-gray-900 bg-transparent"
+                        hoverBgColor="hover:border-2 hover:bg-[#034833] hover:text-white"
+                        onClick={() => handleWhatsAppRedirect("Halo, saya ingin menghubungi Universitas Pasundan")}
+                      />
+                    </motion.div>
                   </div>
-                </motion.div>
-              </button>
-            </div>
-
-            <div className="w-full space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
-              <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-4 lg:space-y-6 md:w-full">
-                <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title1} tabletAlign="md:text-center lg:text-left" />
-                <p className={`text-xs md:text-sm lg:text-sm text-gray-800 leading-6 text-center lg:text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description1 }} />
-                {/* <RichText content={fakultas.description1} /> */}
-                <div className="flex gap-3 md:mx-auto lg:mx-0 mt-4 lg:mt-6">
-                  <motion.div>
-                    <Button
-                      css="w-fit h-fit outline-[#C93829] outline outline-2"
-                      paddingMobile="px-4 py-2"
-                      text="Daftar Sekarang"
-                      bgColor="bg-primary"
-                      hoverBgColor="hover:border-2"
-                      onClick={() =>
-                        (window.location.href = `https://registrasi.unpas.ac.id/register`)
-                      }
-                    // onClick={() =>
-                    //   fakultas?.link_program &&
-                    //   (window.location.href = fakultas.link_program)
-                    // }
-                    />
-                  </motion.div>
-
-                  <motion.div>
-                    <Button
-                      css="w-fit h-fit"
-                      paddingMobile="px-4 py-2"
-                      text="Hubungi Kami"
-                      bgColor="outline outline-2 outline-[#034833] text-gray-900 bg-transparent"
-                      hoverBgColor="hover:border-2 hover:bg-[#034833] hover:text-white"
-                      onClick={() => handleWhatsAppRedirect("Halo, saya ingin menghubungi Universitas Pasundan")}
-                    />
-                  </motion.div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-          {/* Video Section End */}
+            </motion.div>
+          )}
 
           {/* Fakultas Dalam Angka */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className=""
-          >
-            {fakultas.periode && fakultas.age && fakultas.weekly && fakultas.class_size && (
-              <>
-                <div className="w-full flex justify-center items-center mb-4">
-                  <AnimatedRichTitle
-                    text={`${fakultas.name} Dalam Angka`}
-                    color={fakultas.color}
-                  />
-                </div>
-                <StatsSection
-                  colorIcon={fakultas.color}
-                  title1="Karya Ilmiah"
-                  prodi={fakultas.periode}
-                  mahasiswa={fakultas.age}
-                  lulusan={fakultas.weekly}
-                  prestasi={fakultas.class_size}
+          {fakultas.periode && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className=""
+            >
+              <div className="w-full flex justify-center items-center mb-4">
+                <AnimatedRichTitle
+                  text={`${fakultas.name} Dalam Angka`}
+                  color={fakultas.color}
                 />
-              </>
-            )}
-          </motion.div>
-          {/* Fakultas Dalam Angka End */}
+              </div>
+              <StatsSection
+                colorIcon={fakultas.color}
+                title1="Karya Ilmiah"
+                prodi={fakultas.periode}
+                mahasiswa={fakultas.age}
+                lulusan={fakultas.weekly}
+                prestasi={fakultas.class_size}
+              />
+            </motion.div>
+          )}
 
           {/* Fakultas Unggulan Section */}
-          <motion.div
-            className=" w-full flex lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8 px-6 md:px-6 lg:px-12 flex-col"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <div className="w-full lg:w-1/2 space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <div className="flex flex-col items-start space-y-2 md:space-y-2 lg:space-y-4">
-                  <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title2} className="mx-auto lg:mx-0" />
-                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 leading-6 text-center lg:text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }} />
-                  {/* <RichText content={fakultas.description2} /> */}
-                </div>
-              </motion.div>
-            </div>
-            <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
-              <button className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
-                <img
-                  src={
-                    fakultas.image3
-                      ? `${imageURL}/programs/${fakultas.image3}`
-                      : Gedung
-                  }
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = Gedung;
-                  }}
-                  loading="lazy"
-                  alt="Thumbnail Video"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
-              </button>
-            </div>
-          </motion.div>
-          {/* Fakultas Unggulan Section End */}
+          {prodi && (
+            <motion.div
+              className="w-full flex lg:flex-row justify-around items-center gap-4 md:gap-6 lg:gap-8 px-6 md:px-6 lg:px-12 flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <div className="w-full lg:w-1/2 space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  <div className="flex flex-col items-start space-y-2 md:space-y-2 lg:space-y-4">
+                    <AnimatedRichSubtitle color={fakultas.color} text={fakultas.title2} className="mx-auto lg:mx-0" />
+                    <p className={`text-xs md:text-sm lg:text-sm text-gray-800 leading-6 text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description2 }} />
+                  </div>
+                </motion.div>
+              </div>
+              <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
+                <button className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
+                  <img
+                    src={
+                      fakultas.image3
+                        ? `${imageURL}/programs/${fakultas.image3}`
+                        : Gedung
+                    }
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = Gedung;
+                    }}
+                    loading="lazy"
+                    alt="Thumbnail Video"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+                </button>
+              </div>
+            </motion.div>
+          )}
 
           {/* Mengapa Memilih Fakultas Section */}
           {unggulan.length > 0 && (
@@ -449,334 +450,244 @@ const ProgramStudi = () => {
             </motion.div>
           )}
 
-          {/* Mengapa Memilih Fakultas Section End */}
-
           {/* Apa yang kamu pelajari Section */}
-          <motion.div
-            className=" w-full flex lg:flex-row-reverse justify-around items-center gap-4 md:gap-6 lg:gap-8 px-6 md:px-6 lg:px-12 flex-col-reverse"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <div className="w-full md:w-full space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
-                  <PiBookBookmarkLight style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
-                </div>
-                <div className="flex flex-col items-start md:items-start space-y-2 lg:space-y-4">
-                  <AnimatedRichSubtitle alignText="text-left" color={fakultas.color} text={fakultas.title3} />
-                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 leading-6 text-left md:text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description3 }} />
-                  {/* <RichText content={fakultas.description3} /> */}
-                </div>
-              </motion.div>
-            </div>
-            <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
-              <button className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
-                <img
-                  src={
-                    fakultas.image3
-                      ? `${imageURL}/programs/${fakultas.image3}`
-                      : Gedung
-                  }
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = Gedung;
-                  }}
-                  loading="lazy"
-                  alt="Thumbnail Video"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
-              </button>
-            </div>
-          </motion.div>
-          {/* Apa yang kamu pelajari Section End */}
+          {prodi && (
+            <motion.div
+              className="w-full flex lg:flex-row-reverse justify-around items-center gap-4 md:gap-6 lg:gap-8 px-6 md:px-6 lg:px-12 flex-col-reverse"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <div className="w-full md:w-full space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
+                    <PiBookBookmarkLight style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
+                  </div>
+                  <div className="flex flex-col items-start md:items-start space-y-2 lg:space-y-4">
+                    <AnimatedRichSubtitle alignText="text-left" color={fakultas.color} text={fakultas.title3} />
+                    <p className={`text-xs md:text-sm lg:text-sm text-gray-800 leading-6 text-left md:text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description3 }} />
+                  </div>
+                </motion.div>
+              </div>
+              <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex justify-center">
+                <button className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
+                  <img
+                    src={
+                      fakultas.image3
+                        ? `${imageURL}/programs/${fakultas.image3}`
+                        : Gedung
+                    }
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = Gedung;
+                    }}
+                    loading="lazy"
+                    alt="Thumbnail Video"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+                </button>
+              </div>
+            </motion.div>
+          )}
 
           {/* Prospek karir Section */}
-          <motion.div
-            className="w-full flex flex-col lg:flex-row-reverse items-center gap-4 md:gap-6 lg:gap-20 px-6 md:px-6 lg:px-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex rounded-xl md:rounded-2xl lg:rounded-4xl">
-              <div className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
-                <img
-                  src={
-                    fakultas.image4
-                      ? `${imageURL}/programs/${fakultas.image4}`
-                      : Gedung
-                  }
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = Gedung;
-                  }}
-                  loading="lazy"
-                  alt="Thumbnail Video"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+          {prodi && (
+            <motion.div
+              className="w-full flex flex-col lg:flex-row-reverse items-center gap-4 md:gap-6 lg:gap-20 px-6 md:px-6 lg:px-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <div className="w-full lg:w-1/2 h-96 md:h-[50vh] lg:h-[60vh] flex rounded-xl md:rounded-2xl lg:rounded-4xl">
+                <div className="relative w-full aspect-video rounded-xl md:rounded-2xl lg:rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
+                  <img
+                    src={
+                      fakultas.image4
+                        ? `${imageURL}/programs/${fakultas.image4}`
+                        : Gedung
+                    }
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = Gedung;
+                    }}
+                    loading="lazy"
+                    alt="Thumbnail Video"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl md:rounded-2xl lg:rounded-4xl"></div>
+                </div>
               </div>
-            </div>
-            <div className="w-full md:w-full space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
-                  <PiSealCheck style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
-                </div>
-                <div className="flex flex-col items-start md:items-start space-y-2 lg:space-y-4">
-                  <AnimatedRichSubtitle alignText="text-left" color={fakultas.color} text={fakultas.title4} />
-                  <p className={`text-xs md:text-sm lg:text-sm text-gray-800 leading-6 text-left md:text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description4 }} />
-                  {/* <RichText content={fakultas.description4} /> */}
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-          {/* Prospek karir Section End */}
+              <div className="w-full md:w-full space-y-4 md:space-y-6 flex flex-col justify-center items-start text-justify md:items-start md:text-left">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  <div className="p-3 md:p-4 rounded-full bg-[#F4F4F4] outline-white shadow w-fit h-fit mb-6 md:mb-8">
+                    <PiSealCheck style={{ color: `${fakultas.color}` }} className="w-8 h-8 md:w-10 md:h-10" />
+                  </div>
+                  <div className="flex flex-col items-start md:items-start space-y-2 lg:space-y-4">
+                    <AnimatedRichSubtitle alignText="text-left" color={fakultas.color} text={fakultas.title4} />
+                    <p className={`text-xs md:text-sm lg:text-sm text-gray-800 leading-6 text-left md:text-left [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1`} dangerouslySetInnerHTML={{ __html: fakultas.description4 }} />
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
 
           {/* jalur */}
-          <div className="space-y-8 md:space-y-14 lg:space-y-20 px-0 md:px-6 lg:px-12">
-            <div className="w-full flex justify-center items-center">
-              <MemoizedPendaftaranSection
-                image={Section3}
-                title="Pendaftaran"
-                subtitle="Jalur Pendaftaran"
-                jalurPendaftaran={newJalur}
-                color={fakultas.color}
-                titleColor="text-black"
-                subtitleColor={fakultas.color}
-                iconColor={fakultas.color}
-                borderPaginationColor={fakultas.color}
-                paginationColor={fakultas.color}
-              />
-            </div>
-          </div>
-
-          {/* <motion.div
-            className="w-full flex justify-center items-center  md:px-6 md:py-9 lg:px-8 lg:py-11"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 2.8 }}
-          >
-            <div
-              className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rounded-none md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2"
-              style={{
-                background: `linear-gradient(to right, ${fakultas.color} 0%, ${fakultas.color}33 90%)`
-              }}
-            >
-              <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:ga items-center text-center relative z-10">
-                <div className="flex items-center gap-4 text-left">
-                  <div className="w-[60%] md:w-fit hidden lg:block">
-                    <Title
-                      sizeText="text-sm md:text-xl lg:text-[32px] text-white"
-                      fontWeight="font-semibold"
-                      title="Dapatkan Informasi Lainnya"
-                    />
-                    <div className="flex items-center gap-2 md:gap-4">
-                      <Title
-                        sizeText="text-sm md:text-xl lg:text-2xl text-white"
-                        fontWeight="font-base"
-                        title="Seputar PMB Unpas"
-                      />
-                      <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" color="white" />
-                    </div>
-                  </div>
-                  <div className="flex lg:hidden items-center gap-4 text-left">
-                    <Title
-                      sizeText="text-sm md:text-2xl lg:text-[32px] text-white"
-                      fontWeight="font-base"
-                      title="Dapatkan Informasi Lainya Seputar PMB Unpas"
-                    />
-                    <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 rotate-90" color="white" />
-                  </div>
-                </div>
-                <div className="flex md:gap-5 lg:gap-10 gap-5 md:mt-0 ">
-                  <button
-                    onClick={() => { }}
-                    className="cursor-pointer relative overflow-hidden group py-2 px-4 md:px-8 md:py-4 text-black text-right whitespace-nowrap rounded-lg md:rounded-xl border-footer border-2 transition-all duration-500 hover:text-white"
-                  >
-                    <span className="relative z-10 cursor-pointer text-xs md:text-sm lg:text-sm font-bold">Informasi Biaya</span>
-                    <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-footer z-0"></span>
-                  </button>
-                  <button
-                    onClick={() => { }}
-                    className="cursor-pointer relative hidden md:block overflow-hidden group py-2 px-4 md:px-8 md:py-4 text-black text-right whitespace-nowrap rounded-lg md:rounded-xl border-footer border-2 transition-all duration-500 hover:text-white"
-                  >
-                    <span className="relative z-10 cursor-pointer text-xs md:text-sm lg:text-sm font-bold">Buku Panduan</span>
-                    <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-footer z-0"></span>
-                  </button>
-                  <button
-                    onClick={() => { }}
-                    className="cursor-pointer relative overflow-hidden group py-2 px-4 md:px-8 md:py-4 text-black text-right whitespace-nowrap rounded-lg md:rounded-xl border-footer border-2 transition-all duration-500 hover:text-white"
-                  >
-                    <span className="relative z-10 cursor-pointer text-xs md:text-sm lg:text-sm font-bold">Hubungi Admin</span>
-                    <span className="absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-in-out bg-footer z-0"></span>
-                  </button>
-                </div>
+          {jalur.length > 0 && (
+            <div className="space-y-8 md:space-y-14 lg:space-y-20 px-0 md:px-6 lg:px-12">
+              <div className="w-full flex justify-center items-center">
+                <MemoizedPendaftaranSection
+                  image={Section3}
+                  title="Pendaftaran"
+                  subtitle="Jalur Pendaftaran"
+                  jalurPendaftaran={newJalur}
+                  color={fakultas.color}
+                  titleColor="text-black"
+                  subtitleColor={fakultas.color}
+                  iconColor={fakultas.color}
+                  borderPaginationColor={fakultas.color}
+                  paginationColor={fakultas.color}
+                />
               </div>
             </div>
-          </motion.div> */}
-          {/* jalur end */}
+          )}
 
           {/* Dosen Penelitian Section */}
-          <motion.div
-            className="space-y-4 md:space-y-6 lg:space-y-8 px-6 md:px-6 lg:px-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.4 }}
-          >
-            {ourteam && ourteam.length > 0 ? (
-              <>
-                <div className="text-center">
-                  <AnimatedRichTitle text="Dosen & Penelitian" color={fakultas.color} />
-                </div>
-                <div className="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10">
-                  {currentItems.map((member, index) => (
-                    <div key={index}>
-                      <DosenCard
-                        name={member.name}
-                        title={member.title}
-                        image={member.image}
-                        color={fakultas.color}
-                        data={member}
-                      />
-                    </div>
-                  ))}
-                </div>
-                <Pagination
-                  totalPages={totalPages}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                />
-              </>
-            ) : (
-              <></>
-            )}
-          </motion.div>
-          {/* Dosen Penelitian Section End */}
-
-          {/* Inovasi Section */}
-          {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.6 }}
-        >
-          <AktivitasMahasiswa data={latestActivity} color={fakultas.color} />
-        </motion.div> */}
-          {/* Inovasi Section End */}
+          {ourteam.length > 0 && (
+            <motion.div
+              className="space-y-4 md:space-y-6 lg:space-y-8 px-6 md:px-6 lg:px-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.4 }}
+            >
+              <div className="text-center">
+                <AnimatedRichTitle text="Dosen & Penelitian" color={fakultas.color} />
+              </div>
+              <div className="w-full h-full grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10">
+                {currentItems.map((member, index) => (
+                  <div key={index}>
+                    <DosenCard
+                      name={member.name}
+                      title={member.title}
+                      image={member.image}
+                      color={fakultas.color}
+                      data={member}
+                    />
+                  </div>
+                ))}
+              </div>
+              <Pagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
+            </motion.div>
+          )}
 
           {/* Prestasi Section */}
-          <motion.div
-            className="w-full space-y-4 md:space-y-6 lg:space-y-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.8 }}
-          >
-            {prestasi.data && prestasi.data.length > 0 ? (
+          {prestasi.data?.length > 0 && (
+            <motion.div
+              className="w-full space-y-4 md:space-y-6 lg:space-y-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.8 }}
+            >
               <PrestasiSection prestasi={prestasi.data} color={fakultas.color} paddingMobile={'px-6 md:px-0'} />
-            ) : (
-              <></>
-            )}
-          </motion.div>
-          {/* Prestasi Section End */}
+            </motion.div>
+          )}
 
           {/* Fasilitas Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 2 }}
-            className="px-6 md:px-0"
-          >
-            {fasilitas.length > 0 ? (
-              <>
-                <div className="text-center mb-5">
-                  <AnimatedRichTitle text="Fasilitas" color={fakultas.color} />
-                </div>
-                <FasilitasSlider title="Fasilitas" facilities={fasilitas} color={fakultas.color} />
-              </>
-            ) : (
-              <></>
-            )}
-          </motion.div>
-          {/* Fasilitas Section End */}
+          {fasilitas.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 2 }}
+              className="px-6 md:px-0"
+            >
+              <div className="text-center mb-5">
+                <AnimatedRichTitle text="Fasilitas" color={fakultas.color} />
+              </div>
+              <FasilitasSlider title="Fasilitas" facilities={fasilitas} color={fakultas.color} />
+            </motion.div>
+          )}
 
           {/* Mitra Section */}
-          <motion.div
-            className="w-full flex flex-row justify-between items-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 2.2 }}
-          >
-            <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-10">
-              <MitraSection data={partner} color={fakultas.color} />
-            </div>
-          </motion.div>
-          {/* Mitra Section End */}
+          {partner.length > 0 && (
+            <motion.div
+              className="w-full flex flex-row justify-between items-center gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 2.2 }}
+            >
+              <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-10">
+                <MitraSection data={partner} color={fakultas.color} />
+              </div>
+            </motion.div>
+          )}
 
           {/* Testimoni Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            {testimonials.length > 0 ? (
-              <>
-                <div className="w-full text-center ">
-                  <AnimatedRichTitle text="Testimoni" color={fakultas.color} />
-                </div>
-                <div className="w-full">
-                  <TestimonialSection
-                    data={testimonials}
-                    displayDekstop="md:flex-col"
-                    visibilityTitle="hidden"
-                  />
-                </div>
-              </>
-            ) : (
-              <></>
-            )}
-          </motion.div>
-          {/* Testimoni Section End */}
-
-          {/* Berita Terbaru Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 2.6 }}
-          >
-            <div className="text-center md:text-left space-y-4 md:space-y-6 lg:space-y-8 px-0">
-              <div className="text-center">
-                <AnimatedRichTitle text="Berita Terbaru" color={fakultas.color} />
+          {testimonials.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <div className="w-full text-center">
+                <AnimatedRichTitle text="Testimoni" color={fakultas.color} />
               </div>
               <div className="w-full">
-                <div className="text-left py-2 px-5 md:px-10 lg:px-15">
-                  <ArticleCard data={latestBerita} />
+                <TestimonialSection
+                  data={testimonials}
+                  displayDekstop="md:flex-col"
+                  visibilityTitle="hidden"
+                />
+              </div>
+            </motion.div>
+          )}
+
+          {/* Berita Terbaru Section */}
+          {latestBerita.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 2.6 }}
+            >
+              <div className="text-center md:text-left space-y-4 md:space-y-6 lg:space-y-8 px-0">
+                <div className="text-center">
+                  <AnimatedRichTitle text="Berita Terbaru" color={fakultas.color} />
+                </div>
+                <div className="w-full">
+                  <div className="text-left py-2 px-5 md:px-10 lg:px-15">
+                    <ArticleCard data={latestBerita} />
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-          {/* Berita Terbaru Section End */}
+            </motion.div>
+          )}
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 3 }}
-          >
-            <CTASection
-              onClick={() =>
-                fakultas?.link_program &&
-                (window.location.href = fakultas.link_program)
-              }
-              color="bg-[#FEF251]"
-            />
-          </motion.div>
+          {prodi && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 3 }}
+            >
+              <CTASection
+                onClick={() =>
+                  fakultas?.link_program &&
+                  (window.location.href = fakultas.link_program)
+                }
+                color="bg-[#FEF251]"
+              />
+            </motion.div>
+          )}
 
           <AnimatePresence>
             {isOpen && (
@@ -814,7 +725,8 @@ const ProgramStudi = () => {
             )}
           </AnimatePresence>
         </div>
-      </UserLayout></>
+      </UserLayout>
+    </>
   );
 };
 

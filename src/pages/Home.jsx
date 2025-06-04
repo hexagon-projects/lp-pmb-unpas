@@ -18,9 +18,9 @@ import TestimonialSection from "../views/home/TestimonialSection";
 import Title from "../components/Title";
 import Button from "../components/Button";
 import { FaArrowRightLong } from "react-icons/fa6";
-import InteractiveGrid from "../components/InteractiveCard";
 import { FACULTIES, FACULTIES1, FACULTIES2, FACULTIES3 } from "../data/fakultas";
 
+// Memoized components
 const MemoizedHeroSection = React.memo(HeroSection);
 const MemoizedAboutSection = React.memo(AboutSection);
 const MemoizedPendaftaranSection = React.memo(PendaftaranSection);
@@ -31,23 +31,31 @@ const MemoizedArtikelSection = React.memo(ArtikelSection);
 const MemoizedMitraSection = React.memo(MitraSection);
 const MemoizedTestimonialSection = React.memo(TestimonialSection);
 const MemoizedCTASection = React.memo(CTASection);
-const MemoizedInteractiveGrid = React.memo(InteractiveGrid);
+const MemoizedVideoSwiper = React.memo(VideoSwiper);
 
 const Home = () => {
   const [data, setData] = useState({
-    slider: [],
-    about: [],
-    partner: [],
-    testimonials: [],
-    unggulan: [],
-    jalur: [],
-    artikel: [],
-    prestasi: [],
-    dukungan: [],
-    organisasi: []
+    slider: null,
+    about: null,
+    partner: null,
+    testimonials: null,
+    unggulan: null,
+    jalur: null,
+    artikel: null,
+    prestasi: null,
+    dukungan: null,
+    organisasi: null
   });
 
   const imageURL = import.meta.env.VITE_IMAGE_URL;
+
+  // Static data
+  const statsData = {
+    prodi: 44,
+    mahasiswa: 9112,
+    lulusan: 9877436,
+    prestasi: 2139
+  };
 
   const metaData = useMemo(() => ({
     title: "Beranda - Universitas Pasundan",
@@ -81,34 +89,30 @@ const Home = () => {
   }), []);
 
   useEffect(() => {
-    let isMounted = true;
-
-    const loadData = async () => {
-      try {
-        const fetchedData = await fetchAllData();
-        if (isMounted) {
-          setData(fetchedData);
-        }
-      } catch (error) {
-        console.error("Error loading data:", error);
-      }
-    };
-
-    loadData();
-
-    return () => {
-      isMounted = false;
-    };
+    const promises = fetchAllData();
+    
+    Object.entries(promises).forEach(([key, promise]) => {
+      promise
+        .then(result => {
+          setData(prev => ({ ...prev, [key]: result }));
+        })
+        .catch(error => {
+          console.error(`Error fetching ${key}:`, error);
+          setData(prev => ({ ...prev, [key]: [] }));
+        });
+    });
   }, []);
 
+  const layoutProps = {
+    position: 'fixed',
+    bgLayoutColor: "bg-[#F3f4f4]",
+    paddingDekstop: "md:p-6 lg:p-6",
+    paddingTop: "lg:pt-30",
+    bgColor: "bg-[#F3F3F3]"
+  };
+
   return (
-    <UserLayout
-      position={'fixed'}
-      bgLayoutColor="bg-[#F3f4f4]"
-      paddingDekstop={'md:p-6 lg:p-6'}
-      paddingTop={'lg:pt-30'}
-      bgColor={'bg-[#F3F3F3]'}
-    >
+    <UserLayout {...layoutProps}>
       <Helmet>
         <title>{metaData.title}</title>
         <meta name="description" content={metaData.description} />
@@ -124,75 +128,82 @@ const Home = () => {
       </Helmet>
 
       <div className="relative space-y-8 md:space-y-14 lg:space-y-16">
-        <MemoizedHeroSection data={data?.slider} />
+        {/* Hero Section */}
+        {data.slider && <MemoizedHeroSection data={data.slider} />}
 
-        <div>
-          <div className={'flex md:hidden w-full justify-center items-center px-4 pb-4 md:px-10 lg:px-12'}>
-            <StatsSection
-              prodi={44}
-              mahasiswa={9112}
-              lulusan={9877436}
-              prestasi={2139}
-            />
-          </div>
-
-          <MemoizedAboutSection data={data} />
-        </div>
-
-        <div className="hidden md:block">
-          <StatsSection
-            prodi={44}
-            mahasiswa={9112}
-            lulusan={9877436}
-            prestasi={2139}
-          />
-        </div>
-
-        <div className="space-y-8 md:space-y-14 lg:space-y-16">
-          <div className="bg-[#717171]/5 border-2 border-[#ebebeb]">
-            <MemoizedPendaftaranSection
-              image={Section3}
-              title="Pendaftaran"
-              subtitle="Jalur Pendaftaran"
-              jalurPendaftaran={data?.jalur}
-            />
-          </div>
-
-          <div className="w-full flex justify-center items-center">
-            <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%]">
-              <MemoizedReasonSection data={data?.unggulan} />
+        {/* About Section */}
+        {data.about && (
+          <div>
+            <div className={'flex md:hidden w-full justify-center items-center px-4 pb-4 md:px-10 lg:px-12'}>
+              <StatsSection {...statsData} />
             </div>
+            <MemoizedAboutSection data={data} />
           </div>
+        )}
+
+        {/* Stats Section (Desktop) */}
+        <div className="hidden md:block">
+          <StatsSection {...statsData} />
         </div>
 
+        {/* Main Content Sections */}
+        <div className="space-y-8 md:space-y-14 lg:space-y-16">
+          {/* Pendaftaran Section */}
+          {data.jalur && (
+            <div className="bg-[#717171]/5 border-2 border-[#ebebeb]">
+              <MemoizedPendaftaranSection
+                image={Section3}
+                title="Pendaftaran"
+                subtitle="Jalur Pendaftaran"
+                jalurPendaftaran={data.jalur}
+              />
+            </div>
+          )}
+
+          {/* Reason Section */}
+          {data.unggulan && (
+            <div className="w-full flex justify-center items-center">
+              <div className="w-full md:w-[90%] lg:w-[90%] xl:w-[80%]">
+                <MemoizedReasonSection data={data.unggulan} />
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* CTA Button */}
         <div className="w-full flex justify-center items-center p-4 md:px-6 md:py-9 lg:px-8 lg:py-11">
-          <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-border rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2'}>
-            <div className="flex justify-between md:justify-between items-center text-center relative z-2">
-              <div className="flex items-center gap-4 text-left">
-                <div className="w-[60%] md:w-fit">
-                  <Title
-                    sizeText="text-sm md:text-2xl lg:text-[32px]"
-                    fontWeight="font-semibold"
-                    title={'Yuk Daftar Di Unpas Sekarang!'}
+          <div className={'w-full md:w-[90%] lg:w-[90%] xl:w-[80%] px-4 py-4 rainbow-container rounded-xl md:rounded-2xl lg:rounded-4xl lg:p-6 relative z-2'}>
+            <div className="rainbow-border py-4 px-4">
+              <div className="flex justify-between md:justify-between items-center text-center relative z-2 content">
+                <div className="flex items-center gap-4 text-left">
+                  <div className="w-[60%] md:w-fit">
+                    <Title
+                      sizeText="text-sm md:text-2xl lg:text-[32px]"
+                      fontWeight="font-semibold"
+                      title={'Yuk Daftar Di Unpas Sekarang!'}
+                    />
+                  </div>
+                  <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
+                </div>
+                <div>
+                  <Button
+                    css={'group pulsating-button '}
+                    text={'Daftar Sekarang'}
+                    textColor="text-black absolute z-1"
+                    padding="p-4"
+                    bgColor="bg-primary"
+                    onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'}
                   />
                 </div>
-                <FaArrowRightLong className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 animated-arrow" />
-              </div>
-              <div className="">
-                <Button
-                  css={'pulsating-button'}
-                  text={'Daftar Sekarang'}
-                  bgColor="bg-primary"
-                  padding="p-4"
-                  onClick={() => window.location.href = 'https://registrasi.unpas.ac.id/register'}
-                />
               </div>
             </div>
           </div>
         </div>
 
-        <VideoSwiper data={data?.dukungan} />
+        {/* Video Swiper */}
+        {data.dukungan && <MemoizedVideoSwiper data={data.dukungan} />}
 
+        {/* Fakultas Section */}
         <div className="md:bg-[#717171]/5 px-4 md:px-6 lg:px-8 md:border-2 md:border-[#ebebeb]">
           <MemoizedFakultasSection
             faculties={FACULTIES}
@@ -202,30 +213,44 @@ const Home = () => {
           />
         </div>
 
-        <MemoizedPrestasiSection
-          organisasi={data?.organisasi}
-          prestasi={data?.prestasi}
-          imageURL={imageURL}
-        />
+        {/* Prestasi Section */}
+        {data.prestasi && data.organisasi && (
+          <MemoizedPrestasiSection
+            organisasi={data.organisasi}
+            prestasi={data.prestasi}
+            imageURL={imageURL}
+          />
+        )}
 
+        {/* Bottom Sections */}
         <div className="relative space-y-8 md:space-y-14 lg:space-y-16">
-          <div className="relative z-1">
-            <MemoizedArtikelSection data={data} />
-          </div>
-          <div className="relative z-1">
-            <MemoizedMitraSection data={data?.partner} />
-          </div>
-          <div className="relative z-1">
-            <MemoizedTestimonialSection
-              data={data?.testimonials}
-              displayDekstop="md:flex-col"
-            />
-          </div>
+          {/* Artikel Section */}
+          {data.artikel && (
+            <div className="relative z-1">
+              <MemoizedArtikelSection data={data} />
+            </div>
+          )}
+
+          {/* Mitra Section */}
+          {data.partner && (
+            <div className="relative z-1">
+              <MemoizedMitraSection data={data.partner} />
+            </div>
+          )}
+
+          {/* Testimonial Section */}
+          {data.testimonials && (
+            <div className="relative z-1">
+              <MemoizedTestimonialSection
+                data={data.testimonials}
+                displayDekstop="md:flex-col"
+              />
+            </div>
+          )}
+
+          {/* CTA Section */}
           <div className="relative z-1">
             <MemoizedCTASection />
-          </div>
-          <div className="absolute inset-0 w-full h-full">
-            {/* <MemoizedInteractiveGrid /> */}
           </div>
         </div>
       </div>

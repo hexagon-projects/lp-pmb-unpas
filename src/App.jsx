@@ -20,6 +20,8 @@ import Prestasi from './pages/Prestasi'
 import Mitra from './pages/Mitra'
 import Testimoni from './pages/Testimoni'
 import Dukungan from './pages/Dukungan'
+import JalurDetail from './pages/JalurDetail'
+import Utbk from './pages/jalur/Utbk'
 
 function App() {
   const { trackingId } = useGoogleAnalytics();
@@ -39,128 +41,153 @@ const AnimatedRoutes = () => {
   const location = useLocation()
 
   return (
-      <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={
-            <PageWrapper>
-              <Home />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/program-studi/:slug"
-          element={
-            <PageWrapper>
-              <ProgramStudi />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/jalur"
-          element={
-            <PageWrapper>
-              <Jalur />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/artikel"
-          element={
-            <PageWrapper>
-              <Artikel />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/artikel/:slug"
-          element={
-            <PageWrapper>
-              <ArtikelDetail />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/fakultas"
-          element={
-            <PageWrapper>
-              <Fakultas />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/fakultas/:slug"
-          element={
-            <PageWrapper>
-              <FakultasDetail />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/fasilitas"
-          element={
-            <PageWrapper>
-              <Fasilitas />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/faq"
-          element={
-            <PageWrapper>
-              <Faq />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/kontak"
-          element={
-            <PageWrapper>
-              <Contact />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/prestasi"
-          element={
-            <PageWrapper>
-              <Prestasi />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/mitra"
-          element={
-            <PageWrapper>
-              <Mitra />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/testimoni"
-          element={
-            <PageWrapper>
-              <Testimoni />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/dukungan"
-          element={
-            <PageWrapper>
-              <Dukungan />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/mahasiswa-dan-alumni"
-          element={
-            <PageWrapper>
-              <Mahasiswa />
-            </PageWrapper>
-          }
-        />
-      </Routes>
+    <Routes location={location} key={location.pathname}>
+      <Route
+        path="/"
+        element={
+          <PageWrapper>
+            <Home />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/program-studi/:slug"
+        element={
+          <PageWrapper>
+            <ProgramStudi />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/jalur"
+        element={
+          <PageWrapper>
+            <Jalur />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/artikel"
+        element={
+          <PageWrapper>
+            <Artikel />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/artikel/:slug"
+        element={
+          <PageWrapper>
+            <ArtikelDetail />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/fakultas"
+        element={
+          <PageWrapper>
+            <Fakultas />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/fakultas/:slug"
+        element={
+          <PageWrapper>
+            <FakultasDetail />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/fasilitas"
+        element={
+          <PageWrapper>
+            <Fasilitas />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/faq"
+        element={
+          <PageWrapper>
+            <Faq />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/kontak"
+        element={
+          <PageWrapper>
+            <Contact />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/prestasi"
+        element={
+          <PageWrapper>
+            <Prestasi />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/mitra"
+        element={
+          <PageWrapper>
+            <Mitra />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/testimoni"
+        element={
+          <PageWrapper>
+            <Testimoni />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/dukungan"
+        element={
+          <PageWrapper>
+            <Dukungan />
+          </PageWrapper>
+        }
+      />
+      {/* <Route
+        path="/jalurdetail"
+        element={
+          <PageWrapper>
+            <JalurDetail />
+          </PageWrapper>
+        }
+      /> */}
+      <Route
+        path="/jalur/:slug"
+        element={
+          <PageWrapper>
+            <JalurDetail />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/jalur/utbk"
+        element={
+          <PageWrapper>
+            <Utbk />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/mahasiswa-dan-alumni"
+        element={
+          <PageWrapper>
+            <Mahasiswa />
+          </PageWrapper>
+        }
+      />
+
+    </Routes>
   )
 }
 

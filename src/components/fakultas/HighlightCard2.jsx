@@ -49,7 +49,7 @@ const HighlightCard = ({ title, text, image, hoverColor }) => {
 
             <div className="space-y-3 md:space-y-4">
                 <RichText 
-                    lineclamp={'md:line-clamp-4'} 
+                    lineclamp={''} 
                     sizeText={`text-xs md:text-sm transition ${ isActive ? '' : 'group-hover:text-gray-900'}`} 
                     content={text}
                 />

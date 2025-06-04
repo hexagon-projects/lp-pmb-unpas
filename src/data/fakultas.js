@@ -1,7 +1,7 @@
 export const FACULTIES = [
     {
       name: 'Fakultas Keguruan dan Ilmu Pendidikan',
-      slug: 'fakultas-keguruan-dan-ilmu-pendidikan',
+      slug: 'fakultas-keguruan-ilmu-pendidikan',
       programs: [
         { name: 'S1 - Pendidikan Pancasila & Kewarganegaraan', slug: 'pendidikan-pancasila-dan-kewarganegaraan' },
         { name: 'S1 - Pendidikan Ekonomi', slug: 'pendidikan-ekonomi' },
@@ -32,7 +32,7 @@ export const FACULTIES = [
     },
     {
       name: 'Fakultas Ilmu Sosial Dan Ilmu Politik',
-      slug: 'fakultas-ilmu-sosial-dan-ilmu-politik',
+      slug: 'fakultas-ilmu-sosial-ilmu-politik',
       programs: [
         { name: 'S1 - Administrasi Publik', slug: 'administrasi-publik' },
         { name: 'S1 - Ilmu Kesejahteraan Sosial', slug: 'ilmu-kesejahteraan-sosial' },
@@ -43,7 +43,7 @@ export const FACULTIES = [
     },
     {
       name: 'Program Pasca Sarjana',
-      slug: 'program-pasca-sarjana',
+      slug: 'pasca-sarjana-s2',
       programs: [
         { name: 'S2 - Magister Administrasi & Kebijakan Publik', slug: 'magister-administrasi-kebijakan-publik' },
         { name: 'S2 - Magister Manajemen', slug: 'magister-manajemen' },
@@ -77,7 +77,7 @@ export const FACULTIES = [
     },
     {
       name: 'Fakultas Ilmu Seni dan Sastra',
-      slug: 'fakultas-ilmu-seni-dan-sastra',
+      slug: 'fakultas-ilmu-seni-sastra',
       programs: [
         { name: 'S1 - Sastra Inggris', slug: 'sastra-inggris' },
         { name: 'S1 - Desain Komunikasi Visual', slug: 'desain-komunikasi-visual' },
@@ -87,7 +87,7 @@ export const FACULTIES = [
     },
     {
       name: 'Program Doktor',
-      slug: 'program-pasca-sarjana',
+      slug: 'doktor-s3',
       programs: [
         { name: 'S3 - Doktor Ilmu Manajemen', slug: 'doktor-ilmu-manajemen' },
         { name: 'S3 - Doktor Ilmu Sosial', slug: 'doktor-ilmu-sosial' },

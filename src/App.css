@@ -17,6 +17,15 @@
     --color-navbar-active: #D0D0D0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Sora', sans-serif;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
@@ -781,20 +790,6 @@ a {
     }
 }
 
-@keyframes rainbow-border {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 .nav-item {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -879,55 +874,63 @@ a {
     transform: scale(1.4);
 }
 
-.rainbow-border {
+.rainbow-container {
     position: relative;
-    overflow: hidden;
-}
-
-.rainbow-border::before {
-    content: "";
+    border-radius: 16px;
+    padding: 1px;
+  }
+  
+/* Layer 1: Shadow belakang yang glow */
+.rainbow-container::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.3), rgba(255, 165, 0, 0.3), rgba(255, 255, 0, 0.3), rgba(0, 128, 0, 0.3), rgba(0, 0, 255, 0.3), rgba(75, 0, 130, 0.3), rgba(238, 130, 238, 0.3));
+    background-size: 200% 200%;
+    background-repeat: repeat;
+    filter: blur(5px);
+    opacity: 0.5;
+    z-index: -2;
+    transform: translateY(4px) scale(0.98);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: rainbow-move 3s linear infinite;
+  }
+  
+  /* Layer 2: Kontainer isi konten */
+  .rainbow-border {
+    position: relative;
+    border-radius: inherit;
+    background: #f3f4f4;
+  }
+  
+  /* Layer 3: Border pelangi */
+  .rainbow-border::before {
+    content: '';
     position: absolute;
     inset: 0;
+    padding: 1.5px;
     border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+    background: linear-gradient(45deg, rgba(254, 121, 121, 0.733), orange, rgba(255, 255, 136, 0.815), rgba(128, 255, 128, 0.783), rgba(135, 135, 255, 0.811), indigo, violet);
     background-size: 200% 200%;
+    background-repeat: repeat;
+    animation: rainbow-move 3s linear infinite;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    animation: rainbow-border 10s linear infinite;
-}
-
-@keyframes rainbow-border {
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  /* Animasi pelangi bergerak ke kanan */
+  @keyframes rainbow-move {
     0% {
-        background-position: 0% 50%;
+      background-position: 200% 50%;
     }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
     100% {
-        background-position: 0% 50%;
+      background-position: 50% 0%;
     }
-}
-
-.rainbow-border::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    border-radius: inherit;
-    background: linear-gradient(to top,
-            rgba(254, 242, 81, 0.8),
-            rgba(201, 56, 41, 0.8),
-            rgba(3, 72, 51, 0.8));
-    filter: blur(15px);
-    opacity: 0;
-    z-index: -1;
-    transform-origin: bottom;
-    animation: blur-animation 2s ease-in-out infinite;
-}
+  }
 
 @keyframes blur-animation {
     0% {
@@ -944,11 +947,6 @@ a {
         opacity: 0;
         transform: scaleY(0.7);
     }
-}
-
-.rainbow-border::before,
-.rainbow-border::after {
-    pointer-events: none;
 }
 
 @keyframes ring-animation {

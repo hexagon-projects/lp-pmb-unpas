@@ -7,8 +7,10 @@ import CustomPagination from "../../components/CustomPagination";
 import { IoDocumentTextOutline, IoWalletOutline } from "react-icons/io5";
 import ButtonHover from "../../components/ButtonHover";
 import MotionWrapper from "../../components/MotionWrapper";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = ({ data = [] }) => {
+    const navigate = useNavigate();
     const imageURL = import.meta.env.VITE_IMAGE_URL;
     const [activeIndex, setActiveIndex] = useState(0);
     const swiperRef = useRef(null);
@@ -16,6 +18,10 @@ const HeroSection = ({ data = [] }) => {
         width: typeof window !== 'undefined' ? window.innerWidth : 0,
         height: typeof window !== 'undefined' ? window.innerHeight : 0
     });
+
+    const handleSlideClick = useCallback((slug) => {
+        navigate(`/jalur/${slug}`);
+    }, [navigate]);
 
     const handleResize = useCallback(() => {
         setWindowSize({
@@ -58,7 +64,7 @@ const HeroSection = ({ data = [] }) => {
 
     const renderSlide = useCallback((slide) => {
         let slideHeight, selectedImage;
-        
+
         if (isMobile) {
             slideHeight = '75vh';
             selectedImage = slide.image2;
@@ -72,9 +78,9 @@ const HeroSection = ({ data = [] }) => {
 
         return (
             <SwiperSlide key={slide.id} className="relative">
-                <div className="w-full" style={{ height: slideHeight }}>
+                <div className="w-full" style={{ height: slideHeight }} onClick={() => handleSlideClick(slide.slug)}>
                     <div
-                        className="w-full h-full rounded-b-4xl md:rounded-2xl lg:rounded-4xl"
+                        className="w-full h-full rounded-b-4xl md:rounded-2xl lg:rounded-4xl cursor-pointer"
                         style={{
                             backgroundImage: `url(${imageURL}/sliders/${selectedImage})`,
                             backgroundAttachment: isDesktop ? 'fixed' : 'scroll',
@@ -112,9 +118,9 @@ const HeroSection = ({ data = [] }) => {
                     pauseOnMouseEnter: true
                 }}
                 className="w-full"
-                style={{ 
-                    height: isMobile ? '75vh' : 
-                           isTablet ? '86vh' : '70vh' 
+                style={{
+                    height: isMobile ? '75vh' :
+                        isTablet ? '86vh' : '70vh'
                 }}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 effect="fade"
@@ -132,7 +138,7 @@ const HeroSection = ({ data = [] }) => {
                 onClick={goPrev}
                 aria-label="Previous slide"
             >
-                <MdOutlineKeyboardArrowLeft size={50}/>
+                <MdOutlineKeyboardArrowLeft size={50} />
             </button>
 
             <button
@@ -140,7 +146,7 @@ const HeroSection = ({ data = [] }) => {
                 onClick={goNext}
                 aria-label="Next slide"
             >
-                <MdOutlineKeyboardArrowRight size={50}/>
+                <MdOutlineKeyboardArrowRight size={50} />
             </button>
 
             {isDesktop && (
@@ -183,7 +189,7 @@ const HeroSection = ({ data = [] }) => {
             <div className="absolute -bottom-30 left-0 right-0 z-10 md:-bottom-13 w-full justify-center items-center hidden md:flex">
                 <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8 shadow-black/5 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-4 md:p-6 md:flex-row md:max-w-xl lg:max-w-fit rounded-xl md:rounded-2xl lg:rounded-4xl bg-[#EBEBEB] border-2 border-white">
                     <ButtonHover icon={<IoDocumentTextOutline size={24} className="text-text" />} onClick={() => window.location.href = `https://registrasi.unpas.ac.id/register`} text={'Daftar Sekarang'} />
-                    <ButtonHover icon={<IoWalletOutline size={24} className="text-text" />} onClick={handleDownloadBiaya} text={'Biaya'} />
+                    {/* <ButtonHover icon={<IoWalletOutline size={24} className="text-text" />} onClick={handleDownloadBiaya} text={'Biaya'} /> */}
                     <ButtonHover icon={<MdOutlineBook size={24} className="text-text" />} onClick={() => window.location.href = `https://www.instagram.com/p/DIoC6zRySms/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==`} text={'Panduan Pendaftaran'} />
                 </div>
             </div>

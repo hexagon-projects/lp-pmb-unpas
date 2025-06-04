@@ -14,11 +14,13 @@ import Text from "../components/Text";
 import { X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import JalurItem from "../components/JalurItem";
+import { useNavigate } from "react-router-dom";
 
 const Jalur = () => {
     const [jalur, setJalur] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const [selectedJalur, setSelectedJalur] = useState(null);
+    const navigate = useNavigate()
 
     const titleVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -30,6 +32,13 @@ const Jalur = () => {
                 ease: [0.16, 0.77, 0.47, 0.97]
             }
         }
+    };
+
+    const handleJalurClick = (jalur) => {
+        const slug = jalur.name.toLowerCase().includes('utbk')
+            ? 'utbk'
+            : jalur.slug.toLowerCase().replace(/\s+/g, '-');
+        navigate(`/jalur/${slug}`, { state: { jalur } });
     };
 
     const handleOpenModal = (event, jalur) => {
@@ -185,7 +194,7 @@ const Jalur = () => {
                                 key={index}
                                 item={item}
                                 index={index}
-                                onClick={handleOpenModal}
+                                onClick={() => handleJalurClick(item)}
                             />
                         ))}
 

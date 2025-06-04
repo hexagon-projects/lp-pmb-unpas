@@ -10,6 +10,15 @@ const BeritaService = {
             throw error;
         }
     },
+        getPaginationBerita: async (page) => {
+        try {
+            const response = await axios.get(`/post?page=${page}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching post:', error);
+            throw error;
+        }
+    },
     getBeritaBySlug: async (slug) => {
         try {
             const response = await axios.get(`/post/${slug}`);

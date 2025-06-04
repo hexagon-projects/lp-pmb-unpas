@@ -12,7 +12,7 @@ const FaSquareXTwitter = lazy(() => import("react-icons/fa6").then(module => ({ 
 const RiInstagramFill = lazy(() => import("react-icons/ri").then(module => ({ default: module.RiInstagramFill })));
 const AiFillTikTok = lazy(() => import("react-icons/ai").then(module => ({ default: module.AiFillTikTok })));
 
-const Footer = () => {
+const Footer = ({ marginMobile = 'mb-22' }) => {
     const [fakultas, setFakultas] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -36,7 +36,7 @@ const Footer = () => {
     }
 
     return (
-        <footer className="bg-[#034833] text-white p-4 md:p-6 lg:p-8 m-2 mb-22 md:m-6 md:mb-22 lg:m-6 rounded-xl md:rounded-2xl lg:rounded-4xl relative overflow-hidden">
+        <footer className={`bg-[#034833] text-white p-4 md:p-6 lg:p-8 m-2 ${marginMobile} md:m-6 md:mb-22 lg:m-6 rounded-xl md:rounded-2xl lg:rounded-4xl relative overflow-hidden`}>
             <div className="absolute -top-0 left-25 md:left-[70%] w-full h-full opacity-50 object-cover">
                 <img src={LogoOutline} alt={"Logo Outline Unpas"} loading="lazy" className="h-[60vh] lg:h-[65vh] object-cover object-left" />
             </div>

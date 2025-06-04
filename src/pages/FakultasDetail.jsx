@@ -25,7 +25,7 @@ import PartnerService from '../fetching/partner'
 import UnggulanService from '../fetching/unggulan'
 import BeritaService from '../fetching/berita'
 import AgendaService from '../fetching/agenda'
-import Gedung from '../assets/gedung.jpeg'
+import Gedung from '../assets/gedung2.jpg'
 import MitraSection from '../views/home/MitraSection'
 import { motion, AnimatePresence } from 'framer-motion'
 import AnimatedRichSubtitle from '../components/prodi/AnimatedRichSubtitle'
@@ -220,7 +220,7 @@ const FakultasDetail = () => {
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.6 }}>
           <div className="text-center md:text-center space-y-3 md:space-y-4 lg:space-y-6">
-            <AnimatedRichSubtitle color={fakultas.color} text={'Berita Terbaru'} tabletAlign="md:text-center lg:text-left" />
+            <AnimatedRichSubtitle color={fakultas.color} text={'Berita dan Artikel Terbaru'} tabletAlign="md:text-center lg:text-left" />
             <div className="w-full flex flex-col md:flex-row gap-4 justify-stretch">
               <div className="md:w-1/2 lg:w-full">
                 <ArticleTransparentCard image={latestBerita[0]?.image} title={latestBerita[0]?.title} slug={latestBerita[0]?.slug} description={latestBerita[0]?.description} />

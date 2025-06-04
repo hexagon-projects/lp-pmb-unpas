@@ -193,7 +193,7 @@ const PendaftaranSection = ({
                     </div>
 
                     <div className="w-full p-5 md:p-0 lg:w-[60%] space-y-4 md:space-y-4">
-                        <div className='space-y-4 h-50 lg:h-[50vh] overflow-y-scroll jalur-scroll-container'>
+                        <div className='space-y-4 h-80 lg:h-[50vh] overflow-y-scroll jalur-scroll-container'>
                             {jalurItems}
                         </div>
                         <SelengkapnyaButton onClick={handleClickJalur} color={iconColor} />

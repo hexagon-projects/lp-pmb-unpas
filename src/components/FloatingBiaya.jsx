@@ -13,11 +13,12 @@ const FloatingBiaya = () => {
 
   return (
     <div
-      className="fixed md:hidden bottom-48 lg:bottom-24 right-6 z-999999 bg-blue-500 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-blue-600 transition"
-      onClick={handleDownloadBiaya}
-      title="Download Brosur Biaya"
+    //   className="fixed md:hidden bottom-48 lg:bottom-24 right-6 z-999999 bg-blue-500 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-blue-600 transition"
+    //   onClick={handleDownloadBiaya}
+    //   title="Download Brosur Biaya"
+    // >
+    //   <IoWalletOutline size={32} /
     >
-      <IoWalletOutline size={32} />
     </div>
   );
 };

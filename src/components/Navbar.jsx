@@ -12,7 +12,8 @@ const Navbar = ({
   titleColor = 'text-gray-700',
   navbarColor = 'text-gray-700',
   shadow,
-  paddingDekstop = 'md:px-5 md:py-5 lg:py-5'
+  paddingDekstop = 'md:px-5 md:py-5 lg:py-5',
+  display = 'flex'
 }) => {
   const location = useLocation()
   const [isScrolled, setIsScrolled] = useState(false)
@@ -155,7 +156,7 @@ const Navbar = ({
       </nav>
 
       <nav
-        className="w-full fixed bottom-0 left-0 z-50 bg-white px-3 py-3 flex justify-between items-center lg:hidden rounded-t-xl"
+        className={`w-full fixed bottom-0 left-0 z-50 bg-white px-3 py-3 ${display} justify-between items-center lg:hidden rounded-t-xl`}
         aria-label="Mobile navigation"
       >
         {menuItems.map((item, index) => (

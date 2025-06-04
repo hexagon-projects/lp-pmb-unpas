@@ -12,16 +12,23 @@ import { useNavigate } from "react-router-dom";
 import CTASection from "../components/CTASection";
 import { Helmet } from "react-helmet-async";
 import ArticleContent from "../components/ArticleContent";
-import { DatePicker, Select } from "antd";
+import { DatePicker } from "antd";
 import dayjs from "dayjs";
 
 const Artikel = () => {
     const [berita, setBerita] = useState([]);
+    const [paginationData, setPaginationData] = useState({
+        current_page: 1,
+        last_page: 1,
+        next_page_url: null,
+        prev_page_url: null,
+        total: 0
+    });
     const [agenda, setAgenda] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const [dateFilter, setDateFilter] = useState(""); // New state for date filter
-    const itemsPerPage = 12;
+    const [dateFilter, setDateFilter] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const imageURL = import.meta.env.VITE_IMAGE_URL;
     const [isMobile, setIsMobile] = useState(false);
@@ -29,14 +36,24 @@ const Artikel = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setLoading(true);
                 const [beritaData, agendaData] = await Promise.all([
-                    BeritaService.getAllBerita(),
+                    BeritaService.getPaginationBerita(currentPage),
                     AgendaService.getAllAgenda(),
                 ]);
-                setBerita(beritaData);
+                setBerita(beritaData.data);
+                setPaginationData({
+                    current_page: beritaData.current_page,
+                    last_page: beritaData.last_page,
+                    next_page_url: beritaData.next_page_url,
+                    prev_page_url: beritaData.prev_page_url,
+                    total: beritaData.total
+                });
                 setAgenda(agendaData);
             } catch (error) {
                 console.error(error);
+            } finally {
+                setLoading(false);
             }
         };
         fetchData();
@@ -51,28 +68,19 @@ const Artikel = () => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, []);
+    }, [currentPage]);
 
     const latestBerita = berita[0] || null;
 
     const filteredBerita = berita
         .filter(({ title, description, slug, pub_date }) => {
-            // Filter by search term
             const matchesSearch = [title, description].some((text) =>
                 text.toLowerCase().includes(searchTerm.toLowerCase())
             );
-
-            // Filter by date if dateFilter is set
             const matchesDate = dateFilter ? pub_date === dateFilter : true;
-
             return matchesSearch && matchesDate;
         })
         .filter((item) => item.slug !== latestBerita?.slug);
-
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = filteredBerita.slice(indexOfFirstItem, indexOfLastItem);
-    const totalPages = Math.ceil(filteredBerita.length / itemsPerPage);
 
     const handleClick = (slug) => {
         navigate(`/artikel/${slug}`);
@@ -81,8 +89,6 @@ const Artikel = () => {
     const stripHtmlTags = (text) => {
         return text.replace(/<\/?[^>]+(>|$)/g, "");
     };
-
-    const uniqueDates = [...new Set(berita.map(article => article.pub_date))].sort().reverse();
 
     const handleDateChange = (date, dateString) => {
         setDateFilter(dateString);
@@ -109,7 +115,7 @@ const Artikel = () => {
                     <MotionWrapper
                         type="zoomIn"
                         delay={0.2}
-                        className="w-full lg:hidden bg-cover h-[40vh] lg:h-[80vh] rounded-xl md:rounded-2xl lg:rounded-4xl"
+                        className="w-full lg:hidden bg-cover !h-[40vh] lg:!h-[40vh] rounded-xl md:rounded-2xl lg:rounded-4xl"
                         style={{
                             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imageURL}/posts/${latestBerita.image})`,
                         }}
@@ -168,13 +174,15 @@ const Artikel = () => {
                         </div>
                     </div>
 
-                    {currentItems.length > 0 ? (
+                    {loading ? (
+                        <div className="text-center text-gray-500">Memuat data...</div>
+                    ) : filteredBerita.length > 0 ? (
                         <>
-                            <ArticleCard data={currentItems} />
+                            <ArticleCard data={filteredBerita} />
                             <Pagination
-                                currentPage={currentPage}
+                                currentPage={paginationData.current_page}
                                 setCurrentPage={setCurrentPage}
-                                totalPages={totalPages}
+                                totalPages={paginationData.last_page}
                             />
                         </>
                     ) : (
