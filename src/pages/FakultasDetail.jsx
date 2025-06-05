@@ -48,7 +48,7 @@ const FakultasDetail = () => {
       const fakultasRes = await fakultasPromise
       setFakultas(fakultasRes.fakultas)
       setProdi(fakultasRes.departements)
-      const [partnerRes, beritaRes, agendaRes, unggulanRes] = await Promise.all([PartnerService.getAllPartner(), BeritaService.getAllBerita(), AgendaService.getAllAgenda(), UnggulanService.getUnggulanByID(fakultasRes.fakultas.id)])
+      const [partnerRes, beritaRes, agendaRes, unggulanRes] = await Promise.all([PartnerService.getAllPartner(), BeritaService.getPaginationBerita(1), AgendaService.getAllAgenda(), UnggulanService.getUnggulanByID(fakultasRes.fakultas.id)])
       setPartner(partnerRes)
       setBerita(beritaRes)
       setAgenda(agendaRes)
