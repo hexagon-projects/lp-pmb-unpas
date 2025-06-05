@@ -240,7 +240,7 @@ const ProgramStudi = () => {
                       </h1>
                       <h1 className="text-xl md:text-3xl lg:text-4xl md:font-bold text-white text-center">
                         Program Studi{" "}
-                        <span style={{ color: fakultas.color }} className="font-bold">
+                        <span style={{ color: fakultas.color === '#49225b' ? '#ffffff' : fakultas.color }} className="font-bold">
                           {fakultas.name}
                         </span>
                       </h1>

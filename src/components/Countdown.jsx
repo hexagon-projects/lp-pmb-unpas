@@ -1,14 +1,42 @@
 import { useEffect, useState } from "react";
 import Cta from '../assets/cta.png'
 import ButtonHoverBaru from "./buttonHoverBaru";
+import IdentityService from "../fetching/identity";
 
-const Countdown = () => {
+const Countdown = ({ title = 'Yuk! Pastiin kamu daftar sekarang juga, karena', description = 'Jalur ini terbatas banget', nameJalur }) => {
     const [countdown, setCountdown] = useState({
         days: 0,
         hours: 0,
         minutes: 0,
         seconds: 0
     });
+    const [loading, setLoading] = useState(true);
+    const [identity, setIdentity] = useState(null);
+
+    useEffect(() => {
+        const fetchIdentity = async () => {
+            try {
+                const response = await IdentityService.getAllIdentities();
+                if (response.length > 0) {
+                    setIdentity(response[0]);
+                }
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching identity:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchIdentity();
+    }, []);
+
+    const handleWhatsApp = () => {
+        if (identity?.phone) {
+            window.location.href = `https://wa.me/${identity.phone}`;
+        } else {
+            alert("Nomor WhatsApp admin tidak tersedia.");
+        }
+    };
 
     const handleClick = (url) => {
         window.location.href = url;
@@ -45,8 +73,8 @@ const Countdown = () => {
     return (
         <div className='p-[20px] md:p-[40px] lg:px-[100px] lg:py-[60px] w-full h-full bg-cover bg-no-repeat'>
             <div className='w-full h-full bg-cover bg-no-repeat p-6 md:p-14 lg:p-16 space-y-2 text-center rounded-[16px] md:rounded-[24px] lg:rounded-[32px]' style={{ backgroundImage: `url('${Cta}')` }}>
-                <h6 className='text-[12px] md:text-[24px] lg:text-[40px]'>Yuk! Pastiin kamu daftar sekarang juga, karena</h6>
-                <h5 className='text-[14px] md:text-[32px] lg:text-[56px] font-bold'>Jalur ini terbatas banget</h5>
+                <h6 className='text-[18px] md:text-[26px] lg:text-[40px] font-bold'>{title}</h6>
+                <h5 className='text-[16px] md:text-[24px] lg:text-[32px]'>{description}</h5>
 
                 {/* Countdown */}
                 <div className='bg-white/50 backdrop-blur-sm border-2 border-white/80 py-4 lg:py-5 lg:px-16 flex justify-center items-center gap-2 rounded-[16px] md:rounded-[24px] lg:rounded-[32px] mt-4 md:mt-5 lg:mt-6 relative overflow-hidden'>
@@ -77,19 +105,29 @@ const Countdown = () => {
                     </div>
                 </div>
 
-                <div className="w-[70%] md:w-[50%] lg:w-[30%] grid grid-cols-1 gap-2 mt-4 md:mt-6 lg:mt-8 mx-auto">
+                <div className="w-full md:w-[70%] lg:w-[50%] grid grid-cols-2 gap-2 md:gap-4 lg:gap-6 mt-4 md:mt-6 lg:mt-8 mx-auto">
                     <ButtonHoverBaru
                         rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                        text="Daftar Sekarang"
-                        onClick={() => handleClick('https://registrasi.unpas.ac.id/')}
+                        width={'full'}
+                        text="Daftar"
+                        onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=${nameJalur}`)}
+                        bgColor="#034833"
+                        hoverColor="#FFFFFF"
+                        borderColor="#FFFFFF"
+                        textColor="white"
+                        textHoverColor="black"
+                        fontLg="lg:text-lg"
+                    />
+                    <ButtonHoverBaru
+                        rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
+                        text="Hubungi Kami"
+                        onClick={handleWhatsApp}
                         hoverColor="#034833"
                         borderColor="#034833"
                         textColor="black"
                         textHoverColor="white"
+                        fontLg="lg:text-lg"
                     />
-                    {/* <div className="flex justify-center font-medium text-xs sm:text-sm items-center rounded-lg sm:rounded-xl py-2 bg-white border-2 border-[#034833] cursor-pointer" onClick={handleWhatsApp}>
-                                Konsultasi CS
-                            </div> */}
                 </div>
             </div>
         </div>

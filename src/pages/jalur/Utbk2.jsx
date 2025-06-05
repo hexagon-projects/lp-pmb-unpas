@@ -5,12 +5,19 @@ import Countdown from "../../components/Countdown";
 import CTASection from "../../components/CTASection";
 import UserLayout from "../layouts/UserLayout";
 import IdentityService from "../../fetching/identity";
-import Check from "../../assets/icon/check.png"
 import Bg1 from '../../assets/jalur/utbk/1.png'
 import Bg2 from '../../assets/jalur/utbk/2.png'
 import Bg3 from '../../assets/jalur/utbk/3.png'
 import Bg4 from '../../assets/jalur/utbk/4.png'
 import Bg5 from '../../assets/jalur/utbk/5.png'
+
+import Icon1 from '../../assets/icon/file.png'
+import Icon2 from '../../assets/icon/sertif.png'
+
+import JalurHero from "../../components/JalurHero";
+import NilaiSection from "../../components/NilaiSection";
+import SiapaSection from "../../components/SiapaSection";
+import Gedung from '../../assets/gedung2.jpg'
 
 const Utbk2 = () => {
     const [loading, setLoading] = useState(true);
@@ -18,13 +25,16 @@ const Utbk2 = () => {
 
     const Syarats = [
         {
-            title: 'Punya nilai UTBK SNBT tahun 2025 atau tahun sebelumnya'
+            title: 'Punya nilai UTBK SNBT tahun 2025 atau tahun sebelumnya',
+            img: 'https://img.freepik.com/premium-photo/three-teenagers-junior-high-school-uniforms-stand-smiling-with-crossed-hands_8595-23474.jpg?uid=P165630701&ga=GA1.1.834055152.1736953083&semt=ais_hybrid&w=740'
         },
         {
-            title: 'Nilai UTBK minimal 450'
+            title: 'Nilai UTBK minimal 450',
+            img: 'https://img.freepik.com/premium-photo/woman-sitting-holding-blue-pencil-doing-exam_43284-78.jpg?uid=P165630701&ga=GA1.1.834055152.1736953083&semt=ais_hybrid&w=740'
         },
         {
-            title: 'Ingin kuliah di kampus swasta berkualitas tanpa ribet!'
+            title: 'Ingin kuliah di kampus swasta berkualitas tanpa ribet!',
+            img: Gedung
         },
     ]
 
@@ -98,36 +108,7 @@ const Utbk2 = () => {
             marginMobile={'m-0'}
         >
             {/* HeroSection */}
-            <div className='px-[20px] py-[40px] md:p-[40px] lg:px-[60px] lg:py-[60px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-4 md:gap-6 lg:gap-8'>
-                <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left">
-                    <h1 className="text-[34px] md:text-[46px] lg:text-[54px] font-bold">Punya Nilai UTBK? Gak Perlu Tes Ulang, Langsung Daftar Kuliah di UNPAS!</h1>
-                    <div className="grid grid-cols-2 gap-2 md:gap-4 w-4/5 xl:w-1/2">
-                        <ButtonHoverBaru
-                            rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                            width={'full'}
-                            text="Daftar"
-                            onClick={() => handleClick('https://registrasi.unpas.ac.id/')}
-                            bgColor="#FEF251"
-                            hoverColor="#D1C300"
-                            borderColor="#C73929"
-                            textColor="black"
-                            textHoverColor="black"
-                        />
-                        <ButtonHoverBaru
-                            rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                            text="Hubungi Admin"
-                            onClick={handleWhatsApp}
-                            hoverColor="#034833"
-                            borderColor="#034833"
-                            textColor="black"
-                            textHoverColor="white"
-                        />
-                    </div>
-                </div>
-                <div className="w-full md:w-1/2">
-                    <img src={Bg1} alt="" className="w-full h-full object-cover " />
-                </div>
-            </div>
+            <JalurHero Title={'Punya Nilai UTBK? Gak Perlu Tes Ulang, Langsung Daftar Kuliah di UNPAS!'} Img={Bg1} nameJalur={'utbk'} />
 
             {/* AboutSection */}
             <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-6 md:gap-8 lg:gap-32">
@@ -135,7 +116,7 @@ const Utbk2 = () => {
                     <img src={Bg2} alt="" className="w-full h-full object-cover " />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-start items-start gap-6 md:gap-10 lg:gap-12">
-                    <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold">Apa Itu Jalur Nilai UTBK?</h2>
+                    {/* <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold">Apa Itu Jalur Nilai UTBK?</h2> */}
                     <p className="text-[14px] md:text-[16px] lg:text-[18px]">Jalur masuk tanpa tes tambahan, khusus buat kamu yang udah punya nilai UTBK dari SNBT tahun 2025 atau tahun sebelumnya.
                         <br></br>
                         <br></br>
@@ -145,7 +126,7 @@ const Utbk2 = () => {
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                             width={'full'}
                             text="Daftar"
-                            onClick={() => handleClick('https://registrasi.unpas.ac.id/')}
+                            onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=utbk`)}
                             bgColor="#FEF251"
                             hoverColor="#D1C300"
                             borderColor="#C73929"
@@ -166,76 +147,40 @@ const Utbk2 = () => {
             </div>
 
             {/* NilaiSection */}
-            <div className="px-[0px] py-[40px] md:p-[40px] lg:px-[34px] lg:py-[60px] cta_container">
-                <div className="px-[40px] py-[60px] md:px-[40px] md:py-[80px] lg:p-[120px] bg-[#985534] rounded-[8px] md:rounded-[16px] lg:rounded-[24px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-6 lg:gap-28 nilai-box">
-                    <div className="w-full md:w-1/2 space-y-6 md:space-y-10 lg:space-y-12">
-                        <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold max-w-[80%] md:max-w-1/2 lg:max-w-[60%] text-white">APA KEUNGGULANNYA:</h2>
-                        <div className="flex flex-col justify-between">
-                            {Unggulans.map((item, index) => (
-                                <div key={index} className="py-5 border-b border-black flex justify-between items-center gap-4">
-                                    <p className="text-[14px] md:text-[16px] lg:text-[20px] text-white">{item.title}</p>
-                                    <div className="w-[30px] h-[30px] rounded-full bg-white p-4 flex justify-center items-center">
-                                        <p className="font-bold">-</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="w-full grid grid-cols-2 gap-2 md:gap-4">
-                            <ButtonHoverBaru
-                                rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                                text="Hubungi Admin"
-                                onClick={handleWhatsApp}
-                                bgColor={'none'}
-                                hoverColor="#ffffff"
-                                borderColor="#ffffff"
-                                textColor="white"
-                                textHoverColor="black"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="w-full md:w-1/2 h-full">
-                        <img src={Bg3} alt="" className="w-full h-full object-cover" />
-                    </div>
-                </div>
-                <svg style={{ visibility: "hidden", position: "absolute" }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <defs>
-                        <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-                            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-                        </filter>
-                    </defs>
-                </svg>
-            </div>
+            <NilaiSection data={Unggulans} title={'APA KEUNGGULANNYA:'} image={Bg3} />
 
             {/* SiapaSection */}
-            <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] space-y-6 md:space-y-8 lg:space-y-20">
-                <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-1/2 xl:max-w-1/3 mx-auto">Siapa Yang Bisa Daftar?</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 cta_container">
-                    {Syarats.map((item, index) => (
-                        <div key={index} className="h-[30vh] md:h-[40vh] lg:h-[50vh] flex flex-col justify-between items-start p-5 md:gap-7 lg:p-10 bg-gradient-to-b from-[#985534] via-[#985534] to-black group text-white rounded-[4px] md:rounded-[8px] lg:rounded-[16px] siapa-box">
-                            <div className="w-12 h-12 md:w-16 md:h-16 lg:w-18 lg:h-18 p-2 flex justify-center items-center rounded-full backdrop-blur-sm bg-white/20 transition duration-500">
-                                <img src={Check} alt="" className="w-12 h-12 md:w-16 md:h-16 lg:w-8 lg:h-8 object-contain" />
-                            </div>
-                            <p className="text-[20px] md:text-[24px] lg:text-[28px]">{item.title}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
+            <SiapaSection data={Syarats} />
 
             {/* DokumenSection */}
             <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] space-y-6 md:space-y-12 lg:space-y-16">
-                <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-1/2 xl:max-w-1/3 mx-auto">Berkas yang Perlu Disiapkan</h2>
+                <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-3/5 xl:max-w-1/3 mx-auto">Ini Persyaratan Yang
+                    Harus Kamu Lengkapi</h2>
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
-                    <div className="w-full bg-white py-10 px-14 lg:py-20 lg:px-28 hover:-translate-y-2 transition-all duration-500 shadow-gray-300/5 hover:shadow-black/5 shadow-xl hover:shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-[16px] md:rounded-[24px] lg:rounded-[32px]">
-                        <img src={Bg4} alt="" className="w-full h-full object-cover" />
+                    <div className="px-6 md:px-8 lg:px-12 flex flex-col justify-center items-center gap-8 md:gap-12 lg:gap-14 border-l md:border-l-0 border-r border-[#985534]">
+                        <div className="p-4 md:p-5 lg:p-6 bg-[#985534] rounded-md md:rounded-xl w-fit">
+                            <img src={Icon1} alt="" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+                        </div>
+
+                        <div>
+                            <p className="text-[12px] md:text-[14px] lg:text-[22px] font-sora text-center">Surat Keterangan Siswa Kelas XII atau Surat Keterangan Lulus</p>
+                        </div>
                     </div>
-                    <div className="w-full bg-white py-10 px-14 lg:py-20 lg:px-28 hover:-translate-y-2 transition-all duration-500 shadow-gray-300/5 hover:shadow-black/5 shadow-xl hover:shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-[16px] md:rounded-[24px] lg:rounded-[32px]">
-                        <img src={Bg5} alt="" className="w-full h-full object-cover" />
+
+                    <div className="px-6 md:px-8 lg:px-12 flex flex-col justify-center items-center gap-8 md:gap-12 lg:gap-14 border-l md:border-r-0 border-r border-[#985534]">
+                        <div className="p-4 md:p-5 lg:p-6 bg-[#985534] rounded-md md:rounded-xl w-fit">
+                            <img src={Icon2} alt="" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+                        </div>
+
+                        <div>
+                            <p className="text-[12px] md:text-[14px] lg:text-[22px] font-sora text-center">Sertifikat atau hasil
+                                nilai UTBK resmi</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <Countdown />
+
+            <Countdown title="Buruan Daftar Sekarang" description="Jangan lewatkan kesempatan kuliah tanpa tes dan dapat beasiswa!" nameJalur={'utbk'} />
             <CTASection />
         </UserLayout>
     )

@@ -6,7 +6,6 @@ const StyledWrapper = styled.div`
     width: 100%;
 
     background-color: ${(props) => props.bgColor || '#EBEBEB'};
-    font-size: 12px;
     font-family: inherit;
     font-weight: bold;
     border: 2px solid ${(props) => props.borderColor || '#C73929'};
@@ -63,7 +62,9 @@ const ButtonHoverBaru = ({
   textColor = 'black',
   textHoverColor = 'white',
   iconStatus,
-  flex = 'flex-row-reverse'
+  flex = 'flex-row-reverse',
+  fontLg = 'lg:text-md',
+  css
 }) => {
   return (
     <StyledWrapper
@@ -75,7 +76,7 @@ const ButtonHoverBaru = ({
     >
       <motion.button
         onClick={onClick}
-        className={`${flex} text-xs md:text-sm lg:text-sm p-3 md:p-4 lg:p-4 rounded-xl md:rounded-2xl lg:rounded-2xl`}
+        className={`${flex} text-xs md:text-sm ${fontLg} p-3 md:p-4 lg:p-4 rounded-xl md:rounded-2xl lg:rounded-2xl ${css}`}
         whileTap={{ scale: 0.95 }}
       >
         {text} <span className={`${iconStatus}`}>{icon}</span>

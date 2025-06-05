@@ -35,9 +35,22 @@ const Jalur = () => {
     };
 
     const handleJalurClick = (jalur) => {
-        const slug = jalur.name.toLowerCase().includes('utbk')
-            ? 'utbk'
-            : jalur.slug.toLowerCase().replace(/\s+/g, '-');
+        let slug;
+
+        if (jalur.name.toLowerCase().includes('utbk')) {
+            slug = 'utbk';
+        } else if (jalur.name.toLowerCase().includes('pmdk')) {
+            slug = 'pmdk';
+        } else if (jalur.name.toLowerCase().includes('usm')) {
+            slug = 'usm';
+        } else if (jalur.name.toLowerCase().includes('hafidz')) {
+            slug = 'hafidz';
+        } else if (jalur.name.toLowerCase().includes('alumni')) {
+            slug = 'alumni';
+        } else {
+            slug = jalur.slug.toLowerCase().replace(/\s+/g, '-');
+        }
+
         navigate(`/jalur/${slug}`, { state: { jalur } });
     };
 

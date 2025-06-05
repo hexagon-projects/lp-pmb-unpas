@@ -25,7 +25,10 @@ import Utbk from './pages/jalur/Utbk'
 import Pmdk from './pages/jalur/Pmdk'
 import Usm from './pages/jalur/Usm'
 import Utbk2 from './pages/jalur/Utbk2'
-import GTM from './GTM'
+// import GTM from './GTM'
+import Ods from './pages/jalur/Ods'
+import Hafidz from './pages/jalur/Hafidz'
+import Alumni from './pages/jalur/Alumni'
 
 function App() {
   const { trackingId } = useGoogleAnalytics();
@@ -33,7 +36,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
-        <GTM />
+        {/* <GTM /> */}
         {trackingId && <GAListener />}
         <MetaPixelListener />
         <AnimatedRoutes />
@@ -179,18 +182,18 @@ const AnimatedRoutes = () => {
         path="/jalur/utbk"
         element={
           <PageWrapper>
-            <Utbk />
+            <Utbk2 />
           </PageWrapper>
         }
       />
-      <Route
+      {/* <Route
         path="/jalur/khusus-utbk"
         element={
           <PageWrapper>
             <Utbk2 />
           </PageWrapper>
         }
-      />
+      /> */}
       <Route
         path="/jalur/pmdk"
         element={
@@ -204,6 +207,31 @@ const AnimatedRoutes = () => {
         element={
           <PageWrapper>
             <Usm />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/jalur/ods"
+        element={
+          <PageWrapper>
+            <Ods />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/jalur/hafidz"
+        element={
+          <PageWrapper>
+            <Hafidz />
+          </PageWrapper>
+        }
+      />
+
+      <Route
+        path="/jalur/alumni"
+        element={
+          <PageWrapper>
+            <Alumni />
           </PageWrapper>
         }
       />
