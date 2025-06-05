@@ -1,10 +1,9 @@
-
 import Check from "../assets/icon/check.png"
 
-const SiapaSection = ({ data }) => {
+const SiapaSection = ({ data, title = "Siapa Yang Bisa Daftar?" }) => {
     return (
         <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[120px] lg:py-[60px] space-y-6 md:space-y-8 lg:space-y-20">
-            <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-1/2 xl:max-w-1/3 mx-auto">Siapa Yang Bisa Daftar?</h2>
+            <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-1/2 xl:max-w-1/3 mx-auto">{title}</h2>
             <div className="md:grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 cta_container hidden">
                 {data.map((item, index) => (
                     <div key={index} className="h-[30vh] md:h-[40vh] lg:h-[50vh] flex flex-col justify-between items-start p-5 md:gap-7 lg:p-10 bg-gradient-to-b from-[#985534] via-[#985534] to-[#341D12] group text-white rounded-[8px] md:rounded-[8px] lg:rounded-[16px] siapa-box relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${item.img})` }}>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ButtonHoverBaru from "../../components/buttonHoverBaru";
 import Countdown from "../../components/Countdown";
 import CTASection from "../../components/CTASection";
+import SiapaSection from "../../components/SiapaSection";
 import UserLayout from "../layouts/UserLayout";
 import IdentityService from "../../fetching/identity";
 import Check from "../../assets/icon/check.png"
@@ -17,7 +18,9 @@ import Icon1 from '../../assets/icon/1.png'
 import Icon2 from '../../assets/icon/2.png'
 import Icon3 from '../../assets/icon/3.png'
 import Icon4 from '../../assets/icon/4.png'
-import ODS1 from '../../assets/jalur/ods/1.png'
+import ods1 from '../../assets/jalur/ods/ods1.png'
+import ods2 from '../../assets/jalur/ods/ods2.png'
+
 import ODS2 from '../../assets/jalur/ods/2.png'
 import ODS3 from '../../assets/jalur/ods/3.png'
 
@@ -27,25 +30,32 @@ const Ods = () => {
 
     const Syarats = [
         {
-            title: 'Siswa kelas XII tahun ajaran 2024/2025 (yang lulus tahun 2025)'
+            title: 'Daftar online lewat website resmi UNPAS atau langsung datang ke Kampus Tamansari',
+            img: 'https://img.freepik.com/premium-photo/happy-young-asian-woman-is-smiling-while-holding-laptop-typing-report_216263-16485.jpg?uid=P165630701&ga=GA1.1.834055152.1736953083&semt=ais_hybrid&w=740'
         },
         {
-            title: 'Lulusan tahun sebelumnya juga boleh'
+            title: 'Upload dokumen yang dibutuhkan (rapor, ijazah, dll.)',
+            img: 'https://img.freepik.com/premium-photo/hand-press-upload-button-keyboard_8595-351.jpg?uid=P165630701&ga=GA1.1.834055152.1736953083&semt=ais_hybrid&w=740'
         },
         {
-            title: 'Nilai rapor oke & siap upload dokumen resmi dari sekolah'
+            title: 'Tunggu pengumuman yang akan keluar dalam waktu maksimal 1×24 jam',
+            img: 'https://img.freepik.com/premium-photo/man-smiling-excited-while-holding-megaphone_524151-4477.jpg?uid=P165630701&ga=GA1.1.834055152.1736953083&semt=ais_hybrid&w=740'
         },
     ]
 
+
     const Unggulans = [
         {
-            title: 'Nilai yang dilihat: nilai pengetahuan semester 1–4'
+            title: 'Lulusan SMA/MA/SMK/Sederajat'
         },
         {
-            title: 'Rata-rata nilai sesuai standar masing-masing jurusan'
+            title: 'Punya dokumen lengkap & siap daftar'
         },
         {
-            title: 'Scan nilai harus asli, ada tanda tangan, stempel, atau barcode sekolah'
+            title: 'Mau langsung kuliah tanpa drama nunggu pengumuman lama'
+        },
+        {
+            title: 'Tertarik pada prodi tertentu yang buka jalur ODS (cek daftar di website)'
         },
     ]
 
@@ -128,7 +138,7 @@ const Ods = () => {
     ];
     const CardSection = () => (
         <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] space-y-6 md:space-y-12 lg:space-y-16">
-            <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-1/2 xl:max-w-1/3 mx-auto">
+            <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-1/2 xl:max-w-1/4 mx-auto">
                 Keuntungan Jalur ODS
             </h2>
             <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 justify-items-center">
@@ -209,42 +219,83 @@ const Ods = () => {
             marginMobile={'m-0'}
         >
             {/* HeroSection */}
-            <div className='px-[20px] py-[40px] md:p-[40px] lg:px-[60px] lg:py-[60px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-4 md:gap-6 lg:gap-8'>
-                <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left">
-                    <h1 className="text-[34px] md:text-[54px] lg:text-[60px] font-bold">Masuk UNPAS Cuma Modal Rapor, Emang Bisa? BISA BANGET!</h1>
-                    <div className="w-1/2 xl:w-1/3">
+            <div className='px-[20px] py-[40px] md:p-[40px] lg:px-[60px] lg:py-[30px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-4 md:gap-6 lg:gap-8'>
+                {/* Tablet & Dekstop  */}
+                <div className="w-full md:w-1/2 h-full cta_container hidden md:block">
+                    <div className="w-full flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left bg-white md:px-10 md:py-20 lg:px-16 lg:py-32 jalur-box">
+                        <h1 className="text-[30px] md:text-[38px] lg:text-[48px] leading-[72px]">Masuk UNPAS Gak Pake Lama, Butuh 1 Hari Aja Resmi Jadi Mahasiswa!!</h1>
+
+                        <div className="grid grid-cols-2 gap-4 md:gap-4 w-4/5 md:w-full lg:w-4/5 xl:w-1/2">
+                            <ButtonHoverBaru
+                                rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
+                                width={'full'}
+                                text="Daftar"
+                                onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=rpl`)}
+                                bgColor="#FEF251"
+                                hoverColor="#D1C300"
+                                borderColor="#C73929"
+                                textColor="black"
+                                textHoverColor="black"
+                            />
+                            <ButtonHoverBaru
+                                rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
+                                text="Hubungi Admin"
+                                onClick={handleWhatsApp}
+                                hoverColor="#034833"
+                                borderColor="#034833"
+                                textColor="black"
+                                textHoverColor="white"
+                            />
+                        </div>
+                    </div>
+                </div>
+                {/* Mobile */}
+                <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left md:hidden">
+
+                    <h1 className="text-[30px] md:text-[38px] lg:text-[48px]">Masuk UNPAS Gak Pake Lama, Butuh 1 Hari Aja Resmi Jadi Mahasiswa!!</h1>
+                    <div className="grid grid-cols-2 gap-4 md:gap-4 w-4/5 md:w-full lg:w-4/5 xl:w-1/2">
                         <ButtonHoverBaru
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                             width={'full'}
                             text="Daftar"
-                            onClick={() => handleClick('https://registrasi.unpas.ac.id/')}
+                            onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=rpl`)}
                             bgColor="#FEF251"
                             hoverColor="#D1C300"
                             borderColor="#C73929"
                             textColor="black"
                             textHoverColor="black"
                         />
+                        <ButtonHoverBaru
+                            rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
+                            text="Hubungi Admin"
+                            onClick={handleWhatsApp}
+                            hoverColor="#034833"
+                            borderColor="#034833"
+                            textColor="black"
+                            textHoverColor="white"
+                        />
                     </div>
                 </div>
                 <div className="w-full md:w-1/2">
-                    <img src={ODS2} alt="" className="w-full h-full object-cover " />
+                    <img src={ods2} alt="" className="w-full h-full object-cover " />
                 </div>
             </div>
+
 
             {/* AboutSection */}
             <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-6 md:gap-8 lg:gap-32">
                 <div className="w-full md:w-1/2">
-                    <img src={ODS1} alt="" className="w-full h-full object-cover " />
+                    <img src={ods1} alt="" className="w-full h-full object-cover " />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-start items-start gap-6 md:gap-10 lg:gap-12">
-                    <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold">Apa Itu Jalur PMDK Akademik?</h2>
-                    <p className="text-[14px] md:text-[16px] lg:text-[18px]">Ini jalur seleksi masuk tanpa ujian. Kamu cukup daftar pakai nilai rapor kelas X dan XI, dan kalau memenuhi kriteria, langsung lolos! Cocok banget buat kamu yang nilainya stabil dan mau lanjut kuliah tanpa ribet.</p>
-                    <div className="w-full md:w-1/2 grid grid-cols-2 gap-2">
+                    {/* <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold">Apa Itu Jalur PMDK Akademik?</h2> */}
+                    <p className="text-[18px] md:text-[22px] lg:text-[26px]">Jalur <span className="font-bold">One Day Service (ODS)</span> adalah pilihan masuk UNPAS yang super cepat dan praktis! Kamu bisa daftar dan dapat hasil kelulusan dalam waktu <span className="font-bold"> 1 x 24 jam</span>, cukup lewat website resmi UNPAS atau datang langsung ke Kampus Tamansari.</p>
+                    <div className="w-full md:w-1/2 lg:w-5/6 grid grid-cols-2 gap-2 md:gap-4">
                         <ButtonHoverBaru
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                             width={'full'}
                             text="Daftar"
-                            onClick={() => handleClick('https://registrasi.unpas.ac.id/')}
+                            onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=rpl`)}
                             bgColor="#FEF251"
                             hoverColor="#D1C300"
                             borderColor="#C73929"
@@ -264,11 +315,12 @@ const Ods = () => {
                 </div>
             </div>
 
+
             {/* NilaiSection */}
             <div className="px-[0px] py-[40px] md:p-[40px] lg:px-[34px] lg:py-[60px] cta_container">
                 <div className="px-[40px] py-[60px] md:px-[40px] md:py-[80px] lg:p-[120px] bg-[#985534] rounded-[8px] md:rounded-[16px] lg:rounded-[24px] flex flex-col-reverse md:flex-row justify-center md:justify-between items-center gap-6 lg:gap-28 nilai-box">
                     <div className="w-full md:w-1/2 space-y-6 md:space-y-10 lg:space-y-12">
-                        <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold max-w-[80%] md:max-w-1/2 lg:max-w-[80%] text-white">Cocok Buat Siapa?</h2>
+                        <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold  text-white">Cocok Buat Siapa?</h2>
                         <div className="flex flex-col justify-between">
                             {Unggulans.map((item, index) => (
                                 <div key={index} className="py-5 border-b border-black flex justify-between items-center gap-4">
@@ -307,7 +359,10 @@ const Ods = () => {
                 </svg>
             </div>
 
-            {/* SiapaSection */}
+
+            <SiapaSection data={Syarats} title="Gimana Prosesnya" />
+
+            {/* SiapaSection
             <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] space-y-6 md:space-y-8 lg:space-y-20 hidden md:block lg:block">
                 <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-1/2 xl:max-w-1/3 mx-auto">Siapa Yang Bisa Daftar?</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 cta_container">
@@ -320,10 +375,10 @@ const Ods = () => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
 
-            {/* SiapaSectionMobile */}
-            <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] space-y-6 md:space-y-8 lg:space-y-20 block md:hidden lg:hidden">
+            {/* SiapaSectionMobile
+              <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] space-y-6 md:space-y-8 lg:space-y-20 block md:hidden lg:hidden">
                 <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-1/2 xl:max-w-1/3 mx-auto">Siapa Yang Bisa Daftar?</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 ">
                     {Syarats.map((item, index) => (
@@ -335,14 +390,14 @@ const Ods = () => {
                         </div>
                     ))}
                 </div>
-            </div>
-
+        /}
+        
 
 
 
             {/* DokumenSection */}
-            {/* <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] space-y-6 md:space-y-12 lg:space-y-16">
-                <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-1/2 xl:max-w-1/3 mx-auto">Keuntungan Jalur ODS</h2>
+            {/* <div className="p x-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] space-y-6 md:space-y-12 lg:space-y-16">
+    <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-center max-w-[80%] md:max-w-1/2 xl:max-w-1/3 mx-auto">Keuntungan Jalur ODS</h2>
 
                 <div className=" mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
                     <div className="w-[400px] h-[303px] bg-white py-6 px-10 lg:py-12 lg:px-20 hover:-translate-y-2 transition-all duration-500 shadow-gray-300/5 hover:shadow-black/5 shadow-xl hover:shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] rounded-[16px] md:rounded-[24px] lg:rounded-[32px] flex justify-between items-center flex-col ">
@@ -417,4 +472,4 @@ const Ods = () => {
     )
 }
 
-export default Ods
+export default Ods; 
