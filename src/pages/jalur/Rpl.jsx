@@ -12,6 +12,7 @@ import Bg2 from '../../assets/jalur/usm/2.png'
 import Bg3 from '../../assets/jalur/utbk/4.png'
 import Bg4 from '../../assets/jalur/usm/3.png'
 import rpl1 from '../../assets/jalur/rpl/rpl1.png'
+import rpl2 from '../../assets/jalur/rpl/rpl2.png'
 
 import Icon1 from '../../assets/icon/1.png'
 import Icon2 from '../../assets/icon/2.png'
@@ -332,7 +333,7 @@ return (
         </div>
 
         {/* NilaiSection */}
-        <NilaiSection data={Unggulans} image={Bg2} title={''} />
+        <NilaiSection data={Unggulans} image={rpl2} title={''} />
 
         <Countdown title="Siap Jadi Mahasiswa Unpas?" description="Yuk Daftar Sekarang Juga!" nameJalur={'rpl'} />
         <CTASection />
