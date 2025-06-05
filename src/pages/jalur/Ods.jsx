@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import ButtonHoverBaru from "../../components/buttonHoverBaru";
 import Countdown from "../../components/Countdown";
@@ -7,10 +6,20 @@ import UserLayout from "../layouts/UserLayout";
 import IdentityService from "../../fetching/identity";
 import Check from "../../assets/icon/check.png"
 
-import ODS1 from '../../assets/jalur/utbk/1.png'
-import ODS2 from '../../assets/jalur/utbk/2.png'
-import ODS3 from '../../assets/jalur/utbk/3.png'
-import JalurHero from "../../components/JalurHero";
+
+import Bg1 from '../../assets/jalur/pmdk/1.png'
+import Bg2 from '../../assets/jalur/pmdk/2.png'
+import Bg3 from '../../assets/jalur/pmdk/3.png'
+import Bg4 from '../../assets/jalur/utbk/4.png'
+import Bg42 from '../../assets/jalur/pmdk/4.png'
+import Bg5 from '../../assets/jalur/utbk/5.png'
+import Icon1 from '../../assets/icon/1.png'
+import Icon2 from '../../assets/icon/2.png'
+import Icon3 from '../../assets/icon/3.png'
+import Icon4 from '../../assets/icon/4.png'
+import ODS1 from '../../assets/jalur/ods/1.png'
+import ODS2 from '../../assets/jalur/ods/2.png'
+import ODS3 from '../../assets/jalur/ods/3.png'
 
 const Ods = () => {
     const [loading, setLoading] = useState(true);
@@ -200,8 +209,7 @@ const Ods = () => {
             marginMobile={'m-0'}
         >
             {/* HeroSection */}
-            <JalurHero Title={'Masuk UNPAS Cuma Modal Rapor, Emang Bisa? BISA BANGET!'} Img={ODS2}/>
-            {/* <div className='px-[20px] py-[40px] md:p-[40px] lg:px-[60px] lg:py-[60px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-4 md:gap-6 lg:gap-8'>
+            <div className='px-[20px] py-[40px] md:p-[40px] lg:px-[60px] lg:py-[60px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-4 md:gap-6 lg:gap-8'>
                 <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left">
                     <h1 className="text-[34px] md:text-[54px] lg:text-[60px] font-bold">Masuk UNPAS Cuma Modal Rapor, Emang Bisa? BISA BANGET!</h1>
                     <div className="w-1/2 xl:w-1/3">
@@ -221,7 +229,7 @@ const Ods = () => {
                 <div className="w-full md:w-1/2">
                     <img src={ODS2} alt="" className="w-full h-full object-cover " />
                 </div>
-            </div> */}
+            </div>
 
             {/* AboutSection */}
             <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-6 md:gap-8 lg:gap-32">

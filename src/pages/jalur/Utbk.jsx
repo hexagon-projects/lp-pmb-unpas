@@ -1,14 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import UserLayout from '../layouts/UserLayout';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import Button from '../../components/Button';
-import RegistrasiService from '../../fetching/registration';
 
-import Card from '../../assets/card.png'
 import Cta from '../../assets/cta.png'
 import Pattern from '../../assets/Pattern.png'
 import Jalur from '../../assets/jalur.png'
@@ -27,10 +23,7 @@ import CTASection from '../../components/CTASection';
 import ButtonHoverBaru from '../../components/buttonHoverBaru';
 
 const Utbk = () => {
-    const { slug } = useParams();
-    const [jalur, setJalur] = useState([]);
     const swiperRef = useRef(null);
-    const [loading, setLoading] = useState(true);
     const [activeIndex, setActiveIndex] = useState(0);
     const [identity, setIdentity] = useState(null);
     const [countdown, setCountdown] = useState({
@@ -51,10 +44,8 @@ const Utbk = () => {
                 if (response.length > 0) {
                     setIdentity(response[0]);
                 }
-                setLoading(false);
             } catch (error) {
                 console.error("Error fetching identity:", error);
-                setLoading(false);
             }
         };
 
@@ -122,24 +113,6 @@ const Utbk = () => {
     };
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-                const [jalurRes] = await Promise.all([
-                    RegistrasiService.getAllRegistrasi(),
-                ]);
-                setJalur(jalurRes || []);
-                setLoading(false);
-            } catch (error) {
-                console.error(error);
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, [slug]);
-
-    useEffect(() => {
         const targetDate = new Date('June 26, 2025 00:00:00');
 
         const interval = setInterval(() => {
@@ -166,16 +139,6 @@ const Utbk = () => {
 
         return () => clearInterval(interval);
     }, []);
-
-    if (loading) {
-        return (
-            <UserLayout>
-                <div className="flex justify-center items-center h-screen">
-                    <p>Memuat data...</p>
-                </div>
-            </UserLayout>
-        );
-    }
 
     return (
         <UserLayout

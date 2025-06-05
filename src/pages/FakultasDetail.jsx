@@ -50,7 +50,7 @@ const FakultasDetail = () => {
       setProdi(fakultasRes.departements)
       const [partnerRes, beritaRes, agendaRes, unggulanRes] = await Promise.all([PartnerService.getAllPartner(), BeritaService.getPaginationBerita(1), AgendaService.getAllAgenda(), UnggulanService.getUnggulanByID(fakultasRes.fakultas.id)])
       setPartner(partnerRes)
-      setBerita(beritaRes)
+      setBerita(beritaRes.data)
       setAgenda(agendaRes)
       setUnggulan(unggulanRes?.slice(0, 4))
     } catch (error) {
@@ -80,7 +80,7 @@ const FakultasDetail = () => {
     loadData()
   }, [fetchData])
 
-  const latestBerita = berita.slice(0, 4)
+  const latestBerita = berita?.slice(0,4)
 
   if (loading) {
     return <Loading />

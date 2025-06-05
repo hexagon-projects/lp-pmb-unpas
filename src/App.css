@@ -1521,3 +1521,35 @@ a {
         clip-path: polygon(35% 0%, 37% 4%, 38% 9%, 62% 9%, 63% 4%, 65% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
     }
 }
+
+.card-gradient-border {
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+  background: white;
+  border-radius: 16px; /* atau sesuai kebutuhan */
+}
+
+.card-gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  opacity: 0;
+  border: 2px solid transparent;
+  background: linear-gradient(110deg, #6549F6, #FF611D) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+.card-gradient-border:hover::before,
+.card-gradient-border:focus-visible::before {
+  opacity: 1;
+  border: 2px solid transparent;
+}
