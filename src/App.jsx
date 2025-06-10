@@ -32,6 +32,7 @@ import Alumni from './pages/jalur/Alumni'
 import Rpl from './pages/jalur/Rpl'
 import Sma from './pages/jalur/Sma'
 import PrestasiSeni from './pages/jalur/Prestasi'
+import PembelajaranHybrid from './pages/jalur/PembelajaranHybrid'
 
 function App() {
   const { trackingId } = useGoogleAnalytics();
@@ -251,6 +252,14 @@ const AnimatedRoutes = () => {
         element={
           <PageWrapper>
             <PrestasiSeni />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/jalur/pembelajaran-hybrid"
+        element={
+          <PageWrapper>
+            <PembelajaranHybrid />
           </PageWrapper>
         }
       />
