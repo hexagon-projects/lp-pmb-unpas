@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import IdentityService from "../fetching/identity";
 import ButtonHoverBaru from "./buttonHoverBaru";
 
-const NilaiSection = ({ data, title, image }) => {
+const NilaiSection = ({ data, title, image, alignTablet = 'md:flex-row', nameJalur = '' }) => {
     const [loading, setLoading] = useState(true);
     const [identity, setIdentity] = useState(null);
 
@@ -31,11 +31,15 @@ const NilaiSection = ({ data, title, image }) => {
         }
     };
 
+    const handleClick = (url) => {
+        window.location.href = url;
+    };
+
     return (
         <div className="px-[0px] py-[40px] md:p-[40px] lg:px-[34px] lg:py-[60px] cta_container">
-            <div className="px-[40px] py-[60px] md:px-[40px] md:py-[80px] lg:p-[120px] bg-[#985534] rounded-[8px] md:rounded-[16px] lg:rounded-[24px] flex flex-col-reverse md:flex-row justify-center md:justify-between items-center gap-6 lg:gap-28 nilai-box">
+            <div className={`px-[40px] py-[60px] md:px-[40px] md:py-[80px] lg:p-[120px] bg-[#985534] rounded-[8px] md:rounded-[16px] lg:rounded-[24px] flex flex-col-reverse ${alignTablet} justify-center md:justify-between items-center gap-6 lg:gap-28 nilai-box`}>
                 <div className="w-full md:w-1/2 space-y-6 md:space-y-10 lg:space-y-12">
-                    <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold max-w-[80%] md:max-w-1/2 lg:max-w-[60%] text-white">{title}</h2>
+                    <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-white">{title}</h2>
                     <div className="flex flex-col justify-between">
                         {data.map((item, index) => (
                             <div key={index} className="py-5 border-b border-black flex justify-between items-center gap-4">
@@ -46,16 +50,28 @@ const NilaiSection = ({ data, title, image }) => {
                             </div>
                         ))}
                     </div>
-                    <div className="w-full grid grid-cols-2 gap-2 md:gap-4">
+                    <div className="w-full lg:w-5/6 grid grid-cols-2 gap-2 md:gap-4">
+                        <ButtonHoverBaru
+                            rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
+                            width={'full'}
+                            text="Daftar"
+                            onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=${nameJalur}`)}
+                            bgColor="#FEF251"
+                            hoverColor="#D1C300"
+                            borderColor="#C73929"
+                            textColor="black"
+                            textHoverColor="black"
+                            fontLg="lg:text-xs"
+                        />
                         <ButtonHoverBaru
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                             text="Hubungi Admin"
                             onClick={handleWhatsApp}
-                            bgColor={'none'}
-                            hoverColor="#ffffff"
-                            borderColor="#ffffff"
-                            textColor="white"
-                            textHoverColor="black"
+                            hoverColor="#034833"
+                            borderColor="#034833"
+                            textColor="black"
+                            textHoverColor="white"
+                            fontLg="lg:text-xs"
                         />
                     </div>
                 </div>

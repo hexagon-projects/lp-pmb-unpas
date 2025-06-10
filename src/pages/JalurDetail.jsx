@@ -128,7 +128,7 @@ const JalurDetail = () => {
                             />
                         </div>
                     </div>
-                    <div className="w-full grid grid-cols-2 gap-2">
+                    <div className="w-full grid grid-cols-2 gap-2 md:gap-4">
                         <ButtonHoverBaru
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                             text="Daftar"
@@ -237,7 +237,7 @@ const JalurDetail = () => {
                     </div>
 
                     {/* Share Buttons */}
-                    <div className="mt-6 sm:mt-7 md:mt-8 lg:mt-10 xl:mt-12 w-full md:w-1/2 grid grid-cols-2 gap-2">
+                    <div className="mt-6 sm:mt-7 md:mt-8 lg:mt-10 xl:mt-12 w-full md:w-1/2 grid grid-cols-2 gap-2 md:gap-4">
                         <ButtonHoverBaru
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                             width={'full'}

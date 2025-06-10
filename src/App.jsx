@@ -30,6 +30,8 @@ import Ods from './pages/jalur/Ods'
 import Hafidz from './pages/jalur/Hafidz'
 import Alumni from './pages/jalur/Alumni'
 import Rpl from './pages/jalur/Rpl'
+import Sma from './pages/jalur/Sma'
+import PrestasiSeni from './pages/jalur/Prestasi'
 
 function App() {
   const { trackingId } = useGoogleAnalytics();
@@ -187,14 +189,6 @@ const AnimatedRoutes = () => {
           </PageWrapper>
         }
       />
-      {/* <Route
-        path="/jalur/khusus-utbk"
-        element={
-          <PageWrapper>
-            <Utbk2 />
-          </PageWrapper>
-        }
-      /> */}
       <Route
         path="/jalur/pmdk"
         element={
@@ -236,12 +230,27 @@ const AnimatedRoutes = () => {
           </PageWrapper>
         }
       />
-
       <Route
         path="/jalur/alumni"
         element={
           <PageWrapper>
             <Alumni />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/jalur/sma-islam"
+        element={
+          <PageWrapper>
+            <Sma />
+          </PageWrapper>
+        }
+      />
+      <Route
+        path="/jalur/prestasi-seni"
+        element={
+          <PageWrapper>
+            <PrestasiSeni />
           </PageWrapper>
         }
       />

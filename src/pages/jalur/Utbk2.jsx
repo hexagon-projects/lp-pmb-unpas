@@ -108,7 +108,7 @@ const Utbk2 = () => {
             marginMobile={'m-0'}
         >
             {/* HeroSection */}
-            <JalurHero Title={'Punya Nilai UTBK? Gak Perlu Tes Ulang, Langsung Daftar Kuliah di UNPAS!'} Img={Bg1} nameJalur={'utbk'} />
+            <JalurHero Title={'Punya Nilai UTBK Di Atas 600? Gak Perlu Tes Ulang, Langsung Daftar Kuliah di UNPAS!'} Img={Bg1} nameJalur={'utbk'} />
 
             {/* AboutSection */}
             <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-6 md:gap-8 lg:gap-32">
@@ -120,7 +120,10 @@ const Utbk2 = () => {
                     <p className="text-[14px] md:text-[16px] lg:text-[18px]">Jalur masuk tanpa tes tambahan, khusus buat kamu yang udah punya nilai UTBK dari SNBT tahun 2025 atau tahun sebelumnya.
                         <br></br>
                         <br></br>
-                        <b>Cukup unggah sertifikat UTBK, pilih jurusan, dan tunggu hasil seleksi. Mudah, cepat, dan fleksibel!</b></p>
+                        <b>Cukup unggah sertifikat UTBK, pilih jurusan, dan tunggu hasil seleksi. Mudah, cepat, dan fleksibel!</b>
+                        <br></br>
+                        <br></br>
+                        <i>*Tidak Berlaku Untuk Fakultas Kedokteran</i></p>
                     <div className="w-full md:w-full lg:w-full xl:w-4/5 grid grid-cols-2 gap-2 md:gap-4">
                         <ButtonHoverBaru
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
@@ -147,7 +150,7 @@ const Utbk2 = () => {
             </div>
 
             {/* NilaiSection */}
-            <NilaiSection data={Unggulans} title={'APA KEUNGGULANNYA:'} image={Bg3} />
+            <NilaiSection data={Unggulans} title={'APA KEUNGGULANNYA:'} image={Bg3} nameJalur="utbk"/>
 
             {/* SiapaSection */}
             <SiapaSection data={Syarats} />
@@ -158,8 +161,8 @@ const Utbk2 = () => {
                     Harus Kamu Lengkapi</h2>
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                     <div className="px-6 md:px-8 lg:px-12 flex flex-col justify-center items-center gap-8 md:gap-12 lg:gap-14 border-l md:border-l-0 border-r border-[#985534]">
-                        <div className="p-4 md:p-5 lg:p-6 bg-[#985534] rounded-md md:rounded-xl w-fit">
-                            <img src={Icon1} alt="" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+                        <div className="p-4 md:p-5 lg:p-6 bg-[#985534] rounded-md md:rounded-xl w-fit shadow-black/20 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]">
+                            <img src={Icon1} alt="" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain" />
                         </div>
 
                         <div>
@@ -168,8 +171,8 @@ const Utbk2 = () => {
                     </div>
 
                     <div className="px-6 md:px-8 lg:px-12 flex flex-col justify-center items-center gap-8 md:gap-12 lg:gap-14 border-l md:border-r-0 border-r border-[#985534]">
-                        <div className="p-4 md:p-5 lg:p-6 bg-[#985534] rounded-md md:rounded-xl w-fit">
-                            <img src={Icon2} alt="" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+                        <div className="p-4 md:p-5 lg:p-6 bg-[#985534] rounded-md md:rounded-xl w-fit shadow-black/20 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]">
+                            <img src={Icon2} alt="" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain" />
                         </div>
 
                         <div>
@@ -180,7 +183,7 @@ const Utbk2 = () => {
                 </div>
             </div>
 
-            <Countdown title="Buruan Daftar Sekarang" description="Jangan lewatkan kesempatan kuliah tanpa tes dan dapat beasiswa!" nameJalur={'utbk'} />
+            <Countdown title="Buruan Daftar Sekarang" description="Jangan lewatkan kesempatan kuliah tanpa tes dan dapatkan potongannya!" nameJalur={'utbk'} />
             <CTASection />
         </UserLayout>
     )

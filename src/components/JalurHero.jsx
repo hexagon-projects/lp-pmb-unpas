@@ -5,6 +5,7 @@ import IdentityService from "../fetching/identity";
 const JalurHero = ({ Title, Img, nameJalur }) => {
     const [loading, setLoading] = useState(true);
     const [identity, setIdentity] = useState(null);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const fetchIdentity = async () => {
@@ -21,6 +22,12 @@ const JalurHero = ({ Title, Img, nameJalur }) => {
         };
 
         fetchIdentity();
+        
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 100);
+
+        return () => clearTimeout(timer);
     }, []);
 
     const handleWhatsApp = () => {
@@ -36,12 +43,18 @@ const JalurHero = ({ Title, Img, nameJalur }) => {
     };
 
     return (
-        <div className='px-[20px] py-[40px]  md:p-[40px] lg:px-[60px] lg:py-[30px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-4 md:gap-6 lg:gap-8'>
+        <div className='px-[20px] py-[40px]  md:p-[40px] lg:px-[60px] lg:py-[10px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-4 md:gap-6 lg:gap-8'>
             {/* Tablet & Dekstop  */}
-            <div className="w-full md:w-1/2 h-full cta_container hidden md:block">
-                <div className="w-full flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left bg-white md:px-10 md:py-20 lg:px-16 lg:py-32 jalur-box">
-                    <h1 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold">{Title}</h1>
-                    <div className="grid grid-cols-2 gap-2 md:gap-4 w-4/5 md:w-full lg:w-4/5 xl:w-1/2">
+            <div className={`w-full md:w-1/2 h-full cta_container hidden md:block transform transition-all duration-1000 ease-out ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
+                <div className="w-full flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left bg-white md:px-10 md:py-20 lg:px-16 lg:py-20 jalur-box shadow-black/20 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]">
+                    <h1 className={`text-[32px] md:text-[34px] lg:text-[38px] font-semibold transform transition-all duration-1000 ease-out delay-200 ${
+                        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                    }`}>{Title}</h1>
+                    <div className={`grid grid-cols-2 gap-2 md:gap-4 w-4/5 md:w-[85%] transform transition-all duration-1000 ease-out delay-400 ${
+                        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                    }`}>
                         <ButtonHoverBaru
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                             width={'full'}
@@ -52,10 +65,11 @@ const JalurHero = ({ Title, Img, nameJalur }) => {
                             borderColor="#C73929"
                             textColor="black"
                             textHoverColor="black"
+                            fontLg="pulsating-button"
                         />
                         <ButtonHoverBaru
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                            text="Hubungi Admin"
+                            text="Hubungi CS"
                             onClick={handleWhatsApp}
                             hoverColor="#034833"
                             borderColor="#034833"
@@ -66,9 +80,15 @@ const JalurHero = ({ Title, Img, nameJalur }) => {
                 </div>
             </div>
             {/* Mobile */}
-            <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left md:hidden">
-                <h1 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold">{Title}</h1>
-                <div className="grid grid-cols-2 gap-2 md:gap-4 w-4/5 md:w-full lg:w-4/5 xl:w-1/2">
+            <div className={`w-full md:w-1/2 flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left md:hidden transform transition-all duration-1000 ease-out ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
+                <h1 className={`text-[30px] md:text-[38px] lg:text-[48px] font-bold transform transition-all duration-1000 ease-out delay-200 ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                }`}>{Title}</h1>
+                <div className={`grid grid-cols-2 gap-2 md:gap-4 w-4/5 md:w-full lg:w-4/5 xl:w-1/2 transform transition-all duration-1000 ease-out delay-400 ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                }`}>
                     <ButtonHoverBaru
                         rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                         width={'full'}
@@ -91,7 +111,9 @@ const JalurHero = ({ Title, Img, nameJalur }) => {
                     />
                 </div>
             </div>
-            <div className="w-full md:w-1/2">
+            <div className={`w-full md:w-1/2 transform transition-all duration-1000 ease-out delay-600 ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
                 <img src={Img} alt="" className="w-full h-full object-cover " />
             </div>
         </div>

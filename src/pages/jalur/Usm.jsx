@@ -16,6 +16,7 @@ import Icon1 from '../../assets/icon/file.png'
 import Icon2 from '../../assets/icon/file2.png'
 import SiapaSection from "../../components/SiapaSection";
 import NilaiSection from "../../components/NilaiSection";
+import JalurHero2 from "../../components/JalurHero2";
 
 const Usm = () => {
     const [loading, setLoading] = useState(true);
@@ -109,75 +110,13 @@ const Usm = () => {
             marginMobile={'m-0'}
         >
             {/* HeroSection */}
-            <div className='px-[20px] py-[40px] md:p-[40px] lg:px-[60px] lg:py-[30px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-4 md:gap-6 lg:gap-8'>
-                {/* Tablet & Dekstop  */}
-                <div className="w-full md:w-1/2 h-full cta_container hidden md:block">
-                    <div className="w-full flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left bg-white md:px-10 md:py-20 lg:px-16 lg:py-32 jalur-box">
-                        <h1 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold">Uji Kemampuanmu, Raih Bangku Kuliah Impian di UNPAS!</h1>
-                        <p className="text-[14px] md:text-[16px] lg:text-[18px]">Daftar Jadi Mahasiswa UNPAS Lewat Jalur USM (Ujian Saringan Masuk) TERBUKA UNTUK SEMUA PROGRAM STUDI, SELEKSI MURNI DARI HASIL UJIAN.
-                        </p>
-                        <div className="grid grid-cols-2 gap-4 md:gap-4 w-4/5 md:w-full lg:w-4/5 xl:w-1/2">
-                            <ButtonHoverBaru
-                                rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                                width={'full'}
-                                text="Daftar"
-                                onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=usm`)}
-                                bgColor="#FEF251"
-                                hoverColor="#D1C300"
-                                borderColor="#C73929"
-                                textColor="black"
-                                textHoverColor="black"
-                            />
-                            <ButtonHoverBaru
-                                rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                                text="Hubungi Admin"
-                                onClick={handleWhatsApp}
-                                hoverColor="#034833"
-                                borderColor="#034833"
-                                textColor="black"
-                                textHoverColor="white"
-                            />
-                        </div>
-                    </div>
-                </div>
-                {/* Mobile */}
-                <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left md:hidden">
-                    <h1 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold">Uji Kemampuanmu, Raih Bangku Kuliah Impian di UNPAS!</h1>
-                    <p className="text-[14px] md:text-[16px] lg:text-[18px]">Daftar Jadi Mahasiswa UNPAS Lewat Jalur USM (Ujian Saringan Masuk) TERBUKA UNTUK SEMUA PROGRAM STUDI, SELEKSI MURNI DARI HASIL UJIAN.
-                    </p>
-                    <div className="grid grid-cols-2 gap-4 md:gap-4 w-4/5 md:w-full lg:w-4/5 xl:w-1/2">
-                        <ButtonHoverBaru
-                            rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                            width={'full'}
-                            text="Daftar"
-                            onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=usm`)}
-                            bgColor="#FEF251"
-                            hoverColor="#D1C300"
-                            borderColor="#C73929"
-                            textColor="black"
-                            textHoverColor="black"
-                        />
-                        <ButtonHoverBaru
-                            rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                            text="Hubungi Admin"
-                            onClick={handleWhatsApp}
-                            hoverColor="#034833"
-                            borderColor="#034833"
-                            textColor="black"
-                            textHoverColor="white"
-                        />
-                    </div>
-                </div>
-                <div className="w-full md:w-1/2">
-                    <img src={Bg1} alt="" className="w-full h-full object-cover " />
-                </div>
-            </div>
+            <JalurHero2 Title={'Uji Kemampuanmu, Raih Bangku Kuliah Impian di UNPAS!'} subtitle={'Daftar Jadi Mahasiswa UNPAS Lewat Jalur USM (Ujian Saringan Masuk) TERBUKA UNTUK SEMUA PROGRAM STUDI, SELEKSI MURNI DARI HASIL UJIAN.'} Img={Bg1} nameJalur={'usm'} />
 
             {/* SiapaSection */}
             <SiapaSection data={Syarats} />
 
             {/* NilaiSection */}
-            <NilaiSection data={Unggulans} image={Bg2} title={''} />
+            <NilaiSection data={Unggulans} image={Bg2} title={''} nameJalur="usm" />
 
             {/* DokumenSection */}
             <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] space-y-6 md:space-y-12 lg:space-y-16">
@@ -185,8 +124,8 @@ const Usm = () => {
                     Harus Kamu Lengkapi</h2>
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                     <div className="px-6 md:px-8 lg:px-12 flex flex-col justify-center items-center gap-8 md:gap-12 lg:gap-14 border-l md:border-l-0 border-r border-[#985534]">
-                        <div className="p-4 md:p-5 lg:p-6 bg-[#985534] rounded-md md:rounded-xl w-fit">
-                            <img src={Icon1} alt="" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+                        <div className="p-4 md:p-5 lg:p-6 bg-[#985534] rounded-md md:rounded-xl w-fit shadow-black/20 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]">
+                            <img src={Icon1} alt="" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain" />
                         </div>
 
                         <div>
@@ -195,13 +134,13 @@ const Usm = () => {
                     </div>
 
                     <div className="px-6 md:px-8 lg:px-12 flex flex-col justify-center items-center gap-8 md:gap-12 lg:gap-14 border-l md:border-r-0 border-r border-[#985534]">
-                        <div className="p-4 md:p-5 lg:p-6 bg-[#985534] rounded-md md:rounded-xl w-fit">
-                            <img src={Icon2} alt="" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+                        <div className="p-4 md:p-5 lg:p-6 bg-[#985534] rounded-md md:rounded-xl w-fit shadow-black/20 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)]">
+                            <img src={Icon2} alt="" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain" />
                         </div>
 
                         <div>
                             <p className="text-[12px] md:text-[14px] lg:text-[22px] font-sora text-center">Ijazah & Nilai
-Asli</p>
+                                Asli</p>
                         </div>
                     </div>
                 </div>

@@ -7,20 +7,21 @@ import ButtonHoverBaru from "../../components/buttonHoverBaru";
 import { useEffect, useState } from "react";
 import IdentityService from "../../fetching/identity";
 
-import Bg1 from '../../assets/jalur/usm/1.png'
+import Bg1 from '../../assets/jalur/rpl/1.png'
 import Bg2 from '../../assets/jalur/usm/2.png'
 import Bg3 from '../../assets/jalur/utbk/4.png'
 import Bg4 from '../../assets/jalur/usm/3.png'
 import rpl1 from '../../assets/jalur/rpl/rpl1.png'
 import rpl2 from '../../assets/jalur/rpl/rpl2.png'
 
-import Icon1 from '../../assets/icon/1.png'
-import Icon2 from '../../assets/icon/2.png'
-import Icon3 from '../../assets/icon/3.png'
-import Icon4 from '../../assets/icon/4.png'
+import Icon1 from '../../assets/icon/rpl1.png'
+import Icon2 from '../../assets/icon/rpl2.png'
+import Icon3 from '../../assets/icon/rpl3.png'
+import Icon4 from '../../assets/icon/rpl4.png'
 
 import SiapaSection from "../../components/SiapaSection";
 import NilaiSection from "../../components/NilaiSection";
+import JalurHero2 from "../../components/JalurHero2";
 
 const Rpl = () => {
     const [loading, setLoading] = useState(true);
@@ -49,13 +50,13 @@ const Rpl = () => {
             title: 'Waktu Kuliah Lebih Singkat Hanya lanjutkan materi yang belum dikuasai'
         },
         {
-            title: 'Belajar Online & Hybrid Hingga 75% kuliah bisa dilakukan dari rumah'
+            title: 'Belajar Online & Hybrid Hingga 75% kuliah bisa dilakukan dari rumah'
         },
         {
-            title: 'Untuk Profesional & Lulusan Non-Tuntas Terbuka untuk SMA/SMK/MA sederajat dengan pengalaman kerja min. 2 tahun'
+            title: 'Untuk Profesional & Lulusan Non-Tuntas Terbuka untuk SMA/SMK/MA sederajat dengan pengalaman kerja min. 2 tahun'
         },
         {
-            title: 'Fast Track ke Magister Bisa lanjut S2 lebih cepat!'
+            title: 'Fast Track ke Magister Bisa lanjut S2 lebih cepat!'
         }
     ];
 
@@ -113,76 +114,10 @@ return (
         marginMobile={'m-0'}
     >
         {/* HeroSection */}
-        <div className='px-[20px] py-[40px] md:p-[40px] lg:px-[60px] lg:py-[30px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-4 md:gap-6 lg:gap-8'>
-            {/* Tablet & Dekstop  */}
-            <div className="w-full md:w-1/2 h-full cta_container hidden md:block">
-                <div className="w-full flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left bg-white md:px-10 md:py-20 lg:px-16 lg:py-32 jalur-box">
-                    <h1 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold">Kuliah Lebih Cepat, Tanpa Ulang Materi yang Sudah Kamu Kuasai.</h1>
-                    <p className="text-[14px] md:text-[16px] lg:text-[18px]">Belajar Fleksibel hingga 75% Online | Cocok untuk Profesional Aktif
-                    </p>
-                    <div className="grid grid-cols-2 gap-4 md:gap-4 w-4/5 md:w-full lg:w-4/5 xl:w-1/2">
-                        <ButtonHoverBaru
-                            rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                            width={'full'}
-                            text="Daftar"
-                            onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=rpl`)}
-                            bgColor="#FEF251"
-                            hoverColor="#D1C300"
-                            borderColor="#C73929"
-                            textColor="black"
-                            textHoverColor="black"
-                        />
-                        <ButtonHoverBaru
-                            rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                            width={'full'}
-                            text="Hubungi Admin"
-                            onClick={handleWhatsApp}
-                            bgColor="#fff"
-                            hoverColor="#034833"
-                            borderColor="#034833"
-                            textColor="black"
-                            textHoverColor="white"
-                        />
-                    </div>
-                </div>
-            </div>
-            {/* Mobile */}
-            <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8 lg:gap-10 justify-center items-center md:justify-start md:items-start text-center md:text-left md:hidden">
-                <h1 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold">Uji Kemampuanmu, Raih Bangku Kuliah Impian di UNPAS!</h1>
-                <p className="text-[14px] md:text-[16px] lg:text-[18px]">Daftar Jadi Mahasiswa UNPAS Lewat Jalur USM (Ujian Saringan Masuk) TERBUKA UNTUK SEMUA PROGRAM STUDI, SELEKSI MURNI DARI HASIL UJIAN.
-                </p>
-                <div className="grid grid-cols-2 gap-4 md:gap-4 w-4/5 md:w-full lg:w-4/5 xl:w-1/2">
-                    <ButtonHoverBaru
-                        rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                        width={'full'}
-                        text="Daftar"
-                        onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=rpl`)}
-                        bgColor="#FEF251"
-                        hoverColor="#D1C300"
-                        borderColor="#C73929"
-                        textColor="black"
-                        textHoverColor="black"
-                    />
-                    <ButtonHoverBaru
-                        rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
-                        width={'full'}
-                        text="Hubungi Admin"
-                        onClick={handleWhatsApp}
-                        bgColor="#fff"
-                        hoverColor="#034833"
-                        borderColor="#034833"
-                        textColor="black"
-                        textHoverColor="white"
-                    />
-                </div>
-            </div>
-            <div className="w-full md:w-1/2">
-                <img src={Bg1} alt="" className="w-full h-full object-cover " />
-            </div>
-        </div>
+        <JalurHero2 Title={'Kuliah Lebih Cepat, Tanpa Ulang Materi yang Sudah Kamu Kuasai.'} subtitle={'Belajar Fleksibel hingga 75% Online | Cocok untuk Profesional Aktif'} sizeFont="text-[14px] md:text-[16px] lg:text-[22px] font-bold" Img={Bg1} nameJalur={'rpl'}/>
 
         {/* AboutSection */}
-        <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-6 md:gap-8 lg:gap-32">
+        <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] flex flex-col md:flex-row justify-center md:justify-center items-center gap-6 md:gap-8 lg:gap-32">
             <div className="w-full md:w-1/2">
                 <img src={rpl1} alt="" className="w-full h-full object-cover " />
             </div>
@@ -217,30 +152,29 @@ return (
         </div>
 
         {/* SiapaSection */}
-        <div>
+        <div className="flex flex-col gap-4">
             <SiapaSection data={Syarats} title="Program Ini Cocok Banget Buat Kamu" />
-            <div className="w-full md:w-1/2 lg:w-1/4 grid grid-cols-2 gap-2 md:gap-4 mx-30 -mt-25 mb-25">
+            <div className="w-full md:w-1/2 lg:w-1/2 md:grid grid-cols-2 gap-2 md:gap-4 px-[20px] md:px-[40px] lg:px-[120px] hidden md:-mt-14 lg:-mt-28">
                 <ButtonHoverBaru
                     rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                     width={'full'}
                     text="Daftar"
                     onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=rpl`)}
-                    bgColor="#FEF251"
-                    hoverColor="#D1C300"
-                    borderColor="#C73929"
-                    textColor="black"
-                    textHoverColor="black"
+                    bgColor="#034833"
+                        hoverColor="#FFFFFF"
+                        borderColor="#FFFFFF"
+                        textColor="white"
+                        textHoverColor="black"
                 />
                 <ButtonHoverBaru
                     rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                     width={'full'}
                     text="Hubungi Admin"
                     onClick={handleWhatsApp}
-                    bgColor="#fff"
                     hoverColor="#034833"
-                    borderColor="#034833"
-                    textColor="black"
-                    textHoverColor="white"
+                        borderColor="#034833"
+                        textColor="black"
+                        textHoverColor="white"
                 />
             </div>
         </div>
@@ -275,29 +209,29 @@ return (
                 </div>
             </div>
             {/* Tablet & Dekstop */}
-            <div className="cta_container">
+            <div className="">
                 <div className="hidden md:grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 w-full p-10 ">
-                    <div className="w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] p-6 md:p-10 lg:p-12 h-[30vh] flex flex-col justify-between items-center gap-6">
+                    <div className="w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] shadow-primary/30 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-6 md:p-10 lg:p-12 h-[34vh] flex flex-col justify-center items-center gap-6">
                         <div className="w-12 h-12">
-                            <img src={Icon1} alt="" className="w-12 h-12 " />
+                            <img src={Icon1} alt="" className="w-12 h-12 object-contain" />
                         </div>
                         <p className="text-[14px] md:text-[16px] lg:text-[20px] max-w-[80%] text-center font-medium">Transkrip nilai dan ijazah terakhir pendikan</p>
                     </div>
-                    <div className="md:mt-10 w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] p-6 md:p-10 lg:p-12 h-[45vh] flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-10">
+                    <div className="md:mt-10 w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] shadow-primary/30 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-6 md:p-10 lg:p-12 h-[45vh] flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-10">
                         <div className="w-12 h-12">
-                            <img src={Icon2} alt="" className="w-12 h-12 " />
+                            <img src={Icon2} alt="" className="w-12 h-12 object-contain" />
                         </div>
                         <p className="text-[14px] md:text-[16px] lg:text-[20px] max-w-[80%] text-center font-medium">Scan Surat Keterangan Lulus (buat yang belum dapat ijazah SMA/SMK/MA)</p>
                     </div>
-                    <div className="md:mt-10 w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] p-6 md:p-10 lg:p-12 h-[45vh] flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-10">
+                    <div className="md:mt-10 w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] shadow-primary/30 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-6 md:p-10 lg:p-12 h-[45vh] flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-10">
                         <div className="w-12 h-12">
-                            <img src={Icon3} alt="" className="w-12 h-12 " />
+                            <img src={Icon3} alt="" className="w-12 h-12 object-contain" />
                         </div>
                         <p className="text-[14px] md:text-[16px] lg:text-[20px] max-w-[80%] text-center font-medium">Surat pengalaman kerja dari tempat kamu bekerja sebelumnya (lama & bidang kerja)</p>
                     </div>
-                    <div className="w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] p-6 md:p-10 lg:p-12 h-[30vh] flex flex-col justify-between items-center gap-6">
+                    <div className="w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] shadow-primary/30 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] p-6 md:p-10 lg:p-12 h-[34vh] flex flex-col justify-center items-center gap-6">
                         <div className="w-12 h-12">
-                            <img src={Icon4} alt="" className="w-12 h-12 " />
+                            <img src={Icon4} alt="" className="w-12 h-12 object-contain" />
                         </div>
                         <p className="text-[14px] md:text-[16px] lg:text-[20px] max-w-[80%] text-center font-medium">Portfolio pengalaman kerjamu sesuai panduan</p>
                     </div>
@@ -305,27 +239,27 @@ return (
             </div>
             {/* Mobile  */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-5 lg:gap-6 w-full p-6 md:hidden">
-                <div className="w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] px-6 py-10 md:p-10 lg:p-12 flex flex-col justify-between items-center gap-6">
+                <div className="w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] shadow-primary/30 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] px-6 py-10 md:p-10 lg:p-12 flex flex-col justify-center items-center gap-6">
                     <div className="w-12 h-12">
-                        <img src={Icon1} alt="" className="w-12 h-12 " />
+                        <img src={Icon1} alt="" className="w-12 h-12 object-contain" />
                     </div>
                     <p className="text-[14px] md:text-[16px] lg:text-[20px] max-w-[80%] text-center font-medium">Gak perlu ikut ujian lagi</p>
                 </div>
-                <div className="md:mt-10 w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] px-6 py-10 md:p-10 lg:p-12 flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-10">
+                <div className="md:mt-10 w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] shadow-primary/30 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] px-6 py-10 md:p-10 lg:p-12 flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-10">
                     <div className="w-12 h-12">
-                        <img src={Icon2} alt="" className="w-12 h-12 " />
+                        <img src={Icon2} alt="" className="w-12 h-12 object-contain" />
                     </div>
                     <p className="text-[14px] md:text-[16px] lg:text-[20px] max-w-[80%] text-center font-medium">Berlaku untuk semua jurusan kecuali Fakultas Kedokteran</p>
                 </div>
-                <div className="md:mt-10 w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] px-6 py-10 md:p-10 lg:p-12 flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-10">
+                <div className="md:mt-10 w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] shadow-primary/30 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] px-6 py-10 md:p-10 lg:p-12 flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-10">
                     <div className="w-12 h-12">
-                        <img src={Icon3} alt="" className="w-12 h-12 " />
+                        <img src={Icon3} alt="" className="w-12 h-12 object-contain" />
                     </div>
                     <p className="text-[14px] md:text-[16px] lg:text-[20px] max-w-[80%] text-center font-medium">Ada beasiswa DPP sampai 30% buat yang nilai rapornya mantap</p>
                 </div>
-                <div className="w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] px-6 py-10 md:p-10 lg:p-12 flex flex-col justify-between items-center gap-6">
+                <div className="w-full bg-[#FEF8A8] rounded-[4px] md:rounded-[8px] lg:rounded-[16px] shadow-primary/30 shadow-xl drop-shadow-[0px_20px_40px_rgba(254, 242, 81, 0.5)] px-6 py-10 md:p-10 lg:p-12 flex flex-col justify-center items-center gap-6">
                     <div className="w-12 h-12">
-                        <img src={Icon4} alt="" className="w-12 h-12 " />
+                        <img src={Icon4} alt="" className="w-12 h-12 object-contain" />
                     </div>
                     <p className="text-[14px] md:text-[16px] lg:text-[20px] max-w-[80%] text-center font-medium">Proses seleksi cepat & gak ribet</p>
                 </div>
@@ -333,9 +267,9 @@ return (
         </div>
 
         {/* NilaiSection */}
-        <NilaiSection data={Unggulans} image={rpl2} title={''} />
+        <NilaiSection data={Unggulans} image={rpl2} title={''} nameJalur="rpl"/>
 
-        <Countdown title="Siap Jadi Mahasiswa Unpas?" description="Yuk Daftar Sekarang Juga!" nameJalur={'rpl'} />
+        <Countdown title="Daftar Sekarang & Bangun Karier Lebih Tinggi!" description="Yuk Daftar Sekarang Juga!" nameJalur={'rpl'} />
         <CTASection />
     </UserLayout>
 );

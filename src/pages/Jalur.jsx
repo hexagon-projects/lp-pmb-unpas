@@ -39,6 +39,8 @@ const Jalur = () => {
 
         if (jalur.name.toLowerCase().includes('utbk')) {
             slug = 'utbk';
+        } else if (jalur.name.toLowerCase().includes('rapor')) {
+            slug = 'ods';
         } else if (jalur.name.toLowerCase().includes('pmdk')) {
             slug = 'pmdk';
         } else if (jalur.name.toLowerCase().includes('usm')) {
@@ -47,6 +49,12 @@ const Jalur = () => {
             slug = 'hafidz';
         } else if (jalur.name.toLowerCase().includes('alumni')) {
             slug = 'alumni';
+        } else if (jalur.name.toLowerCase().includes('rpl')) {
+            slug = 'rpl';
+        } else if (jalur.name.toLowerCase().includes('sma')) {
+            slug = 'sma-islam';
+        } else if (jalur.name.toLowerCase().includes('prestasi seni')) {
+            slug = 'prestasi-seni';
         } else {
             slug = jalur.slug.toLowerCase().replace(/\s+/g, '-');
         }

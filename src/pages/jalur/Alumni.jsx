@@ -12,11 +12,13 @@ import Bg2 from '../../assets/jalur/alumni/2.png'
 import Bg3 from '../../assets/jalur/utbk/3.png'
 import Bg4 from '../../assets/jalur/alumni/3.png'
 
+import File from '../../assets/icon/file-cklt.png'
 import Menu from '../../assets/icon/menu.png'
 import Up from '../../assets/icon/up.png'
 
 import NilaiSection from "../../components/NilaiSection";
 import JalurHero from "../../components/JalurHero";
+import JalurHero2 from "../../components/JalurHero2";
 
 const Alumni = () => {
     const [loading, setLoading] = useState(true);
@@ -113,7 +115,7 @@ const Alumni = () => {
             marginMobile={'m-0'}
         >
             {/* HeroSection */}
-            <JalurHero Title={'Kuliah Lebih Terjangkau untuk Keluarga Besar Paguyuban Pasundan'} Img={Bg1} nameJalur={'alumni'}/>
+            <JalurHero2 Title={'Kuliah Lebih Terjangkau untuk Keluarga Besar Paguyuban Pasundan'} subtitle={'Dapatkan Potongan Biaya Hingga 30% di UNPAS!'} sizeFont="text-[14px] md:text-[16px] lg:text-[22px] font-bold" Img={Bg1} nameJalur={'alumni'} />
 
             {/* AboutSection */}
             <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-6 md:gap-8 lg:gap-32">
@@ -121,8 +123,8 @@ const Alumni = () => {
                     <img src={Bg2} alt="" className="w-full h-full object-cover " />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-start items-start gap-6 md:gap-10 lg:gap-12">
-                    <p className="text-[18px] md:text-[22px] lg:text-[26px]">UNPAS membuka jalur khusus penerimaan mahasiswa baru untuk kamu yang terhubung dengan lembaga pendidikan atau keluarga besar Paguyuban Pasundan.Lewat jalur ini, kamu bisa kuliah di UNPAS dengan bantuan biaya pendidikan hingga 30% potongan DPP — dari jenjang Sarjana (S1) sampai Pascasarjana (S2/S3).</p>
-                    <div className="w-full md:w-1/2 lg:w-5/6 grid grid-cols-2 gap-2">
+                    <p className="text-[18px] md:text-[22px] lg:text-[26px]">UNPAS membuka <b>jalur khusus penerimaan mahasiswa baru</b> untuk kamu yang <b>terhubung dengan lembaga pendidikan atau keluarga besar Paguyuban Pasundan.</b> <br />Lewat jalur ini, kamu bisa kuliah di UNPAS dengan <b>bantuan biaya pendidikan hingga 30% potongan DPP —</b> dari jenjang Sarjana (S1) sampai Pascasarjana (S2/S3).</p>
+                    <div className="w-full md:w-1/2 lg:w-5/6 grid grid-cols-2 gap-2 md:gap-4">
                         <ButtonHoverBaru
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                             width={'full'}
@@ -151,7 +153,7 @@ const Alumni = () => {
             <div className="px-[0px] py-[40px] md:p-[40px] lg:px-[34px] lg:py-[60px] cta_container">
                 <div className="px-[40px] py-[60px] md:px-[40px] md:py-[80px] lg:p-[120px] bg-[#985534] rounded-[8px] md:rounded-[16px] lg:rounded-[24px] flex flex-col-reverse md:flex-row justify-center md:justify-between items-center gap-6 lg:gap-28 nilai-box">
                     <div className="w-full md:w-1/2 space-y-6 md:space-y-10 lg:space-y-12">
-                        <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold max-w-[80%] md:max-w-1/2 lg:max-w-[60%] text-white">Siapa Saja Yang Bisa Daftar</h2>
+                        <h2 className="text-[30px] md:text-[38px] lg:text-[48px] font-bold text-white">Siapa Saja Yang Bisa Daftar</h2>
                         <div className="flex flex-col justify-between">
                             {Unggulans.map((item, index) => (
                                 <div key={index} className="py-5 border-b border-black flex justify-between items-center gap-4">
@@ -168,16 +170,28 @@ const Alumni = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full grid grid-cols-2 gap-2 md:gap-4">
+                        <div className="w-full lg:w-5/6 grid grid-cols-2 gap-2 md:gap-4">
+                            <ButtonHoverBaru
+                                rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
+                                width={'full'}
+                                text="Daftar"
+                                onClick={() => handleClick(`https://registrasi.unpas.ac.id/register?jalur=alumni`)}
+                                bgColor="#FEF251"
+                                hoverColor="#D1C300"
+                                borderColor="#C73929"
+                                textColor="black"
+                                textHoverColor="black"
+                                fontLg="lg:text-xs"
+                            />
                             <ButtonHoverBaru
                                 rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                                 text="Hubungi Admin"
                                 onClick={handleWhatsApp}
-                                bgColor={'none'}
-                                hoverColor="#ffffff"
-                                borderColor="#ffffff"
-                                textColor="white"
-                                textHoverColor="black"
+                                hoverColor="#034833"
+                                borderColor="#034833"
+                                textColor="black"
+                                textHoverColor="white"
+                                fontLg="lg:text-xs"
                             />
                         </div>
                     </div>
@@ -201,7 +215,7 @@ const Alumni = () => {
                 <div className="p-[1.5px] space-y-4 md:space-y-5 lg:space-y-6 rounded-[4px] md:rounded-[12px] lg:rounded-[20px] bg-gradient-to-l from-primary to-[#985534]">
                     <div className="bg-gradient-to-r from-[#F3F4F4] via-[#F3F4F4] to-[#F4F4EC] rounded-[4px] md:rounded-[12px] lg:rounded-[20px] p-4 md:p-8 lg:p-12 space-y-2">
                         <div>
-                            <img src={Menu} alt="" className="w-8 h-8 lg:w-10 lg:h-10" />
+                            <img src={File} alt="" className="w-8 h-8 lg:w-10 lg:h-10 object-contain" />
                         </div>
                         <div>
                             <h2 className="text-[30px] md:text-[38px] lg:text-[48px]">Dokumen yang Harus
@@ -260,7 +274,7 @@ const Alumni = () => {
             </div>
 
             {/* KenapaSection */}
-            <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[160px] lg:py-[60px] flex flex-col md:flex-row-reverse justify-center md:justify-between items-center gap-6 md:gap-8 lg:gap-32">
+            <div className="px-[20px] py-[40px] md:p-[40px] lg:px-[100px] lg:py-[60px] w-full flex flex-col md:flex-row-reverse justify-center md:justify-between items-center gap-6 md:gap-8 lg:gap-32">
                 <div className="w-full md:w-1/2">
                     <img src={Bg4} alt="" className="w-full h-full object-cover " />
                 </div>
@@ -271,7 +285,7 @@ const Alumni = () => {
                         <li>Tersedia untuk Semua Jenjang Pendidikan S1, S2, hingga S3</li>
                         <li>Kampus Swasta Terkemuka di Jawa Barat, Reputasi akademik dan jaringan alumni yang kuat</li>
                     </ul>
-                    <div className="w-full md:w-1/2 lg:w-5/6 grid grid-cols-2 gap-2">
+                    <div className="w-full md:w-1/2 lg:w-5/6 grid grid-cols-2 gap-2 md:gap-4">
                         <ButtonHoverBaru
                             rounded="rounded-lg sm:rounded-xl md:rounded-2xl"
                             width={'full'}
@@ -302,7 +316,7 @@ const Alumni = () => {
                     <div className="bg-gradient-to-r from-[#F3F4F4] via-[#F3F4F4] to-[#F4F4EC] rounded-[4px] md:rounded-[12px] lg:rounded-[20px] p-4 md:p-8 lg:p-12 space-y-4 md:space-y-6 lg:space-y-8">
                         <div className="flex gap-2 md:gap-4">
                             <img src={Menu} alt="" className="w-8 h-8 lg:w-10 lg:h-10" />
-                            <img src={Up} alt="" className="w-8 h-8 lg:w-10 lg:h-10"/>
+                            <img src={Up} alt="" className="w-8 h-8 lg:w-10 lg:h-10" />
                         </div>
                         <div className="space-y-2">
                             <h2 className="text-[16px] md:text-[24px] lg:text-[32px] font-bold">Khusus untuk Anak Alumni UNPAS & Keluarga Besar Paguyuban Pasundan</h2>
